@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[英语统考 - 作文]]></title>
+    <url>%2F2019%2F09%2F01%2Fexam%2F%E8%8B%B1%E8%AF%AD%E7%BB%9F%E8%80%83_%E4%BD%9C%E6%96%87%2F</url>
+    <content type="text"><![CDATA[英语统考 - 作文]]></content>
+      <categories>
+        <category>统考</category>
+      </categories>
+      <tags>
+        <tag>统考</tag>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[英语统考 - 阅读理解]]></title>
+    <url>%2F2019%2F09%2F01%2Fexam%2F%E8%8B%B1%E8%AF%AD%E7%BB%9F%E8%80%83_%E9%98%85%E8%AF%BB%E7%90%86%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[英语统考 - 阅读理解]]></content>
+      <categories>
+        <category>统考</category>
+      </categories>
+      <tags>
+        <tag>统考</tag>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[英语统考 - 英译汉]]></title>
+    <url>%2F2019%2F09%2F01%2Fexam%2F%E8%8B%B1%E8%AF%AD%E7%BB%9F%E8%80%83_%E8%8B%B1%E8%AF%91%E6%B1%89%2F</url>
+    <content type="text"><![CDATA[英语统考 - 英译汉]]></content>
+      <categories>
+        <category>统考</category>
+      </categories>
+      <tags>
+        <tag>统考</tag>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[英语统考 - 完型填空]]></title>
+    <url>%2F2019%2F09%2F01%2Fexam%2F%E8%8B%B1%E8%AF%AD%E7%BB%9F%E8%80%83_%E5%AE%8C%E5%9E%8B%E5%A1%AB%E7%A9%BA%2F</url>
+    <content type="text"><![CDATA[英语统考 - 完型填空]]></content>
+      <categories>
+        <category>统考</category>
+      </categories>
+      <tags>
+        <tag>统考</tag>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[英语统考 - 交际用语]]></title>
+    <url>%2F2019%2F09%2F01%2Fexam%2F%E8%8B%B1%E8%AF%AD%E7%BB%9F%E8%80%83_%E4%BA%A4%E9%99%85%E7%94%A8%E8%AF%AD%2F</url>
+    <content type="text"><![CDATA[英语统考 - 交际用语]]></content>
+      <categories>
+        <category>统考</category>
+      </categories>
+      <tags>
+        <tag>统考</tag>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[英语统考 - 词汇与结构]]></title>
+    <url>%2F2019%2F09%2F01%2Fexam%2F%E8%8B%B1%E8%AF%AD%E7%BB%9F%E8%80%83_%E8%AF%8D%E6%B1%87%E4%B8%8E%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[英语统考 - 词汇与结构]]></content>
+      <categories>
+        <category>统考</category>
+      </categories>
+      <tags>
+        <tag>统考</tag>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[计算机统考题库 - 选择题]]></title>
     <url>%2F2019%2F08%2F27%2Fexam%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%9F%E8%80%83%E9%A2%98%E5%BA%93_%E9%80%89%E6%8B%A9%E9%A2%98%2F</url>
     <content type="text"><![CDATA[计算机统考题库 - 选择题 计算机统考题库 - 选择题]]></content>
@@ -41,8 +113,8 @@
         <category>android</category>
       </categories>
       <tags>
-        <tag>EventBus</tag>
         <tag>kotlin</tag>
+        <tag>EventBus</tag>
       </tags>
   </entry>
   <entry>
