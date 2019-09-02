@@ -73,9 +73,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[计算机统考题库 - 操作题]]></title>
-    <url>%2F2019%2F08%2F27%2Fexam%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%9F%E8%80%83%E9%A2%98%E5%BA%93_%E6%93%8D%E4%BD%9C%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[计算机统考题库 - 操作题 计算机统考题库 - 操作题]]></content>
+    <title><![CDATA[计算机统考题库 - 选择题]]></title>
+    <url>%2F2019%2F08%2F27%2Fexam%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%9F%E8%80%83%E9%A2%98%E5%BA%93_%E9%80%89%E6%8B%A9%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[计算机统考题库 - 选择题 计算机统考题库 - 选择题]]></content>
       <categories>
         <category>统考</category>
       </categories>
@@ -84,9 +84,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[计算机统考题库 - 选择题]]></title>
-    <url>%2F2019%2F08%2F27%2Fexam%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%9F%E8%80%83%E9%A2%98%E5%BA%93_%E9%80%89%E6%8B%A9%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[计算机统考题库 - 选择题 计算机统考题库 - 选择题]]></content>
+    <title><![CDATA[计算机统考题库 - 操作题]]></title>
+    <url>%2F2019%2F08%2F27%2Fexam%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%9F%E8%80%83%E9%A2%98%E5%BA%93_%E6%93%8D%E4%BD%9C%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[计算机统考题库 - 操作题 计算机统考题库 - 操作题]]></content>
       <categories>
         <category>统考</category>
       </categories>
@@ -113,8 +113,8 @@
         <category>android</category>
       </categories>
       <tags>
-        <tag>EventBus</tag>
         <tag>kotlin</tag>
+        <tag>EventBus</tag>
       </tags>
   </entry>
   <entry>
