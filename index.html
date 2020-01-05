@@ -283,6 +283,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/05/kotlin/kotlin练习-KotlinfilterNotNull 含义/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/05/kotlin/kotlin练习-KotlinfilterNotNull 含义/" itemprop="url">kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-05T16:57:36+08:00">
+                2020-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/kotlin/" itemprop="url" rel="index">
+                    <span itemprop="name">kotlin</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="kotlin练习-kotlin中的-filternotnull-含义"> kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</span></h1>
+<h2><span id="可空类型表示当前是否对象可以为空"> ?  可空类型，表示当前是否对象可以为空</span></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String =&quot;123&quot;</span><br><span class="line">a = null //编译报错</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br></pre></td></tr></table></figure>
+<h2><span id="安全调用操作符"> ?.  安全调用操作符</span></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val length = a.length //编译报错 --- 变量&quot;a&quot;可能会为空</span><br><span class="line">val length = a?.length //编译通过 --- 如果 a 非空，就返回 a.length，否则返回 null</span><br></pre></td></tr></table></figure>
+<h2><span id="elvis-操作符"> ?:  Elvis 操作符</span></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a?.length?:-1 // 当a不为空时，返回a.length，当a为空时，返回-1</span><br></pre></td></tr></table></figure>
+<h2><span id="操作符表示当前对象不为空的情况下执行为空就抛出异常"> !!  操作符，表示当前对象不为空的情况下执行，为空就抛出异常</span></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a!!.length //如果a不为空，则返回a.length，如果b为空，则抛出异常 NullPointerException</span><br></pre></td></tr></table></figure>
+<h2><span id="filternotnull-过滤非空元素"> filterNotNull  过滤非空元素</span></h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val nullableList: List&lt;Int?&gt; = listOf(1, 2, null, 4)</span><br><span class="line">val intList: List&lt;Int&gt; = nullableList.filterNotNull() </span><br><span class="line">println(intList.toString())//[1, 2, 4]</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/07/21/kotlin/kotlin练习-常见内联扩展函数学习/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1355,174 +1508,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/03/14/kotlin/kotlin练习-集合练习/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/14/kotlin/kotlin练习-集合练习/" itemprop="url">kotlin练习 - 集合练习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T21:32:31+08:00">
-                2019-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">kotlin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="kotlin练习-集合练习"> kotlin练习 - 集合练习</span></h1>
-<h2><span id="set集合"> Set集合</span></h2>
-<ul>
-<li>Set集合创建</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    //创建不可变集合，返回Set</span><br><span class="line">    var set = setOf(&quot;java&quot;, &quot;kotlin&quot;, &quot;go&quot;)</span><br><span class="line">    println(set)//[java, kotlin, go]</span><br><span class="line">    println(&quot;setOf 返回类型 $&#123;set.javaClass&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    //创建可变集合，返回值MutableSet</span><br><span class="line">    var mutablemap = mutableListOf(&quot;java&quot;, &quot;kotlin&quot;, &quot;go&quot;)</span><br><span class="line">    mutablemap[0] = &quot;JavaScript&quot;</span><br><span class="line">    println(mutablemap)//[JavaScript, kotlin, go]</span><br><span class="line">    println(&quot;mutableListOf 返回类型 $&#123;mutablemap.javaClass&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    //创建LinkedHashSet集合</span><br><span class="line">    var linkedHashSet = linkedSetOf(&quot;java&quot;, &quot;kotlin&quot;, &quot;go&quot;)</span><br><span class="line">    println(linkedHashSet)</span><br><span class="line">    println(&quot;linkedHashSet 返回类型 $&#123;linkedHashSet.javaClass&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    //创建HashSet集合</span><br><span class="line">    var hashSet = hashSetOf(&quot;java&quot;, &quot;kotlin&quot;, &quot;go&quot;)</span><br><span class="line">    println(hashSet)//不保证元素的顺序--[kotlin, go, java]</span><br><span class="line"></span><br><span class="line">    //创建TreeSet集合</span><br><span class="line">    var treeSet = sortedSetOf(&quot;java&quot;, &quot;kotlin&quot;, &quot;go&quot;)</span><br><span class="line">    println(treeSet)//集合按从小到大排列--[go, java, kotlin]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Set集合的使用</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">//创建不可变集合，返回Set</span><br><span class="line"> var set = setOf(&quot;java&quot;, &quot;kotlin&quot;, &quot;go&quot;)</span><br><span class="line"></span><br><span class="line"> //判断是否所有的元素长度都大于5  ------所有元素都满足条件</span><br><span class="line"> println(set.all &#123; it.length &gt; 5 &#125;)// false</span><br><span class="line"></span><br><span class="line"> //判断是否任意一元素的长度大于5  ------任意元素都满足条件</span><br><span class="line"> println(set.any &#123; it.length &gt; 5 &#125;)//true</span><br><span class="line"></span><br><span class="line"> //以Lambda 表达式的值为key , 集合元素为value ,组成的Map集合</span><br><span class="line"> var map = set.associateBy(&#123; &quot;我正在学习$&#123;it&#125;&quot; &#125;)</span><br><span class="line"> println(map)//&#123;我正在学习java=java, 我正在学习kotlin=kotlin, 我正在学习go=go&#125;</span><br><span class="line"></span><br><span class="line"> //使用in、!in运算符</span><br><span class="line"> println(&quot;java&quot; in set)// true</span><br><span class="line"> println(&quot;java&quot; !in set)// false</span><br><span class="line"></span><br><span class="line"> //删除Set集合前面两个元素</span><br><span class="line"> var dropedList = set.drop(2)</span><br><span class="line"> println(dropedList)// [go]</span><br><span class="line"></span><br><span class="line"> //对Set集合进行过滤: 需要得到所有包含 va 的集合,</span><br><span class="line"> var filteredList1 = set.filter(&#123; &quot;va&quot; in it &#125;)//如果没有返回空元素的集合</span><br><span class="line"> println(filteredList1)//[java]</span><br><span class="line"></span><br><span class="line"> //查找Set集合中包含 va 的元素，如果找到就返回该元素，否则返回 null</span><br><span class="line"> var filteredList2 = set.find(&#123; &quot;o&quot; in it &#125;)</span><br><span class="line"> println(filteredList2)//kotlin</span><br><span class="line"> var filteredList3 = set.find(&#123; &quot;va1&quot; in it &#125;)</span><br><span class="line"> println(filteredList3)//null</span><br><span class="line"></span><br><span class="line"> //将Set集合中所有字符串拼接在一起</span><br><span class="line"> var foldedList1 = set.fold(&quot;&quot;, &#123; acc, s -&gt; acc + s &#125;)</span><br><span class="line"> println(foldedList1)//javakotlingo</span><br><span class="line"> var foldedList2 = set.fold(&quot;456&quot;, &#123; acc, s -&gt; acc +&quot; 123 $&#123;s&#125;&quot;  &#125;)</span><br><span class="line"> println(foldedList2)//456 123 java 123 kotlin 123 go</span><br><span class="line"> //查找某个元素的出现位置------没有就会返回-1</span><br><span class="line"> println(set.indexOf(&quot;kotlin&quot;))// 1</span><br><span class="line"> println(set.indexOf(&quot;kotlin1&quot;))// -1</span><br><span class="line"> </span><br><span class="line">   //循环遍历</span><br><span class="line"> var books = setOf(&quot;疯狂java讲义&quot;, &quot;疯狂kotlin讲义&quot;, &quot;疯狂IOS讲义&quot;, &quot;疯狂android讲义&quot;)</span><br><span class="line"> for (book in books)&#123;</span><br><span class="line">     println(book)</span><br><span class="line"> &#125;</span><br><span class="line"> books.forEach(&#123;</span><br><span class="line">     println(it)</span><br><span class="line"> &#125;)</span><br><span class="line"> for (i in books.indices)&#123;</span><br><span class="line">     println(books.elementAt(i))</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> var books = mutableSetOf(&quot;疯狂java讲义&quot;)</span><br><span class="line">   //新增</span><br><span class="line"> books.addAll(setOf(&quot;疯狂kotlin讲义&quot;, &quot;疯狂IOS讲义&quot;))</span><br><span class="line"> books.add(&quot;疯狂android讲义&quot;)</span><br><span class="line"> println(books.toString())//[疯狂java讲义, 疯狂kotlin讲义, 疯狂IOS讲义, 疯狂android讲义]</span><br><span class="line"> //删除</span><br><span class="line"> books.remove(&quot;疯狂kotlin讲义&quot;)</span><br><span class="line"> println(books.toString())//[疯狂java讲义,疯狂IOS讲义, 疯狂android讲义]</span><br><span class="line"> books.removeAll(setOf(&quot;疯狂java讲义&quot;))</span><br><span class="line"> println(books.toString())//[疯狂IOS讲义, 疯狂android讲义]</span><br><span class="line"> //清空所有</span><br><span class="line"> books.clear()</span><br><span class="line"> println(books.toString())//[]</span><br><span class="line"> //只保留公共的元素</span><br><span class="line"> books = mutableSetOf(&quot;疯狂java讲义&quot;, &quot;疯狂kotlin讲义&quot;, &quot;疯狂IOS讲义&quot;, &quot;疯狂android讲义&quot;)</span><br><span class="line"> books.retainAll(setOf(&quot;疯狂kotlin讲义&quot;, &quot;疯狂PHP讲义&quot;, &quot;疯狂android讲义&quot;))</span><br><span class="line"> println(books.toString())//[疯狂kotlin讲义, 疯狂android讲义]</span><br></pre></td></tr></table></figure>
-<h2><span id="list集合"> List集合</span></h2>
-<ul>
-<li>List集合创建</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var list1 = listOf(1, 2, 3, 4, 5, null, 7, 8, 9)</span><br><span class="line">  println(list1.toString())//[1, 2, 3, 4, 5, null, 7, 8, 9]</span><br><span class="line">  var list2 = listOfNotNull(1, 2, 3, 4, 5, null, 7, 8, 9)</span><br><span class="line">  println(list2.toString())//[1, 2, 3, 4, 5, 7, 8, 9]</span><br><span class="line">  var list3 = mutableListOf(1, 2, 3, 4, 5, null, 7, 8, 9)</span><br><span class="line">  println(list3.toString())//[1, 2, 3, 4, 5, null, 7, 8, 9]</span><br><span class="line">  list3.add(10)</span><br><span class="line">  list3.set(5, 6)</span><br><span class="line">  println(list3.toString())//[1, 2, 3, 4, 5, 6, 7, 8, 9,10]</span><br><span class="line">  var list4 = arrayListOf(1, 2, 3, 4, 5, null, 7, 8, 9)</span><br><span class="line">  println(list4.toString())//[1, 2, 3, 4, 5, null, 7, 8, 9]</span><br><span class="line">  list4.set(5, 6)</span><br><span class="line">  list4.add(10)</span><br><span class="line">  println(list4.toString())//[1, 2, 3, 4, 5, 6, 7, 8, 9,10]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>List集合的使用</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"> //遍历List</span><br><span class="line">    var list1 = listOf(&quot;Java&quot;, null, &quot;Kotlin&quot;, &quot;Go&quot;)</span><br><span class="line">    list1.forEach &#123;</span><br><span class="line">        println(it)</span><br><span class="line">    &#125;</span><br><span class="line">    for (str in list1) &#123;</span><br><span class="line">        println(str)</span><br><span class="line">    &#125;</span><br><span class="line">    for (i in list1.indices) &#123;</span><br><span class="line">        println(list1[i])</span><br><span class="line">        println(&quot;get = $&#123;list1.get(i)&#125;&quot;)</span><br><span class="line">        println(&quot;elementAt = $&#123;list1.elementAt(i)&#125;&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    var index = list1.indexOf(&quot;Go&quot;)</span><br><span class="line">    println(&quot;Go 在数组中的位置：$&#123;index&#125;&quot;)//3</span><br><span class="line"></span><br><span class="line">    var list2 = mutableListOf(1, 2, 3, 1, 8, 3, 4, 6, 1, 4, 2, 3)</span><br><span class="line">    //最后一次出现的的位置</span><br><span class="line">    var last1 = list2.lastIndexOf(2)//10</span><br><span class="line">    //最后一次出现的的位置</span><br><span class="line">    var last2 = list2.indexOfLast &#123; it == 2 &#125;//10</span><br><span class="line">    //第一次出现的位置</span><br><span class="line">    var first = list2.indexOfFirst &#123; it == 2 &#125;//1</span><br><span class="line">    println(&quot;2在数组中第一次出现在$&#123;first&#125;,最后一次出现在$&#123;last1&#125;,$&#123;last2&#125;&quot;)</span><br><span class="line">    //返回集合</span><br><span class="line">    var list3 = listOf(&quot;Java&quot;, null, &quot;Kotlin&quot;, &quot;PHP&quot;, null, &quot;Go&quot;)</span><br><span class="line">    var sublist = list3.subList(2, 5)//从第2个到第5个之间的元素</span><br><span class="line">    println(sublist.toString())//[Kotlin, PHP, null]</span><br><span class="line">//    var list4 = mutableListOf(&quot;Java&quot;, &quot;JavaScript&quot;, null, &quot;HTML&quot;, &quot;Kotlin&quot;, null, &quot;Python&quot;, &quot;PHP&quot;, &quot;Go&quot;)</span><br><span class="line">    var list4 = mutableListOf(&quot;Java&quot;, null, &quot;HTML&quot;, &quot;Go&quot;)</span><br><span class="line">    println(list4)//[Java, null, HTML, Go]</span><br><span class="line">    //新增</span><br><span class="line">    list4.add(&quot;Python&quot;)</span><br><span class="line">    list4.add(2, &quot;C++&quot;)</span><br><span class="line">    list4.addAll(listOf(&quot;Kotlin&quot;, null))</span><br><span class="line">    println(list4)//[Java, null, C++, HTML, Go, Python, Kotlin, null]</span><br><span class="line">    //删除</span><br><span class="line">    list4.removeAt(1)</span><br><span class="line">    println(list4)//[Java, C++, HTML, Go, Python, Kotlin, null]</span><br><span class="line">    //list4[6] =&quot;CSS&quot;;</span><br><span class="line">    list4.set(6, &quot;CSS&quot;)</span><br><span class="line">    println(list4)//[Java, C++, HTML, Go, Python, Kotlin, CSS]</span><br><span class="line">    list4.remove(&quot;Go&quot;)</span><br><span class="line">    println(list4)//[Java, C++, HTML, Python, Kotlin, CSS]</span><br><span class="line">    list4.add(3, &quot;Go&quot;)</span><br><span class="line">    list4.add(5, &quot;Go&quot;)</span><br><span class="line">    println(list4)//[Java, C++, HTML, Go, Python, Go, Kotlin, CSS]</span><br><span class="line">    //替换元素</span><br><span class="line">    list4.replaceAll &#123;</span><br><span class="line">        if (it.equals(&quot;Go&quot;)) &#123;</span><br><span class="line">            &quot;go&quot;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            it</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    println(list4)//[Java, C++, HTML, go, Python, go, Kotlin, CSS] </span><br><span class="line">    //删除</span><br><span class="line">    list4.removeAll(listOf(&quot;go&quot;))</span><br><span class="line">    println(list4)//[Java, C++, HTML, Python, Kotlin, CSS]</span><br><span class="line"></span><br><span class="line">    //清空</span><br><span class="line">    list4.clear()</span><br><span class="line">    println(list4)//[]</span><br></pre></td></tr></table></figure>
-<h2><span id="map集合"> Map集合</span></h2>
-<ul>
-<li>Map集合创建</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//不可变map集合</span><br><span class="line">var map1 = mapOf(&quot;Java&quot; to 1, &quot;JavaScript&quot; to 2, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4)</span><br><span class="line">println(map1)//&#123;Java=1, JavaScript=2, HTML=3, Kotlin=4&#125;</span><br><span class="line">//可变集合MutableMap</span><br><span class="line">var map2 = mutableMapOf(&quot;Java&quot; to 1, &quot;JavaScript&quot; to 2, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4)</span><br><span class="line">println(map2)//&#123;Java=1, JavaScript=2, HTML=3, Kotlin=4&#125;</span><br><span class="line">map2.put(&quot;Python&quot;, 5)</span><br><span class="line">println(map2)//&#123;Java=1, JavaScript=2, HTML=3, Kotlin=4, Python=5&#125;</span><br><span class="line">map2.remove(&quot;JavaScript&quot;)</span><br><span class="line">println(map2)//&#123;Java=1, HTML=3, Kotlin=4, Python=5&#125;</span><br><span class="line">//HashMap集合----不保证key-value的顺序</span><br><span class="line">var map3 = hashMapOf(&quot;Java&quot; to 1, &quot;JavaScript&quot; to 2, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4)</span><br><span class="line">println(map3)//&#123;Java=1, HTML=3, JavaScript=2, Kotlin=4&#125;</span><br><span class="line">//LinkedHashMap集合---key-value按添加顺序排列</span><br><span class="line">var map4 = linkedMapOf(&quot;Java&quot; to 1, &quot;JavaScript&quot; to 2, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4)</span><br><span class="line">println(map4)//&#123;Java=1, JavaScript=2, HTML=3, Kotlin=4&#125;</span><br><span class="line">//SortedMap集合------ key-value按key由小到大排列</span><br><span class="line">var map5 = sortedMapOf(&quot;Java&quot; to 1, &quot;Python&quot; to 5, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4, &quot;JavaScript&quot; to 2, &quot;Go&quot; to 6)</span><br><span class="line">println(map5)//&#123;Go=6, HTML=3, Java=1, JavaScript=2, Kotlin=4, Python=5&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Map集合的使用</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">var map1 = mapOf(&quot;Java&quot; to 1, &quot;JavaScript&quot; to 2, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4)</span><br><span class="line">//当map集合中所有key-value对都满足条件返回true</span><br><span class="line">var all = map1.all &#123;</span><br><span class="line">    it.key.length &gt;= 4 &amp;&amp; it.value &gt; 0</span><br><span class="line">&#125;</span><br><span class="line">println(all)//true</span><br><span class="line">//当map集合中任意一个key-value对满足条件就会返回true</span><br><span class="line">var any = map1.any &#123;</span><br><span class="line">    it.key.length &gt;= 10 &amp;&amp; it.value &gt; 1</span><br><span class="line">&#125;</span><br><span class="line">println(any)//true</span><br><span class="line">//判断map集合中是否有对于key的key-value</span><br><span class="line">println(&quot;Java&quot; in map1);//true</span><br><span class="line">println(&quot;Java&quot; !in map1);//false</span><br><span class="line">println(&quot;Go&quot; in map1);//false</span><br><span class="line">println(&quot;Go&quot; !in map1);//true</span><br><span class="line"></span><br><span class="line">//对map进行过滤，要求key中包含：Java</span><br><span class="line">var filterMap1 = map1.filter &#123; &quot;Java&quot; in it.key &#125;</span><br><span class="line">println(filterMap1)//&#123;Java=1, JavaScript=2&#125;</span><br><span class="line">var filterMap2 = map1.filter &#123; it.key in &quot;Java&quot; &#125;</span><br><span class="line">println(filterMap2)//&#123;Java=1&#125;</span><br><span class="line">//通过map集合，返回一个新的List</span><br><span class="line">var mappedList1 = map1.map &#123; &quot;《疯狂$&#123;it.key&#125;》讲义,第$&#123;it.value&#125;个&quot; &#125;</span><br><span class="line">var mappedList2 = map1.map &#123; &quot;《疯狂$&#123;it.key&#125;》讲义&quot; to &quot;第$&#123;it.value&#125;个&quot; &#125;</span><br><span class="line">println(mappedList1)//[《疯狂Java》讲义,第1个, 《疯狂JavaScript》讲义,第2个, 《疯狂HTML》讲义,第3个, 《疯狂Kotlin》讲义,第4个]</span><br><span class="line">println(mappedList2)//[(《疯狂Java》讲义, 第1个), (《疯狂JavaScript》讲义, 第2个), (《疯狂HTML》讲义, 第3个), (《疯狂Kotlin》讲义, 第4个)]</span><br><span class="line">//Map集合中key-value对中 value最大的值</span><br><span class="line">var maxby1 = map1.maxBy &#123; it.value &#125;</span><br><span class="line">println(maxby1)//Kotlin=4</span><br><span class="line"></span><br><span class="line">//Map集合中key-value对中 value最小的值</span><br><span class="line">var minby1 = map1.minBy &#123; it.value &#125;</span><br><span class="line">println(minby1)//Java=1</span><br><span class="line"></span><br><span class="line">//Map集合中key-value对中 key的长度最大的值</span><br><span class="line">var maxby2 = map1.maxBy &#123; it.key.length &#125;</span><br><span class="line">println(maxby2)//JavaScript=2</span><br><span class="line"></span><br><span class="line">//Map集合中key-value对中 key的长度最小的值</span><br><span class="line">var minby2 = map1.minBy &#123; it.key.length &#125;</span><br><span class="line">println(minby2)//Java=1</span><br><span class="line"></span><br><span class="line">var map2 = mapOf(&quot;Java&quot; to 1, &quot;JavaScript&quot; to 2, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4)</span><br><span class="line">var map3 = mapOf(&quot;Python&quot; to 1, &quot;Go&quot; to 2, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4)</span><br><span class="line">//集合相加---相当于并集</span><br><span class="line">println(map2 + map3)//&#123;Java=1, JavaScript=2, HTML=3, Kotlin=4, Python=1, Go=2&#125;</span><br><span class="line">//集合相减---减去公共的元素</span><br><span class="line">println(map2 - map3)//&#123;Java=1, JavaScript=2, HTML=3, Kotlin=4&#125;</span><br><span class="line"></span><br><span class="line">var plus = map2.plus(map3)</span><br><span class="line">println(plus)//&#123;Java=1, JavaScript=2, HTML=3, Kotlin=4, Python=1, Go=2&#125;</span><br><span class="line"></span><br><span class="line">var minus = map2.minus(map3)</span><br><span class="line">println(minus)//&#123;Java=1, JavaScript=2, HTML=3, Kotlin=4&#125;</span><br><span class="line">//遍历Map集合</span><br><span class="line">var map4 = mapOf(&quot;Java&quot; to 1, &quot;JavaScript&quot; to 2, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4, &quot;Go&quot; to 5)</span><br><span class="line">for (en in map4.entries) &#123;</span><br><span class="line">    println(&quot;$&#123;en.key&#125; -&gt; $&#123;en.value&#125;&quot;)</span><br><span class="line">&#125;</span><br><span class="line">for (key in map4.keys) &#123;</span><br><span class="line">    println(&quot;$&#123;key&#125; -&gt; $&#123;map4[key]&#125;&quot;)</span><br><span class="line">&#125;</span><br><span class="line">for ((key, value) in map4) &#123;</span><br><span class="line">    println(&quot;$&#123;key&#125; -&gt; $&#123;value&#125;&quot;)</span><br><span class="line">&#125;</span><br><span class="line">map4.forEach(&#123;</span><br><span class="line">    println(&quot;$&#123;it.key&#125; -&gt; $&#123;it.value&#125;&quot;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">var map5 = mutableMapOf(&quot;Java&quot; to 1, &quot;JavaScript&quot; to 2, &quot;HTML&quot; to 3, &quot;Kotlin&quot; to 4, &quot;Go&quot; to 5)</span><br><span class="line">map5[&quot;Go&quot;] = 0</span><br><span class="line">println(map5)//&#123;Java=1, JavaScript=2, HTML=3, Kotlin=4, Go=0&#125;</span><br><span class="line">map5.put(&quot;HTML&quot;, 10)</span><br><span class="line">println(map5)//&#123;Java=1, JavaScript=2, HTML=10, Kotlin=4, Go=0&#125;</span><br><span class="line">map5.remove(&quot;Go&quot;)</span><br><span class="line">println(map5)//&#123;Java=1, JavaScript=2, HTML=10, Kotlin=4&#125;</span><br><span class="line">map5.remove(&quot;Java&quot;, 2)</span><br><span class="line">println(map5)//&#123;Java=1, JavaScript=2, HTML=10, Kotlin=4&#125;</span><br><span class="line">map5.remove(&quot;Java&quot;, 1)</span><br><span class="line">println(map5)//&#123;JavaScript=2, HTML=10, Kotlin=4&#125;</span><br><span class="line">map5.putAll(hashMapOf(&quot;PHP&quot; to 6, &quot;C++&quot; to 7,&quot;JavaScript&quot; to 8 ))</span><br><span class="line">println(map5)//&#123;JavaScript=8, HTML=10, Kotlin=4, PHP=6, C++=7&#125;</span><br><span class="line">//清空Map集合</span><br><span class="line">map5.clear()</span><br><span class="line">println(map5)//&#123;&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1575,7 +1560,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1666,7 +1651,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

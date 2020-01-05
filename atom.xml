@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xue12311.github.io/"/>
-  <updated>2019-07-21T07:27:43.271Z</updated>
+  <updated>2020-01-05T09:15:48.434Z</updated>
   <id>http://xue12311.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</title>
+    <link href="http://xue12311.github.io/2020/01/05/kotlin/kotlin%E7%BB%83%E4%B9%A0-KotlinfilterNotNull%20%E5%90%AB%E4%B9%89/"/>
+    <id>http://xue12311.github.io/2020/01/05/kotlin/kotlin练习-KotlinfilterNotNull 含义/</id>
+    <published>2020-01-05T08:57:36.000Z</published>
+    <updated>2020-01-05T09:15:48.434Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="kotlin练习-kotlin中的-filternotnull-含义"> kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</span></h1><h2><span id="可空类型表示当前是否对象可以为空"> ?  可空类型，表示当前是否对象可以为空</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String =&quot;123&quot;</span><br><span class="line">a = null //编译报错</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br></pre></td></tr></table></figure><h2><span id="安全调用操作符"> ?.  安全调用操作符</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val length = a.length //编译报错 --- 变量&quot;a&quot;可能会为空</span><br><span class="line">val length = a?.length //编译通过 --- 如果 a 非空，就返回 a.length，否则返回 null</span><br></pre></td></tr></table></figure><h2><span id="elvis-操作符"> ?:  Elvis 操作符</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a?.length?:-1 // 当a不为空时，返回a.length，当a为空时，返回-1</span><br></pre></td></tr></table></figure><h2><span id="操作符表示当前对象不为空的情况下执行为空就抛出异常"> !!  操作符，表示当前对象不为空的情况下执行，为空就抛出异常</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a!!.length //如果a不为空，则返回a.length，如果b为空，则抛出异常 NullPointerException</span><br></pre></td></tr></table></figure><h2><span id="filternotnull-过滤非空元素"> filterNotNull  过滤非空元素</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val nullableList: List&lt;Int?&gt; = listOf(1, 2, null, 4)</span><br><span class="line">val intList: List&lt;Int&gt; = nullableList.filterNotNull() </span><br><span class="line">println(intList.toString())//[1, 2, 4]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;&lt;span id=&quot;kotlin练习-kotlin中的-filternotnull-含义&quot;&gt; kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span id=&quot;可空类型表示当前是否对
+      
+    
+    </summary>
+    
+      <category term="kotlin" scheme="http://xue12311.github.io/categories/kotlin/"/>
+    
+    
+      <category term="kotlin" scheme="http://xue12311.github.io/tags/kotlin/"/>
+    
+  </entry>
   
   <entry>
     <title>kotlin练习 - 常见内联扩展函数学习</title>
@@ -64,9 +90,9 @@
       <category term="android" scheme="http://xue12311.github.io/categories/android/"/>
     
     
-      <category term="EventBus" scheme="http://xue12311.github.io/tags/EventBus/"/>
-    
       <category term="kotlin" scheme="http://xue12311.github.io/tags/kotlin/"/>
+    
+      <category term="EventBus" scheme="http://xue12311.github.io/tags/EventBus/"/>
     
   </entry>
   
