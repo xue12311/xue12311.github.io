@@ -90,9 +90,9 @@
       <category term="android" scheme="http://xue12311.github.io/categories/android/"/>
     
     
-      <category term="kotlin" scheme="http://xue12311.github.io/tags/kotlin/"/>
-    
       <category term="EventBus" scheme="http://xue12311.github.io/tags/EventBus/"/>
+    
+      <category term="kotlin" scheme="http://xue12311.github.io/tags/kotlin/"/>
     
   </entry>
   
