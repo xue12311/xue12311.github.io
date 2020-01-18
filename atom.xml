@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xue12311.github.io/"/>
-  <updated>2020-01-05T09:15:48.434Z</updated>
+  <updated>2020-01-18T11:04:08.425Z</updated>
   <id>http://xue12311.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>flutter练习 - Dart常见运算符</title>
+    <link href="http://xue12311.github.io/2020/01/18/flutter/flutter%E7%BB%83%E4%B9%A0%20-Dart%E5%B8%B8%E8%A7%81%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://xue12311.github.io/2020/01/18/flutter/flutter练习 -Dart常见运算符/</id>
+    <published>2020-01-18T06:29:30.000Z</published>
+    <updated>2020-01-18T11:04:08.425Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="flutter练习-dart常见运算符"> flutter练习 - Dart常见运算符</span></h1><h2><span id="算数运算符"> 算数运算符</span></h2><table><thead><tr><th style="text-align:center">操作符</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">+</td><td style="text-align:center">加</td></tr><tr><td style="text-align:center">-</td><td style="text-align:center">减</td></tr><tr><td style="text-align:center">- expr</td><td style="text-align:center">一元减号(负号)   expr : 表达式的值</td></tr><tr><td style="text-align:center">*</td><td style="text-align:center">乘</td></tr><tr><td style="text-align:center">/</td><td style="text-align:center">除</td></tr><tr><td style="text-align:center">~/</td><td style="text-align:center">返回一个整数值的除法</td></tr><tr><td style="text-align:center">%</td><td style="text-align:center">取余数,除法剩下的余数</td></tr><tr><td style="text-align:center">++var</td><td style="text-align:center">var = var + 1 表达式的值为：var + 1</td></tr><tr><td style="text-align:center">var++</td><td style="text-align:center">var = var + 1 表达式的值为：var</td></tr><tr><td style="text-align:center">–var</td><td style="text-align:center">var = var - 1 表达式的值为：var - 1</td></tr><tr><td style="text-align:center">var–</td><td style="text-align:center">var =var - 1 表达式的值为：var</td></tr></tbody></table><h2><span id="关系运算符"> 关系运算符</span></h2><table><thead><tr><th style="text-align:center">操作符</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">==</td><td style="text-align:center">等于</td></tr><tr><td style="text-align:center">!=</td><td style="text-align:center">不等于</td></tr><tr><td style="text-align:center">&gt;</td><td style="text-align:center">大于</td></tr><tr><td style="text-align:center">&lt;</td><td style="text-align:center">小于</td></tr><tr><td style="text-align:center">&gt;=</td><td style="text-align:center">大于或等于</td></tr><tr><td style="text-align:center">&lt;=</td><td style="text-align:center">小于或等于</td></tr></tbody></table><h2><span id="类型测试操作符"> 类型测试操作符</span></h2><table><thead><tr><th style="text-align:center">操作符</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">as</td><td style="text-align:center">类型转换</td></tr><tr><td style="text-align:center">is</td><td style="text-align:center">当对象是相应类型时返回 true</td></tr><tr><td style="text-align:center">is!</td><td style="text-align:center">当对象不是相应类型时返回 true</td></tr></tbody></table><h2><span id="赋值操作符"> 赋值操作符</span></h2><table><thead><tr><th style="text-align:center">操作符</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">a = value ;</td><td style="text-align:center">将 value 赋值给 a</td></tr><tr><td style="text-align:center">b??= value ;</td><td style="text-align:center">如果 b为空，则将value的值赋值给b，否则，b保持不变</td></tr><tr><td style="text-align:center">a op b</td><td style="text-align:center">a = a op b</td></tr><tr><td style="text-align:center">a += b</td><td style="text-align:center">a = a + b</td></tr><tr><td style="text-align:center">a -= b</td><td style="text-align:center">a = a - b</td></tr></tbody></table><h2><span id="逻辑运算符"> 逻辑运算符</span></h2><table><thead><tr><th style="text-align:center">操作符</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">!expr</td><td style="text-align:center">反转以下表达式( 将 false 更改为 true , 反之亦然)</td></tr><tr><td style="text-align:center">||</td><td style="text-align:center">逻辑或</td></tr><tr><td style="text-align:center">&amp;&amp;</td><td style="text-align:center">逻辑与</td></tr></tbody></table><h2><span id="位运算符"> 位运算符</span></h2><table><thead><tr><th style="text-align:center">操作符</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">&amp;</td><td style="text-align:center">与</td></tr><tr><td style="text-align:center">|</td><td style="text-align:center">或</td></tr><tr><td style="text-align:center">^</td><td style="text-align:center">异或</td></tr><tr><td style="text-align:center">-expr</td><td style="text-align:center">一元位补码 ( 0s 变为 1s , 1s 变为 0s )</td></tr><tr><td style="text-align:center">&lt;&lt;</td><td style="text-align:center">左移</td></tr><tr><td style="text-align:center">&gt;&gt;</td><td style="text-align:center">右移</td></tr></tbody></table><h2><span id="条件表达式"> 条件表达式</span></h2><ol><li>如果条件为真，返回 expr1,否则返回 expr2 。<br>condition ?  expr1 : expr2</li><li>如果 expr1 为非空,则返回其值，否则 计算并返回 expr2 的值<br>expr1 ?? expr2</li></ol><h2><span id="级联操作"> 级联操作</span></h2><p>级联操作符 (…) 可以在同一个对象上连续调用多个函数以及访问成员变量。使用级联操作符可以避免创建临时变量， 并且写出来的代码看起来更加流畅</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">querySelector(&apos;#button&apos;) // Get an object.</span><br><span class="line">  ..text = &apos;Confirm&apos;   // Use its members.</span><br><span class="line">  ..classes.add(&apos;important&apos;)</span><br><span class="line">  ..onClick.listen((e) =&gt; window.alert(&apos;Confirmed!&apos;));</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;&lt;span id=&quot;flutter练习-dart常见运算符&quot;&gt; flutter练习 - Dart常见运算符&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span id=&quot;算数运算符&quot;&gt; 算数运算符&lt;/span&gt;&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style
+      
+    
+    </summary>
+    
+      <category term="flutter" scheme="http://xue12311.github.io/categories/flutter/"/>
+    
+    
+      <category term="flutter" scheme="http://xue12311.github.io/tags/flutter/"/>
+    
+      <category term="dart" scheme="http://xue12311.github.io/tags/dart/"/>
+    
+  </entry>
   
   <entry>
     <title>kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</title>

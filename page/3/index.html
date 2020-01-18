@@ -283,6 +283,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2018/12/17/kotlin/kotlin练习-数组练习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/17/kotlin/kotlin练习-数组练习/" itemprop="url">kotlin练习 - 数组练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T21:34:57+08:00">
+                2018-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/kotlin/" itemprop="url" rel="index">
+                    <span itemprop="name">kotlin</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="kotlin练习-数组练习"> kotlin练习 - 数组练习</span></h1>
+<h2><span id="数组创建"> 数组创建</span></h2>
+<ol>
+<li>使用arrayOf()函数：这种方式无需显示指定数组的长度，但需要依次列出每个数组元素。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    //创建包含指定元素的数组</span><br><span class="line">    var arg1 = arrayOf(&quot;Java&quot;,&quot;Kotlin&quot;,&quot;PHP&quot;,&quot;Swift&quot;)</span><br><span class="line">    var arg2 = arrayOf(0,1,2,3,4,5)</span><br><span class="line">    println(&quot;arg1 = $&#123;Arrays.toString(arg1)&#125;&quot;)</span><br><span class="line">    println(&quot;arg2 = $&#123;Arrays.toString(arg2)&#125;&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用arrayOfNulls()函数：这种方法需要显示指定数组的长度，数组元素全部被初始化为null。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    //创建指定长度，元素为null的数组</span><br><span class="line">    var arg3 = arrayOfNulls&lt;Int&gt;(5)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>使用emptyArray()函数：这种方法会创建一个长度为0的空数组。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    //创建长度为0的空数组</span><br><span class="line">    var arg4 = emptyArray&lt;String&gt;()</span><br><span class="line">    var arg5 = emptyArray&lt;Int&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>使用Array(size : Int,init ：(Int) -&gt; T )构造器：这种方法需要显示指定数组的长度，并可通过Lambda表达式来动态计算各数组元素的值，</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    //创建指定长度，使用Lambda表达式初始化数组元素的数组</span><br><span class="line">    var arg6 = Array(5,&#123;(it * 2+97).toChar()&#125;)</span><br><span class="line">    var arg7 = Array(6,&#123;&quot;fkit&quot;&#125;)</span><br><span class="line">    println(&quot;arg6 = $&#123;Arrays.toString(arg6)&#125;&quot;)</span><br><span class="line">    println(&quot;arg7 = $&#123;Arrays.toString(arg7)&#125;&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>其他 Array<t>：Kotlin专门提供了 ByteArray、ShortArray、IntArra、LongArray、CharArray、FloatArray、DoubleArray、BooleanArray 分别对应java中的 byte[]、short[]、int[]、long[]、char[]、floar[]、double[]、boolean[] 这8种基本数据类型的数组。</t></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var intArr = intArrayOf(2,3,4,5,6)</span><br><span class="line">    var doubleArr = doubleArrayOf(2.1,2.2,2.3,2.4)</span><br><span class="line">    var intArr2 = IntArray(5,&#123;it*it&#125;)</span><br><span class="line">    var charArr = CharArray(5,&#123;(it*2+97).toChar()&#125;)</span><br><span class="line"></span><br><span class="line">    println(&quot;intArr = $&#123;Arrays.toString(intArr)&#125;&quot;)</span><br><span class="line">    println(&quot;doubleArr = $&#123;Arrays.toString(doubleArr)&#125;&quot;)</span><br><span class="line">    println(&quot;intArr2 = $&#123;Arrays.toString(intArr2)&#125;&quot;)</span><br><span class="line">    println(&quot;charArr = $&#123;Arrays.toString(charArr)&#125;&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="数组使用"> 数组使用</span></h2>
+<ul>
+<li>get(index) 方法 ，set(index，value)方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var strArray = arrayListOf&lt;String&gt;(&quot;Java&quot;,&quot;Kotlin&quot;,&quot;Go&quot;,&quot;Swift&quot;)</span><br><span class="line">    println(strArray[1])//Kotlin</span><br><span class="line">    println(strArray.get(1))//Kotlin</span><br><span class="line">    strArray.set(0,&quot;Python&quot;)</span><br><span class="line">    strArray[2] = &quot;Groovy&quot;</span><br><span class="line">    println(strArray.toString())//[Python, Kotlin, Groovy, Swift]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数组遍历</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var books = arrayListOf&lt;String&gt;(&quot;疯狂java讲义&quot;, &quot;疯狂android讲义&quot;, &quot;疯狂kotlin讲义&quot;)</span><br><span class="line">    for (book in books) &#123;</span><br><span class="line">        println(book)</span><br><span class="line">    &#125;</span><br><span class="line">    for (i in 0 until books.size) &#123;</span><br><span class="line">        println(books[i])</span><br><span class="line">    &#125;</span><br><span class="line">    //根据数组的索引来遍历数组</span><br><span class="line">    for (i in books.indices)&#123;//索引 = size -1</span><br><span class="line">        println(books[i])</span><br><span class="line">    &#125;</span><br><span class="line">    for ((index,value) in books.withIndex())&#123;//索引 = size -1</span><br><span class="line">        println(&quot;索引为$&#123;index&#125;的元素为：$&#123;value&#125;&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数组常用方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line">var indexs = arrayOf&lt;Int&gt;(1, 2, 3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> //所有元素都要满足条件则返回 true</span><br><span class="line"> var isAll = indexs.all &#123; x -&gt; x &gt; 0 &amp;&amp; x &lt; 10 &#125;</span><br><span class="line"> print(isAll)//true</span><br><span class="line"> //任一数组元素满足条件则返回 true</span><br><span class="line"> var isAny = indexs.any &#123; x -&gt; x == 9 &#125;</span><br><span class="line"> println(isAny)//true</span><br><span class="line"> //将数组转为List集合</span><br><span class="line"> var indexList = indexs.asList()</span><br><span class="line"> println(indexList.toString())</span><br><span class="line"> //返回Map集合</span><br><span class="line"> var indexMap1 = indexs.associate &#123; x -&gt; x to x * x &#125;</span><br><span class="line"> println(indexMap1.toString())//&#123;1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81&#125;</span><br><span class="line"> var indexMap2 = indexs.associate &#123; it to it * it &#125;</span><br><span class="line"> println(indexMap2.toString())//&#123;1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81&#125;</span><br><span class="line"> //返回Map集合</span><br><span class="line"> var indexMap3 = indexs.associateBy &#123; it * it &#125;//Map&lt;K,T&gt;中的K</span><br><span class="line"> println(indexMap3.toString())//&#123;1=1, 4=2, 9=3, 16=4, 25=5, 36=6, 49=7, 64=8, 81=9&#125;</span><br><span class="line"> var indexMap4 = indexs.associateBy(&#123; it &#125;, &#123; it * it &#125;)</span><br><span class="line"> println(indexMap4.toString())//&#123;1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81&#125;</span><br><span class="line"> var indexMap5 = indexs.associateBy(&#123; it * it &#125;)//Map&lt;K,T&gt;中的K</span><br><span class="line"> println(indexMap5.toString())//&#123;1=1, 4=2, 9=3, 16=4, 25=5, 36=6, 49=7, 64=8, 81=9&#125;</span><br><span class="line"> //在将数组转成的Map集合插入map，最后返回修改后的map</span><br><span class="line"> var map6 = mutableMapOf(10 to 100, 11 to 121, 12 to 144)</span><br><span class="line"> var indexMap6 = indexs.associateByTo(map6, &#123; it &#125;, &#123; it * it &#125;)</span><br><span class="line"> println(map6.toString())//&#123;10=100, 11=121, 12=144, 1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81&#125;</span><br><span class="line"> //在将数组转成的Map集合插入map，最后返回修改后的map</span><br><span class="line"> var map7 = mutableMapOf(10 to 100, 11 to 121, 12 to 144)</span><br><span class="line"> var indexMap7 = indexs.associateTo(map7, &#123; it to it * it &#125;)</span><br><span class="line"> println(map7.toString())//&#123;10=100, 11=121, 12=144, 1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81&#125;</span><br><span class="line"> //数组平均值</span><br><span class="line"> var average = indexs.average();</span><br><span class="line"> println(&quot;平均值为$average&quot;)//5.0</span><br><span class="line"> //通过二分法查询element出现的索引，如果找不到则返回负数-------要求数组中的元素已经按升序排序</span><br><span class="line"> var binarySearch1 = indexs.binarySearch(4, 0, 3)</span><br><span class="line"> println(&quot;4在数组(数组从第一个元素,到第三个元素)中的位置：$binarySearch1&quot;)//-4</span><br><span class="line"> var binarySearch2 = indexs.binarySearch(4)</span><br><span class="line"> println(&quot;4在数组中的位置：$binarySearch2&quot;)//3</span><br><span class="line"> //判断数组中是否包含元素</span><br><span class="line"> var contains = indexs.contains(10);</span><br><span class="line"> println(&quot;数组中是否有元素10：$&#123;contains&#125;&quot;)//false</span><br><span class="line"></span><br><span class="line"> var indexs1 = arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> //判断两个数组是否相等</span><br><span class="line"> var contentDeepEquals = indexs.contentDeepEquals(indexs1)</span><br><span class="line"> println(&quot;两个数组是否相等：$&#123;contentDeepEquals&#125;&quot;)//true</span><br><span class="line"> //将数组转成String</span><br><span class="line"> var str_index = indexs.contentToString();</span><br><span class="line"> println(str_index)//[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line"> //复制数组成为一个新数组</span><br><span class="line"> var copyof1 = indexs.copyOf()</span><br><span class="line"> println(&quot;copyof1 = $&#123;copyof1.contentToString()&#125;&quot;)//[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line"> indexs[0] = 0;</span><br><span class="line"> println(&quot;copyof1 = $&#123;copyof1.contentToString()&#125;&quot;)//[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line"> indexs[0] = 1;</span><br><span class="line"> var copyof2 = indexs.copyOf(5)</span><br><span class="line"> println(&quot;copyof2 = $&#123;copyof2.contentToString()&#125;&quot;)//[1, 2, 3, 4, 5]</span><br><span class="line"> var copyof3 = indexs.copyOf(10)</span><br><span class="line"> println(&quot;copyof3 = $&#123;copyof3.contentToString()&#125;&quot;)//[1, 2, 3, 4, 5, 6, 7, 8, 9, null]</span><br><span class="line"> //复制数组（通过索引指定）</span><br><span class="line"> var copyOfRange1 = indexs.copyOfRange(0, 10)</span><br><span class="line"> println(&quot;copyOfRange1 = $&#123;copyOfRange1.contentToString()&#125;&quot;)//[1, 2, 3, 4, 5, 6, 7, 8, 9, null]</span><br><span class="line"> indexs[0] = 10</span><br><span class="line"> println(&quot;copyOfRange1 = $&#123;copyOfRange1.contentToString()&#125;&quot;)//[1, 2, 3, 4, 5, 6, 7, 8, 9, null]</span><br><span class="line"> indexs[0] = 1</span><br><span class="line"> var copyOfRange2 = indexs.copyOfRange(0, 5)</span><br><span class="line"> println(&quot;copyOfRange2 = $&#123;copyOfRange2.contentToString()&#125;&quot;)//[1, 2, 3, 4, 5]</span><br><span class="line"> //数组满足条件的数量</span><br><span class="line"> var count1 = indexs.count(&#123; it &gt; 5 &#125;)</span><br><span class="line"> println(&quot;数组中大于5的元素有：$&#123;count1&#125;个&quot;)//4</span><br><span class="line"></span><br><span class="line"> var indexs2 = arrayOf(1, 2, 3, 1, 4, 2, 3, 4, 1)</span><br><span class="line"> //去掉数组中重复的元素</span><br><span class="line"> var indexs2_distinct1 = indexs2.distinct()</span><br><span class="line"> println(indexs2_distinct1.toString())//[1, 2, 3, 4]</span><br><span class="line"> var indexs2_distinct2 = indexs2.distinctBy &#123; it % 2 == 0 &#125;</span><br><span class="line"> println(indexs2_distinct2.toString())//[1, 2]</span><br><span class="line"></span><br><span class="line"> //去掉数组中前3个元素</span><br><span class="line"> var drop = indexs.drop(3);</span><br><span class="line"> println(drop.toString())</span><br><span class="line"></span><br><span class="line"> //去掉前面满足条件的元素，当出现第一个条件不满足时，返回后面的所有元素</span><br><span class="line"> var dropWhile = indexs.dropWhile &#123; it &lt;= 3 &#125;</span><br><span class="line"> println(dropWhile.toString())//[4, 5, 6, 7, 8, 9]</span><br><span class="line"></span><br><span class="line"> //去掉数组中后3个元素</span><br><span class="line"> var dropLast = indexs.dropLast(3);</span><br><span class="line"> println(dropLast.toString())//[1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line"> //去掉前面满足条件的元素，当出现第一个条件不满足时，返回前面的所有元素</span><br><span class="line"> var dropLastWhile = indexs.dropLastWhile &#123; it &gt; 6 &#125;</span><br><span class="line"> println(dropLastWhile.toString())//[1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line"> //将数组中的元素赋值为element</span><br><span class="line"> var indexs4 = arrayOf&lt;Int&gt;(1, 2, 3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> indexs4.fill(3)</span><br><span class="line"> println(indexs4.contentToString())//[3, 3, 3, 3, 3, 3, 3, 3, 3]</span><br><span class="line"></span><br><span class="line"> var indexs5 = arrayOf&lt;Int&gt;(1, 2, 3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> indexs5.fill(3, 0, 5);</span><br><span class="line"> println(indexs5.contentToString())//[3, 3, 3, 3, 3, 6, 7, 8, 9]</span><br><span class="line"></span><br><span class="line"> var first1 = indexs.first()</span><br><span class="line"> println(&quot;数组的第一个元素：$&#123;first1&#125;&quot;)//1</span><br><span class="line"> var first2 = indexs.first &#123; it &gt; 5 &#125;</span><br><span class="line"> println(&quot;数组的第一个满足条件的元素：$&#123;first2&#125;&quot;)//6</span><br><span class="line"></span><br><span class="line"> var last1 = indexs.last()</span><br><span class="line"> println(&quot;数组的最后一个元素：$&#123;last1&#125;&quot;)//9</span><br><span class="line"> var last2 = indexs.last &#123; it &gt; 5 &#125;</span><br><span class="line"> println(&quot;数组的最后一个满足条件的元素：$&#123;last2&#125;&quot;)//9</span><br><span class="line"></span><br><span class="line"> //求和</span><br><span class="line"> var fold = indexs.fold(0, &#123; acc, i -&gt; acc + i &#125;)</span><br><span class="line"> println(&quot;数组元素和为：$&#123;fold&#125;&quot;)</span><br><span class="line"> //搜索元素查询的位置</span><br><span class="line"> var index1 = indexs.indexOf(5)//从前往后</span><br><span class="line"> var index2 = indexs.lastIndexOf(5)//从后往前</span><br><span class="line"> println(&quot;元素5在数组中的位置是：$&#123;index1&#125;和$&#123;index2&#125;&quot;)</span><br><span class="line"></span><br><span class="line"> var indexs6 = arrayOf(1, 2, 3, 1, 4, 2, 3, 4, 1)</span><br><span class="line"> var index3 = indexs6.indexOfFirst &#123; it == 3 &#125;//第一次出现的位置</span><br><span class="line"> var index4 = indexs6.indexOfLast &#123; it == 3 &#125;//最后一次查询的位置</span><br><span class="line"> println(&quot;元素3在数组中第一次出现在$&#123;index3&#125;,最后一次出现在$&#123;index4&#125;&quot;)//2,6</span><br><span class="line"></span><br><span class="line"> var indexs7 = arrayListOf&lt;Int&gt;(3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> var indexs8 = arrayListOf&lt;Int&gt;(1, 2, 5, 6)</span><br><span class="line"> //intersect(交集)，subtract(差集)，union(并集)，minus(补集)</span><br><span class="line"> var intersect = indexs7.intersect(indexs8)</span><br><span class="line"> var subtract = indexs7.subtract(indexs8)</span><br><span class="line"> var union = indexs7.union(indexs8)</span><br><span class="line"> var minus = indexs7.minus(indexs8)</span><br><span class="line"> println(&quot;交集：$&#123;intersect&#125;&quot;)//[5, 6]</span><br><span class="line"> println(&quot;差集：$&#123;subtract&#125;&quot;)//[3, 4, 7, 8, 9]</span><br><span class="line"> println(&quot;并集：$&#123;union&#125;&quot;)//[3, 4, 5, 6, 7, 8, 9, 1, 2]</span><br><span class="line"> println(&quot;补集：$&#123;minus&#125;&quot;)//[3, 4, 7, 8, 9]</span><br><span class="line"> //数组最大值</span><br><span class="line"> var max = indexs.max();//9</span><br><span class="line"> //数组最小值</span><br><span class="line"> var min = indexs.min();//1</span><br><span class="line"> println(&quot;数组中的最大值：$&#123;max&#125; 最小值：$&#123;min&#125;&quot;)</span><br><span class="line"></span><br><span class="line"> var indexs9 = arrayListOf&lt;Int&gt;(1, 9, 3, 7, 2, 5, 4, 6, 8)</span><br><span class="line"> //排序</span><br><span class="line"> indexs9.sort();</span><br><span class="line"> println(indexs9)//[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line"> //排序</span><br><span class="line"> val mapList = mutableListOf(1 to &quot;A&quot; , 2 to &quot;B&quot;, 5 to &quot;C&quot;, 3 to &quot;D&quot;)</span><br><span class="line"> mapList.sortBy &#123; it.first &#125;</span><br><span class="line"> println(mapList) // [(1, A), (2, B), (3, D), (5, C)]</span><br><span class="line"> mapList.sortBy &#123; it.second &#125;</span><br><span class="line"> println(mapList) // [(1, A), (2, B), (5, C), (3, D)]</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2018/12/16/kotlin/kotlin练习-循环练习/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -874,7 +1050,7 @@ do while 循环 先执行循环体，再判断循环条件，如果条件为真�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -896,7 +1072,7 @@ do while 循环 先执行循环体，再判断循环条件，如果条件为真�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

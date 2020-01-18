@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[flutter练习 - Dart常见运算符]]></title>
+    <url>%2F2020%2F01%2F18%2Fflutter%2Fflutter%E7%BB%83%E4%B9%A0%20-Dart%E5%B8%B8%E8%A7%81%E8%BF%90%E7%AE%97%E7%AC%A6%2F</url>
+    <content type="text"><![CDATA[flutter练习 - Dart常见运算符 算数运算符 操作符 含义 + 加 - 减 - expr 一元减号(负号) expr : 表达式的值 * 乘 / 除 ~/ 返回一个整数值的除法 % 取余数,除法剩下的余数 ++var var = var + 1 表达式的值为：var + 1 var++ var = var + 1 表达式的值为：var –var var = var - 1 表达式的值为：var - 1 var– var =var - 1 表达式的值为：var 关系运算符 操作符 含义 == 等于 != 不等于 &gt; 大于 &lt; 小于 &gt;= 大于或等于 &lt;= 小于或等于 类型测试操作符 操作符 含义 as 类型转换 is 当对象是相应类型时返回 true is! 当对象不是相应类型时返回 true 赋值操作符 操作符 含义 a = value ; 将 value 赋值给 a b??= value ; 如果 b为空，则将value的值赋值给b，否则，b保持不变 a op b a = a op b a += b a = a + b a -= b a = a - b 逻辑运算符 操作符 含义 !expr 反转以下表达式( 将 false 更改为 true , 反之亦然) || 逻辑或 &amp;&amp; 逻辑与 位运算符 操作符 含义 &amp; 与 | 或 ^ 异或 -expr 一元位补码 ( 0s 变为 1s , 1s 变为 0s ) &lt;&lt; 左移 &gt;&gt; 右移 条件表达式 如果条件为真，返回 expr1,否则返回 expr2 。 condition ? expr1 : expr2 如果 expr1 为非空,则返回其值，否则 计算并返回 expr2 的值 expr1 ?? expr2 级联操作 级联操作符 (…) 可以在同一个对象上连续调用多个函数以及访问成员变量。使用级联操作符可以避免创建临时变量， 并且写出来的代码看起来更加流畅 1234querySelector(&apos;#button&apos;) // Get an object. ..text = &apos;Confirm&apos; // Use its members. ..classes.add(&apos;important&apos;) ..onClick.listen((e) =&gt; window.alert(&apos;Confirmed!&apos;));]]></content>
+      <categories>
+        <category>flutter</category>
+      </categories>
+      <tags>
+        <tag>flutter</tag>
+        <tag>dart</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[kotlin练习 - Kotlin中的【 ?，?.，?:，!! ，filterNotNull 】含义]]></title>
     <url>%2F2020%2F01%2F05%2Fkotlin%2Fkotlin%E7%BB%83%E4%B9%A0-KotlinfilterNotNull%20%E5%90%AB%E4%B9%89%2F</url>
     <content type="text"><![CDATA[kotlin练习 - Kotlin中的【 ?，?.，?:，!! ，filterNotNull 】含义 ? 可空类型，表示当前是否对象可以为空 12var a:String =&quot;123&quot;a = null //编译报错 12var a:String? =&quot;123&quot;a = null //编译通过 ?. 安全调用操作符 1234var a:String? =&quot;123&quot;a = null //编译通过val length = a.length //编译报错 --- 变量&quot;a&quot;可能会为空val length = a?.length //编译通过 --- 如果 a 非空，就返回 a.length，否则返回 null ?: Elvis 操作符 123var a:String? =&quot;123&quot;a = null //编译通过val lenght = a?.length?:-1 // 当a不为空时，返回a.length，当a为空时，返回-1 !! 操作符，表示当前对象不为空的情况下执行，为空就抛出异常 123var a:String? =&quot;123&quot;a = null //编译通过val lenght = a!!.length //如果a不为空，则返回a.length，如果b为空，则抛出异常 NullPointerException filterNotNull 过滤非空元素 123val nullableList: List&lt;Int?&gt; = listOf(1, 2, null, 4)val intList: List&lt;Int&gt; = nullableList.filterNotNull() println(intList.toString())//[1, 2, 4]]]></content>
