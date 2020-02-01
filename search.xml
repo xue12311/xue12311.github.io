@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[flutter练习 - Dart流程控制语句]]></title>
+    <url>%2F2020%2F01%2F19%2Fflutter%2Fflutter%E7%BB%83%E4%B9%A0%20-Dart%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5%2F</url>
+    <content type="text"><![CDATA[flutter练习 - Dart流程控制语句 if 和 else 12345678void main() &#123; int x =10; if(x%2==0)&#123; print(&quot;$x 能被2整除&quot;); &#125;else&#123; print(&quot;$x 不能被2整除&quot;); &#125;&#125; for（循环） 1234567void main() &#123; var message = new StringBuffer(&quot;Hello Dart&quot;); for (var i = 0; i &lt; 10; i++) &#123; message.write(&quot;!&quot;); &#125; print(message);&#125; 123456void main() &#123; var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; for (var i = 0; i &lt; arr.length; i++) &#123; print(i); &#125;&#125; 1234567void main() &#123; var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; numbers.forEach((number) =&gt; print(number)); numbers.forEach((number) &#123; print(number); &#125;);&#125; while 和 do - while (循环) 1234567void main() &#123; var _temp = 0; while (_temp &lt; 5) &#123; print(&quot;这是一个while循环: $&#123;_temp.toString()&#125;&quot;); _temp++; &#125;&#125; 1234567void main() &#123; var _temp = 0; do &#123; print(&quot;这是一个while循环: $&#123;_temp.toString()&#125;&quot;); _temp++; &#125; while (_temp &lt; 5);&#125; break 和 continue 123456789void main() &#123; var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; for (var v in arr) &#123; if (v == 4) &#123; break;//跳出循环 &#125; print(v); &#125;&#125; 123456789void main() &#123; var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; for (var v in arr) &#123; if (v == 4) &#123; continue;//跳出本次循环 &#125; print(v); &#125;&#125; switch 和 case 1234567891011121314151617void main() &#123; var x = 10; switch (x % 3) &#123; case 0: print(&quot;余数: 0&quot;); break; case 1: print(&quot;余数: 1&quot;); break; case 2: print(&quot;余数: 2&quot;); break; default: print(&quot;其他&quot;); break; &#125;&#125; assert (断言) assert 语句不会影响生产环境中代码的执行，它仅仅在测试环境中起作用。在 Flutter 的调试模式下可以使用 assert。 如果assert条件为 false，则使用 assert 语句中断执行，并抛出一个断言错误异常AssertionError。 如果assert条件为 true，则继续执行下面的语句。]]></content>
+      <categories>
+        <category>flutter</category>
+      </categories>
+      <tags>
+        <tag>flutter</tag>
+        <tag>dart</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[flutter练习 - Dart常见运算符]]></title>
     <url>%2F2020%2F01%2F18%2Fflutter%2Fflutter%E7%BB%83%E4%B9%A0%20-Dart%E5%B8%B8%E8%A7%81%E8%BF%90%E7%AE%97%E7%AC%A6%2F</url>
     <content type="text"><![CDATA[flutter练习 - Dart常见运算符 算数运算符 操作符 含义 + 加 - 减 - expr 一元减号(负号) expr : 表达式的值 * 乘 / 除 ~/ 返回一个整数值的除法 % 取余数,除法剩下的余数 ++var var = var + 1 表达式的值为：var + 1 var++ var = var + 1 表达式的值为：var –var var = var - 1 表达式的值为：var - 1 var– var =var - 1 表达式的值为：var 关系运算符 操作符 含义 == 等于 != 不等于 &gt; 大于 &lt; 小于 &gt;= 大于或等于 &lt;= 小于或等于 类型测试操作符 操作符 含义 as 类型转换 is 当对象是相应类型时返回 true is! 当对象不是相应类型时返回 true 赋值操作符 操作符 含义 a = value ; 将 value 赋值给 a b??= value ; 如果 b为空，则将value的值赋值给b，否则，b保持不变 a op b a = a op b a += b a = a + b a -= b a = a - b 逻辑运算符 操作符 含义 !expr 反转以下表达式( 将 false 更改为 true , 反之亦然) || 逻辑或 &amp;&amp; 逻辑与 位运算符 操作符 含义 &amp; 与 | 或 ^ 异或 -expr 一元位补码 ( 0s 变为 1s , 1s 变为 0s ) &lt;&lt; 左移 &gt;&gt; 右移 条件表达式 如果条件为真，返回 expr1,否则返回 expr2 。 condition ? expr1 : expr2 如果 expr1 为非空,则返回其值，否则 计算并返回 expr2 的值 expr1 ?? expr2 级联操作 级联操作符 (…) 可以在同一个对象上连续调用多个函数以及访问成员变量。使用级联操作符可以避免创建临时变量， 并且写出来的代码看起来更加流畅 1234querySelector(&apos;#button&apos;) // Get an object. ..text = &apos;Confirm&apos; // Use its members. ..classes.add(&apos;important&apos;) ..onClick.listen((e) =&gt; window.alert(&apos;Confirmed!&apos;));]]></content>
