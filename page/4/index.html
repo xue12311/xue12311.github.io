@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="kotlin,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -81,18 +81,13 @@
 
 
 
-<meta name="description" content="kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义  ?  可空类型，表示当前是否对象可以为空 12var a:String =&amp;quot;123&amp;quot;a = null //编译报错 12var a:String? =&amp;quot;123&amp;quot;a = null //编译通过  ?.  安全调用操作符 1234var a:String?">
-<meta name="keywords" content="kotlin">
-<meta property="og:type" content="article">
-<meta property="og:title" content="kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义">
-<meta property="og:url" content="http://xue12311.github.io/2020/01/05/kotlin/kotlin练习-KotlinfilterNotNull 含义/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="学胖子的个人博客">
+<meta property="og:url" content="http://xue12311.github.io/page/4/index.html">
 <meta property="og:site_name" content="学胖子的个人博客">
-<meta property="og:description" content="kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义  ?  可空类型，表示当前是否对象可以为空 12var a:String =&amp;quot;123&amp;quot;a = null //编译报错 12var a:String? =&amp;quot;123&amp;quot;a = null //编译通过  ?.  安全调用操作符 1234var a:String?">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-05T09:15:48.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义">
-<meta name="twitter:description" content="kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义  ?  可空类型，表示当前是否对象可以为空 12var a:String =&amp;quot;123&amp;quot;a = null //编译报错 12var a:String? =&amp;quot;123&amp;quot;a = null //编译通过  ?.  安全调用操作符 1234var a:String?">
+<meta name="twitter:title" content="学胖子的个人博客">
 
 
 
@@ -122,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://xue12311.github.io/2020/01/05/kotlin/kotlin练习-KotlinfilterNotNull 含义/">
+  <link rel="canonical" href="http://xue12311.github.io/page/4/">
 
 
 
 
 
-  <title>kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义 | 学胖子的个人博客</title>
+  <title>学胖子的个人博客</title>
   
 
 
@@ -147,7 +142,8 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-right 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -272,9 +268,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -287,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/05/kotlin/kotlin练习-KotlinfilterNotNull 含义/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2018/12/16/kotlin/kotlin练习-if分支结构练习/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="学胖子">
@@ -304,7 +300,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/16/kotlin/kotlin练习-if分支结构练习/" itemprop="url">kotlin练习 - if分支结构练习</a></h1>
         
 
         <div class="post-meta">
@@ -316,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-05T16:57:36+08:00">
-                2020-01-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-16T18:54:00+08:00">
+                2018-12-16
               </time>
             
 
@@ -376,19 +374,39 @@
       
 
       
-        <h1><span id="kotlin练习-kotlin中的-filternotnull-含义"> kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</span></h1>
-<h2><span id="可空类型表示当前是否对象可以为空"> ?  可空类型，表示当前是否对象可以为空</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String =&quot;123&quot;</span><br><span class="line">a = null //编译报错</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br></pre></td></tr></table></figure>
-<h2><span id="安全调用操作符"> ?.  安全调用操作符</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val length = a.length //编译报错 --- 变量&quot;a&quot;可能会为空</span><br><span class="line">val length = a?.length //编译通过 --- 如果 a 非空，就返回 a.length，否则返回 null</span><br></pre></td></tr></table></figure>
-<h2><span id="elvis-操作符"> ?:  Elvis 操作符</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a?.length?:-1 // 当a不为空时，返回a.length，当a为空时，返回-1</span><br></pre></td></tr></table></figure>
-<h2><span id="操作符表示当前对象不为空的情况下执行为空就抛出异常"> !!  操作符，表示当前对象不为空的情况下执行，为空就抛出异常</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a!!.length //如果a不为空，则返回a.length，如果b为空，则抛出异常 NullPointerException</span><br></pre></td></tr></table></figure>
-<h2><span id="filternotnull-过滤非空元素"> filterNotNull  过滤非空元素</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val nullableList: List&lt;Int?&gt; = listOf(1, 2, null, 4)</span><br><span class="line">val intList: List&lt;Int&gt; = nullableList.filterNotNull() </span><br><span class="line">println(intList.toString())//[1, 2, 4]</span><br></pre></td></tr></table></figure>
+        
+          
+            <h1><span id="kotlin练习-if分支结构练习"> kotlin练习 - if分支结构练习</span></h1>
+<h2><span id="if-分支"> if 分支</span></h2>
+<ul>
+<li>常见形式：</li>
+</ul>
+<ol>
+<li>第一种形式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(expression)&#123;</span><br><span class="line">	statements...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>第二种形式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(expression)&#123;</span><br><span class="line">	statements...</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    statements...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>第三种形式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if(expression)&#123;</span><br><span class="line">	statements...</span><br><span class="line">&#125;else if(expression)&#123;</span><br><span class="line">    statements...</span><br><span class="line">&#125;</span><br><span class="line">...  //可以有零个或多个else判断</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>注意事项<br>
+通常建议不要省略if、else、else if后执行体的花括号{}，即使条件执行体只有一行代码，也要保留花括号，这样有更好的可读性，也可以避免发生错误的可能。</p>
+</li>
+<li>
+<p>表达式</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var str = if (age&gt;20) &quot;age大于20&quot; else if (age&lt;20) &quot;age小于20&quot;  else &quot;age等于20&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var age = 20</span><br><span class="line">var str = if (age &gt; 20) &#123;</span><br><span class="line">    println(&quot;age大于20的分支&quot;)</span><br><span class="line">    &quot;age大于20&quot;</span><br><span class="line">&#125; else if (age &lt; 20) &#123;</span><br><span class="line">    println(&quot;age小于20的分支&quot;)</span><br><span class="line">    &quot;age小于20&quot;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    println(&quot;age等于20的分支&quot;)</span><br><span class="line">    &quot;age等于20&quot;</span><br><span class="line">&#125;</span><br><span class="line">println(str)</span><br></pre></td></tr></table></figure>
 
+          
+        
       
     </div>
     
@@ -403,40 +421,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/kotlin/" rel="tag"># kotlin</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/07/21/kotlin/kotlin练习-常见内联扩展函数学习/" rel="next" title="kotlin练习 - 常见内联扩展函数学习">
-                <i class="fa fa-chevron-left"></i> kotlin练习 - 常见内联扩展函数学习
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/18/flutter/flutter练习 -Dart常见运算符/" rel="prev" title="flutter练习 - Dart常见运算符">
-                flutter练习 - Dart常见运算符 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -446,11 +438,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
 
 
           </div>
@@ -458,10 +453,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -482,17 +473,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -579,22 +561,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text"> kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text"> ?  可空类型，表示当前是否对象可以为空</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text"> ?.  安全调用操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text"> ?:  Elvis 操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text"> !!  操作符，表示当前对象不为空的情况下执行，为空就抛出异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text"> filterNotNull  过滤非空元素</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -737,10 +703,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

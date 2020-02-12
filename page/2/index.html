@@ -283,6 +283,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/07/05/android/EventBus封装/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/05/android/EventBus封装/" itemprop="url">EventBus封装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-05T16:38:23+08:00">
+                2019-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="eventbus封装"> EventBus封装</span></h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">package com.example.eventbus.utils</span><br><span class="line"></span><br><span class="line">import com.example.gaokao.event.MessageEvent</span><br><span class="line">import org.greenrobot.eventbus.EventBus</span><br><span class="line">import org.greenrobot.eventbus.meta.SubscriberInfoIndex</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> * @author: xue</span><br><span class="line"> * @description EventBus封装</span><br><span class="line"> * @date: 2019/7/5</span><br><span class="line"> */</span><br><span class="line">class EventBusUtil &#123;</span><br><span class="line">    companion object &#123;</span><br><span class="line">        /**</span><br><span class="line">         * 使用索引加速</span><br><span class="line">         * 建议在Application中使用</span><br><span class="line">         */</span><br><span class="line">        fun installIndex(index: SubscriberInfoIndex) &#123;</span><br><span class="line">            EventBus.builder().addIndex(index).installDefaultEventBus()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 注册</span><br><span class="line">         */</span><br><span class="line">        fun register(subscribe: Any) &#123;</span><br><span class="line">            if (!EventBus.getDefault().isRegistered(subscribe)) &#123;</span><br><span class="line">                EventBus.getDefault().register(subscribe)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 取消注册</span><br><span class="line">         */</span><br><span class="line">        fun unregister(subscribe: Any) &#123;</span><br><span class="line">            EventBus.getDefault().unregister(subscribe)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 发布一个订阅事件</span><br><span class="line">         * 必须先注册，才能接收到发布的事件，有点类似于 startActivityForResult（）方法</span><br><span class="line">         */</span><br><span class="line">        fun postEvent(event: MessageEvent) &#123;</span><br><span class="line">            EventBus.getDefault().post(event)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 发布粘性事件（可以先发布事件，在注册后在接收）</span><br><span class="line">         * 粘性事件将最新的信息保存在内存中，取消原始消息，执行最新的消息；</span><br><span class="line">         * 只有注册后，才能接收消息，如果没有注册，消息将保留在内存中。</span><br><span class="line">         */</span><br><span class="line">        fun postStickyEvent(event: MessageEvent) &#123;</span><br><span class="line">            EventBus.getDefault().postSticky(event)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 移除指定的粘性订阅事件</span><br><span class="line">         *  @param eventType 事件类型</span><br><span class="line">         */</span><br><span class="line">        fun &lt;T&gt; removeStickyEvent(eventType: Class&lt;T&gt;) &#123;</span><br><span class="line">            var stickyEvent: T = EventBus.getDefault().getStickyEvent(eventType)</span><br><span class="line">            if (stickyEvent != null) &#123;</span><br><span class="line">                EventBus.getDefault().removeStickyEvent(stickyEvent)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        /**</span><br><span class="line">         * 移除指定的粘性订阅事件</span><br><span class="line">         *  @param eventType 事件类型</span><br><span class="line">         */</span><br><span class="line">        fun removeStickyEvent(eventType:Any) &#123;</span><br><span class="line">            var stickyEvent = EventBus.getDefault().getStickyEvent(eventType as Class&lt;Any&gt;?)</span><br><span class="line">            if (stickyEvent != null) &#123;</span><br><span class="line">                EventBus.getDefault().removeStickyEvent(stickyEvent)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 移除所有的粘性订阅事件</span><br><span class="line">         */</span><br><span class="line">        fun removeAllStickyEvents()&#123;</span><br><span class="line">            EventBus.getDefault().removeAllStickyEvents()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 取消事件</span><br><span class="line">         * 优先级高的订阅者可以终止事件往下传递</span><br><span class="line">         * 只有在事件通过时才能调用（即在事件接收方法中调用）</span><br><span class="line">         *  @param event 事件</span><br><span class="line">         */</span><br><span class="line">        fun cancelEventDelivery(event:Any)&#123;</span><br><span class="line">            EventBus.getDefault().cancelEventDelivery(event)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 获取 eventbus 单例</span><br><span class="line">         */</span><br><span class="line">        fun getEventBus():EventBus&#123;</span><br><span class="line">            return EventBus.getDefault()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/06/30/kotlin/kotlin练习-协程/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1252,168 +1394,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2018/12/29/flutter/flutter练习 -Container布局/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/29/flutter/flutter练习 -Container布局/" itemprop="url">flutter练习 - Container控件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-29T13:11:23+08:00">
-                2018-12-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index">
-                    <span itemprop="name">flutter</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="flutter练习-container控件"> flutter练习 - Container控件</span></h1>
-<h2><span id="属性"> 属性</span></h2>
-<p><strong>key：</strong> Container唯一标识符，用于查找更新。</p>
-<p><strong>alignment：</strong> 控制child的对齐方式，如果container或者container父节点尺寸大于child的尺寸，这个属性设置会起作用，有很多种对齐方式。</p>
-<p><strong>padding：</strong> decoration内部的空白区域，如果有child的话，child位于padding内部。padding与margin的不同之处在于，padding是包含在content内，而margin则是外部边界，设置点击事件的话，padding区域会响应，而margin区域不会响应。</p>
-<p><strong>color：</strong> 用来设置container背景色，如果foregroundDecoration设置的话，可能会遮盖color效果。</p>
-<p><strong>decoration：</strong> 绘制在child后面的装饰，设置了decoration的话，就不能设置color属性，否则会报错，此时应该在decoration中进行颜色的设置。</p>
-<p><strong>foregroundDecoration：</strong> 绘制在child前面的装饰。</p>
-<p><strong>width：</strong> container的宽度，设置为double.infinity可以强制在宽度上撑满，不设置，则根据<br>
-child和父节点两者一起布局。</p>
-<p><strong>height：</strong> container的高度，设置为double.infinity可以强制在高度上撑满。</p>
-<p><strong>constraints：</strong> 添加到child上额外的约束条件。</p>
-<p><strong>margin：</strong> 围绕在decoration和child之外的空白区域，不属于内容区域。</p>
-<p><strong>transform：</strong> 设置container的变换矩阵，类型为Matrix4。</p>
-<p><strong>child：</strong> container中的内容widget。</p>
-<h2><span id="实例代码"> 实例代码</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">  runApp(new myApp());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class myApp extends StatelessWidget &#123;</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return MaterialApp(</span><br><span class="line">      title: &quot;text&quot;,</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        appBar: AppBar(</span><br><span class="line">          title: Text(&quot;Container练习&quot;),</span><br><span class="line">        ),</span><br><span class="line">        body: Container(</span><br><span class="line">          constraints: new BoxConstraints.expand(</span><br><span class="line">            height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 200.0,</span><br><span class="line">          ),</span><br><span class="line">          decoration: new BoxDecoration(</span><br><span class="line">            //边框</span><br><span class="line">            border: new Border.all(width: 2.0, color: Colors.red),</span><br><span class="line">            //背景色</span><br><span class="line">            color: Colors.grey,</span><br><span class="line">            //边框圆角</span><br><span class="line">            borderRadius: new BorderRadius.all(new Radius.circular(20.0)),</span><br><span class="line">            image: new DecorationImage(</span><br><span class="line">              image: new NetworkImage(</span><br><span class="line">              &quot;http://www.zhangjiaxue.cn/images/avatar.jpg&quot;),</span><br><span class="line">              centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">          padding: const EdgeInsets.all(8.0),</span><br><span class="line">          alignment: Alignment.center,</span><br><span class="line">          child: new Text(</span><br><span class="line">            &apos;Hello World&apos;,</span><br><span class="line">              style: Theme.of(context)</span><br><span class="line">                  .textTheme</span><br><span class="line">                  .display1</span><br><span class="line">                  .copyWith(color: Colors.blue),</span><br><span class="line">          ),</span><br><span class="line">          //变换矩阵</span><br><span class="line">          transform: new Matrix4.rotationZ(0.3),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1461,7 +1446,7 @@ child和父节点两者一起布局。</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1483,7 +1468,7 @@ child和父节点两者一起布局。</p>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
