@@ -283,6 +283,309 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/06/29/ffmpeg/FFmpeg常用命令/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/29/ffmpeg/FFmpeg常用命令/" itemprop="url">FFmpeg常用命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-29T22:19:46+08:00">
+                2020-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/" itemprop="url" rel="index">
+                    <span itemprop="name">ffmpeg</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1><span id="ffmpeg常用命令"> FFmpeg常用命令</span></h1>
+<h3><span id="改变帧率码率和文件大小"> 改变帧率，码率和文件大小</span></h3>
+<ul>
+<li>帧率</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//改变视频 input.mp4 的帧率，生成帧率为30的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -r 30 output.mp4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>码率</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//改变视频 input.mp4 的帧率，生成码率为 1.5 Mb/s(兆比特)的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -b 1.5M output.mp4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最大输出文件大小</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//改变视频 input.mp4 的文件大小，生成文件大小为10MB的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -fs 10MB output.mp4</span><br></pre></td></tr></table></figure>
+<h3><span id="调整视频分辨率"> 调整视频分辨率</span></h3>
+<ul>
+<li>分辨率：w*h （w:像素宽度，h:像素高度）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//改变视频 input.mp4 的分辨率，生成分辨率为320*240的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -s 320*240 output.mp4</span><br><span class="line"></span><br><span class="line">//改变视频 input.mp4 的分辨率(使用 scale filter 替代 -s )，生成分辨率为 320*240 的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -vf scale=320:240 output.mp4</span><br><span class="line"></span><br><span class="line">//改变视频 input.mp4 的分辨率，生成分辨率为640*480的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -s 640*480 output.mp4</span><br><span class="line"></span><br><span class="line">//改变视频 input.mp4 的分辨率，生成分辨率为 vga (640*480)的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -s vga output.mp4</span><br></pre></td></tr></table></figure>
+<h3><span id="裁剪-填充视频"> 裁剪、填充视频</span></h3>
+<ul>
+<li>视频裁剪</li>
+</ul>
+<p><img src="/2020/06/29/ffmpeg/FFmpeg常用命令/ff_4_2.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//裁剪矩形框---靠左1/3</span><br><span class="line">ffmpeg -i input.mp4 -vf crop=iw/3:ih:0:0 output.mp4</span><br><span class="line"></span><br><span class="line">//裁剪矩形框---靠中1/3</span><br><span class="line">ffmpeg -i input.mp4 -vf crop=iw/3:ih:iw/3:0 output.mp4</span><br><span class="line"></span><br><span class="line">//裁剪矩形框---靠右1/3</span><br><span class="line">ffmpeg -i input.mp4 -vf crop=iw/3:ih:iw/3*2:0 output.mp4</span><br><span class="line"></span><br><span class="line">//裁剪中间的一半(默认从输入视频的中间区域开始)</span><br><span class="line">ffmpeg -i input.mp4 -vf crop=iw/2:ih/2 output.mp4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>视频填充</li>
+</ul>
+<p><img src="/2020/06/29/ffmpeg/FFmpeg常用命令/ff_5_2.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//改变视频的宽高比(4:3)，生成宽高比为16:9的新视频 </span><br><span class="line">ffmpeg -i input -vf pad=ih*16/9:ih:(ow-iw)/2:0:color output</span><br><span class="line"></span><br><span class="line">//改变视频的宽高比(4:3)，生成宽高比为16:9的新视频(颜色默认:黑色) </span><br><span class="line">ffmpeg -i input -vf pad=ih*16/9:ih:(ow-iw)/2:0 output</span><br><span class="line"></span><br><span class="line">//改变视频的宽高比(16:9)，生成宽高比为4:3的新视频 </span><br><span class="line">ffmpeg -i input -vf pad=iw:iw*3/4:0:(oh-ih)/2:0:color output</span><br><span class="line"></span><br><span class="line">ffmpeg -i input -vf pad=iw:iw*3/4:0:(oh-ih)/2:0 output</span><br></pre></td></tr></table></figure>
+<h3><span id="翻转-旋转视频"> 翻转、旋转视频</span></h3>
+<ul>
+<li>视频翻转</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//水平翻转</span><br><span class="line">ffplay -f lavfi -i testsrc -vf hflip</span><br><span class="line"></span><br><span class="line">//垂直翻转</span><br><span class="line">ffplay -f lavfi -i testsrc -vf vflip</span><br></pre></td></tr></table></figure>
+<ul>
+<li>视频旋转<br>
+参数：transpose<br>
+0 : 逆时针方向旋转90° 并且垂直翻转<br>
+1 : 顺时针方向旋转90°<br>
+2 : 逆时针方向旋转90°<br>
+3 : 顺时针方向旋转90° 并且垂直翻转</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//逆时针方向旋转90° 并且垂直翻转</span><br><span class="line">ffmpeg -i input.mp4 -vf transpose=0 output.mp4</span><br><span class="line"></span><br><span class="line">//顺时针方向旋转90° </span><br><span class="line">ffmpeg -i input.mp4 -vf transpose=1 output.mp4</span><br><span class="line"></span><br><span class="line">//逆时针方向旋转90° </span><br><span class="line">ffmpeg -i input.mp4 -vf transpose=2 output.mp4</span><br><span class="line"></span><br><span class="line">//顺时针方向旋转90° 并且垂直翻转</span><br><span class="line">ffmpeg -i input.mp4 -vf transpose=3 output.mp4</span><br></pre></td></tr></table></figure>
+<h3><span id="模糊-锐化视频"> 模糊、锐化视频</span></h3>
+<ul>
+<li>模糊视频</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//模糊视频 input.mp4 ，生成一个luma半径为1.5,luma权值为1的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -vf boxblur=1.5:1 output.mp4</span><br><span class="line"></span><br><span class="line">//模糊视频 input.mp4 ，生成一个luma半径为1,luma亮度为0.8,亮度阈值为0的新视频 output.mp4 (不影响图像的轮廓,使用smartblur滤波器处理)</span><br><span class="line">ffmpeg -i input.mp4 -vf smartblur=5:0.8:0 output.mp4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>锐化视频 (unsharp 滤波器)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//锐化视频 input.mp4 ，生成一个新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -vf unsharp output.mp4</span><br><span class="line"></span><br><span class="line">//锐化视频 input.mp4 ，生成一个 5*5的矩形luma 强度为 1 色度值为-2 的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -vf unsharp=6:6:-2 output.mp4</span><br><span class="line"></span><br><span class="line">//增强去噪 (denoise3d视频滤波器)</span><br><span class="line">ffmpeg -i input.mp4 -vf mp=denoise3d output.mp4</span><br><span class="line"></span><br><span class="line">//视频降噪 (hqdn3d过滤器)</span><br><span class="line">ffmpeg -i input.mp4 -vf hqdn3d output.mp4</span><br></pre></td></tr></table></figure>
+<h3><span id="画中画"> 画中画</span></h3>
+<p><img src="/2020/06/29/ffmpeg/FFmpeg常用命令/ff_6_2.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//视频叠加 input1:视频背景,input2:前景图</span><br><span class="line">ffmpeg -i input1 -i input2 -filter_complex overlay=x:y output</span><br><span class="line"></span><br><span class="line">ffmpeg -i input1 -vf movie=input2[logo];[in][logo]overlay=x:y output</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo到视频左上角，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -i logo.png -filter_complex overlay output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo到视频右上角，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -i logo.png -filter_complex overlay=W-w output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo到视频右下角，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -i logo.png -filter_complex overlay=W-w:H-h output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo到视频左下角，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -i logo.png -filter_complex overlay=0:H-h output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo(5s后显示)，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -itsoffset 5 -i logo.png -filter_complex overlay output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加计时器，生成新视频 output.mp4</span><br><span class="line"></span><br><span class="line">//生成计时器</span><br><span class="line">ffmpeg -f lavfi -i testsrc -vf crop=61:52:224:94 -t 142 timer.ogg</span><br><span class="line"></span><br><span class="line">//添加计时器到视频中</span><br><span class="line">ffmpeg -i input.mp4 -i timer.ogg -filter_complex overlay=451 output.mp4</span><br><span class="line"></span><br><span class="line">//添加计时器到视频中(将计时器缩小到原来的1/2,并放到底部)</span><br><span class="line">ffmpeg -i input.mp4 -vf movie=timer.ogg,scale=15:14[tm];[in][tm] overlay=248:371 output.mp4</span><br></pre></td></tr></table></figure>
+<h3><span id="在视频上添加文字"> 在视频上添加文字</span></h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//字体文件(arial.ttf)复制到当前目录下</span><br><span class="line">ffplay -f lavfi -i color=c=white -vf drawtext=fontfile=arial.ttf:text=Welcome</span><br><span class="line"></span><br><span class="line">//文字位置(x:水平方向,y:垂直方向)</span><br><span class="line">//tw:文本宽度,w:帧宽,(w-tw)/2:水平居中,w-tw:文本对齐到右边</span><br><span class="line">//th:文本高度,w:帧高,(h-th)/2:垂直居中,h-th:文本对齐到底部</span><br><span class="line">//drawtext(滤镜):如果其中有空格,将包含在成对单引号或成对双引号中</span><br><span class="line">ffplay -f lavfi -i color=c=white -vf drawtext=&quot;fontfile=arial.ttf:text=&apos;hello world&apos;:x=(w-tw)/2:y=(h-th)/2&quot;</span><br><span class="line"></span><br><span class="line">//fontcolor:文字颜色,fontsize:文字大小,color:背景颜色</span><br><span class="line">//背景色:蓝色,字体颜色:黄色,字体大小:30</span><br><span class="line">ffplay -f lavfi -i color=c=blue -vf drawtext=&quot;fontfile=arial.ttf:text=&apos;hello world&apos;:x=(w-tw)/2:y=(h-th)/2:fontcolor=yellow:fontsize=30&quot;</span><br><span class="line"></span><br><span class="line">//水平方向上的文字运动</span><br><span class="line">//t:时间(单位:s),n:移动像素</span><br><span class="line">//从右往左方向向上移动,每秒移动n个像素: x = w - t*n</span><br><span class="line">//从左往右方向向上移动,每秒移动n个像素: x = w + t*n</span><br><span class="line"></span><br><span class="line">//顶部移动</span><br><span class="line">ffmpeg -f lavfi -i color=c=blue -vf drawtext=&quot;fontfile=arial.ttf:text=&apos;hello world&apos;:x=w-t*50:fontcolor=yellow:fontsize=30&quot; output</span><br><span class="line"></span><br><span class="line">//底部滚动</span><br><span class="line">ffmpeg -f lavfi -i color=c=blue -vf drawtext=&quot;fontfile=arial.ttf:textfile=info.txt:x=w-t*50:y=h-th:fontcolor=yellow:fontsize=30&quot; output</span><br><span class="line"></span><br><span class="line">//垂直方向文字滚动</span><br><span class="line">ffmpeg -i input.mp4 -vf drawtext=&quot;fontfile=arial.ttf:textfile=Credits:x=(w-tw)/2:y=h-t*100:fontcolor=white:fontsize=30&quot; output.mp4</span><br></pre></td></tr></table></figure>
+<h3><span id="视频文件格式转化"> 视频文件格式转化</span></h3>
+<p><img src="/2020/06/29/ffmpeg/FFmpeg常用命令/ff_7_2.png" alt=""></p>
+<p><img src="/2020/06/29/ffmpeg/FFmpeg常用命令/ff_8_2.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th>格式（视频）</th>
+<th>编解码器</th>
+<th>其他数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.avi</td>
+<td>mpeg4</td>
+<td>mpeg4 (Simple profile), yuv420p; audio: mp3</td>
+</tr>
+<tr>
+<td>.flv</td>
+<td>flv1</td>
+<td>yuv420p; audio: mp3</td>
+</tr>
+<tr>
+<td>.mkv</td>
+<td>h264</td>
+<td>h264 (High), yuvj420p; audio: vorbis codec, fltp sample format</td>
+</tr>
+<tr>
+<td>.mov</td>
+<td>h264</td>
+<td>h264 (High), yuvj420p; audio: aac (mp4a)</td>
+</tr>
+<tr>
+<td>.mp4</td>
+<td>h264</td>
+<td>h264 (High), yuvj420p; audio: aac (mp4a)</td>
+</tr>
+<tr>
+<td>.mpg</td>
+<td>mpeg1video</td>
+<td>yuv420p; audio: mp2</td>
+</tr>
+<tr>
+<td>.ogg</td>
+<td>theora</td>
+<td>yuv422p, bitrate very low; audio excluded during conversion</td>
+</tr>
+<tr>
+<td>.ts</td>
+<td>mpeg2video</td>
+<td>yuv422p; audio: mp2</td>
+</tr>
+<tr>
+<td>.webm</td>
+<td>vp8</td>
+<td>yuv420p; audio: vorbis codec, fltp sample format</td>
+</tr>
+<tr>
+<td><strong>格式(音频)</strong></td>
+<td><strong>编解码器</strong></td>
+<td><strong>其他数据</strong></td>
+</tr>
+<tr>
+<td>.aac</td>
+<td>aac</td>
+<td>libvo_aacenc, bitrate 128 kb/s</td>
+</tr>
+<tr>
+<td>.flac</td>
+<td>flac</td>
+<td>FLAC (Free Lossless Audio Codec), bitrate 128 kb/s</td>
+</tr>
+<tr>
+<td>.m4a</td>
+<td>aac</td>
+<td>mp4a, bitrate 128 kb/s</td>
+</tr>
+<tr>
+<td>.mp2</td>
+<td>mp2</td>
+<td>MPEG Audio Layer 2, bitrate 128 kb/s</td>
+</tr>
+<tr>
+<td>.mp3</td>
+<td>mp3</td>
+<td>libmp3lame, bitrate 128 kb/s</td>
+</tr>
+<tr>
+<td>.wav</td>
+<td>pcm_s16le</td>
+<td>PCM (Pulse Code Modulation), uncompressed</td>
+</tr>
+<tr>
+<td>.wma</td>
+<td>wmav2</td>
+<td>Windows Media Audio</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>重写相同命名的输出文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i input.avi output.mp4</span><br></pre></td></tr></table></figure>
+<h3><span id="时间操作"> 时间操作</span></h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//通过视频 input.mp4 ，生成一个时长为120s的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -t 120 output.mp4</span><br><span class="line"></span><br><span class="line">//通过视频 input.mp4 ，生成一个时长为30s帧率为25的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -t 30 -r 25 output.mp4</span><br><span class="line"></span><br><span class="line">//设置一个10分钟25fps的视频</span><br><span class="line">ffmpeg -i video.avi -vframes 15000 video_10_minute.avi</span><br><span class="line"></span><br><span class="line">//设置延迟转换 (从10s开始进行转换)</span><br><span class="line">ffmpeg -i input.avi -ss 10 output.mp4</span><br><span class="line">//提取媒体文件中部分内容 (提取视频第5分钟的内容)</span><br><span class="line">ffmpeg -i video.avi -ss 240 -t 60  clip_5th_minute.mpg</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/02/12/flutter/flutter练习 -Future与FutureBuilder实例/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1150,285 +1453,6 @@ expr1 ?? expr2</li>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/07/21/kotlin/kotlin练习-常见内联扩展函数学习/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/21/kotlin/kotlin练习-常见内联扩展函数学习/" itemprop="url">kotlin练习 - 常见内联扩展函数学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-21T12:16:01+08:00">
-                2019-07-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">kotlin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><a href="#kotlin%E7%BB%83%E4%B9%A0---%E5%B8%B8%E8%A7%81%E5%86%85%E8%81%94%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0">kotlin练习 - 常见内联扩展函数学习</a>
-<ul>
-<li><a href="#let">let</a></li>
-<li><a href="#with">with</a></li>
-<li><a href="#apply">apply</a></li>
-<li><a href="#run">run</a></li>
-<li><a href="#repeat">repeat</a></li>
-<li><a href="#also">also</a></li>
-<li><a href="#takeif">takeIf</a></li>
-<li><a href="#takeunless">takeUnless</a></li>
-</ul>
-</li>
-</ul>
-<h1><span id="kotlin练习-常见内联扩展函数学习"> kotlin练习 - 常见内联扩展函数学习</span></h1>
-<h2><span id="let"> let</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun &lt;T, R&gt; T.let(block: (T) -&gt; R): R</p>
-</li>
-<li>
-<p>功能：</p>
-<p>调用对象（T）的let函数，则该对象为函数的参数。在函数内可以通过 it指代该对象。返回值为函数的最后一行或指定return表达式。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    val data = &quot;孙悟空&quot;</span><br><span class="line">    data.let &#123;</span><br><span class="line">        //在函数体内使用it替代object对象去访问其公有的属性和方法</span><br><span class="line">        println(it.toString())</span><br><span class="line">    &#125;</span><br><span class="line">    data?.let &#123;</span><br><span class="line">        // 假如data不为null，代码会执行到此处</span><br><span class="line">        println(it.toString())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="with"> with</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun &lt;T, R&gt; with(receiver: T, block: T.() -&gt; R): R</p>
-</li>
-<li>
-<p>功能：</p>
-<p>将对象作为函数的参数，在函数内可以通过this指代该对象。返回值为函数的最后一行或return表达式。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = with(mutableListOf&lt;String&gt;()) &#123;</span><br><span class="line">        add(&quot;1&quot;)</span><br><span class="line">        add(&quot;2&quot;)</span><br><span class="line">        add(&quot;3&quot;)</span><br><span class="line">        //返回值为函数的最后一行或return表达式</span><br><span class="line">        this</span><br><span class="line">    &#125;</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var paint = Paint()</span><br><span class="line">    with(paint) &#123;</span><br><span class="line">        color = Color.BLACK</span><br><span class="line">        strokeWidth = 1.0f</span><br><span class="line">        textSize = 18.0f</span><br><span class="line">        isAntiAlias = true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="apply"> apply</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.apply(block: T.() -&gt; Unit): T</p>
-</li>
-<li>
-<p>功能：</p>
-<p>调用对象的apply函数，在函数范围内，可以任意调用该对象的任意方法，并返回该对象。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    // apply适用于那些对象初始化需要给其属性赋值的情况。</span><br><span class="line">    var list = mutableListOf&lt;String&gt;().apply &#123;</span><br><span class="line">        add(&quot;1&quot;)</span><br><span class="line">        add(&quot;2&quot;)</span><br><span class="line">        add(&quot;3&quot;)</span><br><span class="line">        //apply返回的是对象本身</span><br><span class="line">    &#125;</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">//apply需要先初始化</span><br><span class="line">    var paint = Paint().apply &#123;</span><br><span class="line">        color = Color.BLACK</span><br><span class="line">        strokeWidth = 1.0f</span><br><span class="line">        textSize = 18.0f</span><br><span class="line">        isAntiAlias = true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="run"> run</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<ol>
-<li>fun run(block: () -&gt; R): R</li>
-<li>fun &lt;T, R&gt; T.run(block: T.() -&gt; R): R</li>
-</ol>
-</li>
-<li>
-<p>功能：</p>
-<p>调用run函数返回值为函数体最后一行，或return表达式。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = mutableListOf&lt;String&gt;().run &#123;</span><br><span class="line">        add(&quot;1&quot;)</span><br><span class="line">        add(&quot;2&quot;)</span><br><span class="line">        add(&quot;3&quot;)</span><br><span class="line">        //run返回的是函数体最后一行，或return表达式</span><br><span class="line">        this</span><br><span class="line">    &#125;</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var name = run &#123;</span><br><span class="line">        &quot;孙悟空&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    println(name)//孙悟空</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="repeat"> repeat</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun repeat(times: Int, action: (Int) -&gt; Unit)</p>
-</li>
-<li>
-<p>功能：</p>
-<p>重复执行action函数times次，times从0开始</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">   repeat(3)&#123;</span><br><span class="line">       //从0开始循环3次</span><br><span class="line">       println(&quot;repeat:第$&#123;it&#125;次&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">    for(i in 0..2)&#123;</span><br><span class="line">       println(&quot;for:第$&#123;i&#125;次&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    (0..2).forEach&#123;</span><br><span class="line">       println(&quot;forEach:第$&#123;it&#125;次&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="also"> also</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.also(block: (T) -&gt; Unit): T</p>
-</li>
-<li>
-<p>功能：</p>
-<p>调用对象的also函数，在函数块内可以通过 it指代该对象,返回值为该对象本身。（注意其和let函数的区别，let返回的是最后一行，also返回的是对象本身）</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = mutableListOf&lt;String&gt;().also &#123;</span><br><span class="line">        it.add(&quot;1&quot;)</span><br><span class="line">        it.add(&quot;2&quot;)</span><br><span class="line">        it.add(&quot;3&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="takeif"> takeIf</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.takeIf(predicate: (T) -&gt; Boolean): T?</p>
-</li>
-<li>
-<p>功能：</p>
-<p>传递一个函数参数，如果函数结果为true，返回T对象，否则返回null。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = mutableListOf&lt;String&gt;(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;).takeIf &#123;</span><br><span class="line">        it.size &gt; 3//满足条件则返回it,否则返回null</span><br><span class="line">    &#125;</span><br><span class="line">    if (list != null) &#123;</span><br><span class="line">        println(list.toString())</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        println(&quot;list为空&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="takeunless"> takeUnless</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.takeUnless(predicate: (T) -&gt; Boolean): T?</p>
-</li>
-<li>
-<p>功能：</p>
-<p>与takeIf相反，参数函数返回false时返回T对象，否则返回null</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = mutableListOf&lt;String&gt;(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;).takeUnless &#123;</span><br><span class="line">        it.size &gt; 3//不满足条件则返回it,否则返回null</span><br><span class="line">    &#125;</span><br><span class="line">    if (list != null) &#123;</span><br><span class="line">        println(list.toString())</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        println(&quot;list为空&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1481,7 +1505,7 @@ expr1 ?? expr2</li>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1492,7 +1516,7 @@ expr1 ?? expr2</li>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1503,7 +1527,7 @@ expr1 ?? expr2</li>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
