@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xue12311.github.io/"/>
-  <updated>2020-06-30T04:44:25.858Z</updated>
+  <updated>2020-07-02T03:22:08.530Z</updated>
   <id>http://xue12311.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FileUtils帮助类</title>
+    <link href="http://xue12311.github.io/2020/07/02/android/FileUtils%E5%B8%AE%E5%8A%A9%E7%B1%BB/"/>
+    <id>http://xue12311.github.io/2020/07/02/android/FileUtils帮助类/</id>
+    <published>2020-07-02T03:14:49.052Z</published>
+    <updated>2020-07-02T03:22:08.530Z</updated>
+    
+    <content type="html"><![CDATA[<h3><span id="fileutils帮助类"> FileUtils帮助类</span></h3><p>在<a href="https://github.com/Blankj/AndroidUtilCode" target="_blank" rel="noopener">AndroidUtilCode</a>的基础下使用</p><ul><li>将assets文件夹中的内容写入本地</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 将assets文件夹中的内容写入本地</span><br><span class="line">  * @param dirName String 文件夹名称</span><br><span class="line">  * @param fileName String 文件名称及后缀名</span><br><span class="line">  * @return String?  SDCard/Android/data/应用包名/files/ 目录/文件</span><br><span class="line">  */</span><br><span class="line"> private suspend fun getFilePath(dirName: String, fileName: String): String? =</span><br><span class="line">     withContext(Dispatchers.IO) &#123;</span><br><span class="line">         //创建文件夹</span><br><span class="line">         val mFileDir = Utils.getApp().applicationContext.getExternalFilesDir(dirName)</span><br><span class="line">         if (mFileDir != null) &#123;</span><br><span class="line">             //创建文件</span><br><span class="line">             val mFilePath: String = File(mFileDir, fileName).absolutePath</span><br><span class="line">             if (FileUtils.isFileExists(mFilePath)) &#123;</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">                 //将assets文件夹中的内容写入本地</span><br><span class="line">             &#125; else if (ResourceUtils.copyFileFromAssets(fileName, mFilePath)) &#123;</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">             &#125; else &#123;</span><br><span class="line">                 return@withContext null</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         return@withContext null</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3&gt;&lt;span id=&quot;fileutils帮助类&quot;&gt; FileUtils帮助类&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;在&lt;a href=&quot;https://github.com/Blankj/AndroidUtilCode&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;
+      
+    
+    </summary>
+    
+      <category term="android" scheme="http://xue12311.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="http://xue12311.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>视频时长(Long)转字符串(String)_Java</title>
+    <link href="http://xue12311.github.io/2020/07/02/android/%E8%A7%86%E9%A2%91%E6%97%B6%E9%95%BF(Long)%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2(String)_Java/"/>
+    <id>http://xue12311.github.io/2020/07/02/android/视频时长(Long)转字符串(String)_Java/</id>
+    <published>2020-07-02T03:09:52.715Z</published>
+    <updated>2020-07-02T03:13:03.315Z</updated>
+    
+    <content type="html"><![CDATA[<h3><span id="视频时长long转字符串string_java"> 视频时长(Long)转字符串(String)_Java</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">   * 时长转字符</span><br><span class="line">   * @param mDuration 时长（毫秒）</span><br><span class="line">   * @param isMillisecond 是否需要毫秒，true:需要，false:不用</span><br><span class="line">   * @return </span><br><span class="line">   */</span><br><span class="line">  public static String getTimeDurationString(@NonNull Long mDuration, @NonNull Boolean isMillisecond) &#123;</span><br><span class="line">      Long hours = 0L, minutes = 0L, seconds = 0L, millisecond = null;</span><br><span class="line">      if (isMillisecond) &#123;</span><br><span class="line">          //毫秒</span><br><span class="line">          millisecond = mDuration % TimeConstants.SEC;</span><br><span class="line">      &#125;</span><br><span class="line">      hours = mDuration / TimeConstants.HOUR;</span><br><span class="line">      minutes = (mDuration / TimeConstants.MIN)-(hours*60);</span><br><span class="line">      seconds = (mDuration / TimeConstants.SEC)-(minutes*60)-(hours*3600);</span><br><span class="line">      String str_duration = getTimeString(hours, minutes, seconds, millisecond);</span><br><span class="line">      return str_duration;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  private static String getTimeString(@NonNull Long hours, @NonNull Long minutes, @NonNull Long seconds, Long millisecond) &#123;</span><br><span class="line">      if (millisecond != null) &#123;</span><br><span class="line">          return String.format(&quot;%02d:%02d:%02d.%02d&quot;, hours, minutes, seconds, millisecond);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">          return String.format(&quot;%02d:%02d:%02d&quot;, hours, minutes, seconds);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3&gt;&lt;span id=&quot;视频时长long转字符串string_java&quot;&gt; 视频时长(Long)转字符串(String)_Java&lt;/span&gt;&lt;/h3&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
+      
+    
+    </summary>
+    
+      <category term="android" scheme="http://xue12311.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="http://xue12311.github.io/tags/android/"/>
+    
+      <category term="java" scheme="http://xue12311.github.io/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>开发注意事项</title>
