@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Google Play应用上架流程]]></title>
+    <title></title>
     <url>%2F2020%2F11%2F18%2Fother%2F%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play%2F</url>
     <content type="text"><![CDATA[25美金 创建应用 选择默认语言 （最好选择英语），填写应用名称 商品详情（默认选中） 需要填写 App简介和详细描述内容（需要和默认语言一致） 上传APP图片（屏幕截图、高分辨率图标、置顶大图） 选择应用类型和类别，填写公司官网，联系邮箱（邮箱地址会展示给用户，不要乱填），内容分级（可以先不管，在上传App后才能进行分级判断），电话（填写公司电话，会展示给用户），隐私权政策。 上传正式版应用（商品版本: 正式版、Beta版、Alpha版本） 创建版本 加入 Google Play App Signing 上传APK安装包 填写版本说明 内容分级 填写电子邮件地址（用来接收Google Play发送的消息），选择应用类别 调查问卷页 （基本上都选择否）点击 判断分级 确认分级 定价和分发范围 注意 “ 国家/地区 ” 默认是 0，需要自己选择国家 内容准则 和 美国出口法律 是必须要选中的，最后点击 “ 保存草稿 ” 应用发布 如果所有内容都填写正确，我们会看到左边导航栏4个绿色对勾，并且出现“可以发布”按钮 点击左边导航栏中的 &quot; 应用版本 &quot; 点击 “ 修改版本 ” 点击 “ 查看 ” , 确认没有问题后，点击 “ 开始发布正式版 ”，就可以发布了，然后就需要审核了 查看审核进度]]></content>
-      <categories>
-        <category>应用上架</category>
-      </categories>
-      <tags>
-        <tag>google play</tag>
-        <tag>应用上架</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[FileUtils帮助类]]></title>
