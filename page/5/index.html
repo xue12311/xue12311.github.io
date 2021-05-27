@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/02/12/flutter/flutter练习 -Future与FutureBuilder实例/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack Compose/Jetpack Compose LazyColumn/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="学胖子">
@@ -302,7 +302,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/12/flutter/flutter练习 -Future与FutureBuilder实例/" itemprop="url">flutter练习 - Future与FutureBuilder实例</a></h1>
+                <a class="post-title-link" href="/2021/05/25/Jetpack Compose/Jetpack Compose LazyColumn/" itemprop="url">Jetpack Compose学习  LazyColumn</a></h1>
         
 
         <div class="post-meta">
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-12T13:55:19+08:00">
-                2020-02-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-25T11:23:10+08:00">
+                2021-05-25
               </time>
             
 
@@ -337,8 +337,19 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index">
-                    <span itemprop="name">flutter</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index">
+                    <span itemprop="name">Jetpack</span>
                   </a>
                 </span>
 
@@ -376,239 +387,9 @@
       
         
           
-            <h1><span id="flutter练习-future与futurebuilder实例"> flutter练习 - Future与FutureBuilder实例</span></h1>
-<h2><span id="future-异步操作"> Future 异步操作</span></h2>
-<ul>
-<li>then ：异步操作逻辑</li>
-<li>whenComplete ：异步完成时回调</li>
-<li>catchError ：捕获异常或异步出错时的回调</li>
-<li>timeout ：设置超时时间</li>
-</ul>
-<h5><span id="future的then的原型"> Future的then的原型</span></h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;R&gt; then&lt;R&gt;(FutureOr&lt;R&gt; onValue(T value),&#123;Function onError&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>onValue ：成功的结果回调</li>
-<li>onError ：可选 ，执行出现异常</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import &apos;dart:async&apos;;</span><br><span class="line">Future&lt;String&gt; testFuture() &#123;</span><br><span class="line">//  throw Error();</span><br><span class="line">  return Future.value(&quot;success&quot;);</span><br><span class="line">//  return Future.error(&quot;error&quot;);</span><br><span class="line">&#125;</span><br><span class="line">//注意： 如果 catchError 与 onError 同时存在时，则只会调用 onError</span><br><span class="line">void main() &#123;</span><br><span class="line">  testFuture().then((s) &#123;</span><br><span class="line">    print(&quot;then : &quot; + s);</span><br><span class="line">  &#125;, onError: (e) &#123;</span><br><span class="line">    print(&quot;onError : &quot; + e);</span><br><span class="line">  &#125;).whenComplete(() &#123;</span><br><span class="line">    print(&quot;whenComplete&quot;);</span><br><span class="line">  &#125;).catchError((e) &#123;</span><br><span class="line">    print(&quot;catchError : &quot; + e);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5><span id="结合-async-await"> 结合 async， await</span></h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &apos;dart:async&apos;;</span><br><span class="line"></span><br><span class="line">test() async &#123;</span><br><span class="line">  String result = await Future.delayed(Duration(milliseconds: 2000), () &#123;</span><br><span class="line">    return Future.value(&quot;success&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">  print(&quot;t3 : &quot; + DateTime.now().toString());</span><br><span class="line">  print(&quot;result : &quot; + result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main() &#123;</span><br><span class="line">  test();</span><br><span class="line">  print(&quot;t1 : &quot; + DateTime.now().toString());</span><br><span class="line">  print(&quot;t2 : &quot; + DateTime.now().toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5><span id="futuretimeout-设置超时时间"> future.timeout  设置超时时间</span></h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import &apos;dart:async&apos;;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">  Future.delayed(Duration(seconds: 2), () &#123;</span><br><span class="line">    return &quot;success&quot;;</span><br><span class="line">  &#125;).timeout(Duration(seconds: 1)).then((s) &#123;</span><br><span class="line">    print(&quot;then : $s&quot;);</span><br><span class="line">  &#125;).whenComplete(() &#123;</span><br><span class="line">    print(&quot;whenComplete&quot;);</span><br><span class="line">  &#125;).catchError((e) &#123;</span><br><span class="line">    print(&quot;catchError : $e&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码运行会出现如下结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">whenComplete</span><br><span class="line">catchError : TimeoutException after 0:00:01.000000: Future not completed</span><br></pre></td></tr></table></figure>
-<h2><span id="futurebuilder-网络请求数据库读取-更新-界面"> FutureBuilder ---- 网络请求，数据库读取 更新 界面</span></h2>
-<ul>
-<li>FutureBuildere是一个将异步操作和异步UI更新结合在一起的类，通过它我们可以将网络请求，数据库读取等的结果更新到页面上</li>
-<li>FutureBuilder的构造方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FutureBuilder(&#123;Key key,Future&lt;T&gt; future,T initialData,@required AsyncWidgetBuilder&lt;T&gt;builder&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>future ：Future对象表示此构造器当前连接的异步计算</li>
-<li>initialData ：表示一个非空的Future完成前的初始化数据</li>
-<li>builder ：AsyncWidgetBuilder类型返回的函数，是一个基于异步交互构建widget的函数<br>
-builder:<br>
-BuildContext context<br>
-AsyncSnapshot<t> snapshot<br>
-connectionState 表示与异步计算的连接状态<br>
-data - 异步计算接收的最新数据<br>
-error - 异步计算接收的最新错误对象；</t></li>
-</ul>
-<h5><span id="connectionstate-与异步计算的连接状态"> ConnectionState ：与异步计算的连接状态</span></h5>
-<ul>
-<li>none ：future还未执行的快照状态</li>
-<li>waiting ：连接到一个异步操作，并且等待交互，一般在这种状态的时候，我们可以显示加载框</li>
-<li>active ：连接到一个活跃的操作，比如stream流，会不断地返回值，并还没有结束，一般也是可以显示加载框</li>
-<li>done：异步操作执行结束，一般在这里可以去拿取异步操作执行的结果，并显示相应的布局</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>ConnectionState</th>
-<th>当前没有连接到任何的异步任务</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ConnectionState.none</td>
-<td>当前没有连接到任何的异步任务</td>
-</tr>
-<tr>
-<td>ConnectionState.waiting</td>
-<td>连接到异步任务并等待进行交互</td>
-</tr>
-<tr>
-<td>ConnectionState.active</td>
-<td>连接到异步任务并开始交互</td>
-</tr>
-<tr>
-<td>ConnectionState.done</td>
-<td>异步任务中止</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">import &apos;dart:convert&apos;;</span><br><span class="line"></span><br><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line">import &apos;package:http/http.dart&apos; as http;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(MyApp1());</span><br><span class="line"></span><br><span class="line">class MyApp1 extends StatefulWidget &#123;</span><br><span class="line">  @override</span><br><span class="line">  _MyApp1State createState() =&gt; _MyApp1State();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class _MyApp1State extends State&lt;MyApp1&gt; &#123;</span><br><span class="line">  String showResult = &apos;&apos;;</span><br><span class="line"></span><br><span class="line">  Future&lt;CommonModel&gt; fetchPost() async &#123;</span><br><span class="line">    final response = await http</span><br><span class="line">        .get(&apos;http://www.devio.org/io/flutter_app/json/test_common_model.json&apos;);</span><br><span class="line">    Utf8Decoder utf8decoder = Utf8Decoder(); //中文乱码</span><br><span class="line">//    final result=json.decode(response.body);</span><br><span class="line">    final result = json.decode(utf8decoder.convert(response.bodyBytes));</span><br><span class="line">    return CommonModel.fromJson(result);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return MaterialApp(</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        appBar: AppBar(title: Text(&apos;FutureBuilder&apos;)),</span><br><span class="line">        body: FutureBuilder&lt;CommonModel&gt;(</span><br><span class="line">          future: fetchPost(),</span><br><span class="line">          builder: (BuildContext context, AsyncSnapshot&lt;CommonModel&gt; snapshot) &#123;</span><br><span class="line">            switch (snapshot.connectionState) &#123;</span><br><span class="line">              case ConnectionState.none:</span><br><span class="line">                return new Text(&apos;Input a URL to start&apos;);</span><br><span class="line">              case ConnectionState.waiting:</span><br><span class="line">                return new Center(child: new CircularProgressIndicator());</span><br><span class="line">              case ConnectionState.active:</span><br><span class="line">                return new Text(&apos;&apos;);</span><br><span class="line">              case ConnectionState.done:</span><br><span class="line">                if (snapshot.hasError) &#123;</span><br><span class="line">                  return new Text(</span><br><span class="line">                    &apos;$&#123;snapshot.error&#125;&apos;,</span><br><span class="line">                    style: TextStyle(color: Colors.red),</span><br><span class="line">                  );</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                  return new Column(children: &lt;Widget&gt;[</span><br><span class="line">                    Text(&apos;icon:$&#123;snapshot.data.icon&#125;&apos;),</span><br><span class="line">                    Text(&apos;statusBarColor:$&#123;snapshot.data.statusBarColor&#125;&apos;),</span><br><span class="line">                    Text(&apos;title:$&#123;snapshot.data.title&#125;&apos;),</span><br><span class="line">                    Text(&apos;url:$&#123;snapshot.data.url&#125;&apos;)</span><br><span class="line">                  ]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class CommonModel &#123;</span><br><span class="line">  final String icon;</span><br><span class="line">  final String title;</span><br><span class="line">  final String url;</span><br><span class="line">  final String statusBarColor;</span><br><span class="line">  final bool hideAppBar;</span><br><span class="line"></span><br><span class="line">  CommonModel(</span><br><span class="line">      &#123;this.icon, this.title, this.url, this.statusBarColor, this.hideAppBar&#125;);</span><br><span class="line"></span><br><span class="line">  factory CommonModel.fromJson(Map&lt;String, dynamic&gt; json) &#123;</span><br><span class="line">    return CommonModel(</span><br><span class="line">      icon: json[&apos;icon&apos;],</span><br><span class="line">      title: json[&apos;title&apos;],</span><br><span class="line">      url: json[&apos;url&apos;],</span><br><span class="line">      statusBarColor: json[&apos;statusBarColor&apos;],</span><br><span class="line">      hideAppBar: json[&apos;hideAppBar&apos;],</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/19/flutter/flutter练习 -Dart流程控制语句/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/19/flutter/flutter练习 -Dart流程控制语句/" itemprop="url">flutter练习 - Dart流程控制语句</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-19T10:27:35+08:00">
-                2020-01-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index">
-                    <span itemprop="name">flutter</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1><span id="flutter练习-dart流程控制语句"> flutter练习 - Dart流程控制语句</span></h1>
-<h2><span id="if-和-else"> if 和 else</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">  int x =10;</span><br><span class="line">  if(x%2==0)&#123;</span><br><span class="line">  print(&quot;$x 能被2整除&quot;);  </span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    print(&quot;$x 不能被2整除&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="for循环"> for（循环）</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">  var message = new StringBuffer(&quot;Hello Dart&quot;);</span><br><span class="line">  for (var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    message.write(&quot;!&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  print(message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">  for (var i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">    print(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line"> var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">  numbers.forEach((number) =&gt; print(number));</span><br><span class="line">  numbers.forEach((number) &#123;</span><br><span class="line">    print(number);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="while-和-do-while-循环"> while 和 do - while (循环)</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">  var _temp = 0;</span><br><span class="line">  while (_temp &lt; 5) &#123;</span><br><span class="line">    print(&quot;这是一个while循环: $&#123;_temp.toString()&#125;&quot;);</span><br><span class="line">    _temp++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">  var _temp = 0;</span><br><span class="line">  do &#123;</span><br><span class="line">    print(&quot;这是一个while循环: $&#123;_temp.toString()&#125;&quot;);</span><br><span class="line">    _temp++;</span><br><span class="line">  &#125; while (_temp &lt; 5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="break-和-continue"> break 和 continue</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">  for (var v in arr) &#123;</span><br><span class="line">    if (v == 4) &#123;</span><br><span class="line">      break;//跳出循环</span><br><span class="line">    &#125;</span><br><span class="line">    print(v);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">  for (var v in arr) &#123;</span><br><span class="line">    if (v == 4) &#123;</span><br><span class="line">      continue;//跳出本次循环</span><br><span class="line">    &#125;</span><br><span class="line">    print(v);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="switch-和-case"> switch 和 case</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">  var x = 10;</span><br><span class="line">  switch (x % 3) &#123;</span><br><span class="line">    case 0:</span><br><span class="line">      print(&quot;余数: 0&quot;);</span><br><span class="line">      break;</span><br><span class="line">    case 1:</span><br><span class="line">      print(&quot;余数: 1&quot;);</span><br><span class="line">      break;</span><br><span class="line">    case 2:</span><br><span class="line">      print(&quot;余数: 2&quot;);</span><br><span class="line">      break;</span><br><span class="line">    default:</span><br><span class="line">      print(&quot;其他&quot;);</span><br><span class="line">      break;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="assert-断言"> assert (断言)</span></h2>
-<ul>
-<li>assert 语句不会影响生产环境中代码的执行，它仅仅在测试环境中起作用。在 Flutter 的调试模式下可以使用 assert。</li>
-<li>如果assert条件为 false，则使用 assert 语句中断执行，并抛出一个断言错误异常AssertionError。</li>
-<li>如果assert条件为 true，则继续执行下面的语句。</li>
-</ul>
+            <h2><span id="jetpack-compose学习-lazycolumn-延迟-垂直-布局"> Jetpack Compose学习 -------- LazyColumn 延迟 垂直 布局</span></h2>
+<h3><span id="lazycolumn-延迟-垂直-布局-简单使用"> LazyColumn 延迟 垂直 布局 简单使用</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">LazyColumnDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> list = listOf(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>) + ((<span class="number">0</span>..<span class="number">20</span>).map &#123; it.toString() &#125;)</span><br><span class="line">    LazyColumn(Modifier.fillMaxWidth()) &#123;</span><br><span class="line">        items(</span><br><span class="line">            key = &#123; list.<span class="keyword">get</span>(it) &#125;,</span><br><span class="line">            count = list.size,</span><br><span class="line">            itemContent = &#123; item -&gt;</span><br><span class="line">                <span class="keyword">val</span> content = list.<span class="keyword">get</span>(item)</span><br><span class="line">                Log.d(<span class="string">"COMPOSE"</span>, <span class="string">"This get rendered <span class="subst">$&#123;content&#125;</span>"</span>)</span><br><span class="line">                <span class="keyword">when</span> (content) &#123;</span><br><span class="line">                    <span class="string">"A"</span> -&gt; &#123;</span><br><span class="line">                        Text(text = content, style = TextStyle(fontSize = <span class="number">80</span>.sp))</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="string">"B"</span> -&gt; &#123;</span><br><span class="line">                        Button(onClick = &#123;&#125;) &#123;</span><br><span class="line">                            Text(text = content, style = TextStyle(fontSize = <span class="number">80</span>.sp))</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="string">"C"</span> -&gt; &#123;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="string">"D"</span> -&gt; &#123;</span><br><span class="line">                        Text(text = content)</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> -&gt; &#123;</span><br><span class="line">                        Text(text = content, style = TextStyle(fontSize = <span class="number">80</span>.sp))</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -657,7 +438,7 @@ error - 异步计算接收的最新错误对象；</t></li>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/18/flutter/flutter练习 -Dart常见运算符/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack Compose/Jetpack Compose Image Icon/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="学胖子">
@@ -676,7 +457,7 @@ error - 异步计算接收的最新错误对象；</t></li>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/18/flutter/flutter练习 -Dart常见运算符/" itemprop="url">flutter练习 - Dart常见运算符</a></h1>
+                <a class="post-title-link" href="/2021/05/25/Jetpack Compose/Jetpack Compose Image Icon/" itemprop="url">Jetpack Compose学习 Image Icon</a></h1>
         
 
         <div class="post-meta">
@@ -688,8 +469,8 @@ error - 异步计算接收的最新错误对象；</t></li>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-18T14:29:30+08:00">
-                2020-01-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-25T11:22:10+08:00">
+                2021-05-25
               </time>
             
 
@@ -711,8 +492,19 @@ error - 异步计算接收的最新错误对象；</t></li>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index">
-                    <span itemprop="name">flutter</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index">
+                    <span itemprop="name">Jetpack</span>
                   </a>
                 </span>
 
@@ -750,219 +542,11 @@ error - 异步计算接收的最新错误对象；</t></li>
       
         
           
-            <h1><span id="flutter练习-dart常见运算符"> flutter练习 - Dart常见运算符</span></h1>
-<h2><span id="算数运算符"> 算数运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:center">加</td>
-</tr>
-<tr>
-<td style="text-align:center">-</td>
-<td style="text-align:center">减</td>
-</tr>
-<tr>
-<td style="text-align:center">- expr</td>
-<td style="text-align:center">一元减号(负号)   expr : 表达式的值</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td style="text-align:center">乘</td>
-</tr>
-<tr>
-<td style="text-align:center">/</td>
-<td style="text-align:center">除</td>
-</tr>
-<tr>
-<td style="text-align:center">~/</td>
-<td style="text-align:center">返回一个整数值的除法</td>
-</tr>
-<tr>
-<td style="text-align:center">%</td>
-<td style="text-align:center">取余数,除法剩下的余数</td>
-</tr>
-<tr>
-<td style="text-align:center">++var</td>
-<td style="text-align:center">var = var + 1 表达式的值为：var + 1</td>
-</tr>
-<tr>
-<td style="text-align:center">var++</td>
-<td style="text-align:center">var = var + 1 表达式的值为：var</td>
-</tr>
-<tr>
-<td style="text-align:center">–var</td>
-<td style="text-align:center">var = var - 1 表达式的值为：var - 1</td>
-</tr>
-<tr>
-<td style="text-align:center">var–</td>
-<td style="text-align:center">var =var - 1 表达式的值为：var</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="关系运算符"> 关系运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">==</td>
-<td style="text-align:center">等于</td>
-</tr>
-<tr>
-<td style="text-align:center">!=</td>
-<td style="text-align:center">不等于</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;</td>
-<td style="text-align:center">大于</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;</td>
-<td style="text-align:center">小于</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;=</td>
-<td style="text-align:center">大于或等于</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;=</td>
-<td style="text-align:center">小于或等于</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="类型测试操作符"> 类型测试操作符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">as</td>
-<td style="text-align:center">类型转换</td>
-</tr>
-<tr>
-<td style="text-align:center">is</td>
-<td style="text-align:center">当对象是相应类型时返回 true</td>
-</tr>
-<tr>
-<td style="text-align:center">is!</td>
-<td style="text-align:center">当对象不是相应类型时返回 true</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="赋值操作符"> 赋值操作符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">a = value ;</td>
-<td style="text-align:center">将 value 赋值给 a</td>
-</tr>
-<tr>
-<td style="text-align:center">b??= value ;</td>
-<td style="text-align:center">如果 b为空，则将value的值赋值给b，否则，b保持不变</td>
-</tr>
-<tr>
-<td style="text-align:center">a op b</td>
-<td style="text-align:center">a = a op b</td>
-</tr>
-<tr>
-<td style="text-align:center">a += b</td>
-<td style="text-align:center">a = a + b</td>
-</tr>
-<tr>
-<td style="text-align:center">a -= b</td>
-<td style="text-align:center">a = a - b</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="逻辑运算符"> 逻辑运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">!expr</td>
-<td style="text-align:center">反转以下表达式( 将 false 更改为 true , 反之亦然)</td>
-</tr>
-<tr>
-<td style="text-align:center">||</td>
-<td style="text-align:center">逻辑或</td>
-</tr>
-<tr>
-<td style="text-align:center">&amp;&amp;</td>
-<td style="text-align:center">逻辑与</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="位运算符"> 位运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&amp;</td>
-<td style="text-align:center">与</td>
-</tr>
-<tr>
-<td style="text-align:center">|</td>
-<td style="text-align:center">或</td>
-</tr>
-<tr>
-<td style="text-align:center">^</td>
-<td style="text-align:center">异或</td>
-</tr>
-<tr>
-<td style="text-align:center">-expr</td>
-<td style="text-align:center">一元位补码 ( 0s 变为 1s , 1s 变为 0s )</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;&lt;</td>
-<td style="text-align:center">左移</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;&gt;</td>
-<td style="text-align:center">右移</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="条件表达式"> 条件表达式</span></h2>
-<ol>
-<li>如果条件为真，返回 expr1,否则返回 expr2 。<br>
-condition ?  expr1 : expr2</li>
-<li>如果 expr1 为非空,则返回其值，否则 计算并返回 expr2 的值<br>
-expr1 ?? expr2</li>
-</ol>
-<h2><span id="级联操作"> 级联操作</span></h2>
-<p>级联操作符 (…) 可以在同一个对象上连续调用多个函数以及访问成员变量。使用级联操作符可以避免创建临时变量， 并且写出来的代码看起来更加流畅</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">querySelector(&apos;#button&apos;) // Get an object.</span><br><span class="line">  ..text = &apos;Confirm&apos;   // Use its members.</span><br><span class="line">  ..classes.add(&apos;important&apos;)</span><br><span class="line">  ..onClick.listen((e) =&gt; window.alert(&apos;Confirmed!&apos;));</span><br></pre></td></tr></table></figure>
+            <h2><span id="jetpack-compose学习-图片-image-icon"> Jetpack Compose学习 -------- 图片 Image , Icon</span></h2>
+<h3><span id="image-图片-基本使用"> Image 图片 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ImageResourceDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> image = painterResource(id = R.mipmap.icon_header)</span><br><span class="line">    Column &#123;</span><br><span class="line">        Image(</span><br><span class="line">            painter = image,</span><br><span class="line">            contentDescription = <span class="string">"图片描述"</span></span><br><span class="line">        )</span><br><span class="line">        Image(</span><br><span class="line">            painter = image,</span><br><span class="line">            contentDescription = <span class="string">"图片描述"</span>,</span><br><span class="line">            <span class="comment">//设置图片大小</span></span><br><span class="line">            modifier = Modifier.size(<span class="number">100</span>.dp)</span><br><span class="line">        )</span><br><span class="line">        Surface( </span><br><span class="line">            <span class="comment">//设置形状</span></span><br><span class="line">            shape = CircleShape</span><br><span class="line">        ) &#123;</span><br><span class="line">            Image(</span><br><span class="line">                painter = image,</span><br><span class="line">                contentDescription = <span class="string">"图片描述"</span>,</span><br><span class="line">                <span class="comment">//设置图片大小</span></span><br><span class="line">                modifier = Modifier.size(<span class="number">100</span>.dp),</span><br><span class="line">                <span class="comment">//保持宽高比缩放</span></span><br><span class="line">                contentScale = ContentScale.Crop</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Surface(</span><br><span class="line">            <span class="comment">//设置形状</span></span><br><span class="line">            shape = CircleShape,</span><br><span class="line">            <span class="comment">//边框</span></span><br><span class="line">            border = BorderStroke(<span class="number">2</span>.dp, Color.Gray),</span><br><span class="line">        ) &#123;</span><br><span class="line">            Image(</span><br><span class="line">                painter = image,</span><br><span class="line">                contentDescription = <span class="string">"图片描述"</span>,</span><br><span class="line">                <span class="comment">//设置图片大小</span></span><br><span class="line">                modifier = Modifier.size(<span class="number">100</span>.dp),</span><br><span class="line">                <span class="comment">//保持宽高比缩放</span></span><br><span class="line">                contentScale = ContentScale.Crop</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="icon-基本使用"> Icon 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Row &#123;</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Gray)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Red)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.DarkGray)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Magenta)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Cyan)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Blue)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1010,7 +594,7 @@ expr1 ?? expr2</li>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/05/kotlin/kotlin练习-KotlinfilterNotNull 含义/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack Compose/Jetpack Compose DropdownMenu/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="学胖子">
@@ -1029,7 +613,7 @@ expr1 ?? expr2</li>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/05/kotlin/kotlin练习-KotlinfilterNotNull 含义/" itemprop="url">kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</a></h1>
+                <a class="post-title-link" href="/2021/05/25/Jetpack Compose/Jetpack Compose DropdownMenu/" itemprop="url">Jetpack Compose学习  DropdownMenu</a></h1>
         
 
         <div class="post-meta">
@@ -1041,8 +625,8 @@ expr1 ?? expr2</li>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-05T16:57:36+08:00">
-                2020-01-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-25T11:21:10+08:00">
+                2021-05-25
               </time>
             
 
@@ -1064,8 +648,19 @@ expr1 ?? expr2</li>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">kotlin</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index">
+                    <span itemprop="name">Jetpack</span>
                   </a>
                 </span>
 
@@ -1103,18 +698,163 @@ expr1 ?? expr2</li>
       
         
           
-            <h1><span id="kotlin练习-kotlin中的-filternotnull-含义"> kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</span></h1>
-<h2><span id="可空类型表示当前是否对象可以为空"> ?  可空类型，表示当前是否对象可以为空</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String =&quot;123&quot;</span><br><span class="line">a = null //编译报错</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br></pre></td></tr></table></figure>
-<h2><span id="安全调用操作符"> ?.  安全调用操作符</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val length = a.length //编译报错 --- 变量&quot;a&quot;可能会为空</span><br><span class="line">val length = a?.length //编译通过 --- 如果 a 非空，就返回 a.length，否则返回 null</span><br></pre></td></tr></table></figure>
-<h2><span id="elvis-操作符"> ?:  Elvis 操作符</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a?.length?:-1 // 当a不为空时，返回a.length，当a为空时，返回-1</span><br></pre></td></tr></table></figure>
-<h2><span id="操作符表示当前对象不为空的情况下执行为空就抛出异常"> !!  操作符，表示当前对象不为空的情况下执行，为空就抛出异常</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? =&quot;123&quot;</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a!!.length //如果a不为空，则返回a.length，如果b为空，则抛出异常 NullPointerException</span><br></pre></td></tr></table></figure>
-<h2><span id="filternotnull-过滤非空元素"> filterNotNull  过滤非空元素</span></h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val nullableList: List&lt;Int?&gt; = listOf(1, 2, null, 4)</span><br><span class="line">val intList: List&lt;Int&gt; = nullableList.filterNotNull() </span><br><span class="line">println(intList.toString())//[1, 2, 4]</span><br></pre></td></tr></table></figure>
+            <h2><span id="jetpack-compose学习-dropdownmenu-下拉菜单"> Jetpack Compose学习 -------- DropdownMenu 下拉菜单</span></h2>
+<h3><span id="dropdownmenu-下拉菜单-基本使用"> DropdownMenu 下拉菜单 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">DropdownSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> isExpanded = remember &#123;</span><br><span class="line">        mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">val</span> list = listOf(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>, <span class="string">"E"</span>, <span class="string">"F"</span>, <span class="string">"G"</span>)</span><br><span class="line">    <span class="keyword">val</span> disabledValue = <span class="string">"B"</span></span><br><span class="line">    <span class="keyword">var</span> selectedIndex = remember &#123;</span><br><span class="line">        mutableStateOf(<span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    Box(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .fillMaxSize()</span><br><span class="line">            .wrapContentSize(Alignment.TopStart)</span><br><span class="line">    ) &#123;</span><br><span class="line">        Text(</span><br><span class="line">            text = list[selectedIndex.value],</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .fillMaxWidth()</span><br><span class="line">                .height(<span class="number">30</span>.dp)</span><br><span class="line">                .padding(<span class="number">10</span>.dp)</span><br><span class="line">                .clickable &#123;</span><br><span class="line">                    isExpanded.value = <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">                .background(</span><br><span class="line">                    Color.Black</span><br><span class="line">                ),</span><br><span class="line">            color = Color.White</span><br><span class="line">        )</span><br><span class="line">        DropdownMenu(</span><br><span class="line">            expanded = isExpanded.value,</span><br><span class="line">            onDismissRequest = &#123; isExpanded.value = <span class="literal">false</span> &#125;,</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .fillMaxWidth()</span><br><span class="line">                .background(Color.Red)</span><br><span class="line">        ) &#123;</span><br><span class="line">            list.forEachIndexed &#123; index, s -&gt;</span><br><span class="line">                DropdownMenuItem(onClick = &#123;</span><br><span class="line">                    selectedIndex.value = index</span><br><span class="line">                    isExpanded.value = <span class="literal">false</span></span><br><span class="line">                &#125;</span><br><span class="line">                ) &#123;</span><br><span class="line">                    <span class="keyword">val</span> disaledText = <span class="keyword">if</span> (disabledValue == s) &#123;</span><br><span class="line">                        <span class="string">" (Disabled)"</span></span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="string">""</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    Text(text = <span class="string">"<span class="subst">$&#123;s&#125;</span><span class="subst">$&#123;disaledText&#125;</span>"</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack Compose/Jetpack Compose Crossfade/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/05/25/Jetpack Compose/Jetpack Compose Crossfade/" itemprop="url">Jetpack Compose学习  Crossfade</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-25T11:20:10+08:00">
+                2021-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index">
+                    <span itemprop="name">Jetpack</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2><span id="jetpack-compose学习-crossfade"> Jetpack Compose学习 -------- Crossfade</span></h2>
+<h3><span id="crossfade-动画-淡入淡出"> Crossfade 动画 淡入淡出</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">MyColors</span></span>(<span class="keyword">val</span> color: Color) &#123;</span><br><span class="line">    Red(Color.Red),</span><br><span class="line">    Green(Color.Green),</span><br><span class="line">    Blue(Color.Blue),</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//淡入淡出 动画</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">CrossfadeDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> currentColor = remember &#123;</span><br><span class="line">        mutableStateOf(MyColors.Red)</span><br><span class="line">    &#125;</span><br><span class="line">    Column &#123;</span><br><span class="line">        Row &#123;</span><br><span class="line">            MyColors.values().forEach &#123; myColors -&gt;</span><br><span class="line">                Button(</span><br><span class="line">                    onClick = &#123; currentColor.value = myColors &#125;,</span><br><span class="line">                    Modifier.weight(<span class="number">1f</span>, <span class="literal">true</span>)</span><br><span class="line">                        .height(<span class="number">48</span>.dp)</span><br><span class="line">                        .background(myColors.color),</span><br><span class="line">                    colors = ButtonDefaults.buttonColors(</span><br><span class="line">                        backgroundColor = myColors.color</span><br><span class="line">                    )</span><br><span class="line">                ) &#123;</span><br><span class="line">                    Text(myColors.name, color = Color.White)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//淡入淡出 切换动画</span></span><br><span class="line">        Crossfade(</span><br><span class="line">            targetState = currentColor,</span><br><span class="line">            animationSpec = tween(<span class="number">3000</span>)</span><br><span class="line">        ) &#123; selectedColor -&gt;</span><br><span class="line">            Box(</span><br><span class="line">                modifier = Modifier</span><br><span class="line">                    .fillMaxSize()</span><br><span class="line">                    .background(color = selectedColor.value.color)</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1163,7 +903,7 @@ expr1 ?? expr2</li>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/07/21/kotlin/kotlin练习-常见内联扩展函数学习/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack Compose/Jetpack Compose Column Row Box Spacer BoxWithConstraints ConstraintLayout/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="学胖子">
@@ -1182,7 +922,7 @@ expr1 ?? expr2</li>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/21/kotlin/kotlin练习-常见内联扩展函数学习/" itemprop="url">kotlin练习 - 常见内联扩展函数学习</a></h1>
+                <a class="post-title-link" href="/2021/05/25/Jetpack Compose/Jetpack Compose Column Row Box Spacer BoxWithConstraints ConstraintLayout/" itemprop="url">Jetpack Compose学习  Column Row Box Spacer BoxWithConstraints ConstraintLayout</a></h1>
         
 
         <div class="post-meta">
@@ -1194,8 +934,8 @@ expr1 ?? expr2</li>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-21T12:16:01+08:00">
-                2019-07-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-25T11:19:10+08:00">
+                2021-05-25
               </time>
             
 
@@ -1217,8 +957,19 @@ expr1 ?? expr2</li>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">kotlin</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index">
+                    <span itemprop="name">Jetpack</span>
                   </a>
                 </span>
 
@@ -1256,144 +1007,35 @@ expr1 ?? expr2</li>
       
         
           
-            <ul>
-<li><a href="#kotlin%E7%BB%83%E4%B9%A0---%E5%B8%B8%E8%A7%81%E5%86%85%E8%81%94%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0">kotlin练习 - 常见内联扩展函数学习</a>
-<ul>
-<li><a href="#let">let</a></li>
-<li><a href="#with">with</a></li>
-<li><a href="#apply">apply</a></li>
-<li><a href="#run">run</a></li>
-<li><a href="#repeat">repeat</a></li>
-<li><a href="#also">also</a></li>
-<li><a href="#takeif">takeIf</a></li>
-<li><a href="#takeunless">takeUnless</a></li>
-</ul>
-</li>
-</ul>
-<h1><span id="kotlin练习-常见内联扩展函数学习"> kotlin练习 - 常见内联扩展函数学习</span></h1>
-<h2><span id="let"> let</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun &lt;T, R&gt; T.let(block: (T) -&gt; R): R</p>
-</li>
-<li>
-<p>功能：</p>
-<p>调用对象（T）的let函数，则该对象为函数的参数。在函数内可以通过 it指代该对象。返回值为函数的最后一行或指定return表达式。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    val data = &quot;孙悟空&quot;</span><br><span class="line">    data.let &#123;</span><br><span class="line">        //在函数体内使用it替代object对象去访问其公有的属性和方法</span><br><span class="line">        println(it.toString())</span><br><span class="line">    &#125;</span><br><span class="line">    data?.let &#123;</span><br><span class="line">        // 假如data不为null，代码会执行到此处</span><br><span class="line">        println(it.toString())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="with"> with</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun &lt;T, R&gt; with(receiver: T, block: T.() -&gt; R): R</p>
-</li>
-<li>
-<p>功能：</p>
-<p>将对象作为函数的参数，在函数内可以通过this指代该对象。返回值为函数的最后一行或return表达式。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = with(mutableListOf&lt;String&gt;()) &#123;</span><br><span class="line">        add(&quot;1&quot;)</span><br><span class="line">        add(&quot;2&quot;)</span><br><span class="line">        add(&quot;3&quot;)</span><br><span class="line">        //返回值为函数的最后一行或return表达式</span><br><span class="line">        this</span><br><span class="line">    &#125;</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var paint = Paint()</span><br><span class="line">    with(paint) &#123;</span><br><span class="line">        color = Color.BLACK</span><br><span class="line">        strokeWidth = 1.0f</span><br><span class="line">        textSize = 18.0f</span><br><span class="line">        isAntiAlias = true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="apply"> apply</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.apply(block: T.() -&gt; Unit): T</p>
-</li>
-<li>
-<p>功能：</p>
-<p>调用对象的apply函数，在函数范围内，可以任意调用该对象的任意方法，并返回该对象。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    // apply适用于那些对象初始化需要给其属性赋值的情况。</span><br><span class="line">    var list = mutableListOf&lt;String&gt;().apply &#123;</span><br><span class="line">        add(&quot;1&quot;)</span><br><span class="line">        add(&quot;2&quot;)</span><br><span class="line">        add(&quot;3&quot;)</span><br><span class="line">        //apply返回的是对象本身</span><br><span class="line">    &#125;</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">//apply需要先初始化</span><br><span class="line">    var paint = Paint().apply &#123;</span><br><span class="line">        color = Color.BLACK</span><br><span class="line">        strokeWidth = 1.0f</span><br><span class="line">        textSize = 18.0f</span><br><span class="line">        isAntiAlias = true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="run"> run</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<ol>
-<li>fun run(block: () -&gt; R): R</li>
-<li>fun &lt;T, R&gt; T.run(block: T.() -&gt; R): R</li>
-</ol>
-</li>
-<li>
-<p>功能：</p>
-<p>调用run函数返回值为函数体最后一行，或return表达式。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = mutableListOf&lt;String&gt;().run &#123;</span><br><span class="line">        add(&quot;1&quot;)</span><br><span class="line">        add(&quot;2&quot;)</span><br><span class="line">        add(&quot;3&quot;)</span><br><span class="line">        //run返回的是函数体最后一行，或return表达式</span><br><span class="line">        this</span><br><span class="line">    &#125;</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var name = run &#123;</span><br><span class="line">        &quot;孙悟空&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    println(name)//孙悟空</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="repeat"> repeat</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun repeat(times: Int, action: (Int) -&gt; Unit)</p>
-</li>
-<li>
-<p>功能：</p>
-<p>重复执行action函数times次，times从0开始</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">   repeat(3)&#123;</span><br><span class="line">       //从0开始循环3次</span><br><span class="line">       println(&quot;repeat:第$&#123;it&#125;次&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">    for(i in 0..2)&#123;</span><br><span class="line">       println(&quot;for:第$&#123;i&#125;次&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    (0..2).forEach&#123;</span><br><span class="line">       println(&quot;forEach:第$&#123;it&#125;次&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="also"> also</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.also(block: (T) -&gt; Unit): T</p>
-</li>
-<li>
-<p>功能：</p>
-<p>调用对象的also函数，在函数块内可以通过 it指代该对象,返回值为该对象本身。（注意其和let函数的区别，let返回的是最后一行，also返回的是对象本身）</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = mutableListOf&lt;String&gt;().also &#123;</span><br><span class="line">        it.add(&quot;1&quot;)</span><br><span class="line">        it.add(&quot;2&quot;)</span><br><span class="line">        it.add(&quot;3&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="takeif"> takeIf</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.takeIf(predicate: (T) -&gt; Boolean): T?</p>
-</li>
-<li>
-<p>功能：</p>
-<p>传递一个函数参数，如果函数结果为true，返回T对象，否则返回null。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = mutableListOf&lt;String&gt;(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;).takeIf &#123;</span><br><span class="line">        it.size &gt; 3//满足条件则返回it,否则返回null</span><br><span class="line">    &#125;</span><br><span class="line">    if (list != null) &#123;</span><br><span class="line">        println(list.toString())</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        println(&quot;list为空&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="takeunless"> takeUnless</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.takeUnless(predicate: (T) -&gt; Boolean): T?</p>
-</li>
-<li>
-<p>功能：</p>
-<p>与takeIf相反，参数函数返回false时返回T对象，否则返回null</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    var list = mutableListOf&lt;String&gt;(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;).takeUnless &#123;</span><br><span class="line">        it.size &gt; 3//不满足条件则返回it,否则返回null</span><br><span class="line">    &#125;</span><br><span class="line">    if (list != null) &#123;</span><br><span class="line">        println(list.toString())</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        println(&quot;list为空&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2><span id="jetpack-compose学习-布局-column-row-box-spacer-boxwithconstraints-constraintlayout"> Jetpack Compose学习 -------- 布局 Column Row Box Spacer BoxWithConstraints ConstraintLayout</span></h2>
+<h3><span id="column-垂直布局将多个项垂直地放置在屏幕上"> Column 垂直布局（将多个项垂直地放置在屏幕上）</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">ColumnLayoutDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">     <span class="comment">//垂直布局</span></span><br><span class="line">     Column &#123;</span><br><span class="line">         Text(text = <span class="string">"Alfred Sisley"</span>)</span><br><span class="line">         Text(text = <span class="string">"3 minutes ago"</span>)</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//文字居中</span></span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxWidth(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally</span><br><span class="line">    ) &#123;</span><br><span class="line">        Text(<span class="string">"你好呀"</span>)</span><br><span class="line">        Text(<span class="string">"我正在使用 Android Studio"</span>)</span><br><span class="line">        Text(<span class="string">"现在是晚上"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//特定文字居中</span></span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxWidth(),</span><br><span class="line">    ) &#123;</span><br><span class="line">        Text(</span><br><span class="line">            text = <span class="string">"夜色"</span>,</span><br><span class="line">            <span class="comment">//特定文字居中</span></span><br><span class="line">            modifier = Modifier.align(Alignment.CenterHorizontally),</span><br><span class="line">            style = MaterialTheme.typography.h6,</span><br><span class="line">            fontWeight = FontWeight.W900</span><br><span class="line">        )</span><br><span class="line">        Text(<span class="string">"今晚的夜色很不错，我和朋友走在河边的小路上，看到了很多美丽的风景"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="row-水平布局-将多个项水平地放置在屏幕上"> Row 水平布局 （将多个项水平地放置在屏幕上）</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  <span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">RowLayoutDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//水平布局</span></span><br><span class="line">    Row(verticalAlignment = Alignment.CenterVertically) &#123;</span><br><span class="line">        <span class="comment">//图片</span></span><br><span class="line">        Image(</span><br><span class="line">            painter = painterResource(id = R.mipmap.icon_header),</span><br><span class="line">            contentDescription = <span class="literal">null</span></span><br><span class="line">        )</span><br><span class="line">        <span class="comment">//垂直布局</span></span><br><span class="line">        Column &#123;</span><br><span class="line">            Text(text = <span class="string">"Alfred Sisley"</span>)</span><br><span class="line">            Text(text = <span class="string">"3 minutes ago"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Preview</span></span><br><span class="line">  <span class="meta">@Composable</span></span><br><span class="line">  <span class="function"><span class="keyword">fun</span> <span class="title">AlignInRowDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">      Row(</span><br><span class="line">          modifier = Modifier</span><br><span class="line">              .size(<span class="number">150</span>.dp)</span><br><span class="line">              .background(Color.Gray),</span><br><span class="line">          <span class="comment">//水平排列</span></span><br><span class="line">          horizontalArrangement = Arrangement.End,</span><br><span class="line">          <span class="comment">//垂直排列</span></span><br><span class="line">          verticalAlignment = Alignment.CenterVertically,</span><br><span class="line">      ) &#123;</span><br><span class="line">          Box(Modifier.size(<span class="number">50</span>.dp).background(Color.Yellow))</span><br><span class="line">          Box(Modifier.size(<span class="number">50</span>.dp).background(Color.Blue))</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Row &#123;</span><br><span class="line">        Box(Modifier.size(<span class="number">40</span>.dp).background(Color.Magenta))</span><br><span class="line">        Box(Modifier.size(<span class="number">40</span>.dp).background(Color.Yellow))</span><br><span class="line">        Box(Modifier.size(<span class="number">40</span>.dp).background(Color.Green))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Row &#123;</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">40</span>.dp)</span><br><span class="line">                <span class="comment">//权重</span></span><br><span class="line">                .weight(<span class="number">1f</span>)</span><br><span class="line">                .background(Color.Magenta)</span><br><span class="line">        )</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">40</span>.dp)</span><br><span class="line">                .background(Color.Yellow))</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">40</span>.dp)</span><br><span class="line">                <span class="comment">//权重</span></span><br><span class="line">                .weight(<span class="number">1f</span>)</span><br><span class="line">                .background(Color.Green))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="box-水平布局-将一个元素放在另一个元素上"> Box 水平布局 （将一个元素放在另一个元素上）</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">BoxLayoutDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">        Box() &#123;</span><br><span class="line">            Text(text = <span class="string">"测试"</span>, color = Color.Blue, fontSize = <span class="number">15</span>.sp)</span><br><span class="line">            Text(text = <span class="string">"测试"</span>, color = Color.Yellow, fontSize = <span class="number">30</span>.sp)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/05/25/Jetpack Compose/Jetpack Compose Column Row Box Spacer BoxWithConstraints ConstraintLayout/1.png" alt=""></p>
+<h3><span id="spacer-空白布局"> Spacer 空白布局</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Row &#123;</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">100</span>.dp)</span><br><span class="line">                .background(Color.Magenta)</span><br><span class="line">        )</span><br><span class="line">        <span class="comment">//空白布局</span></span><br><span class="line">        Spacer(modifier = Modifier.width(<span class="number">20</span>.dp))</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">100</span>.dp)</span><br><span class="line">                .background(Color.Yellow)</span><br><span class="line">        )</span><br><span class="line">        Spacer(modifier = Modifier.weight(<span class="number">1f</span>))</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">100</span>.dp)</span><br><span class="line">                .background(Color.Green)</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ArtistCardDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> padding = <span class="number">16</span>.dp</span><br><span class="line">    Column(</span><br><span class="line">        Modifier</span><br><span class="line">            .clickable(onClick = &#123;</span><br><span class="line">                Log.d(<span class="string">"Clickable"</span>, <span class="string">" clicked."</span>)</span><br><span class="line">            &#125;)</span><br><span class="line">            .padding(padding)</span><br><span class="line">            .fillMaxWidth()</span><br><span class="line">    ) &#123;</span><br><span class="line">        RowLayoutDemo()</span><br><span class="line">        Spacer(Modifier.size(padding))</span><br><span class="line">        Card(elevation = <span class="number">4</span>.dp) &#123;</span><br><span class="line">            Image(</span><br><span class="line">                painter = painterResource(id = R.mipmap.icon_header),</span><br><span class="line">                contentDescription = <span class="literal">null</span></span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="comment">//内边距</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">PaddedComposableDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Text(</span><br><span class="line">        text=<span class="string">"Hello World"</span>,</span><br><span class="line">        modifier =</span><br><span class="line">        <span class="comment">//背景</span></span><br><span class="line">        Modifier.background(Color.Green)</span><br><span class="line">            <span class="comment">//内边距</span></span><br><span class="line">            .padding(<span class="number">20</span>.dp))</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//设置尺寸</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">SizedComposableDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">        Box(</span><br><span class="line">            <span class="comment">//设置尺寸</span></span><br><span class="line">            modifier = Modifier.size(<span class="number">100</span>.dp, <span class="number">100</span>.dp)</span><br><span class="line">                <span class="comment">//背景</span></span><br><span class="line">                .background(Color.Red))</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">FixedSizeComposableDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">     Box(</span><br><span class="line">         modifier =</span><br><span class="line">         Modifier</span><br><span class="line">             <span class="comment">//设置尺寸</span></span><br><span class="line">             .size(<span class="number">90</span>.dp, <span class="number">150</span>.dp)</span><br><span class="line">             <span class="comment">//背景</span></span><br><span class="line">             .background(Color.Blue)</span><br><span class="line">     ) &#123;</span><br><span class="line">         <span class="comment">//设置所需尺寸</span></span><br><span class="line">         Box(</span><br><span class="line">             Modifier</span><br><span class="line">                 .requiredSize(<span class="number">120</span>.dp, <span class="number">120</span>.dp)</span><br><span class="line">                 <span class="comment">//背景</span></span><br><span class="line">                 .background(Color.Red)</span><br><span class="line">         )</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">FillSizeComposableDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Box(</span><br><span class="line">        Modifier</span><br><span class="line">            <span class="comment">//背景</span></span><br><span class="line">            .background(Color.Green)</span><br><span class="line">            <span class="comment">//尺寸</span></span><br><span class="line">            .size(<span class="number">50</span>.dp)</span><br><span class="line">            <span class="comment">//内边距</span></span><br><span class="line">            .padding(<span class="number">10</span>.dp)</span><br><span class="line">    ) &#123;</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                <span class="comment">//背景</span></span><br><span class="line">                .background(Color.Blue)</span><br><span class="line">                <span class="comment">//填充 最大边距</span></span><br><span class="line">                .fillMaxSize()</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">MatchParentSizeComposable</span><span class="params">()</span></span> &#123;</span><br><span class="line">        Box &#123;</span><br><span class="line">            Spacer(</span><br><span class="line">                modifier = Modifier</span><br><span class="line">                    <span class="comment">// 仅在 Box 作用域内可用</span></span><br><span class="line">                    .matchParentSize()</span><br><span class="line">                    <span class="comment">//Spacer 将占用父项允许的所有可用空间，反过来使父项展开并填满所有可用空间</span></span><br><span class="line"><span class="comment">//                    .fillMaxSize()</span></span><br><span class="line">                    .background(Color.Green)</span><br><span class="line">            )</span><br><span class="line">            Text(text = <span class="string">"Hello World"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在文本基线上方添加内边距</span></span><br><span class="line"> <span class="meta">@Composable</span></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">TextWithPaddingFromBaseline</span><span class="params">()</span></span> &#123;</span><br><span class="line">     Box(modifier = Modifier.background(Color.Green)) &#123;</span><br><span class="line">         Text(</span><br><span class="line">             text = <span class="string">"Hello World"</span>,</span><br><span class="line">             modifier = Modifier</span><br><span class="line">                 <span class="comment">//在文本基线上方添加内边距</span></span><br><span class="line">                 .paddingFromBaseline(top = <span class="number">20</span>.dp, bottom = <span class="number">5</span>.dp)</span><br><span class="line">         )</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//偏移量</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">OffsetComposable</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Box(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .size(width = <span class="number">160</span>.dp, height = <span class="number">80</span>.dp)</span><br><span class="line">            .background(Color.Blue)</span><br><span class="line">    ) &#123;</span><br><span class="line">        Text(</span><br><span class="line">            text = <span class="string">"Layout offset modifier sample"</span>,</span><br><span class="line">            <span class="comment">//偏移量</span></span><br><span class="line">            Modifier.offset(x = <span class="number">16</span>.dp, y = <span class="number">40</span>.dp)</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自适应布局</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">FlexibleComposable</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Row(Modifier.width(<span class="number">200</span>.dp)) &#123;</span><br><span class="line">        Box(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .weight(<span class="number">1f</span>)</span><br><span class="line">                .height(<span class="number">30</span>.dp)</span><br><span class="line">                .background(Color.Green)</span><br><span class="line">        )</span><br><span class="line">        Box(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .weight(<span class="number">3f</span>)</span><br><span class="line">                .height(<span class="number">30</span>.dp)</span><br><span class="line">                .background(Color.Red)</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="boxwithconstraints"> BoxWithConstraints</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//约束条件</span></span><br><span class="line">  <span class="meta">@Composable</span></span><br><span class="line">  <span class="function"><span class="keyword">fun</span> <span class="title">WithConstraintsComposable</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">//约束条件</span></span><br><span class="line">      BoxWithConstraints &#123;</span><br><span class="line">          Text(<span class="string">"My minHeight is <span class="variable">$minHeight</span> while my maxWidth is <span class="variable">$maxWidth</span>"</span>)</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    BoxWithConstraints(</span><br><span class="line">        modifier = Modifier.fillMaxWidth(),</span><br><span class="line">        <span class="comment">//内容的对齐方式</span></span><br><span class="line">        contentAlignment = Alignment.TopStart,</span><br><span class="line">        <span class="comment">//是否将约束作用于 子 View 上</span></span><br><span class="line">        propagateMinConstraints = <span class="literal">true</span>,</span><br><span class="line">    ) &#123;</span><br><span class="line">        <span class="keyword">val</span> itemW = <span class="number">50</span>.dp</span><br><span class="line">        <span class="keyword">val</span> spaceW = <span class="number">2</span>.dp</span><br><span class="line">        <span class="keyword">val</span> count = (maxWidth.value / (itemW.value + spaceW.value)).toInt()</span><br><span class="line">        <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            Row() &#123;</span><br><span class="line">                <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0</span> until count) &#123;</span><br><span class="line">                    Box(</span><br><span class="line">                        Modifier</span><br><span class="line">                            .size(itemW, itemW)</span><br><span class="line">                            .background(Color.Blue)</span><br><span class="line">                    )</span><br><span class="line">                    Spacer(Modifier.size(spaceW))</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="constraintlayout-约束布局"> ConstraintLayout 约束布局</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ConstraintLayoutDemo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ConstraintLayout &#123;</span><br><span class="line">        <span class="comment">//通过 createRefs() 或 createRefFor() 创建关联的引用</span></span><br><span class="line">        <span class="keyword">val</span> (text1,text2,text3) = createRefs()</span><br><span class="line">        <span class="comment">//使用 constrainAs() 修饰符提供的约束条件</span></span><br><span class="line">        Text(text = <span class="string">"Text1"</span>, Modifier.constrainAs(text1) &#123;</span><br><span class="line">            <span class="comment">//指定约束条件</span></span><br><span class="line">            start.linkTo(text2.end)</span><br><span class="line">        &#125;)</span><br><span class="line">        Text(text = <span class="string">"Text2"</span>, Modifier.constrainAs(text2) &#123;</span><br><span class="line">            top.linkTo(text1.bottom)</span><br><span class="line">        &#125;)</span><br><span class="line">        Text(text = <span class="string">"This is a very long text"</span>, Modifier.constrainAs(text3) &#123;</span><br><span class="line">            start.linkTo(text2.end)</span><br><span class="line">            top.linkTo(text2.bottom)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1433,7 +1075,7 @@ expr1 ?? expr2</li>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1481,7 +1123,7 @@ expr1 ?? expr2</li>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

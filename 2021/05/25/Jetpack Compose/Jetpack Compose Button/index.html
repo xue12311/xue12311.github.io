@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Jetpack Compose学习 -------- Button 按钮  Button 按钮 基本使用 12345678910111213@Composablefun ButtonSample() &amp;#123;    Button(        onClick = &amp;#123;            Log.d(&quot;ButtonSample&quot;, &quot;按钮被点击&quot;)        &amp;#125;,">
+<meta name="description" content="Jetpack Compose学习 -------- 按钮 Button , IconButton  Button 按钮 基本使用 12345678910111213@Composablefun ButtonSample() &amp;#123;    Button(        onClick = &amp;#123;            Log.d(&quot;ButtonSample&quot;, &quot;按钮被点击&quot;)">
 <meta name="keywords" content="android,Jetpack Compose">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jetpack Compose学习  Button">
+<meta property="og:title" content="Jetpack Compose学习  Button IconButton">
 <meta property="og:url" content="http://xue12311.github.io/2021/05/25/Jetpack Compose/Jetpack Compose Button/index.html">
 <meta property="og:site_name" content="学胖子的个人博客">
-<meta property="og:description" content="Jetpack Compose学习 -------- Button 按钮  Button 按钮 基本使用 12345678910111213@Composablefun ButtonSample() &amp;#123;    Button(        onClick = &amp;#123;            Log.d(&quot;ButtonSample&quot;, &quot;按钮被点击&quot;)        &amp;#125;,">
+<meta property="og:description" content="Jetpack Compose学习 -------- 按钮 Button , IconButton  Button 按钮 基本使用 12345678910111213@Composablefun ButtonSample() &amp;#123;    Button(        onClick = &amp;#123;            Log.d(&quot;ButtonSample&quot;, &quot;按钮被点击&quot;)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-25T12:59:09.179Z">
+<meta property="og:updated_time" content="2021-05-27T00:04:17.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jetpack Compose学习  Button">
-<meta name="twitter:description" content="Jetpack Compose学习 -------- Button 按钮  Button 按钮 基本使用 12345678910111213@Composablefun ButtonSample() &amp;#123;    Button(        onClick = &amp;#123;            Log.d(&quot;ButtonSample&quot;, &quot;按钮被点击&quot;)        &amp;#125;,">
+<meta name="twitter:title" content="Jetpack Compose学习  Button IconButton">
+<meta name="twitter:description" content="Jetpack Compose学习 -------- 按钮 Button , IconButton  Button 按钮 基本使用 12345678910111213@Composablefun ButtonSample() &amp;#123;    Button(        onClick = &amp;#123;            Log.d(&quot;ButtonSample&quot;, &quot;按钮被点击&quot;)">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>Jetpack Compose学习  Button | 学胖子的个人博客</title>
+  <title>Jetpack Compose学习  Button IconButton | 学胖子的个人博客</title>
   
 
 
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jetpack Compose学习  Button</h1>
+          <h1 class="post-title" itemprop="name headline">Jetpack Compose学习  Button IconButton</h1>
         
 
         <div class="post-meta">
@@ -387,9 +387,12 @@
       
 
       
-        <h2><span id="jetpack-compose学习-button-按钮"> Jetpack Compose学习 -------- Button 按钮</span></h2>
+        <h2><span id="jetpack-compose学习-按钮-button-iconbutton"> Jetpack Compose学习 -------- 按钮 Button , IconButton</span></h2>
 <h3><span id="button-按钮-基本使用"> Button 按钮 基本使用</span></h3>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ButtonSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Button(</span><br><span class="line">        onClick = &#123;</span><br><span class="line">            Log.d(<span class="string">"ButtonSample"</span>, <span class="string">"按钮被点击"</span>)</span><br><span class="line">        &#125;,</span><br><span class="line">        modifier = Modifier.padding(<span class="number">10</span>.dp),</span><br><span class="line">        colors = ButtonDefaults.textButtonColors(backgroundColor = Color.Blue)</span><br><span class="line">    ) &#123;</span><br><span class="line">        Text(text = <span class="string">"按钮"</span>, color = Color.White)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Button(onClick = &#123; &#125;) &#123;</span><br><span class="line">        Icon(</span><br><span class="line">            imageVector = Icons.Filled.Favorite,</span><br><span class="line">            contentDescription = <span class="string">"喜爱"</span>,</span><br><span class="line">            modifier = Modifier.size(ButtonDefaults.IconSize)</span><br><span class="line">        )</span><br><span class="line">        <span class="comment">//间隔</span></span><br><span class="line">        Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))</span><br><span class="line">        Text(text = <span class="string">"喜爱"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="iconbutton-图标按钮-基本使用"> IconButton 图标按钮 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Row &#123;</span><br><span class="line">        IconButton(onClick = &#123; &#125;) &#123;</span><br><span class="line">            Icon(Icons.Filled.Search, <span class="literal">null</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        IconButton(onClick = &#123; &#125;) &#123;</span><br><span class="line">            Icon(Icons.Filled.ArrowBack, <span class="literal">null</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        IconButton(onClick = &#123; &#125;) &#123;</span><br><span class="line">            Icon(Icons.Filled.Done, <span class="literal">null</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">val</span> isSelected = remember &#123;</span><br><span class="line">            mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//取消水波纹</span></span><br><span class="line">        IconButtonNoIndication(onClick = &#123;</span><br><span class="line">            isSelected.value = !isSelected.value</span><br><span class="line">        &#125;) &#123;</span><br><span class="line">            Icon(</span><br><span class="line">                Icons.Filled.Home,</span><br><span class="line">                <span class="literal">null</span>,</span><br><span class="line">                tint = <span class="keyword">if</span> (isSelected.value) &#123;</span><br><span class="line">                    Color.Red</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Color.Gray</span><br><span class="line">                &#125;</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 去掉水波纹</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">IconButtonNoIndication</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        onClick: ()</span></span> -&gt; <span class="built_in">Unit</span>,</span><br><span class="line">        modifier: Modifier = Modifier,</span><br><span class="line">        enabled: <span class="built_in">Boolean</span> = <span class="literal">true</span>,</span><br><span class="line">        interactionSource: MutableInteractionSource = remember &#123; MutableInteractionSource() &#125;,</span><br><span class="line">        content: <span class="meta">@Composable</span> () -&gt; <span class="built_in">Unit</span></span><br><span class="line">    ) &#123;</span><br><span class="line">        Box(</span><br><span class="line">            modifier = modifier</span><br><span class="line">                .clickable(</span><br><span class="line">                    onClick = onClick,</span><br><span class="line">                    enabled = enabled,</span><br><span class="line">                    role = Role.Button,</span><br><span class="line">                    interactionSource = interactionSource,</span><br><span class="line">                    <span class="comment">//取消水波纹</span></span><br><span class="line">                    indication = <span class="literal">null</span></span><br><span class="line">                )</span><br><span class="line">                .then(Modifier.size(<span class="number">48</span>.dp)),</span><br><span class="line">            contentAlignment = Alignment.Center</span><br><span class="line">        ) &#123; content() &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -512,7 +515,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -592,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text"> Jetpack Compose学习 -------- Button 按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text"> Button 按钮 基本使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text"> Jetpack Compose学习 -------- 按钮 Button , IconButton</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text"> Button 按钮 基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text"> IconButton 图标按钮 基本使用</span></a></li></ol></li></ol></div>
             
 
           </div>
