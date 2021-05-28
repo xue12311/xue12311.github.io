@@ -184,6 +184,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2018/12/16/kotlin/kotlin%E7%BB%83%E4%B9%A0-when%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/16/kotlin/kotlin%E7%BB%83%E4%B9%A0-when%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0/" class="post-title-link" itemprop="url">kotlin练习 - when分支结构练习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-16 18:54:14" itemprop="dateCreated datePublished" datetime="2018-12-16T18:54:14+08:00">2018-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-06-01 22:41:49" itemprop="dateModified" datetime="2019-06-01T22:41:49+08:00">2019-06-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="kotlin练习-when分支练习"> kotlin练习 - when分支练习</span></h1>
+<h2><span id="when表达式"> when表达式</span></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">when(expression){</span><br><span class="line">expression1 -&gt;	statements...</span><br><span class="line">expression2 -&gt; statements...</span><br><span class="line">else -&gt; statements...</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>例子1</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var score = 'B'</span><br><span class="line">    when (score) {</span><br><span class="line">        'A' -&gt; println("优秀")</span><br><span class="line">        'B' -&gt; println("良好")</span><br><span class="line">        'C' -&gt; println("中")</span><br><span class="line">        'D' -&gt; println("及格")</span><br><span class="line">        else -&gt; println("不及格")</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>例子2</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var score = 'c'</span><br><span class="line">    when (score) {</span><br><span class="line">        'A', 'a' -&gt; println("优秀")</span><br><span class="line">        'B', 'b' -&gt; println("良好")</span><br><span class="line">        'C', 'c' -&gt; println("中")</span><br><span class="line">        'D', 'd' -&gt; println("及格")</span><br><span class="line">        else -&gt; {</span><br><span class="line">            println("不及格")</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>例子3</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var score = 'A'</span><br><span class="line">    var str = "EFGH"</span><br><span class="line">    when (score) {</span><br><span class="line">        str[0]-4,str[1]-4 -&gt; println("优秀")</span><br><span class="line">        str[2]-4,str[3]-4  -&gt; println("中")</span><br><span class="line">        else -&gt; {</span><br><span class="line">            println("不及格")</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>例子4</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var date = Date()</span><br><span class="line">    when (date) {</span><br><span class="line">        Date() -&gt; println("优秀") </span><br><span class="line">        else -&gt; {</span><br><span class="line">            println("不及格")</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>例子5</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var score = 'B'</span><br><span class="line">    var  str = when (score) {</span><br><span class="line">        'A' -&gt; "优秀"</span><br><span class="line">        'B' -&gt; "良好"</span><br><span class="line">        'C' -&gt; "中"</span><br><span class="line">        'D' -&gt; "及格"</span><br><span class="line">        else -&gt; "不格"</span><br><span class="line">    }</span><br><span class="line">    println(str)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>例子6</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var score = Random().nextInt(100)</span><br><span class="line">    var str = when (score) {</span><br><span class="line">        in 90..100 -&gt; "优秀"</span><br><span class="line">        in 80..90 -&gt; "良好"</span><br><span class="line">        in 70..80 -&gt; "中"</span><br><span class="line">        in 60..70 -&gt; "及格"</span><br><span class="line">        else -&gt; "不及格"</span><br><span class="line">    }</span><br><span class="line">    println("${score} = ${str}")</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>例子7</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var inputPrice = "09"</span><br><span class="line">    println(realPrice(inputPrice))</span><br><span class="line">}</span><br><span class="line">fun realPrice(inputPrice:Any)=when(inputPrice){</span><br><span class="line">    is String -&gt; inputPrice.toDouble()//如果inputPrice类型为String,返回该字符的Double值</span><br><span class="line">    is Int -&gt; inputPrice.toDouble()//如果inputPrice类型为Int,返回该字符的Double值</span><br><span class="line">    is  Double -&gt; inputPrice</span><br><span class="line">    else -&gt; 0.0</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>例子8</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    println("请输入内容")</span><br><span class="line">    val string = readLine()//读取控制台的一行输入 类型: String?</span><br><span class="line">    if(string!=null){</span><br><span class="line">        when{</span><br><span class="line">            //每个分支条件都需要是布尔表达式</span><br><span class="line">            string.matches(Regex("\\d+")) -&gt; println("您输入的全是数字")</span><br><span class="line">            string.matches(Regex("[a-zA-Z]+")) -&gt; println("您输入的全是字母")</span><br><span class="line">            string.matches(Regex("[a-zA-Z0-9]+")) -&gt; println("您输入的既有数字也有字母")</span><br><span class="line">            else -&gt; println("您输入的内容中包含了特殊字符")</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2018/12/16/kotlin/kotlin%E7%BB%83%E4%B9%A0-if%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E7%BB%83%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -352,7 +460,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
