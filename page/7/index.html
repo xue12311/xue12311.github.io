@@ -184,6 +184,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Canvas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Canvas/" class="post-title-link" itemprop="url">Jetpack Compose学习  Canvas</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-25 11:15:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:15:10+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-26 13:57:42" itemprop="dateModified" datetime="2021-05-26T13:57:42+08:00">2021-05-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-canvas-图形"> Jetpack Compose学习 -------- Canvas 图形</span></h2>
+<h3><span id="canvas-图形-基本属性"> Canvas 图形 基本属性</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//绘制 线</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawLineDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制 线</span></span><br><span class="line">            drawLine(</span><br><span class="line">                start = Offset(x = canvasWidth, y = <span class="number">0f</span>),</span><br><span class="line">                end = Offset(x = <span class="number">0f</span>, y = canvasHeight),</span><br><span class="line">                color = Color.Red</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  <span class="comment">//绘制 圆</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawCircleDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制 圆</span></span><br><span class="line">            drawCircle(</span><br><span class="line">                color = Color.Red,</span><br><span class="line">                <span class="comment">//圆心  画布中心点</span></span><br><span class="line">                center = Offset(</span><br><span class="line">                    x = canvasWidth / <span class="number">2</span>,</span><br><span class="line">                    y = canvasHeight / <span class="number">2</span></span><br><span class="line">                ),</span><br><span class="line">                <span class="comment">//半径 : 画布最小边 的 1/4</span></span><br><span class="line">                radius = size.minDimension / <span class="number">4</span></span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">//绘制 弧</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawArcDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">//画布</span></span><br><span class="line">    Canvas(</span><br><span class="line">        <span class="comment">//充满整个屏幕</span></span><br><span class="line">        modifier = Modifier.fillMaxSize()</span><br><span class="line">    ) {</span><br><span class="line">        <span class="comment">//绘制 弧</span></span><br><span class="line">        drawArc(</span><br><span class="line">            color = Color.Red,</span><br><span class="line">            startAngle = <span class="number">0f</span>,</span><br><span class="line">            sweepAngle = <span class="number">60f</span>,</span><br><span class="line">            useCenter = <span class="literal">true</span>,</span><br><span class="line">            size = Size(<span class="number">300f</span>, <span class="number">300f</span>),</span><br><span class="line">            topLeft = Offset(<span class="number">60f</span>, <span class="number">60f</span>)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"> <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasQuadrantSize = size / <span class="number">2f</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制 矩形</span></span><br><span class="line">            drawRect(</span><br><span class="line">                color = Color.Red,</span><br><span class="line">                size = canvasQuadrantSize</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasInsetDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasQuadrantSize = size / <span class="number">2f</span></span><br><span class="line">            <span class="comment">//更改绘图边界</span></span><br><span class="line">            inset(<span class="number">150f</span>, <span class="number">30f</span>) {</span><br><span class="line">                <span class="comment">//绘制 矩形</span></span><br><span class="line">                drawRect(</span><br><span class="line">                    color = Color.Red,</span><br><span class="line">                    size = canvasQuadrantSize</span><br><span class="line">                )</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">      <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawRectTopLeftDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line">            <span class="keyword">val</span> canvasSize = size</span><br><span class="line">            <span class="comment">//绘制 矩形</span></span><br><span class="line">            drawRect(</span><br><span class="line">                color = Color.Red,</span><br><span class="line">                topLeft = Offset(x = canvasWidth / <span class="number">3f</span>, y = canvasHeight / <span class="number">3f</span>),</span><br><span class="line">                size = canvasSize / <span class="number">3f</span></span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">     <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasRotateDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="comment">//旋转 45 度</span></span><br><span class="line">            rotate(degrees = <span class="number">45f</span>) {</span><br><span class="line">                <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">                <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line">                <span class="keyword">val</span> canvasSize = size</span><br><span class="line">                <span class="comment">//绘制 矩形</span></span><br><span class="line">                drawRect(</span><br><span class="line">                    color = Color.Red,</span><br><span class="line">                    topLeft = Offset(x = canvasWidth / <span class="number">3f</span>, y = canvasHeight / <span class="number">3f</span>),</span><br><span class="line">                    size = canvasSize / <span class="number">3f</span></span><br><span class="line">                )</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasTransformDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line">            <span class="keyword">val</span> canvasSize = size</span><br><span class="line">            <span class="comment">//多种转换</span></span><br><span class="line">            withTransform({</span><br><span class="line">                <span class="comment">//平移</span></span><br><span class="line">                translate(left = canvasWidth / <span class="number">5f</span>)</span><br><span class="line">                <span class="comment">//旋转 45 度</span></span><br><span class="line">                rotate(degrees = <span class="number">45f</span>)</span><br><span class="line">            }) {</span><br><span class="line">                <span class="comment">//绘制 矩形</span></span><br><span class="line">                drawRect(</span><br><span class="line">                    color = Color.Red,</span><br><span class="line">                    topLeft = Offset(x = canvasWidth / <span class="number">3f</span>, y = canvasHeight / <span class="number">3f</span>),</span><br><span class="line">                    size = canvasSize / <span class="number">3f</span></span><br><span class="line">                )</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Button/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -539,74 +618,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/07/02/android/%E8%A7%86%E9%A2%91%E6%97%B6%E9%95%BF(Long)%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2(String)_Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/02/android/%E8%A7%86%E9%A2%91%E6%97%B6%E9%95%BF(Long)%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2(String)_Java/" class="post-title-link" itemprop="url">视频时长(Long)转字符串(String)_Java</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-02 11:09:52 / 修改时间：11:13:03" itemprop="dateCreated datePublished" datetime="2020-07-02T11:09:52+08:00">2020-07-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3><span id="视频时长long转字符串string_java"> 视频时长(Long)转字符串(String)_Java</span></h3>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">   * 时长转字符</span><br><span class="line">   * @param mDuration 时长（毫秒）</span><br><span class="line">   * @param isMillisecond 是否需要毫秒，true:需要，false:不用</span><br><span class="line">   * @return </span><br><span class="line">   */</span><br><span class="line">  public static String getTimeDurationString(@NonNull Long mDuration, @NonNull Boolean isMillisecond) {</span><br><span class="line">      Long hours = 0L, minutes = 0L, seconds = 0L, millisecond = null;</span><br><span class="line">      if (isMillisecond) {</span><br><span class="line">          //毫秒</span><br><span class="line">          millisecond = mDuration % TimeConstants.SEC;</span><br><span class="line">      }</span><br><span class="line">      hours = mDuration / TimeConstants.HOUR;</span><br><span class="line">      minutes = (mDuration / TimeConstants.MIN)-(hours*60);</span><br><span class="line">      seconds = (mDuration / TimeConstants.SEC)-(minutes*60)-(hours*3600);</span><br><span class="line">      String str_duration = getTimeString(hours, minutes, seconds, millisecond);</span><br><span class="line">      return str_duration;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  private static String getTimeString(@NonNull Long hours, @NonNull Long minutes, @NonNull Long seconds, Long millisecond) {</span><br><span class="line">      if (millisecond != null) {</span><br><span class="line">          return String.format("%02d:%02d:%02d.%02d", hours, minutes, seconds, millisecond);</span><br><span class="line">      } else {</span><br><span class="line">          return String.format("%02d:%02d:%02d", hours, minutes, seconds);</span><br><span class="line">      }</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -678,7 +689,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

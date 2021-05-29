@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xue12311.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Http 学习 v1  HTTP 的定义 ⼀种⽹络传输协议，位于 TCP &#x2F; IP 协议族的最顶层——应⽤层。 Hypertext Transfer Protocol，超⽂本传输协议，和 HTML (Hypertext Markup Language 超⽂本标记语⾔) ⼀起诞⽣，⽤于在⽹络上请求和传输 HTML 内容。  HTTP 的⼯作⽅式  浏览器 :  ⽤户输⼊地址后回⻋或点击链接 浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Http 学习 v1">
+<meta property="og:url" content="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/index.html">
+<meta property="og:site_name" content="学胖子的个人博客">
+<meta property="og:description" content="Http 学习 v1  HTTP 的定义 ⼀种⽹络传输协议，位于 TCP &#x2F; IP 协议族的最顶层——应⽤层。 Hypertext Transfer Protocol，超⽂本传输协议，和 HTML (Hypertext Markup Language 超⽂本标记语⾔) ⼀起诞⽣，⽤于在⽹络上请求和传输 HTML 内容。  HTTP 的⼯作⽅式  浏览器 :  ⽤户输⼊地址后回⻋或点击链接 浏览器">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/1.png">
+<meta property="og:image" content="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/2.png">
+<meta property="og:image" content="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/3.png">
+<meta property="og:image" content="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/4.png">
+<meta property="og:image" content="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/5.png">
+<meta property="og:image" content="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/6.png">
+<meta property="og:image" content="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/7.png">
+<meta property="article:published_time" content="2021-05-29T02:39:40.148Z">
+<meta property="article:modified_time" content="2021-05-29T03:53:36.092Z">
+<meta property="article:author" content="学胖子">
+<meta property="article:tag" content="EventBus">
+<meta property="article:tag" content="kotlin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/1.png">
+
+<link rel="canonical" href="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Http 学习 v1 | 学胖子的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="学胖子的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">学胖子的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Http 学习 v1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-29 10:39:40 / 修改时间：11:53:36" itemprop="dateCreated datePublished" datetime="2021-05-29T10:39:40+08:00">2021-05-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1><span id="http-学习-v1"> Http 学习 v1</span></h1>
+<h2><span id="http-的定义"> HTTP 的定义</span></h2>
+<p>⼀种⽹络传输协议，位于 TCP / IP 协议族的最顶层——应⽤层。</p>
+<p>Hypertext Transfer Protocol，超⽂本传输协议，和 HTML (Hypertext Markup Language 超⽂本标记语⾔) ⼀起诞⽣，⽤于在⽹络上请求和传输 HTML 内容。</p>
+<h2><span id="http-的工作方式"> HTTP 的⼯作⽅式</span></h2>
+<h3><span id="浏览器"> 浏览器 :</span></h3>
+<ul>
+<li>⽤户输⼊地址后回⻋或点击链接</li>
+<li>浏览器拼装 HTTP 报⽂并发送请求给服务器</li>
+<li>服务器处理请求后发送响应报⽂给浏览器</li>
+<li>浏览器解析响应报⽂并使⽤渲染引擎显示到界⾯</li>
+</ul>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/1.png" alt=""></p>
+<h3><span id="手机-app"> ⼿机 App</span></h3>
+<ul>
+<li>⽤户点击或界⾯⾃动触发联⽹需求</li>
+<li>Android 代码调⽤拼装 HTTP 报⽂并发送请求到服务器</li>
+<li>服务器处理请求后发送响应报⽂给⼿机</li>
+<li>Android 代码处理响应报⽂并作出相应处理（如储存数据、加⼯数据、显示数据到界⾯）</li>
+</ul>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/2.png" alt=""></p>
+<h2><span id="url-和-http-报文"> URL 和 HTTP 报⽂</span></h2>
+<h3><span id="url-格式"> URL 格式</span></h3>
+<p>三部分：协议类型、服务器地址(和端⼝号)、路径(Path)</p>
+<p>协议类型://服务器地址[:端⼝号]路径</p>
+<p><a target="_blank" rel="noopener" href="http://hencoder.com/users?gender=male">http://hencoder.com/users?gender=male</a></p>
+<h3><span id="报文格式"> 报⽂格式</span></h3>
+<h4><span id="请求报文"> 请求报⽂</span></h4>
+<ul>
+<li>请求报文格式：请求行、Headers、Body</li>
+<li>请求行：Method、Path、HTTP version</li>
+<li>Method：GET、POST、PUT、DELETE …</li>
+<li>Headers：请求的 meta data</li>
+<li>Body：要发送给服务器的内容</li>
+</ul>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/3.png" alt=""></p>
+<h4><span id="响应报文"> 响应报⽂</span></h4>
+<ul>
+<li>响应报文格式：状态行、Headers、Body</li>
+<li>状态行：HTTP version、Status Code、Status Message</li>
+<li>Status Code: 1xx(信息)、2xx(成功)、3(重定向)、4(客户端错误)、5(服务器错误)</li>
+</ul>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/4.png" alt=""></p>
+<h2><span id="request-method-请求方法"> Request Method 请求⽅法</span></h2>
+<h3><span id="get"> GET</span></h3>
+<ul>
+<li>⽤于获取资源</li>
+<li>对服务器数据不进⾏修改</li>
+<li>不发送 Body</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /users/1 HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@GET("/users/{id}")</span><br><span class="line">Call&lt;User&gt; getUser(@Path("id") String id, @Query("gender") String gender);</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="post"> POST</span></h3>
+<ul>
+<li>⽤于增加或修改资源</li>
+<li>发送给服务器的内容写在 Body ⾥⾯</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /users HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 13</span><br><span class="line">name=rengwuxian&amp;gender=male</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Field("name") String name, @Field("gender") String</span><br><span class="line">gender);</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="put"> PUT</span></h3>
+<ul>
+<li>⽤于修改资源</li>
+<li>发送给服务器的内容写在 Body ⾥⾯</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PUT /users/1 HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 13</span><br><span class="line">gender=female</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@PUT("/users/{id}")</span><br><span class="line">Call&lt;User&gt; updateGender(@Path("id") String id, @Field("gender") String</span><br><span class="line">gender);</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="delete"> DELETE</span></h3>
+<ul>
+<li>⽤于删除资源</li>
+<li>不发送 Body</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE /users/1 HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@DELETE("/users/{id}")</span><br><span class="line">Call&lt;User&gt; getUser(@Path("id") String id, @Query("gender") String gender);</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="head"> HEAD</span></h3>
+<ul>
+<li>和 GET 使⽤⽅法完全相同</li>
+<li>和 GET 唯⼀区别在于，返回的响应中没有 Body</li>
+</ul>
+<h2><span id="status-code-状态码"> Status Code 状态码</span></h2>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/5.png" alt=""></p>
+<ul>
+<li>1xx：临时性消息。如：100 （继续发送）、101（正在切换协议）</li>
+<li>2xx：成功。最典型的是 200（OK）、201（创建成功）。</li>
+<li>3xx：重定向。如 301（永久移动）、302（暂时移动）、304（内容未改变）。</li>
+<li>4xx：客户端错误。如 400（客户端请求错误）、401（认证失败）、403（被禁⽌）、404（找不到内容）。</li>
+<li>5xx：服务器错误。如 500（服务器内部错误）。</li>
+</ul>
+<h2><span id="header"> Header</span></h2>
+<p>作⽤：HTTP 消息的元数据（ metadata ）。</p>
+<h3><span id="host"> Host</span></h3>
+<p>⽬标主机。注意：不是在⽹络上⽤于寻址的，⽽是在⽬标服务器上⽤于定位⼦服务器的。</p>
+<h3><span id="content-type"> Content-Type</span></h3>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/6.png" alt=""></p>
+<p>指定 Body 的类型。主要有四类：</p>
+<h4><span id="1-texthtml"> 1. text/html</span></h4>
+<p>请求 Web ⻚⾯是返回响应的类型，Body 中返回 html ⽂本。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Content-Length: 853</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line"> &lt;meta charset="utf-8"&gt;</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
+<h4><span id="2-x-www-form-urlencoded"> 2. x-www-form-urlencoded</span></h4>
+<p>Web ⻚⾯纯⽂本表单的提交⽅式</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /users HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 27</span><br><span class="line">name=rengwuxian&amp;gender=male</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Field("name") String name, @Field("gender") String</span><br><span class="line">gender);</span><br></pre></td></tr></tbody></table></figure>
+<h4><span id="3-multitypeform-data"> 3. multitype/form-data</span></h4>
+<p>Web ⻚⾯含有⼆进制⽂件时的提交⽅式。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">POST  /users  HTTP/1.1</span><br><span class="line">Host: hencoder.com</span><br><span class="line">Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW</span><br><span class="line">Content-Length: 2382</span><br><span class="line"></span><br><span class="line">------WebKitFormBoundary7MA4YWxkTrZu0gW</span><br><span class="line">Content-Disposition: form-data; name="name"</span><br><span class="line"></span><br><span class="line">rengwuxian</span><br><span class="line">------WebKitFormBoundary7MA4YWxkTrZu0gW</span><br><span class="line">Content-Disposition: form-data; name="avatar"; filename="avatar.jpg"</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line"></span><br><span class="line">JFIFHHvOwX9jximQrWa......</span><br><span class="line">------WebKitFormBoundary7MA4YWxkTrZu0gW--</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Multipart</span><br><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Part("name") RequestBody name, @Part("avatar")</span><br><span class="line">RequestBody avatar);</span><br><span class="line">...</span><br><span class="line">RequestBody namePart = RequestBody.create(MediaType.parse("text/plain"),</span><br><span class="line">nameStr);</span><br><span class="line">RequestBody avatarPart = RequestBody.create(MediaType.parse("image/jpeg"),</span><br><span class="line">avatarFile);</span><br><span class="line">api.addUser(namePart, avatarPart);</span><br></pre></td></tr></tbody></table></figure>
+<h4><span id="4-applicationjson-imagejpeg-applicationzip"> 4. application/json , image/jpeg , application/zip …</span></h4>
+<p>单项内容（⽂本或⾮⽂本都可以），⽤于 Web Api 的响应或者 POST / PUT 的请求</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//请求中提交 JSON</span><br><span class="line"></span><br><span class="line">POST /users HTTP/1.1</span><br><span class="line">Host: hencoder.com</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Content-Length: 38</span><br><span class="line">{"name":"rengwuxian","gender":"male"}</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Body("user") User user);</span><br><span class="line">...</span><br><span class="line">// 需要使⽤ JSON 相关的 Converter</span><br><span class="line">api.addUser(user);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//响应中返回 JSON</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">content-type: application/json; charset=utf-8</span><br><span class="line">content-length: 234</span><br><span class="line">[{"login":"mojombo","id":1,"node_id":"MDQ6VXNl</span><br><span class="line">cjE=","avatar_url":"https://avatars0.githubuse</span><br><span class="line">rcontent.com/u/1?v=4","gravat......</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//请求中提交⼆进制内容</span><br><span class="line"></span><br><span class="line">POST /user/1/avatar HTTP/1.1</span><br><span class="line">Host: hencoder.com</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line">Content-Length: 1575</span><br><span class="line">JFIFHH9......</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@POST("users/{id}/avatar")</span><br><span class="line">Call&lt;User&gt; updateAvatar(@Path("id") String id, @Body RequestBody avatar);</span><br><span class="line">...</span><br><span class="line">RequestBody avatarBody = RequestBody.create(MediaType.parse("image/jpeg"),</span><br><span class="line">avatarFile);</span><br><span class="line">api.updateAvatar(id, avatarBody)</span><br></pre></td></tr></tbody></table></figure>
+<p>相应中返回⼆进制内容</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">content-type: image/jpeg</span><br><span class="line">content-length: 1575</span><br><span class="line">JFIFHH9......</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="content-length"> Content-Length</span></h3>
+<p>指定 Body 的⻓度（字节）</p>
+<h3><span id="transfer-chunked-分块传输编码-chunked-transfer-encoding"> Transfer: chunked (分块传输编码 Chunked Transfer Encoding)</span></h3>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/7.png" alt=""></p>
+<p>⽤于当响应发起时，内容⻓度还没能确定的情况下。和 Content-Length 不同时使⽤。⽤途是尽早给出响应，减少⽤户等待。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">4</span><br><span class="line">Chun</span><br><span class="line">9</span><br><span class="line">ked Trans</span><br><span class="line">12</span><br><span class="line">fer Encoding</span><br><span class="line">0</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="location"> Location</span></h3>
+<p>指定重定向的⽬标 URL</p>
+<h3><span id="user-agent"> User-Agent</span></h3>
+<p>⽤户代理，即是谁实际发送请求、接受响应的，例如⼿机浏览器、某款⼿机 App。</p>
+<h3><span id="range-accept-range"> Range / Accept-Range</span></h3>
+<p>按范围取数据</p>
+<ul>
+<li>Accept-Range: bytes 响应报⽂中出现，表示服务器⽀持按字节来取范围数据</li>
+<li>Range: bytes=<start>-<end> 请求报⽂中出现，表示要取哪段数据</end></start></li>
+<li>Content-Range:<start>-<end>/total 响应报⽂中出现，表示发送的是哪段数据</end></start></li>
+</ul>
+<p>作⽤：断点续传、多线程下载。</p>
+<h2><span id="其他-headers"> 其他 Headers</span></h2>
+<ul>
+<li>Accept: 客户端能接受的数据类型。如 text/html</li>
+<li>Accept-Charset: 客户端接受的字符集。如 utf-8</li>
+<li>Accept-Encoding: 客户端接受的压缩编码类型。如 gzip</li>
+<li>Content-Encoding：压缩类型。如 gzip</li>
+</ul>
+<h2><span id="cache"> Cache</span></h2>
+<p>作⽤：在客户端或中间⽹络节点缓存数据，降低从服务器取数据的频率，以提⾼⽹络性能。</p>
+<h2><span id="rest"> REST</span></h2>
+<p>REST HTTP 即正确使⽤ HTTP。<br>
+* 使⽤资源的格式来定义 URL<br>
+* 规范地使⽤ method 来定义⽹络请求操作<br>
+* 规范地使⽤ status code 来表示响应状态<br>
+* 其他符合 HTTP 规范的设计准则</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/EventBus/" rel="tag"># EventBus</a>
+              <a href="/tags/kotlin/" rel="tag"># kotlin</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/28/kotlin/kotlin%E5%AD%A6%E4%B9%A0-%20Jave%20%E4%B8%8E%20Kotlin%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" rel="prev" title="kotlin学习 -  Jave 与 Kotlin 注意事项">
+      <i class="fa fa-chevron-left"></i> kotlin学习 -  Jave 与 Kotlin 注意事项
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"> Http 学习 v1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> HTTP 的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> HTTP 的⼯作⽅式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> 浏览器 :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> ⼿机 App</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> URL 和 HTTP 报⽂</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> URL 格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> 报⽂格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"> 请求报⽂</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"> 响应报⽂</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> Request Method 请求⽅法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> GET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> PUT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> DELETE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> HEAD</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> Status Code 状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> Header</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> Host</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> Content-Type</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"> 1. text&#x2F;html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"> 2. x-www-form-urlencoded</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"> 3. multitype&#x2F;form-data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"> 4. application&#x2F;json , image&#x2F;jpeg , application&#x2F;zip …</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> Content-Length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> Transfer: chunked (分块传输编码 Chunked Transfer Encoding)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> Location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> User-Agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text"> Range &#x2F; Accept-Range</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> 其他 Headers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> Cache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> REST</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="学胖子"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">学胖子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/" title="https:&#x2F;&#x2F;github.com&#x2F;" rel="noopener" target="_blank">GitHub</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.wanandroid.com/navi" title="https:&#x2F;&#x2F;www.wanandroid.com&#x2F;navi" rel="noopener" target="_blank">玩Android</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">学胖子</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

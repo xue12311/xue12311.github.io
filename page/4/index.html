@@ -184,6 +184,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20FloatingActionButton/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20FloatingActionButton/" class="post-title-link" itemprop="url">Jetpack Compose学习  FloatingActionButton</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-26 14:00:43 / 修改时间：14:09:47" itemprop="dateCreated datePublished" datetime="2021-05-26T14:00:43+08:00">2021-05-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-floatingactionbutton-悬浮按钮"> Jetpack Compose学习 -------- FloatingActionButton 悬浮按钮</span></h2>
+<h3><span id="floatingactionbutton-悬浮按钮-基本使用"> FloatingActionButton 悬浮按钮 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">FloatingActionButtonSample</span><span class="params">()</span></span> {</span><br><span class="line">    Column(Modifier.padding(<span class="number">10.</span>dp)) {</span><br><span class="line">        FloatingActionButton(</span><br><span class="line">            onClick = { },</span><br><span class="line">        ) {</span><br><span class="line">            Text(text = <span class="string">"悬浮按钮"</span>)</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">30.</span>dp))</span><br><span class="line">        ExtendedFloatingActionButton(</span><br><span class="line">            text = {</span><br><span class="line">                Text(text = <span class="string">"悬浮按钮"</span>)</span><br><span class="line">            },</span><br><span class="line">            icon = {</span><br><span class="line">                Icon(imageVector = Icons.Filled.Favorite, contentDescription = <span class="string">"喜爱"</span>)</span><br><span class="line">            },</span><br><span class="line">            onClick = {</span><br><span class="line"></span><br><span class="line">            },</span><br><span class="line">            elevation = FloatingActionButtonDefaults.elevation(<span class="number">8.</span>dp),</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20LinearProgressIndicator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -518,93 +591,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Modifier/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Modifier/" class="post-title-link" itemprop="url">Jetpack Compose学习  Modifier</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-25 11:25:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:25:10+08:00">2021-05-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-27 15:14:28" itemprop="dateModified" datetime="2021-05-27T15:14:28+08:00">2021-05-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2><span id="jetpack-compose学习-modifier"> Jetpack Compose学习 -------- Modifier</span></h2>
-<h3><span id="padding-设置各个ui的padding"> padding 设置各个UI的padding</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 给上下左右全部设置成同一个值</span></span><br><span class="line">Modifier.padding(<span class="number">10.</span>dp)</span><br><span class="line"><span class="comment">// 分别为左（开始）、上（上）、右（结束）、下（下）设值</span></span><br><span class="line">Modifier.padding(<span class="number">10.</span>dp, <span class="number">20.</span>dp, <span class="number">30.</span>dp, <span class="number">40.</span>dp)</span><br><span class="line"><span class="comment">// 分别为左右（水平）和上下（垂直）设值</span></span><br><span class="line">Modifier.padding(<span class="number">10.</span>dp, <span class="number">20.</span>dp)</span><br><span class="line"><span class="comment">//PaddingValues 与 padding 不一样</span></span><br><span class="line"><span class="comment">// 给上下左右全部设置成同一个值</span></span><br><span class="line">Modifier.padding(PaddingValues(<span class="number">10.</span>dp))</span><br><span class="line"><span class="comment">// 分别为左右（水平）和上下（垂直）设值</span></span><br><span class="line">Modifier.padding(PaddingValues(<span class="number">10.</span>dp, <span class="number">20.</span>dp))</span><br><span class="line"><span class="comment">//分别为左（开始）、上（上）、右（结束）、下（下）设值</span></span><br><span class="line">Modifier.padding(PaddingValues(<span class="number">10.</span>dp, <span class="number">20.</span>dp, <span class="number">30.</span>dp, <span class="number">40.</span>dp))</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="fillmaxheightfillmaxwidthfillmaxsize-类似于match_parent填充整个父layout"> fillMaxHeight,fillMaxWidth,fillMaxSize 类似于match_parent,填充整个父layout</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//填充整个父Layout</span></span><br><span class="line">Modifier.fillMaxSize()</span><br><span class="line"><span class="comment">//填充整个父Layout的宽度</span></span><br><span class="line">Modifier.fillMaxWidth()</span><br><span class="line"><span class="comment">//填充整个父Layout的高度</span></span><br><span class="line">Modifier.fillMaxHeight()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="widthheighsize-设置content的宽度和高度"> width,heigh,size 设置Content的宽度和高度</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//设置宽度</span></span><br><span class="line">Modifier.width(<span class="number">80.</span>dp)</span><br><span class="line"><span class="comment">//设置高度</span></span><br><span class="line">Modifier.height(<span class="number">80.</span>dp)</span><br><span class="line"><span class="comment">//设置 宽度和高度</span></span><br><span class="line">Modifier.size(<span class="number">100.</span>dp)</span><br><span class="line"><span class="comment">//设置 宽度,高度</span></span><br><span class="line">Modifier.size(<span class="number">100.</span>dp, <span class="number">100.</span>dp)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="widthin-heightin-sizein-设置content的宽度和高度的最大值和最小值"> widthIn, heightIn, sizeIn 设置Content的宽度和高度的最大值和最小值</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//设置 最小宽度 最大宽度</span></span><br><span class="line">Modifier.widthIn(<span class="number">20.</span>dp, <span class="number">50.</span>dp)</span><br><span class="line"><span class="comment">//设置 最小高度 最大高度</span></span><br><span class="line">Modifier.heightIn(<span class="number">20.</span>dp, <span class="number">50.</span>dp)</span><br><span class="line"><span class="comment">//设置 最小宽度,最小高度,最大宽度,最大高度</span></span><br><span class="line">Modifier.sizeIn(<span class="number">20.</span>dp, <span class="number">20.</span>dp, <span class="number">50.</span>dp, <span class="number">50.</span>dp)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="wrapcontentheightwrapcontentwidthwrapcontentsize"> wrapContentHeight,wrapContentWidth,wrapContentSize,</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 高度 位于 顶部</span></span><br><span class="line">Modifier.wrapContentHeight(Alignment.Top)</span><br><span class="line"><span class="comment">// 高度 位于 底部</span></span><br><span class="line">Modifier.wrapContentHeight(Alignment.Bottom)</span><br><span class="line"><span class="comment">// 高度 位于 垂直居中</span></span><br><span class="line">Modifier.wrapContentHeight(Alignment.CenterVertically)</span><br><span class="line"><span class="comment">// 高度 位于 水平居中</span></span><br><span class="line">Modifier.wrapContentHeight(Alignment.CenterHorizontally)</span><br><span class="line"><span class="comment">// 宽度 位于 开始（左）</span></span><br><span class="line">Modifier.wrapContentWidth(Alignment.Start)</span><br><span class="line"><span class="comment">// 宽度 位于 结束（右）</span></span><br><span class="line">Modifier.wrapContentWidth(Alignment.End)</span><br><span class="line"><span class="comment">// 宽度 位于 水平居中</span></span><br><span class="line">Modifier.wrapContentWidth(Alignment.CenterHorizontally)</span><br><span class="line"><span class="comment">// 宽度 位于 垂直居中</span></span><br><span class="line">Modifier.wrapContentWidth(Alignment.CenterVertically)</span><br><span class="line"><span class="comment">//位置 位于 顶部 开始（左）</span></span><br><span class="line">Modifier.wrapContentSize(Alignment.TopStart)</span><br><span class="line"><span class="comment">//位置 位于 顶部 结束（右）</span></span><br><span class="line">Modifier.wrapContentSize(Alignment.TopEnd)</span><br><span class="line"><span class="comment">//位置 位于 顶部 水平居中</span></span><br><span class="line">Modifier.wrapContentSize(Alignment.TopCenter)</span><br><span class="line"><span class="comment">//位置 位于 底部 开始（左）</span></span><br><span class="line">Modifier.wrapContentSize(Alignment.BottomStart)</span><br><span class="line"><span class="comment">//位置 位于 底部 结束（右）</span></span><br><span class="line">Modifier.wrapContentSize(Alignment.BottomEnd)</span><br><span class="line"><span class="comment">//位置 位于 底部 水平居中</span></span><br><span class="line">Modifier.wrapContentSize(Alignment.BottomCenter)</span><br><span class="line"><span class="comment">//位置 位于 垂直居中 开始（左）</span></span><br><span class="line">Modifier.wrapContentSize(Alignment.CenterStart)</span><br><span class="line"><span class="comment">//位置 位于 垂直居中 结束（右）</span></span><br><span class="line">Modifier.wrapContentSize(Alignment.CenterEnd)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -676,7 +662,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
