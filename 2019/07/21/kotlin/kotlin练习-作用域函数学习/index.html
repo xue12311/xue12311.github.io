@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"xue12311.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="kotlin练习 - 常见内联扩展函数学习  let with apply run repeat also takeIf takeUnless     kotlin练习 - 常见内联扩展函数学习  let   定义： fun &lt;T, R&gt; T.let(block: (T) -&gt; R): R   功能： 调用对象（T）的let函数，则该对象为函数的参数。在函数内可以通过 it指代">
+  <meta name="description" content="kotlin练习 - 作用域函数学习  let with apply run repeat also takeIf takeUnless     kotlin练习 - 作用域函数学习 1234567891011121314151617181920212223242526272829303132333435363738394041package com.kymjs.kotlinprimer.uni">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kotlin练习 - 常见内联扩展函数学习">
-<meta property="og:url" content="http://xue12311.github.io/2019/07/21/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E5%B8%B8%E8%A7%81%E5%86%85%E8%81%94%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="kotlin练习 - 作用域函数学习">
+<meta property="og:url" content="http://xue12311.github.io/2019/07/21/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="学胖子的个人博客">
-<meta property="og:description" content="kotlin练习 - 常见内联扩展函数学习  let with apply run repeat also takeIf takeUnless     kotlin练习 - 常见内联扩展函数学习  let   定义： fun &lt;T, R&gt; T.let(block: (T) -&gt; R): R   功能： 调用对象（T）的let函数，则该对象为函数的参数。在函数内可以通过 it指代">
+<meta property="og:description" content="kotlin练习 - 作用域函数学习  let with apply run repeat also takeIf takeUnless     kotlin练习 - 作用域函数学习 1234567891011121314151617181920212223242526272829303132333435363738394041package com.kymjs.kotlinprimer.uni">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-07-21T04:16:01.000Z">
-<meta property="article:modified_time" content="2019-07-21T07:27:43.271Z">
+<meta property="article:modified_time" content="2021-06-03T02:42:25.075Z">
 <meta property="article:author" content="学胖子">
 <meta property="article:tag" content="kotlin">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://xue12311.github.io/2019/07/21/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E5%B8%B8%E8%A7%81%E5%86%85%E8%81%94%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0/">
+<link rel="canonical" href="http://xue12311.github.io/2019/07/21/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>kotlin练习 - 常见内联扩展函数学习 | 学胖子的个人博客</title>
+  <title>kotlin练习 - 作用域函数学习 | 学胖子的个人博客</title>
   
 
 
@@ -190,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/07/21/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E5%B8%B8%E8%A7%81%E5%86%85%E8%81%94%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/07/21/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -203,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          kotlin练习 - 常见内联扩展函数学习
+          kotlin练习 - 作用域函数学习
         </h1>
 
         <div class="post-meta">
@@ -212,10 +212,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-07-21 12:16:01 / 修改时间：15:27:43" itemprop="dateCreated datePublished" datetime="2019-07-21T12:16:01+08:00">2019-07-21</time>
+              <time title="创建时间：2019-07-21 12:16:01" itemprop="dateCreated datePublished" datetime="2019-07-21T12:16:01+08:00">2019-07-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-03 10:42:25" itemprop="dateModified" datetime="2021-06-03T10:42:25+08:00">2021-06-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -238,7 +244,7 @@
 
       
         <ul>
-<li><a href="#kotlin%E7%BB%83%E4%B9%A0---%E5%B8%B8%E8%A7%81%E5%86%85%E8%81%94%E6%89%A9%E5%B1%95%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0">kotlin练习 - 常见内联扩展函数学习</a>
+<li><a href="#kotlin%E7%BB%83%E4%B9%A0---%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0">kotlin练习 - 作用域函数学习</a>
 <ul>
 <li><a href="#let">let</a></li>
 <li><a href="#with">with</a></li>
@@ -251,7 +257,8 @@
 </ul>
 </li>
 </ul>
-<h1><span id="kotlin练习-常见内联扩展函数学习"> kotlin练习 - 常见内联扩展函数学习</span></h1>
+<h1><span id="kotlin练习-作用域函数学习"> kotlin练习 - 作用域函数学习</span></h1>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package com.kymjs.kotlinprimer.unit3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data class User(var name: String)</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line"></span><br><span class="line">    val user = User("ZhangTao")</span><br><span class="line"></span><br><span class="line">    //let与run都会返回闭包的执行结果，区别在于let有闭包参数，而run没有闭包参数</span><br><span class="line">    val letResult = user.let { "let::${it.javaClass}" }</span><br><span class="line">    println(letResult)</span><br><span class="line">    val runResult = user.run { "run::${this.javaClass}" }</span><br><span class="line">    println(runResult)</span><br><span class="line"></span><br><span class="line">    //also与apply都不返回闭包的执行结果，区别在于also有闭包参数，而apply没有闭包参数</span><br><span class="line">    user.also {</span><br><span class="line">        println("also::${it.javaClass}")</span><br><span class="line">    }.apply {</span><br><span class="line">        println("apply::${this.javaClass}")</span><br><span class="line">    }.name = "hello"</span><br><span class="line"></span><br><span class="line">    //takeIf 的闭包返回一个判断结果，为false时，takeIf函数会返回空</span><br><span class="line">    //takeUnless 与 takeIf 刚好相反， 闭包的判断结果，为true时函数会返回空</span><br><span class="line">    user.takeIf { it.name.length &gt; 0 }?.also { println("姓名为${it.name}") } ?: println("姓名为空")</span><br><span class="line">    user.takeUnless { it.name.length &gt; 0 }?.also { println("姓名为空") } ?: println("姓名为${user.name}")</span><br><span class="line"></span><br><span class="line">    //重复执行当前闭包</span><br><span class="line">    repeat(5) {</span><br><span class="line">        println(user.name)</span><br><span class="line">        print(it)</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    //with比较特殊，不是以扩展方法的形式存在的，而是一个顶级函数</span><br><span class="line">    with(user) {</span><br><span class="line">        this.name = "with"</span><br><span class="line">    }</span><br><span class="line">//	类似于    user.apply{ this.name = "with"}</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <h2><span id="let"> let</span></h2>
 <ul>
 <li>
@@ -458,7 +465,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"> kotlin练习 - 常见内联扩展函数学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> with</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> apply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> repeat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> also</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> takeIf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> takeUnless</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"> kotlin练习 - 作用域函数学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> with</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> apply</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> repeat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> also</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> takeIf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"> takeUnless</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -474,7 +481,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -487,7 +494,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

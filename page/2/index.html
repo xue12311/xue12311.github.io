@@ -184,6 +184,156 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20AnimationVisibility/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20AnimationVisibility/" class="post-title-link" itemprop="url">Jetpack Compose学习  AnimationVisibility</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-27 14:51:03 / 修改时间：14:51:05" itemprop="dateCreated datePublished" datetime="2021-05-27T14:51:03+08:00">2021-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-animationvisibility"> Jetpack Compose学习 -------- AnimationVisibility</span></h2>
+<h3><span id="animationvisibility-动画-可见-基础用法"> AnimationVisibility 动画 可见 基础用法</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalAnimationApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> state <span class="keyword">by</span> remember {</span><br><span class="line">        mutableStateOf(<span class="literal">true</span>)</span><br><span class="line">    }</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxSize(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally,</span><br><span class="line">        verticalArrangement = Arrangement.Center</span><br><span class="line">    ) {</span><br><span class="line">        AnimatedVisibility(visible = state) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="string">"这是一个普通的正文"</span>,</span><br><span class="line">                fontWeight = FontWeight.W900,</span><br><span class="line">                style = MaterialTheme.typography.h5</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">50.</span>dp))</span><br><span class="line">        Button(onClick = { state = !state }) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="keyword">if</span> (state) {</span><br><span class="line">                    <span class="string">"隐藏"</span></span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="string">"显示"</span></span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="进场动画"> 进场动画</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalAnimationApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> state <span class="keyword">by</span> remember { mutableStateOf(<span class="literal">true</span>) }</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxSize(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally,</span><br><span class="line">        verticalArrangement = Arrangement.Center</span><br><span class="line">    ) {</span><br><span class="line">        AnimatedVisibility(</span><br><span class="line">            visible = state,</span><br><span class="line">            enter = slideInVertically(</span><br><span class="line">                <span class="comment">//初始位置 Y轴</span></span><br><span class="line">                initialOffsetY = { -<span class="number">1000</span> },</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    <span class="comment">//动画持续时间</span></span><br><span class="line">                    durationMillis = <span class="number">1200</span></span><br><span class="line">                )</span><br><span class="line">            )</span><br><span class="line">        ) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="string">"这是一个普通的正文"</span>,</span><br><span class="line">                fontWeight = FontWeight.W900,</span><br><span class="line">                style = MaterialTheme.typography.h5</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">50.</span>dp))</span><br><span class="line">        Button(onClick = { state = !state }) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="keyword">if</span> (state) {</span><br><span class="line">                    <span class="string">"隐藏"</span></span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="string">"显示"</span></span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalAnimationApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> state <span class="keyword">by</span> remember { mutableStateOf(<span class="literal">true</span>) }</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxSize(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally,</span><br><span class="line">        verticalArrangement = Arrangement.Center</span><br><span class="line">    ) {</span><br><span class="line">        AnimatedVisibility(</span><br><span class="line">            visible = state,</span><br><span class="line">            <span class="comment">//垂直滑入</span></span><br><span class="line">            enter = slideInVertically(</span><br><span class="line">                <span class="comment">//初始位置 Y轴</span></span><br><span class="line">                initialOffsetY = { -<span class="number">1000</span> },</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    <span class="comment">//动画持续时间</span></span><br><span class="line">                    durationMillis = <span class="number">1200</span></span><br><span class="line">                )</span><br><span class="line">                <span class="comment">//淡入</span></span><br><span class="line">            ) + fadeIn(</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    <span class="comment">//动画持续时间</span></span><br><span class="line">                    durationMillis = <span class="number">1200</span></span><br><span class="line">                )</span><br><span class="line">            )</span><br><span class="line">        ) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="string">"这是一个普通的正文"</span>,</span><br><span class="line">                fontWeight = FontWeight.W900,</span><br><span class="line">                style = MaterialTheme.typography.h5</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">50.</span>dp))</span><br><span class="line">        Button(onClick = { state = !state }) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="keyword">if</span> (state) {</span><br><span class="line">                    <span class="string">"隐藏"</span></span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="string">"显示"</span></span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Swipeable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Swipeable/" class="post-title-link" itemprop="url">Jetpack Compose学习  Swipeable</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-27 14:13:11 / 修改时间：14:13:14" itemprop="dateCreated datePublished" datetime="2021-05-27T14:13:11+08:00">2021-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-swipeable-滑动"> Jetpack Compose学习 -------- Swipeable 滑动</span></h2>
+<h3><span id="swipeable-滑动-基本使用"> Swipeable 滑动 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> blockSize = <span class="number">48.</span>dp</span><br><span class="line">    <span class="keyword">var</span> blockSizePx = with(LocalDensity.current) { blockSize.toPx() }</span><br><span class="line">    <span class="keyword">var</span> swipeableState = rememberSwipeableState(initialValue = Status.CLOSE)</span><br><span class="line">    <span class="keyword">var</span> anchors = mapOf(</span><br><span class="line">        <span class="number">0f</span> to Status.CLOSE,</span><br><span class="line">        blockSizePx to Status.OPEN</span><br><span class="line">    )</span><br><span class="line">    Box(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .size(</span><br><span class="line">                height = blockSize,</span><br><span class="line">                width = blockSize * <span class="number">2</span></span><br><span class="line">            )</span><br><span class="line">            .background(Color.LightGray)</span><br><span class="line">    ) {</span><br><span class="line">        Box(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                <span class="comment">//滑动</span></span><br><span class="line">                .swipeable(</span><br><span class="line">                    state = swipeableState,</span><br><span class="line">                    <span class="comment">//锚点，可以通过锚点设置在不同状态时所应该对应的偏移量信息</span></span><br><span class="line">                    anchors = anchors,</span><br><span class="line">                    <span class="comment">//常用作定制不同锚点间吸附效果的临界阈值</span></span><br><span class="line">                    <span class="comment">//常用有 FixedThreshold(Dp) 和 FractionalThreshold(Float)等</span></span><br><span class="line">                    thresholds = { from, to -&gt;</span><br><span class="line">                        <span class="keyword">if</span> (from == Status.CLOSE) {</span><br><span class="line">                            FractionalThreshold(<span class="number">0.3f</span>)</span><br><span class="line">                        } <span class="keyword">else</span> {</span><br><span class="line">                            FractionalThreshold(<span class="number">0.5f</span>)</span><br><span class="line">                        }</span><br><span class="line">                    },</span><br><span class="line">                    <span class="comment">//手势方向，被修饰组件的手势方向只能是水平或垂直</span></span><br><span class="line">                    orientation = Orientation.Horizontal,</span><br><span class="line">                )</span><br><span class="line">                <span class="comment">//移动</span></span><br><span class="line">                .offset {</span><br><span class="line">                    <span class="comment">//整体移动</span></span><br><span class="line">                    IntOffset(swipeableState.offset.value.toInt(), <span class="number">0</span>)</span><br><span class="line">                }</span><br><span class="line">                .size(blockSize)</span><br><span class="line">                .background(Color.DarkGray)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Status</span> </span>{</span><br><span class="line">    CLOSE, OPEN</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20ModalBottomSheetLayout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -409,154 +559,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Scaffold/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Scaffold/" class="post-title-link" itemprop="url">Jetpack Compose学习  Scaffold</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-26 16:26:25 / 修改时间：16:54:55" itemprop="dateCreated datePublished" datetime="2021-05-26T16:26:25+08:00">2021-05-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2><span id="jetpack-compose学习-scaffold"> Jetpack Compose学习 -------- Scaffold</span></h2>
-<h3><span id="scaffold-基本使用"> Scaffold 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ScaffoldDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> materialBlue700 = Color(<span class="number">0xFF1976D2</span>)</span><br><span class="line">    <span class="comment">//设置抽屉的打开状态</span></span><br><span class="line">    <span class="keyword">val</span> scaffoldState = rememberScaffoldState(</span><br><span class="line">        rememberDrawerState(initialValue = DrawerValue.Closed)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">val</span> scope = rememberCoroutineScope()</span><br><span class="line">    Scaffold(</span><br><span class="line">        scaffoldState = scaffoldState,</span><br><span class="line">        <span class="comment">//顶部导航栏</span></span><br><span class="line">        topBar = {</span><br><span class="line">            TopAppBar(</span><br><span class="line">                title = {</span><br><span class="line">                    Text(text = <span class="string">"标题"</span>)</span><br><span class="line">                },</span><br><span class="line">                backgroundColor = materialBlue700,</span><br><span class="line">            )</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//悬浮按钮</span></span><br><span class="line">        floatingActionButton = {</span><br><span class="line">            FloatingActionButton(onClick = {</span><br><span class="line">                scope.launch {</span><br><span class="line">                    <span class="keyword">if</span> (scaffoldState.drawerState.isClosed) {</span><br><span class="line">                        scaffoldState.drawerState.<span class="keyword">open</span>()</span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        scaffoldState.drawerState.close()</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }) {</span><br><span class="line">                Text(<span class="string">"X"</span>)</span><br><span class="line">            }</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//悬浮按钮的位置</span></span><br><span class="line">        floatingActionButtonPosition = FabPosition.End,</span><br><span class="line">        <span class="comment">//抽屉内容</span></span><br><span class="line">        drawerContent = {</span><br><span class="line">            Text(text = <span class="string">"drawerContent"</span>)</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//内容</span></span><br><span class="line">        content = {</span><br><span class="line">            Text(<span class="string">"BodyContent"</span>)</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//底部导航栏</span></span><br><span class="line">        bottomBar = {</span><br><span class="line">            BottomAppBar(</span><br><span class="line">                backgroundColor = materialBlue700</span><br><span class="line">            ) {</span><br><span class="line">                Text(text = <span class="string">"BottomAppBar"</span>)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Slider/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Slider/" class="post-title-link" itemprop="url">Jetpack Compose学习  Slider</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-26 15:37:22 / 修改时间：17:59:16" itemprop="dateCreated datePublished" datetime="2021-05-26T15:37:22+08:00">2021-05-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2><span id="jetpack-compose学习-slider-拖动条"> Jetpack Compose学习 -------- Slider 拖动条</span></h2>
-<h3><span id="slider-拖动条-基本使用"> Slider 拖动条 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">SliderDemo</span><span class="params">()</span></span> {</span><br><span class="line">    Column(Modifier.padding(<span class="number">10.</span>dp)) {</span><br><span class="line">        <span class="keyword">val</span> sliderPosition = remember {</span><br><span class="line">            mutableStateOf(<span class="number">0f</span>)</span><br><span class="line">        }</span><br><span class="line">        Slider(value = sliderPosition.value, onValueChange = {</span><br><span class="line">            sliderPosition.value = it</span><br><span class="line">        })</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">5.</span>dp))</span><br><span class="line">        Text(<span class="string">"当前进度: <span class="subst">${sliderPosition.value.toString()}</span>"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">       <span class="keyword">val</span> sliderPosition = remember {</span><br><span class="line">           mutableStateOf(<span class="number">0f</span>)</span><br><span class="line">       }</span><br><span class="line">       Slider(</span><br><span class="line">           value = sliderPosition.value,</span><br><span class="line">           colors = SliderDefaults.colors(</span><br><span class="line">               <span class="comment">//圆圈的颜色</span></span><br><span class="line">               thumbColor = Color.White,</span><br><span class="line">               <span class="comment">//滑条颜色 (注 : 滑条默认颜色:inactiveTrackColor  默认是 与 activeTrackColor 一样 设置了 0.24f 透明度)</span></span><br><span class="line">               activeTrackColor = Color(<span class="number">0xFF0079D3</span>)</span><br><span class="line">           ),</span><br><span class="line">           onValueChange = {</span><br><span class="line">               sliderPosition.value = it</span><br><span class="line">           }</span><br><span class="line">       )</span><br><span class="line">   }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -628,7 +630,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -641,7 +643,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

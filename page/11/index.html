@@ -184,6 +184,244 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2018/12/26/flutter/flutter%E7%BB%83%E4%B9%A0%20-%20flutter%E5%9F%BA%E6%9C%AC%E6%8E%A7%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/26/flutter/flutter%E7%BB%83%E4%B9%A0%20-%20flutter%E5%9F%BA%E6%9C%AC%E6%8E%A7%E4%BB%B6/" class="post-title-link" itemprop="url">flutter练习 - flutter基本控件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-26 15:18:23" itemprop="dateCreated datePublished" datetime="2018-12-26T15:18:23+08:00">2018-12-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-06-01 22:40:59" itemprop="dateModified" datetime="2019-06-01T22:40:59+08:00">2019-06-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flutter/" itemprop="url" rel="index"><span itemprop="name">flutter</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="flutter-基本控件"> Flutter 基本控件</span></h1>
+<h2><span id="widget"> Widget</span></h2>
+<ol>
+<li>StatelessWidget — 只能用来展示信息，不能有用户交互</li>
+<li>StatefulWidget —   可以通过改变状态使得 UI 发生变化</li>
+</ol>
+<h2><span id="文本-text"> 文本 Text</span></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    return Text("text");</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="图片-image"> 图片 Image</span></h2>
+<ol>
+<li>资源：Image.asset(name);</li>
+<li>文件：Image.file(file);</li>
+<li>内存：Image.memory(bytes);</li>
+<li>网络：Image.network(src);</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    return Image.network(</span><br><span class="line">      "http://www.zhangjiaxue.cn/images/avatar.jpg",</span><br><span class="line">      width: 150.0,</span><br><span class="line">      height: 150.0,</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="按钮-flatbutton-raisedbutton"> 按钮（ FlatButton ，RaisedButton ）</span></h2>
+<ol>
+<li>FlatButton</li>
+<li>RaisedButton</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    var flatBtn = FlatButton(</span><br><span class="line">      //按钮被点击的时候得到回调</span><br><span class="line">      onPressed: () =&gt; print('FlatButton pressed'),</span><br><span class="line">      //设置按钮的内容</span><br><span class="line">      child: Text('FlatButton BUTTON'),</span><br><span class="line">    );</span><br><span class="line">    var raisedButton = RaisedButton(</span><br><span class="line">      onPressed: () =&gt; print('RaisedButton pressed'),</span><br><span class="line">      child: Text('RaisedButton BUTTON'),</span><br><span class="line">    );</span><br><span class="line">    return raisedButton;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="文本输入框-textfield"> 文本输入框 TextField</span></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">   return Scaffold(</span><br><span class="line">      appBar: AppBar(title: Text("输入")),</span><br><span class="line">      body: TextField(),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="显示弹框-dialog"> 显示弹框 dialog</span></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">   return RaisedButton(</span><br><span class="line">        child: Text("点击按钮弹出Dialog"),</span><br><span class="line">        onPressed: () {</span><br><span class="line">          showDialog(</span><br><span class="line">              // 第一个 context 是参数名，第二个 context 是 State 的成员变量</span><br><span class="line">              context: context,</span><br><span class="line">              builder: (_) {</span><br><span class="line">                return AlertDialog(</span><br><span class="line">                  // dialog 的内容</span><br><span class="line">                  content: Text("提示框"),</span><br><span class="line">                  // actions 设置 dialog 的按钮</span><br><span class="line">                  actions: &lt;Widget&gt;[</span><br><span class="line">                    FlatButton(</span><br><span class="line">                      child: Text('OK'),</span><br><span class="line">                      // 用户点击按钮后，关闭弹框</span><br><span class="line">                      onPressed: () =&gt; Navigator.pop(context),</span><br><span class="line">                    )</span><br><span class="line">                  ],</span><br><span class="line">                );</span><br><span class="line">              });</span><br><span class="line">        });</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="布局"> 布局</span></h2>
+<ol>
+<li>Container（容器）</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    return Container(</span><br><span class="line">      padding: EdgeInsets.all(8.0),</span><br><span class="line">      margin: EdgeInsets.all(4.0),</span><br><span class="line">      width: 200.0,</span><br><span class="line">      height: 200.0,</span><br><span class="line">      decoration: BoxDecoration(</span><br><span class="line">        // 背景色</span><br><span class="line">        color: Colors.grey,</span><br><span class="line">        // 圆角</span><br><span class="line">        borderRadius: BorderRadius.circular(5.0),</span><br><span class="line">      ),</span><br><span class="line"></span><br><span class="line">      // 把文本放在 Container 的中间</span><br><span class="line">      child: Center(</span><br><span class="line">        child: Text('text'),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>Row(水平布局)</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    //水平布局</span><br><span class="line">    return Row(</span><br><span class="line">      // 只有一个子元素的 widget，一般使用 child 参数来设置；Row 可以包含多个子控件，</span><br><span class="line">      // 对应的则是 children。</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">        Text('text1'),</span><br><span class="line">        Text('text2'),</span><br><span class="line">        Text('text3'),</span><br><span class="line">        Text('text4'),</span><br><span class="line">      ],</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ol start="3">
+<li>Column(竖直布局)</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    //垂直布局</span><br><span class="line">    return Column(</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">        Text('text1'),</span><br><span class="line">        Text('text2'),</span><br><span class="line">        Text('text3'),</span><br><span class="line">        Text('text4'),</span><br><span class="line">      ],</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ol start="4">
+<li>Stack(层叠布局)</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    return Stack(</span><br><span class="line">      // Aligment 的取值范围为 [-1, 1]，Stack 中心为 (0, 0)，</span><br><span class="line">      // 这里设置为 (-0.5, -0.5) 后，可以让文本对齐到 Container 的 1/4 处</span><br><span class="line">      alignment: const Alignment(-0.5, -0.5),</span><br><span class="line">      children: &lt;Widget&gt;[   </span><br><span class="line">      Container(</span><br><span class="line">          width: 200,</span><br><span class="line">          height: 200,</span><br><span class="line">          color: Colors.blue,</span><br><span class="line">        ),</span><br><span class="line">        Text("text2"),</span><br><span class="line">      ],</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="布局控件"> 布局控件</span></h2>
+<ol>
+<li>Flexible</li>
+</ol>
+<p>Flexible组件可以使Row、Column、Flex等子组件在主轴方向有填充可用空间的能力(例如，Row在水平方向，Column在垂直方向)，但是它与Expanded组件不同，它不强制子组件填充可用空间。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">  return new Scaffold(</span><br><span class="line">      appBar: new AppBar(</span><br><span class="line">        title: new Text('水平方向布局'),</span><br><span class="line">      ),</span><br><span class="line">      body: new Row(children: &lt;Widget&gt;[</span><br><span class="line">        new RaisedButton(</span><br><span class="line">          onPressed: () {</span><br><span class="line">            print('点击红色按钮事件');</span><br><span class="line">          },</span><br><span class="line">          color: Colors.red,</span><br><span class="line">          child: new Text('红色按钮'),</span><br><span class="line">        ),</span><br><span class="line">        new Flexible(</span><br><span class="line">          flex: 1,</span><br><span class="line">          child: new RaisedButton(</span><br><span class="line">            onPressed: () {</span><br><span class="line">              print('点击黄色按钮事件');</span><br><span class="line">            },</span><br><span class="line">            color: Colors.yellow,</span><br><span class="line">            child: new Text('黄色按钮'),</span><br><span class="line">          ),</span><br><span class="line">        ),</span><br><span class="line">        new RaisedButton(</span><br><span class="line">          onPressed: () {</span><br><span class="line">            print('点击蓝色按钮事件');</span><br><span class="line">          },</span><br><span class="line">          color: Colors.blue,</span><br><span class="line">          child: new Text('蓝色按钮'),</span><br><span class="line">        ),</span><br><span class="line">      ]),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>Expanded</li>
+</ol>
+<p>Expanded组件可以使Row、Column、Flex等子组件在其主轴方向上展开并填充可用空间(例如，Row在水平方向，Column在垂直方向)。如果多个子组件展开，可用空间会被其flex factor(表示扩展的速度、比例)分割。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">class TestWidget extends StatelessWidget {</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">  return new Scaffold(</span><br><span class="line">      appBar: new AppBar(</span><br><span class="line">        title: new Text('水平方向布局'),</span><br><span class="line">      ),</span><br><span class="line">      body: new Row(children: &lt;Widget&gt;[</span><br><span class="line">        new RaisedButton(</span><br><span class="line">          onPressed: () {</span><br><span class="line">            print('点击红色按钮事件');</span><br><span class="line">          },</span><br><span class="line">          color: Colors.red,</span><br><span class="line">          child: new Text('红色按钮'),</span><br><span class="line">        ),</span><br><span class="line">        new Expanded(</span><br><span class="line">          flex: 1,</span><br><span class="line">          child: new RaisedButton(</span><br><span class="line">            onPressed: () {</span><br><span class="line">              print('点击黄色按钮事件');</span><br><span class="line">            },</span><br><span class="line">            color: Colors.yellow,</span><br><span class="line">            child: new Text('黄色按钮'),</span><br><span class="line">          ),</span><br><span class="line">        ),</span><br><span class="line">        new RaisedButton(</span><br><span class="line">          onPressed: () {</span><br><span class="line">            print('点击蓝色按钮事件');</span><br><span class="line">          },</span><br><span class="line">          color: Colors.blue,</span><br><span class="line">          child: new Text('蓝色按钮'),</span><br><span class="line">        ),</span><br><span class="line">      ]),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="非常感谢"> 非常感谢</span></h2>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/V0cL9bSTM65HTIJ4CU4Cow">Flutter学习指南：UI布局和控件</a>（微信号：玉刚说 YugangTalk），作者：水晶虾饺</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chunchun1230/article/details/82460257">flutter控件Flexible和 Expanded的区别</a>  ，作者：chunchun1230</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2018/12/17/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/17/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E6%95%B0%E7%BB%84%E7%BB%83%E4%B9%A0/" class="post-title-link" itemprop="url">kotlin练习 - 数组练习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-17 21:34:57" itemprop="dateCreated datePublished" datetime="2018-12-17T21:34:57+08:00">2018-12-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-06-01 22:42:56" itemprop="dateModified" datetime="2019-06-01T22:42:56+08:00">2019-06-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="kotlin练习-数组练习"> kotlin练习 - 数组练习</span></h1>
+<h2><span id="数组创建"> 数组创建</span></h2>
+<ol>
+<li>使用arrayOf()函数：这种方式无需显示指定数组的长度，但需要依次列出每个数组元素。</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    //创建包含指定元素的数组</span><br><span class="line">    var arg1 = arrayOf("Java","Kotlin","PHP","Swift")</span><br><span class="line">    var arg2 = arrayOf(0,1,2,3,4,5)</span><br><span class="line">    println("arg1 = ${Arrays.toString(arg1)}")</span><br><span class="line">    println("arg2 = ${Arrays.toString(arg2)}")</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ol start="2">
+<li>使用arrayOfNulls()函数：这种方法需要显示指定数组的长度，数组元素全部被初始化为null。</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    //创建指定长度，元素为null的数组</span><br><span class="line">    var arg3 = arrayOfNulls&lt;Int&gt;(5)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<ol start="3">
+<li>使用emptyArray()函数：这种方法会创建一个长度为0的空数组。</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    //创建长度为0的空数组</span><br><span class="line">    var arg4 = emptyArray&lt;String&gt;()</span><br><span class="line">    var arg5 = emptyArray&lt;Int&gt;()</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<ol start="4">
+<li>使用Array(size : Int,init ：(Int) -&gt; T )构造器：这种方法需要显示指定数组的长度，并可通过Lambda表达式来动态计算各数组元素的值，</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    //创建指定长度，使用Lambda表达式初始化数组元素的数组</span><br><span class="line">    var arg6 = Array(5,{(it * 2+97).toChar()})</span><br><span class="line">    var arg7 = Array(6,{"fkit"})</span><br><span class="line">    println("arg6 = ${Arrays.toString(arg6)}")</span><br><span class="line">    println("arg7 = ${Arrays.toString(arg7)}")</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<ol start="5">
+<li>其他 Array<t>：Kotlin专门提供了 ByteArray、ShortArray、IntArra、LongArray、CharArray、FloatArray、DoubleArray、BooleanArray 分别对应java中的 byte[]、short[]、int[]、long[]、char[]、floar[]、double[]、boolean[] 这8种基本数据类型的数组。</t></li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var intArr = intArrayOf(2,3,4,5,6)</span><br><span class="line">    var doubleArr = doubleArrayOf(2.1,2.2,2.3,2.4)</span><br><span class="line">    var intArr2 = IntArray(5,{it*it})</span><br><span class="line">    var charArr = CharArray(5,{(it*2+97).toChar()})</span><br><span class="line"></span><br><span class="line">    println("intArr = ${Arrays.toString(intArr)}")</span><br><span class="line">    println("doubleArr = ${Arrays.toString(doubleArr)}")</span><br><span class="line">    println("intArr2 = ${Arrays.toString(intArr2)}")</span><br><span class="line">    println("charArr = ${Arrays.toString(charArr)}")</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="数组使用"> 数组使用</span></h2>
+<ul>
+<li>get(index) 方法 ，set(index，value)方法</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var strArray = arrayListOf&lt;String&gt;("Java","Kotlin","Go","Swift")</span><br><span class="line">    println(strArray[1])//Kotlin</span><br><span class="line">    println(strArray.get(1))//Kotlin</span><br><span class="line">    strArray.set(0,"Python")</span><br><span class="line">    strArray[2] = "Groovy"</span><br><span class="line">    println(strArray.toString())//[Python, Kotlin, Groovy, Swift]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>数组遍历</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var books = arrayListOf&lt;String&gt;("疯狂java讲义", "疯狂android讲义", "疯狂kotlin讲义")</span><br><span class="line">    for (book in books) {</span><br><span class="line">        println(book)</span><br><span class="line">    }</span><br><span class="line">    for (i in 0 until books.size) {</span><br><span class="line">        println(books[i])</span><br><span class="line">    }</span><br><span class="line">    //根据数组的索引来遍历数组</span><br><span class="line">    for (i in books.indices){//索引 = size -1</span><br><span class="line">        println(books[i])</span><br><span class="line">    }</span><br><span class="line">    for ((index,value) in books.withIndex()){//索引 = size -1</span><br><span class="line">        println("索引为${index}的元素为：${value}")</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>数组常用方法</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line">var indexs = arrayOf&lt;Int&gt;(1, 2, 3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> //所有元素都要满足条件则返回 true</span><br><span class="line"> var isAll = indexs.all { x -&gt; x &gt; 0 &amp;&amp; x &lt; 10 }</span><br><span class="line"> print(isAll)//true</span><br><span class="line"> //任一数组元素满足条件则返回 true</span><br><span class="line"> var isAny = indexs.any { x -&gt; x == 9 }</span><br><span class="line"> println(isAny)//true</span><br><span class="line"> //将数组转为List集合</span><br><span class="line"> var indexList = indexs.asList()</span><br><span class="line"> println(indexList.toString())</span><br><span class="line"> //返回Map集合</span><br><span class="line"> var indexMap1 = indexs.associate { x -&gt; x to x * x }</span><br><span class="line"> println(indexMap1.toString())//{1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81}</span><br><span class="line"> var indexMap2 = indexs.associate { it to it * it }</span><br><span class="line"> println(indexMap2.toString())//{1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81}</span><br><span class="line"> //返回Map集合</span><br><span class="line"> var indexMap3 = indexs.associateBy { it * it }//Map&lt;K,T&gt;中的K</span><br><span class="line"> println(indexMap3.toString())//{1=1, 4=2, 9=3, 16=4, 25=5, 36=6, 49=7, 64=8, 81=9}</span><br><span class="line"> var indexMap4 = indexs.associateBy({ it }, { it * it })</span><br><span class="line"> println(indexMap4.toString())//{1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81}</span><br><span class="line"> var indexMap5 = indexs.associateBy({ it * it })//Map&lt;K,T&gt;中的K</span><br><span class="line"> println(indexMap5.toString())//{1=1, 4=2, 9=3, 16=4, 25=5, 36=6, 49=7, 64=8, 81=9}</span><br><span class="line"> //在将数组转成的Map集合插入map，最后返回修改后的map</span><br><span class="line"> var map6 = mutableMapOf(10 to 100, 11 to 121, 12 to 144)</span><br><span class="line"> var indexMap6 = indexs.associateByTo(map6, { it }, { it * it })</span><br><span class="line"> println(map6.toString())//{10=100, 11=121, 12=144, 1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81}</span><br><span class="line"> //在将数组转成的Map集合插入map，最后返回修改后的map</span><br><span class="line"> var map7 = mutableMapOf(10 to 100, 11 to 121, 12 to 144)</span><br><span class="line"> var indexMap7 = indexs.associateTo(map7, { it to it * it })</span><br><span class="line"> println(map7.toString())//{10=100, 11=121, 12=144, 1=1, 2=4, 3=9, 4=16, 5=25, 6=36, 7=49, 8=64, 9=81}</span><br><span class="line"> //数组平均值</span><br><span class="line"> var average = indexs.average();</span><br><span class="line"> println("平均值为$average")//5.0</span><br><span class="line"> //通过二分法查询element出现的索引，如果找不到则返回负数-------要求数组中的元素已经按升序排序</span><br><span class="line"> var binarySearch1 = indexs.binarySearch(4, 0, 3)</span><br><span class="line"> println("4在数组(数组从第一个元素,到第三个元素)中的位置：$binarySearch1")//-4</span><br><span class="line"> var binarySearch2 = indexs.binarySearch(4)</span><br><span class="line"> println("4在数组中的位置：$binarySearch2")//3</span><br><span class="line"> //判断数组中是否包含元素</span><br><span class="line"> var contains = indexs.contains(10);</span><br><span class="line"> println("数组中是否有元素10：${contains}")//false</span><br><span class="line"></span><br><span class="line"> var indexs1 = arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> //判断两个数组是否相等</span><br><span class="line"> var contentDeepEquals = indexs.contentDeepEquals(indexs1)</span><br><span class="line"> println("两个数组是否相等：${contentDeepEquals}")//true</span><br><span class="line"> //将数组转成String</span><br><span class="line"> var str_index = indexs.contentToString();</span><br><span class="line"> println(str_index)//[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line"> //复制数组成为一个新数组</span><br><span class="line"> var copyof1 = indexs.copyOf()</span><br><span class="line"> println("copyof1 = ${copyof1.contentToString()}")//[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line"> indexs[0] = 0;</span><br><span class="line"> println("copyof1 = ${copyof1.contentToString()}")//[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line"> indexs[0] = 1;</span><br><span class="line"> var copyof2 = indexs.copyOf(5)</span><br><span class="line"> println("copyof2 = ${copyof2.contentToString()}")//[1, 2, 3, 4, 5]</span><br><span class="line"> var copyof3 = indexs.copyOf(10)</span><br><span class="line"> println("copyof3 = ${copyof3.contentToString()}")//[1, 2, 3, 4, 5, 6, 7, 8, 9, null]</span><br><span class="line"> //复制数组（通过索引指定）</span><br><span class="line"> var copyOfRange1 = indexs.copyOfRange(0, 10)</span><br><span class="line"> println("copyOfRange1 = ${copyOfRange1.contentToString()}")//[1, 2, 3, 4, 5, 6, 7, 8, 9, null]</span><br><span class="line"> indexs[0] = 10</span><br><span class="line"> println("copyOfRange1 = ${copyOfRange1.contentToString()}")//[1, 2, 3, 4, 5, 6, 7, 8, 9, null]</span><br><span class="line"> indexs[0] = 1</span><br><span class="line"> var copyOfRange2 = indexs.copyOfRange(0, 5)</span><br><span class="line"> println("copyOfRange2 = ${copyOfRange2.contentToString()}")//[1, 2, 3, 4, 5]</span><br><span class="line"> //数组满足条件的数量</span><br><span class="line"> var count1 = indexs.count({ it &gt; 5 })</span><br><span class="line"> println("数组中大于5的元素有：${count1}个")//4</span><br><span class="line"></span><br><span class="line"> var indexs2 = arrayOf(1, 2, 3, 1, 4, 2, 3, 4, 1)</span><br><span class="line"> //去掉数组中重复的元素</span><br><span class="line"> var indexs2_distinct1 = indexs2.distinct()</span><br><span class="line"> println(indexs2_distinct1.toString())//[1, 2, 3, 4]</span><br><span class="line"> var indexs2_distinct2 = indexs2.distinctBy { it % 2 == 0 }</span><br><span class="line"> println(indexs2_distinct2.toString())//[1, 2]</span><br><span class="line"></span><br><span class="line"> //去掉数组中前3个元素</span><br><span class="line"> var drop = indexs.drop(3);</span><br><span class="line"> println(drop.toString())</span><br><span class="line"></span><br><span class="line"> //去掉前面满足条件的元素，当出现第一个条件不满足时，返回后面的所有元素</span><br><span class="line"> var dropWhile = indexs.dropWhile { it &lt;= 3 }</span><br><span class="line"> println(dropWhile.toString())//[4, 5, 6, 7, 8, 9]</span><br><span class="line"></span><br><span class="line"> //去掉数组中后3个元素</span><br><span class="line"> var dropLast = indexs.dropLast(3);</span><br><span class="line"> println(dropLast.toString())//[1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line"> //去掉前面满足条件的元素，当出现第一个条件不满足时，返回前面的所有元素</span><br><span class="line"> var dropLastWhile = indexs.dropLastWhile { it &gt; 6 }</span><br><span class="line"> println(dropLastWhile.toString())//[1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line"> //将数组中的元素赋值为element</span><br><span class="line"> var indexs4 = arrayOf&lt;Int&gt;(1, 2, 3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> indexs4.fill(3)</span><br><span class="line"> println(indexs4.contentToString())//[3, 3, 3, 3, 3, 3, 3, 3, 3]</span><br><span class="line"></span><br><span class="line"> var indexs5 = arrayOf&lt;Int&gt;(1, 2, 3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> indexs5.fill(3, 0, 5);</span><br><span class="line"> println(indexs5.contentToString())//[3, 3, 3, 3, 3, 6, 7, 8, 9]</span><br><span class="line"></span><br><span class="line"> var first1 = indexs.first()</span><br><span class="line"> println("数组的第一个元素：${first1}")//1</span><br><span class="line"> var first2 = indexs.first { it &gt; 5 }</span><br><span class="line"> println("数组的第一个满足条件的元素：${first2}")//6</span><br><span class="line"></span><br><span class="line"> var last1 = indexs.last()</span><br><span class="line"> println("数组的最后一个元素：${last1}")//9</span><br><span class="line"> var last2 = indexs.last { it &gt; 5 }</span><br><span class="line"> println("数组的最后一个满足条件的元素：${last2}")//9</span><br><span class="line"></span><br><span class="line"> //求和</span><br><span class="line"> var fold = indexs.fold(0, { acc, i -&gt; acc + i })</span><br><span class="line"> println("数组元素和为：${fold}")</span><br><span class="line"> //搜索元素查询的位置</span><br><span class="line"> var index1 = indexs.indexOf(5)//从前往后</span><br><span class="line"> var index2 = indexs.lastIndexOf(5)//从后往前</span><br><span class="line"> println("元素5在数组中的位置是：${index1}和${index2}")</span><br><span class="line"></span><br><span class="line"> var indexs6 = arrayOf(1, 2, 3, 1, 4, 2, 3, 4, 1)</span><br><span class="line"> var index3 = indexs6.indexOfFirst { it == 3 }//第一次出现的位置</span><br><span class="line"> var index4 = indexs6.indexOfLast { it == 3 }//最后一次查询的位置</span><br><span class="line"> println("元素3在数组中第一次出现在${index3},最后一次出现在${index4}")//2,6</span><br><span class="line"></span><br><span class="line"> var indexs7 = arrayListOf&lt;Int&gt;(3, 4, 5, 6, 7, 8, 9)</span><br><span class="line"> var indexs8 = arrayListOf&lt;Int&gt;(1, 2, 5, 6)</span><br><span class="line"> //intersect(交集)，subtract(差集)，union(并集)，minus(补集)</span><br><span class="line"> var intersect = indexs7.intersect(indexs8)</span><br><span class="line"> var subtract = indexs7.subtract(indexs8)</span><br><span class="line"> var union = indexs7.union(indexs8)</span><br><span class="line"> var minus = indexs7.minus(indexs8)</span><br><span class="line"> println("交集：${intersect}")//[5, 6]</span><br><span class="line"> println("差集：${subtract}")//[3, 4, 7, 8, 9]</span><br><span class="line"> println("并集：${union}")//[3, 4, 5, 6, 7, 8, 9, 1, 2]</span><br><span class="line"> println("补集：${minus}")//[3, 4, 7, 8, 9]</span><br><span class="line"> //数组最大值</span><br><span class="line"> var max = indexs.max();//9</span><br><span class="line"> //数组最小值</span><br><span class="line"> var min = indexs.min();//1</span><br><span class="line"> println("数组中的最大值：${max} 最小值：${min}")</span><br><span class="line"></span><br><span class="line"> var indexs9 = arrayListOf&lt;Int&gt;(1, 9, 3, 7, 2, 5, 4, 6, 8)</span><br><span class="line"> //排序</span><br><span class="line"> indexs9.sort();</span><br><span class="line"> println(indexs9)//[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br><span class="line"> //排序</span><br><span class="line"> val mapList = mutableListOf(1 to "A" , 2 to "B", 5 to "C", 3 to "D")</span><br><span class="line"> mapList.sortBy { it.first }</span><br><span class="line"> println(mapList) // [(1, A), (2, B), (3, D), (5, C)]</span><br><span class="line"> mapList.sortBy { it.second }</span><br><span class="line"> println(mapList) // [(1, A), (2, B), (5, C), (3, D)]</span><br><span class="line"> </span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2018/12/16/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E5%BE%AA%E7%8E%AF%E7%BB%83%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -599,7 +837,7 @@ do while 循环 先执行循环体，再判断循环条件，如果条件为真�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -612,7 +850,7 @@ do while 循环 先执行循环体，再判断循环条件，如果条件为真�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
