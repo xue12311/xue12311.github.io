@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Layout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -198,7 +198,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/" class="post-title-link" itemprop="url">Google Play应用上架流程</a>
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Layout/" class="post-title-link" itemprop="url">Jetpack Compose学习  Column Row Box Spacer BoxWithConstraints ConstraintLayout</a>
         </h2>
 
         <div class="post-meta">
@@ -208,132 +208,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-11-18 21:22:17" itemprop="dateCreated datePublished" datetime="2020-11-18T21:22:17+08:00">2020-11-18</time>
+              <time title="创建时间：2021-05-25 11:19:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:19:10+08:00">2021-05-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-20 20:25:11" itemprop="dateModified" datetime="2020-11-20T20:25:11+08:00">2020-11-20</time>
+                <time title="修改时间：2021-05-27 18:21:48" itemprop="dateModified" datetime="2021-05-27T18:21:48+08:00">2021-05-27</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">应用上架</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1><span id="google-play应用上架流程"> Google Play应用上架流程</span></h1>
-<h2><span id="注册开发者账号"> 注册开发者账号</span></h2>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/1.jpg" alt=""></p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/2.webp" alt=""></p>
-<h2><span id="创建应用"> 创建应用</span></h2>
-<p>选择默认语言 （最好选择英语），填写应用名称</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/3.webp" alt=""></p>
-<h2><span id="商品详情默认选中"> 商品详情（默认选中）</span></h2>
-<h2><span id="需要填写-app简介和详细描述内容需要和默认语言一致"> 需要填写 App简介和详细描述内容（需要和默认语言一致）</span></h2>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/4.webp" alt=""></p>
-<h2><span id="上传app图片屏幕截图-高分辨率图标-置顶大图"> 上传APP图片（屏幕截图、高分辨率图标、置顶大图）</span></h2>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/5.webp" alt=""><br>
-<img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/6.png" alt=""></p>
-<h2><span id="选择应用类型和类别"> 选择应用类型和类别</span></h2>
-<p>填写公司官网，联系邮箱（邮箱地址会展示给用户，不要乱填），内容分级（可以先不管，在上传App后才能进行分级判断），电话（填写公司电话，会展示给用户），隐私权政策。</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/7.webp" alt=""></p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/8.webp" alt=""></p>
-<h2><span id="上传正式版应用商品版本-正式版-beta版-alpha版本"> 上传正式版应用（商品版本: 正式版、Beta版、Alpha版本）</span></h2>
-<h3><span id="创建版本"> 创建版本</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/9.webp" alt=""></p>
-<h3><span id="加入-google-play-app-signing"> 加入 Google Play App Signing</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/10.webp" alt=""></p>
-<h3><span id="上传apk安装包"> 上传APK安装包</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/11.webp" alt=""></p>
-<h3><span id="填写版本说明"> 填写版本说明</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/12.webp" alt=""></p>
-<h3><span id="内容分级"> 内容分级</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/13.webp" alt=""></p>
-<h3><span id="填写电子邮件地址用来接收google-play发送的消息选择应用类别"> 填写电子邮件地址（用来接收Google Play发送的消息），选择应用类别</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/14.webp" alt=""></p>
-<h3><span id="调查问卷页-基本上都选择否点击-判断分级"> 调查问卷页 （基本上都选择否）点击 判断分级</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/15.webp" alt=""></p>
-<h3><span id="确认分级"> 确认分级</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/16.webp" alt=""></p>
-<h2><span id="定价和分发范围"> 定价和分发范围</span></h2>
-<h3><span id="注意-国家地区-默认是-0需要自己选择国家"> 注意 “ 国家/地区 ” 默认是 0，需要自己选择国家</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/17.webp" alt=""></p>
-<h3><span id="内容准则-和-美国出口法律-是必须要选中的最后点击-保存草稿"> 内容准则  和 美国出口法律 是必须要选中的，最后点击 “ 保存草稿 ”</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/18.webp" alt=""></p>
-<h2><span id="应用发布"> 应用发布</span></h2>
-<p>如果所有内容都填写正确，我们会看到左边导航栏4个绿色对勾，并且出现“可以发布”按钮</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/19.webp" alt=""></p>
-<p>点击左边导航栏中的 " 应用版本 "</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/20.webp" alt=""></p>
-<p>点击 “ 修改版本 ”</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/21.webp" alt=""></p>
-<p>点击 “ 查看 ” , 确认没有问题后，点击 “ 开始发布正式版 ”，就可以发布了，然后就需要审核了</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/22.webp" alt=""></p>
-<h2><span id="查看审核进度"> 查看审核进度</span></h2>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/23.png" alt=""></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/07/02/android/FileUtils%E5%B8%AE%E5%8A%A9%E7%B1%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/02/android/FileUtils%E5%B8%AE%E5%8A%A9%E7%B1%BB/" class="post-title-link" itemprop="url">FileUtils帮助类</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-02 11:14:49 / 修改时间：12:40:57" itemprop="dateCreated datePublished" datetime="2020-07-02T11:14:49+08:00">2020-07-02</time>
-            </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -342,6 +225,10 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
                 </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
             </span>
 
           
@@ -355,12 +242,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3><span id="fileutils帮助类"> FileUtils帮助类</span></h3>
-<p>在<a target="_blank" rel="noopener" href="https://github.com/Blankj/AndroidUtilCode">AndroidUtilCode</a>的基础下使用</p>
-<ul>
-<li>将assets文件夹中的内容写入本地</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 将assets文件夹中的内容写入本地</span><br><span class="line">  * @param dirName String 文件夹名称</span><br><span class="line">  * @param fileName String 文件名称及后缀名</span><br><span class="line">  * @return String?  SDCard/Android/data/应用包名/files/ 目录/文件</span><br><span class="line">  */</span><br><span class="line"> private suspend fun getExternalFilePath(dirName: String, fileName: String): String? =</span><br><span class="line">     withContext(Dispatchers.IO) {</span><br><span class="line">         //创建文件夹</span><br><span class="line">         val mFileDir = Utils.getApp().applicationContext.getExternalFilesDir(dirName)</span><br><span class="line">         if (mFileDir != null) {</span><br><span class="line">             //创建文件</span><br><span class="line">             val mFilePath: String = File(mFileDir, fileName).absolutePath</span><br><span class="line">             if (FileUtils.isFileExists(mFilePath)) {</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">                 //将assets文件夹中的内容写入本地</span><br><span class="line">             } else if (ResourceUtils.copyFileFromAssets(fileName, mFilePath)) {</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">             } else {</span><br><span class="line">                 return@withContext null</span><br><span class="line">             }</span><br><span class="line">         }</span><br><span class="line">         return@withContext null</span><br><span class="line">     }</span><br></pre></td></tr></tbody></table></figure>
+          <h2><span id="jetpack-compose学习-布局-column-row-box-spacer-boxwithconstraints-constraintlayout"> Jetpack Compose学习 -------- 布局 Column Row Box Spacer BoxWithConstraints ConstraintLayout</span></h2>
+<h3><span id="column-垂直布局将多个项垂直地放置在屏幕上"> Column 垂直布局（将多个项垂直地放置在屏幕上）</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">ColumnLayoutDemo</span><span class="params">()</span></span> {</span><br><span class="line">     <span class="comment">//垂直布局</span></span><br><span class="line">     Column {</span><br><span class="line">         Text(text = <span class="string">"Alfred Sisley"</span>)</span><br><span class="line">         Text(text = <span class="string">"3 minutes ago"</span>)</span><br><span class="line">     }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">//文字居中</span></span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxWidth(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally</span><br><span class="line">    ) {</span><br><span class="line">        Text(<span class="string">"你好呀"</span>)</span><br><span class="line">        Text(<span class="string">"我正在使用 Android Studio"</span>)</span><br><span class="line">        Text(<span class="string">"现在是晚上"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">//特定文字居中</span></span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxWidth(),</span><br><span class="line">    ) {</span><br><span class="line">        Text(</span><br><span class="line">            text = <span class="string">"夜色"</span>,</span><br><span class="line">            <span class="comment">//特定文字居中</span></span><br><span class="line">            modifier = Modifier.align(Alignment.CenterHorizontally),</span><br><span class="line">            style = MaterialTheme.typography.h6,</span><br><span class="line">            fontWeight = FontWeight.W900</span><br><span class="line">        )</span><br><span class="line">        Text(<span class="string">"今晚的夜色很不错，我和朋友走在河边的小路上，看到了很多美丽的风景"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="row-水平布局-将多个项水平地放置在屏幕上"> Row 水平布局 （将多个项水平地放置在屏幕上）</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  <span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">RowLayoutDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">//水平布局</span></span><br><span class="line">    Row(verticalAlignment = Alignment.CenterVertically) {</span><br><span class="line">        <span class="comment">//图片</span></span><br><span class="line">        Image(</span><br><span class="line">            painter = painterResource(id = R.mipmap.icon_header),</span><br><span class="line">            contentDescription = <span class="literal">null</span></span><br><span class="line">        )</span><br><span class="line">        <span class="comment">//垂直布局</span></span><br><span class="line">        Column {</span><br><span class="line">            Text(text = <span class="string">"Alfred Sisley"</span>)</span><br><span class="line">            Text(text = <span class="string">"3 minutes ago"</span>)</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Preview</span></span><br><span class="line">  <span class="meta">@Composable</span></span><br><span class="line">  <span class="function"><span class="keyword">fun</span> <span class="title">AlignInRowDemo</span><span class="params">()</span></span> {</span><br><span class="line">      Row(</span><br><span class="line">          modifier = Modifier</span><br><span class="line">              .size(<span class="number">150.</span>dp)</span><br><span class="line">              .background(Color.Gray),</span><br><span class="line">          <span class="comment">//水平排列</span></span><br><span class="line">          horizontalArrangement = Arrangement.End,</span><br><span class="line">          <span class="comment">//垂直排列</span></span><br><span class="line">          verticalAlignment = Alignment.CenterVertically,</span><br><span class="line">      ) {</span><br><span class="line">          Box(Modifier.size(<span class="number">50.</span>dp).background(Color.Yellow))</span><br><span class="line">          Box(Modifier.size(<span class="number">50.</span>dp).background(Color.Blue))</span><br><span class="line">      }</span><br><span class="line">  }</span><br><span class="line">  </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Row {</span><br><span class="line">        Box(Modifier.size(<span class="number">40.</span>dp).background(Color.Magenta))</span><br><span class="line">        Box(Modifier.size(<span class="number">40.</span>dp).background(Color.Yellow))</span><br><span class="line">        Box(Modifier.size(<span class="number">40.</span>dp).background(Color.Green))</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Row {</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">40.</span>dp)</span><br><span class="line">                <span class="comment">//权重</span></span><br><span class="line">                .weight(<span class="number">1f</span>)</span><br><span class="line">                .background(Color.Magenta)</span><br><span class="line">        )</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">40.</span>dp)</span><br><span class="line">                .background(Color.Yellow))</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">40.</span>dp)</span><br><span class="line">                <span class="comment">//权重</span></span><br><span class="line">                .weight(<span class="number">1f</span>)</span><br><span class="line">                .background(Color.Green))</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="box-水平布局-将一个元素放在另一个元素上"> Box 水平布局 （将一个元素放在另一个元素上）</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">BoxLayoutDemo</span><span class="params">()</span></span> {</span><br><span class="line">        Box() {</span><br><span class="line">            Text(text = <span class="string">"测试"</span>, color = Color.Blue, fontSize = <span class="number">15.</span>sp)</span><br><span class="line">            Text(text = <span class="string">"测试"</span>, color = Color.Yellow, fontSize = <span class="number">30.</span>sp)</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Layout/1.png" alt=""></p>
+<h3><span id="spacer-空白布局"> Spacer 空白布局</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Row {</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">100.</span>dp)</span><br><span class="line">                .background(Color.Magenta)</span><br><span class="line">        )</span><br><span class="line">        <span class="comment">//空白布局</span></span><br><span class="line">        Spacer(modifier = Modifier.width(<span class="number">20.</span>dp))</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">100.</span>dp)</span><br><span class="line">                .background(Color.Yellow)</span><br><span class="line">        )</span><br><span class="line">        Spacer(modifier = Modifier.weight(<span class="number">1f</span>))</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                .size(<span class="number">100.</span>dp)</span><br><span class="line">                .background(Color.Green)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ArtistCardDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> padding = <span class="number">16.</span>dp</span><br><span class="line">    Column(</span><br><span class="line">        Modifier</span><br><span class="line">            .clickable(onClick = {</span><br><span class="line">                Log.d(<span class="string">"Clickable"</span>, <span class="string">" clicked."</span>)</span><br><span class="line">            })</span><br><span class="line">            .padding(padding)</span><br><span class="line">            .fillMaxWidth()</span><br><span class="line">    ) {</span><br><span class="line">        RowLayoutDemo()</span><br><span class="line">        Spacer(Modifier.size(padding))</span><br><span class="line">        Card(elevation = <span class="number">4.</span>dp) {</span><br><span class="line">            Image(</span><br><span class="line">                painter = painterResource(id = R.mipmap.icon_header),</span><br><span class="line">                contentDescription = <span class="literal">null</span></span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="comment">//内边距</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">PaddedComposableDemo</span><span class="params">()</span></span> {</span><br><span class="line">    Text(</span><br><span class="line">        text=<span class="string">"Hello World"</span>,</span><br><span class="line">        modifier =</span><br><span class="line">        <span class="comment">//背景</span></span><br><span class="line">        Modifier.background(Color.Green)</span><br><span class="line">            <span class="comment">//内边距</span></span><br><span class="line">            .padding(<span class="number">20.</span>dp))</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//设置尺寸</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">SizedComposableDemo</span><span class="params">()</span></span> {</span><br><span class="line">        Box(</span><br><span class="line">            <span class="comment">//设置尺寸</span></span><br><span class="line">            modifier = Modifier.size(<span class="number">100.</span>dp, <span class="number">100.</span>dp)</span><br><span class="line">                <span class="comment">//背景</span></span><br><span class="line">                .background(Color.Red))</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">FixedSizeComposableDemo</span><span class="params">()</span></span> {</span><br><span class="line">     Box(</span><br><span class="line">         modifier =</span><br><span class="line">         Modifier</span><br><span class="line">             <span class="comment">//设置尺寸</span></span><br><span class="line">             .size(<span class="number">90.</span>dp, <span class="number">150.</span>dp)</span><br><span class="line">             <span class="comment">//背景</span></span><br><span class="line">             .background(Color.Blue)</span><br><span class="line">     ) {</span><br><span class="line">         <span class="comment">//设置所需尺寸</span></span><br><span class="line">         Box(</span><br><span class="line">             Modifier</span><br><span class="line">                 .requiredSize(<span class="number">120.</span>dp, <span class="number">120.</span>dp)</span><br><span class="line">                 <span class="comment">//背景</span></span><br><span class="line">                 .background(Color.Red)</span><br><span class="line">         )</span><br><span class="line">     }</span><br><span class="line"> }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">FillSizeComposableDemo</span><span class="params">()</span></span> {</span><br><span class="line">    Box(</span><br><span class="line">        Modifier</span><br><span class="line">            <span class="comment">//背景</span></span><br><span class="line">            .background(Color.Green)</span><br><span class="line">            <span class="comment">//尺寸</span></span><br><span class="line">            .size(<span class="number">50.</span>dp)</span><br><span class="line">            <span class="comment">//内边距</span></span><br><span class="line">            .padding(<span class="number">10.</span>dp)</span><br><span class="line">    ) {</span><br><span class="line">        Box(</span><br><span class="line">            Modifier</span><br><span class="line">                <span class="comment">//背景</span></span><br><span class="line">                .background(Color.Blue)</span><br><span class="line">                <span class="comment">//填充 最大边距</span></span><br><span class="line">                .fillMaxSize()</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">MatchParentSizeComposable</span><span class="params">()</span></span> {</span><br><span class="line">        Box {</span><br><span class="line">            Spacer(</span><br><span class="line">                modifier = Modifier</span><br><span class="line">                    <span class="comment">// 仅在 Box 作用域内可用</span></span><br><span class="line">                    .matchParentSize()</span><br><span class="line">                    <span class="comment">//Spacer 将占用父项允许的所有可用空间，反过来使父项展开并填满所有可用空间</span></span><br><span class="line"><span class="comment">//                    .fillMaxSize()</span></span><br><span class="line">                    .background(Color.Green)</span><br><span class="line">            )</span><br><span class="line">            Text(text = <span class="string">"Hello World"</span>)</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在文本基线上方添加内边距</span></span><br><span class="line"> <span class="meta">@Composable</span></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">TextWithPaddingFromBaseline</span><span class="params">()</span></span> {</span><br><span class="line">     Box(modifier = Modifier.background(Color.Green)) {</span><br><span class="line">         Text(</span><br><span class="line">             text = <span class="string">"Hello World"</span>,</span><br><span class="line">             modifier = Modifier</span><br><span class="line">                 <span class="comment">//在文本基线上方添加内边距</span></span><br><span class="line">                 .paddingFromBaseline(top = <span class="number">20.</span>dp, bottom = <span class="number">5.</span>dp)</span><br><span class="line">         )</span><br><span class="line">     }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//偏移量</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">OffsetComposable</span><span class="params">()</span></span> {</span><br><span class="line">    Box(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .size(width = <span class="number">160.</span>dp, height = <span class="number">80.</span>dp)</span><br><span class="line">            .background(Color.Blue)</span><br><span class="line">    ) {</span><br><span class="line">        Text(</span><br><span class="line">            text = <span class="string">"Layout offset modifier sample"</span>,</span><br><span class="line">            <span class="comment">//偏移量</span></span><br><span class="line">            Modifier.offset(x = <span class="number">16.</span>dp, y = <span class="number">40.</span>dp)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自适应布局</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">FlexibleComposable</span><span class="params">()</span></span> {</span><br><span class="line">    Row(Modifier.width(<span class="number">200.</span>dp)) {</span><br><span class="line">        Box(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .weight(<span class="number">1f</span>)</span><br><span class="line">                .height(<span class="number">30.</span>dp)</span><br><span class="line">                .background(Color.Green)</span><br><span class="line">        )</span><br><span class="line">        Box(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .weight(<span class="number">3f</span>)</span><br><span class="line">                .height(<span class="number">30.</span>dp)</span><br><span class="line">                .background(Color.Red)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="boxwithconstraints"> BoxWithConstraints</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//约束条件</span></span><br><span class="line">  <span class="meta">@Composable</span></span><br><span class="line">  <span class="function"><span class="keyword">fun</span> <span class="title">WithConstraintsComposable</span><span class="params">()</span></span> {</span><br><span class="line">  <span class="comment">//约束条件</span></span><br><span class="line">      BoxWithConstraints {</span><br><span class="line">          Text(<span class="string">"My minHeight is <span class="variable">$minHeight</span> while my maxWidth is <span class="variable">$maxWidth</span>"</span>)</span><br><span class="line">      }</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    BoxWithConstraints(</span><br><span class="line">        modifier = Modifier.fillMaxWidth(),</span><br><span class="line">        <span class="comment">//内容的对齐方式</span></span><br><span class="line">        contentAlignment = Alignment.TopStart,</span><br><span class="line">        <span class="comment">//是否将约束作用于 子 View 上</span></span><br><span class="line">        propagateMinConstraints = <span class="literal">true</span>,</span><br><span class="line">    ) {</span><br><span class="line">        <span class="keyword">val</span> itemW = <span class="number">50.</span>dp</span><br><span class="line">        <span class="keyword">val</span> spaceW = <span class="number">2.</span>dp</span><br><span class="line">        <span class="keyword">val</span> count = (maxWidth.value / (itemW.value + spaceW.value)).toInt()</span><br><span class="line">        <span class="keyword">if</span> (count &gt; <span class="number">0</span>) {</span><br><span class="line">            Row() {</span><br><span class="line">                <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0</span> until count) {</span><br><span class="line">                    Box(</span><br><span class="line">                        Modifier</span><br><span class="line">                            .size(itemW, itemW)</span><br><span class="line">                            .background(Color.Blue)</span><br><span class="line">                    )</span><br><span class="line">                    Spacer(Modifier.size(spaceW))</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="constraintlayout-约束布局"> ConstraintLayout 约束布局</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ConstraintLayoutDemo</span><span class="params">()</span></span> {</span><br><span class="line">    ConstraintLayout {</span><br><span class="line">        <span class="comment">//通过 createRefs() 或 createRefFor() 创建关联的引用</span></span><br><span class="line">        <span class="keyword">val</span> (text1,text2,text3) = createRefs()</span><br><span class="line">        <span class="comment">//使用 constrainAs() 修饰符提供的约束条件</span></span><br><span class="line">        Text(text = <span class="string">"Text1"</span>, Modifier.constrainAs(text1) {</span><br><span class="line">            <span class="comment">//指定约束条件</span></span><br><span class="line">            start.linkTo(text2.end)</span><br><span class="line">        })</span><br><span class="line">        Text(text = <span class="string">"Text2"</span>, Modifier.constrainAs(text2) {</span><br><span class="line">            top.linkTo(text1.bottom)</span><br><span class="line">        })</span><br><span class="line">        Text(text = <span class="string">"This is a very long text"</span>, Modifier.constrainAs(text3) {</span><br><span class="line">            start.linkTo(text2.end)</span><br><span class="line">            top.linkTo(text2.bottom)</span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
       
     </div>
 
@@ -379,7 +290,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/07/02/android/%E8%A7%86%E9%A2%91%E6%97%B6%E9%95%BF(Long)%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2(String)_Java/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20CircularProgressIndicator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -393,7 +304,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/02/android/%E8%A7%86%E9%A2%91%E6%97%B6%E9%95%BF(Long)%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2(String)_Java/" class="post-title-link" itemprop="url">视频时长(Long)转字符串(String)_Java</a>
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20CircularProgressIndicator/" class="post-title-link" itemprop="url">Jetpack Compose学习  CircularProgressIndicator</a>
         </h2>
 
         <div class="post-meta">
@@ -402,10 +313,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-02 11:09:52 / 修改时间：11:13:03" itemprop="dateCreated datePublished" datetime="2020-07-02T11:09:52+08:00">2020-07-02</time>
+              <time title="创建时间：2021-05-25 11:18:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:18:10+08:00">2021-05-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-26 13:57:42" itemprop="dateModified" datetime="2021-05-26T13:57:42+08:00">2021-05-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -414,6 +331,10 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
                 </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
             </span>
 
           
@@ -427,8 +348,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3><span id="视频时长long转字符串string_java"> 视频时长(Long)转字符串(String)_Java</span></h3>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">   * 时长转字符</span><br><span class="line">   * @param mDuration 时长（毫秒）</span><br><span class="line">   * @param isMillisecond 是否需要毫秒，true:需要，false:不用</span><br><span class="line">   * @return </span><br><span class="line">   */</span><br><span class="line">  public static String getTimeDurationString(@NonNull Long mDuration, @NonNull Boolean isMillisecond) {</span><br><span class="line">      Long hours = 0L, minutes = 0L, seconds = 0L, millisecond = null;</span><br><span class="line">      if (isMillisecond) {</span><br><span class="line">          //毫秒</span><br><span class="line">          millisecond = mDuration % TimeConstants.SEC;</span><br><span class="line">      }</span><br><span class="line">      hours = mDuration / TimeConstants.HOUR;</span><br><span class="line">      minutes = (mDuration / TimeConstants.MIN)-(hours*60);</span><br><span class="line">      seconds = (mDuration / TimeConstants.SEC)-(minutes*60)-(hours*3600);</span><br><span class="line">      String str_duration = getTimeString(hours, minutes, seconds, millisecond);</span><br><span class="line">      return str_duration;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  private static String getTimeString(@NonNull Long hours, @NonNull Long minutes, @NonNull Long seconds, Long millisecond) {</span><br><span class="line">      if (millisecond != null) {</span><br><span class="line">          return String.format("%02d:%02d:%02d.%02d", hours, minutes, seconds, millisecond);</span><br><span class="line">      } else {</span><br><span class="line">          return String.format("%02d:%02d:%02d", hours, minutes, seconds);</span><br><span class="line">      }</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+          <h2><span id="jetpack-compose学习-circularprogressindicator-圆形进度条"> Jetpack Compose学习 -------- CircularProgressIndicator 圆形进度条</span></h2>
+<h3><span id="circularprogressindicator-圆形进度条-基本使用"> CircularProgressIndicator 圆形进度条 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">CircularProgressIndicatorSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> progress = remember {</span><br><span class="line">        mutableStateOf(<span class="number">0.0f</span>)</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">val</span> animatedProgress = animateFloatAsState(</span><br><span class="line">        targetValue = progress.value,</span><br><span class="line">        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec</span><br><span class="line">    ).value</span><br><span class="line">    Column(horizontalAlignment = Alignment.CenterHorizontally) {</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">30.</span>dp))</span><br><span class="line">        Text(text = <span class="string">"进度 不确定 的 圆形 进度条"</span>)</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">30.</span>dp))</span><br><span class="line">        CircularProgressIndicator()</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">30.</span>dp))</span><br><span class="line">        Text(text = <span class="string">"圆形进度条 进度通过 点击按钮 添加"</span>)</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">30.</span>dp))</span><br><span class="line">        CircularProgressIndicator(progress = animatedProgress)</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">30.</span>dp))</span><br><span class="line">        OutlinedButton(onClick = {</span><br><span class="line">            <span class="keyword">if</span> (progress.value &lt; <span class="number">1f</span>) {</span><br><span class="line">                progress.value += <span class="number">0.1f</span></span><br><span class="line">            }</span><br><span class="line">        }) {</span><br><span class="line">            Text(text = <span class="string">"添加进度"</span>)</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">30.</span>dp))</span><br><span class="line">        OutlinedButton(onClick = {</span><br><span class="line">            <span class="keyword">if</span> (progress.value &gt; <span class="number">0f</span>) {</span><br><span class="line">                progress.value -= <span class="number">0.1f</span></span><br><span class="line">            }</span><br><span class="line">        }) {</span><br><span class="line">            Text(text = <span class="string">"降低进度"</span>)</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
       
     </div>
 
@@ -447,7 +369,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/06/29/ffmpeg/FFmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Checkbox/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -461,7 +383,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/29/ffmpeg/FFmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">FFmpeg常用命令</a>
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Checkbox/" class="post-title-link" itemprop="url">Jetpack Compose学习  Checkbox</a>
         </h2>
 
         <div class="post-meta">
@@ -471,14 +393,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-29 22:19:46" itemprop="dateCreated datePublished" datetime="2020-06-29T22:19:46+08:00">2020-06-29</time>
+              <time title="创建时间：2021-05-25 11:17:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:17:10+08:00">2021-05-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-18 21:47:16" itemprop="dateModified" datetime="2020-11-18T21:47:16+08:00">2020-11-18</time>
+                <time title="修改时间：2021-05-26 13:57:42" itemprop="dateModified" datetime="2021-05-26T13:57:42+08:00">2021-05-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -486,7 +408,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ffmpeg/" itemprop="url" rel="index"><span itemprop="name">ffmpeg</span></a>
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
                 </span>
             </span>
 
@@ -501,169 +427,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1><span id="ffmpeg常用命令"> FFmpeg常用命令</span></h1>
-<h3><span id="改变帧率码率和文件大小"> 改变帧率，码率和文件大小</span></h3>
-<ul>
-<li>帧率</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//改变视频 input.mp4 的帧率，生成帧率为30的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -r 30 output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>码率</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//改变视频 input.mp4 的帧率，生成码率为 1.5 Mb/s(兆比特)的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -b 1.5M output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>最大输出文件大小</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//改变视频 input.mp4 的文件大小，生成文件大小为10MB的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -fs 10MB output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="调整视频分辨率"> 调整视频分辨率</span></h3>
-<ul>
-<li>分辨率：w*h （w:像素宽度，h:像素高度）</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//改变视频 input.mp4 的分辨率，生成分辨率为320*240的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -s 320*240 output.mp4</span><br><span class="line"></span><br><span class="line">//改变视频 input.mp4 的分辨率(使用 scale filter 替代 -s )，生成分辨率为 320*240 的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -vf scale=320:240 output.mp4</span><br><span class="line"></span><br><span class="line">//改变视频 input.mp4 的分辨率，生成分辨率为640*480的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -s 640*480 output.mp4</span><br><span class="line"></span><br><span class="line">//改变视频 input.mp4 的分辨率，生成分辨率为 vga (640*480)的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -s vga output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="裁剪-填充视频"> 裁剪、填充视频</span></h3>
-<ul>
-<li>视频裁剪</li>
-</ul>
-<p><img src="/2020/06/29/ffmpeg/FFmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/ff_4_2.png" alt=""></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//裁剪矩形框---靠左1/3</span><br><span class="line">ffmpeg -i input.mp4 -vf crop=iw/3:ih:0:0 output.mp4</span><br><span class="line"></span><br><span class="line">//裁剪矩形框---靠中1/3</span><br><span class="line">ffmpeg -i input.mp4 -vf crop=iw/3:ih:iw/3:0 output.mp4</span><br><span class="line"></span><br><span class="line">//裁剪矩形框---靠右1/3</span><br><span class="line">ffmpeg -i input.mp4 -vf crop=iw/3:ih:iw/3*2:0 output.mp4</span><br><span class="line"></span><br><span class="line">//裁剪中间的一半(默认从输入视频的中间区域开始)</span><br><span class="line">ffmpeg -i input.mp4 -vf crop=iw/2:ih/2 output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>视频填充</li>
-</ul>
-<p><img src="/2020/06/29/ffmpeg/FFmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/ff_5_2.png" alt=""></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//改变视频的宽高比(4:3)，生成宽高比为16:9的新视频 </span><br><span class="line">ffmpeg -i input -vf pad=ih*16/9:ih:(ow-iw)/2:0:color output</span><br><span class="line"></span><br><span class="line">//改变视频的宽高比(4:3)，生成宽高比为16:9的新视频(颜色默认:黑色) </span><br><span class="line">ffmpeg -i input -vf pad=ih*16/9:ih:(ow-iw)/2:0 output</span><br><span class="line"></span><br><span class="line">//改变视频的宽高比(16:9)，生成宽高比为4:3的新视频 </span><br><span class="line">ffmpeg -i input -vf pad=iw:iw*3/4:0:(oh-ih)/2:0:color output</span><br><span class="line"></span><br><span class="line">ffmpeg -i input -vf pad=iw:iw*3/4:0:(oh-ih)/2:0 output</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="翻转-旋转视频"> 翻转、旋转视频</span></h3>
-<ul>
-<li>视频翻转</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//水平翻转</span><br><span class="line">ffplay -f lavfi -i testsrc -vf hflip</span><br><span class="line"></span><br><span class="line">//垂直翻转</span><br><span class="line">ffplay -f lavfi -i testsrc -vf vflip</span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>视频旋转<br>
-参数：transpose<br>
-0 : 逆时针方向旋转90° 并且垂直翻转<br>
-1 : 顺时针方向旋转90°<br>
-2 : 逆时针方向旋转90°<br>
-3 : 顺时针方向旋转90° 并且垂直翻转</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//逆时针方向旋转90° 并且垂直翻转</span><br><span class="line">ffmpeg -i input.mp4 -vf transpose=0 output.mp4</span><br><span class="line"></span><br><span class="line">//顺时针方向旋转90° </span><br><span class="line">ffmpeg -i input.mp4 -vf transpose=1 output.mp4</span><br><span class="line"></span><br><span class="line">//逆时针方向旋转90° </span><br><span class="line">ffmpeg -i input.mp4 -vf transpose=2 output.mp4</span><br><span class="line"></span><br><span class="line">//顺时针方向旋转90° 并且垂直翻转</span><br><span class="line">ffmpeg -i input.mp4 -vf transpose=3 output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="模糊-锐化视频"> 模糊、锐化视频</span></h3>
-<ul>
-<li>模糊视频</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//模糊视频 input.mp4 ，生成一个luma半径为1.5,luma权值为1的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -vf boxblur=1.5:1 output.mp4</span><br><span class="line"></span><br><span class="line">//模糊视频 input.mp4 ，生成一个luma半径为1,luma亮度为0.8,亮度阈值为0的新视频 output.mp4 (不影响图像的轮廓,使用smartblur滤波器处理)</span><br><span class="line">ffmpeg -i input.mp4 -vf smartblur=5:0.8:0 output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>锐化视频 (unsharp 滤波器)</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//锐化视频 input.mp4 ，生成一个新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -vf unsharp output.mp4</span><br><span class="line"></span><br><span class="line">//锐化视频 input.mp4 ，生成一个 5*5的矩形luma 强度为 1 色度值为-2 的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -vf unsharp=6:6:-2 output.mp4</span><br><span class="line"></span><br><span class="line">//增强去噪 (denoise3d视频滤波器)</span><br><span class="line">ffmpeg -i input.mp4 -vf mp=denoise3d output.mp4</span><br><span class="line"></span><br><span class="line">//视频降噪 (hqdn3d过滤器)</span><br><span class="line">ffmpeg -i input.mp4 -vf hqdn3d output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="画中画"> 画中画</span></h3>
-<p><img src="/2020/06/29/ffmpeg/FFmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/ff_6_2.png" alt=""></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//视频叠加 input1:视频背景,input2:前景图</span><br><span class="line">ffmpeg -i input1 -i input2 -filter_complex overlay=x:y output</span><br><span class="line"></span><br><span class="line">ffmpeg -i input1 -vf movie=input2[logo];[in][logo]overlay=x:y output</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo到视频左上角，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -i logo.png -filter_complex overlay output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo到视频右上角，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -i logo.png -filter_complex overlay=W-w output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo到视频右下角，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -i logo.png -filter_complex overlay=W-w:H-h output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo到视频左下角，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -i logo.png -filter_complex overlay=0:H-h output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加logo(5s后显示)，生成新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -itsoffset 5 -i logo.png -filter_complex overlay output.mp4</span><br><span class="line"></span><br><span class="line">//视频 input.mp4 添加计时器，生成新视频 output.mp4</span><br><span class="line"></span><br><span class="line">//生成计时器</span><br><span class="line">ffmpeg -f lavfi -i testsrc -vf crop=61:52:224:94 -t 142 timer.ogg</span><br><span class="line"></span><br><span class="line">//添加计时器到视频中</span><br><span class="line">ffmpeg -i input.mp4 -i timer.ogg -filter_complex overlay=451 output.mp4</span><br><span class="line"></span><br><span class="line">//添加计时器到视频中(将计时器缩小到原来的1/2,并放到底部)</span><br><span class="line">ffmpeg -i input.mp4 -vf movie=timer.ogg,scale=15:14[tm];[in][tm] overlay=248:371 output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="在视频上添加文字"> 在视频上添加文字</span></h3>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//字体文件(arial.ttf)复制到当前目录下</span><br><span class="line">ffplay -f lavfi -i color=c=white -vf drawtext=fontfile=arial.ttf:text=Welcome</span><br><span class="line"></span><br><span class="line">//文字位置(x:水平方向,y:垂直方向)</span><br><span class="line">//tw:文本宽度,w:帧宽,(w-tw)/2:水平居中,w-tw:文本对齐到右边</span><br><span class="line">//th:文本高度,w:帧高,(h-th)/2:垂直居中,h-th:文本对齐到底部</span><br><span class="line">//drawtext(滤镜):如果其中有空格,将包含在成对单引号或成对双引号中</span><br><span class="line">ffplay -f lavfi -i color=c=white -vf drawtext="fontfile=arial.ttf:text='hello world':x=(w-tw)/2:y=(h-th)/2"</span><br><span class="line"></span><br><span class="line">//fontcolor:文字颜色,fontsize:文字大小,color:背景颜色</span><br><span class="line">//背景色:蓝色,字体颜色:黄色,字体大小:30</span><br><span class="line">ffplay -f lavfi -i color=c=blue -vf drawtext="fontfile=arial.ttf:text='hello world':x=(w-tw)/2:y=(h-th)/2:fontcolor=yellow:fontsize=30"</span><br><span class="line"></span><br><span class="line">//水平方向上的文字运动</span><br><span class="line">//t:时间(单位:s),n:移动像素</span><br><span class="line">//从右往左方向向上移动,每秒移动n个像素: x = w - t*n</span><br><span class="line">//从左往右方向向上移动,每秒移动n个像素: x = w + t*n</span><br><span class="line"></span><br><span class="line">//顶部移动</span><br><span class="line">ffmpeg -f lavfi -i color=c=blue -vf drawtext="fontfile=arial.ttf:text='hello world':x=w-t*50:fontcolor=yellow:fontsize=30" output</span><br><span class="line"></span><br><span class="line">//底部滚动</span><br><span class="line">ffmpeg -f lavfi -i color=c=blue -vf drawtext="fontfile=arial.ttf:textfile=info.txt:x=w-t*50:y=h-th:fontcolor=yellow:fontsize=30" output</span><br><span class="line"></span><br><span class="line">//垂直方向文字滚动</span><br><span class="line">ffmpeg -i input.mp4 -vf drawtext="fontfile=arial.ttf:textfile=Credits:x=(w-tw)/2:y=h-t*100:fontcolor=white:fontsize=30" output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="视频文件格式转化"> 视频文件格式转化</span></h3>
-<p><img src="/2020/06/29/ffmpeg/FFmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/ff_7_2.png" alt=""></p>
-<p><img src="/2020/06/29/ffmpeg/FFmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/ff_8_2.png" alt=""></p>
-<table>
-<thead>
-<tr>
-<th>格式（视频）</th>
-<th>编解码器</th>
-<th>其他数据</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.avi</td>
-<td>mpeg4</td>
-<td>mpeg4 (Simple profile), yuv420p; audio: mp3</td>
-</tr>
-<tr>
-<td>.flv</td>
-<td>flv1</td>
-<td>yuv420p; audio: mp3</td>
-</tr>
-<tr>
-<td>.mkv</td>
-<td>h264</td>
-<td>h264 (High), yuvj420p; audio: vorbis codec, fltp sample format</td>
-</tr>
-<tr>
-<td>.mov</td>
-<td>h264</td>
-<td>h264 (High), yuvj420p; audio: aac (mp4a)</td>
-</tr>
-<tr>
-<td>.mp4</td>
-<td>h264</td>
-<td>h264 (High), yuvj420p; audio: aac (mp4a)</td>
-</tr>
-<tr>
-<td>.mpg</td>
-<td>mpeg1video</td>
-<td>yuv420p; audio: mp2</td>
-</tr>
-<tr>
-<td>.ogg</td>
-<td>theora</td>
-<td>yuv422p, bitrate very low; audio excluded during conversion</td>
-</tr>
-<tr>
-<td>.ts</td>
-<td>mpeg2video</td>
-<td>yuv422p; audio: mp2</td>
-</tr>
-<tr>
-<td>.webm</td>
-<td>vp8</td>
-<td>yuv420p; audio: vorbis codec, fltp sample format</td>
-</tr>
-<tr>
-<td><strong>格式(音频)</strong></td>
-<td><strong>编解码器</strong></td>
-<td><strong>其他数据</strong></td>
-</tr>
-<tr>
-<td>.aac</td>
-<td>aac</td>
-<td>libvo_aacenc, bitrate 128 kb/s</td>
-</tr>
-<tr>
-<td>.flac</td>
-<td>flac</td>
-<td>FLAC (Free Lossless Audio Codec), bitrate 128 kb/s</td>
-</tr>
-<tr>
-<td>.m4a</td>
-<td>aac</td>
-<td>mp4a, bitrate 128 kb/s</td>
-</tr>
-<tr>
-<td>.mp2</td>
-<td>mp2</td>
-<td>MPEG Audio Layer 2, bitrate 128 kb/s</td>
-</tr>
-<tr>
-<td>.mp3</td>
-<td>mp3</td>
-<td>libmp3lame, bitrate 128 kb/s</td>
-</tr>
-<tr>
-<td>.wav</td>
-<td>pcm_s16le</td>
-<td>PCM (Pulse Code Modulation), uncompressed</td>
-</tr>
-<tr>
-<td>.wma</td>
-<td>wmav2</td>
-<td>Windows Media Audio</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>重写相同命名的输出文件</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i input.avi output.mp4</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="时间操作"> 时间操作</span></h3>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//通过视频 input.mp4 ，生成一个时长为120s的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -t 120 output.mp4</span><br><span class="line"></span><br><span class="line">//通过视频 input.mp4 ，生成一个时长为30s帧率为25的新视频 output.mp4</span><br><span class="line">ffmpeg -i input.mp4 -t 30 -r 25 output.mp4</span><br><span class="line"></span><br><span class="line">//设置一个10分钟25fps的视频</span><br><span class="line">ffmpeg -i video.avi -vframes 15000 video_10_minute.avi</span><br><span class="line"></span><br><span class="line">//设置延迟转换 (从10s开始进行转换)</span><br><span class="line">ffmpeg -i input.avi -ss 10 output.mp4</span><br><span class="line">//提取媒体文件中部分内容 (提取视频第5分钟的内容)</span><br><span class="line">ffmpeg -i video.avi -ss 240 -t 60  clip_5th_minute.mpg</span><br></pre></td></tr></tbody></table></figure>
+          <h2><span id="jetpack-compose学习-checkbox-复选框"> Jetpack Compose学习 -------- Checkbox 复选框</span></h2>
+<h3><span id="checkbox-复选框-基本使用"> Checkbox 复选框 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">CheckBoxDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> checkedState = remember {</span><br><span class="line">        mutableStateOf(<span class="literal">true</span>)</span><br><span class="line">    }</span><br><span class="line">    Checkbox(</span><br><span class="line">        checked = checkedState.value,</span><br><span class="line">        onCheckedChange = {</span><br><span class="line">            checkedState.value = it</span><br><span class="line">        }</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
       
     </div>
 
@@ -682,7 +448,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/02/12/flutter/flutter%E7%BB%83%E4%B9%A0%20-Future%E4%B8%8EFutureBuilder%E5%AE%9E%E4%BE%8B/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Card/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -696,7 +462,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/02/12/flutter/flutter%E7%BB%83%E4%B9%A0%20-Future%E4%B8%8EFutureBuilder%E5%AE%9E%E4%BE%8B/" class="post-title-link" itemprop="url">flutter练习 - Future与FutureBuilder实例</a>
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Card/" class="post-title-link" itemprop="url">Jetpack Compose学习  Card</a>
         </h2>
 
         <div class="post-meta">
@@ -705,17 +471,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-12 13:55:19 / 修改时间：16:58:48" itemprop="dateCreated datePublished" datetime="2020-02-12T13:55:19+08:00">2020-02-12</time>
+              <time title="创建时间：2021-05-25 11:16:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:16:10+08:00">2021-05-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-27 15:43:22" itemprop="dateModified" datetime="2021-05-27T15:43:22+08:00">2021-05-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index"><span itemprop="name">flutter</span></a>
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
                 </span>
             </span>
 
@@ -730,78 +506,90 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1><span id="flutter练习-future与futurebuilder实例"> flutter练习 - Future与FutureBuilder实例</span></h1>
-<h2><span id="future-异步操作"> Future 异步操作</span></h2>
-<ul>
-<li>then ：异步操作逻辑</li>
-<li>whenComplete ：异步完成时回调</li>
-<li>catchError ：捕获异常或异步出错时的回调</li>
-<li>timeout ：设置超时时间</li>
-</ul>
-<h5><span id="future的then的原型"> Future的then的原型</span></h5>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;R&gt; then&lt;R&gt;(FutureOr&lt;R&gt; onValue(T value),{Function onError});</span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>onValue ：成功的结果回调</li>
-<li>onError ：可选 ，执行出现异常</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import 'dart:async';</span><br><span class="line">Future&lt;String&gt; testFuture() {</span><br><span class="line">//  throw Error();</span><br><span class="line">  return Future.value("success");</span><br><span class="line">//  return Future.error("error");</span><br><span class="line">}</span><br><span class="line">//注意： 如果 catchError 与 onError 同时存在时，则只会调用 onError</span><br><span class="line">void main() {</span><br><span class="line">  testFuture().then((s) {</span><br><span class="line">    print("then : " + s);</span><br><span class="line">  }, onError: (e) {</span><br><span class="line">    print("onError : " + e);</span><br><span class="line">  }).whenComplete(() {</span><br><span class="line">    print("whenComplete");</span><br><span class="line">  }).catchError((e) {</span><br><span class="line">    print("catchError : " + e);</span><br><span class="line">  });</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h5><span id="结合-async-await"> 结合 async， await</span></h5>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import 'dart:async';</span><br><span class="line"></span><br><span class="line">test() async {</span><br><span class="line">  String result = await Future.delayed(Duration(milliseconds: 2000), () {</span><br><span class="line">    return Future.value("success");</span><br><span class="line">  });</span><br><span class="line">  print("t3 : " + DateTime.now().toString());</span><br><span class="line">  print("result : " + result);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">main() {</span><br><span class="line">  test();</span><br><span class="line">  print("t1 : " + DateTime.now().toString());</span><br><span class="line">  print("t2 : " + DateTime.now().toString());</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h5><span id="futuretimeout-设置超时时间"> future.timeout  设置超时时间</span></h5>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import 'dart:async';</span><br><span class="line"></span><br><span class="line">void main() {</span><br><span class="line">  Future.delayed(Duration(seconds: 2), () {</span><br><span class="line">    return "success";</span><br><span class="line">  }).timeout(Duration(seconds: 1)).then((s) {</span><br><span class="line">    print("then : $s");</span><br><span class="line">  }).whenComplete(() {</span><br><span class="line">    print("whenComplete");</span><br><span class="line">  }).catchError((e) {</span><br><span class="line">    print("catchError : $e");</span><br><span class="line">  });</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>代码运行会出现如下结果：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">whenComplete</span><br><span class="line">catchError : TimeoutException after 0:00:01.000000: Future not completed</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="futurebuilder-网络请求数据库读取-更新-界面"> FutureBuilder ---- 网络请求，数据库读取 更新 界面</span></h2>
-<ul>
-<li>FutureBuildere是一个将异步操作和异步UI更新结合在一起的类，通过它我们可以将网络请求，数据库读取等的结果更新到页面上</li>
-<li>FutureBuilder的构造方法</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FutureBuilder({Key key,Future&lt;T&gt; future,T initialData,@required AsyncWidgetBuilder&lt;T&gt;builder});</span><br></pre></td></tr></tbody></table></figure>
-<ul>
-<li>future ：Future对象表示此构造器当前连接的异步计算</li>
-<li>initialData ：表示一个非空的Future完成前的初始化数据</li>
-<li>builder ：AsyncWidgetBuilder类型返回的函数，是一个基于异步交互构建widget的函数<br>
-builder:<br>
-BuildContext context<br>
-AsyncSnapshot<t> snapshot<br>
-connectionState 表示与异步计算的连接状态<br>
-data - 异步计算接收的最新数据<br>
-error - 异步计算接收的最新错误对象；</t></li>
-</ul>
-<h5><span id="connectionstate-与异步计算的连接状态"> ConnectionState ：与异步计算的连接状态</span></h5>
-<ul>
-<li>none ：future还未执行的快照状态</li>
-<li>waiting ：连接到一个异步操作，并且等待交互，一般在这种状态的时候，我们可以显示加载框</li>
-<li>active ：连接到一个活跃的操作，比如stream流，会不断地返回值，并还没有结束，一般也是可以显示加载框</li>
-<li>done：异步操作执行结束，一般在这里可以去拿取异步操作执行的结果，并显示相应的布局</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>ConnectionState</th>
-<th>当前没有连接到任何的异步任务</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ConnectionState.none</td>
-<td>当前没有连接到任何的异步任务</td>
-</tr>
-<tr>
-<td>ConnectionState.waiting</td>
-<td>连接到异步任务并等待进行交互</td>
-</tr>
-<tr>
-<td>ConnectionState.active</td>
-<td>连接到异步任务并开始交互</td>
-</tr>
-<tr>
-<td>ConnectionState.done</td>
-<td>异步任务中止</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">import 'dart:convert';</span><br><span class="line"></span><br><span class="line">import 'package:flutter/material.dart';</span><br><span class="line">import 'package:http/http.dart' as http;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(MyApp1());</span><br><span class="line"></span><br><span class="line">class MyApp1 extends StatefulWidget {</span><br><span class="line">  @override</span><br><span class="line">  _MyApp1State createState() =&gt; _MyApp1State();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">class _MyApp1State extends State&lt;MyApp1&gt; {</span><br><span class="line">  String showResult = '';</span><br><span class="line"></span><br><span class="line">  Future&lt;CommonModel&gt; fetchPost() async {</span><br><span class="line">    final response = await http</span><br><span class="line">        .get('http://www.devio.org/io/flutter_app/json/test_common_model.json');</span><br><span class="line">    Utf8Decoder utf8decoder = Utf8Decoder(); //中文乱码</span><br><span class="line">//    final result=json.decode(response.body);</span><br><span class="line">    final result = json.decode(utf8decoder.convert(response.bodyBytes));</span><br><span class="line">    return CommonModel.fromJson(result);</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    return MaterialApp(</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        appBar: AppBar(title: Text('FutureBuilder')),</span><br><span class="line">        body: FutureBuilder&lt;CommonModel&gt;(</span><br><span class="line">          future: fetchPost(),</span><br><span class="line">          builder: (BuildContext context, AsyncSnapshot&lt;CommonModel&gt; snapshot) {</span><br><span class="line">            switch (snapshot.connectionState) {</span><br><span class="line">              case ConnectionState.none:</span><br><span class="line">                return new Text('Input a URL to start');</span><br><span class="line">              case ConnectionState.waiting:</span><br><span class="line">                return new Center(child: new CircularProgressIndicator());</span><br><span class="line">              case ConnectionState.active:</span><br><span class="line">                return new Text('');</span><br><span class="line">              case ConnectionState.done:</span><br><span class="line">                if (snapshot.hasError) {</span><br><span class="line">                  return new Text(</span><br><span class="line">                    '${snapshot.error}',</span><br><span class="line">                    style: TextStyle(color: Colors.red),</span><br><span class="line">                  );</span><br><span class="line">                } else {</span><br><span class="line">                  return new Column(children: &lt;Widget&gt;[</span><br><span class="line">                    Text('icon:${snapshot.data.icon}'),</span><br><span class="line">                    Text('statusBarColor:${snapshot.data.statusBarColor}'),</span><br><span class="line">                    Text('title:${snapshot.data.title}'),</span><br><span class="line">                    Text('url:${snapshot.data.url}')</span><br><span class="line">                  ]);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">          },</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">class CommonModel {</span><br><span class="line">  final String icon;</span><br><span class="line">  final String title;</span><br><span class="line">  final String url;</span><br><span class="line">  final String statusBarColor;</span><br><span class="line">  final bool hideAppBar;</span><br><span class="line"></span><br><span class="line">  CommonModel(</span><br><span class="line">      {this.icon, this.title, this.url, this.statusBarColor, this.hideAppBar});</span><br><span class="line"></span><br><span class="line">  factory CommonModel.fromJson(Map&lt;String, dynamic&gt; json) {</span><br><span class="line">    return CommonModel(</span><br><span class="line">      icon: json['icon'],</span><br><span class="line">      title: json['title'],</span><br><span class="line">      url: json['url'],</span><br><span class="line">      statusBarColor: json['statusBarColor'],</span><br><span class="line">      hideAppBar: json['hideAppBar'],</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+          <h2><span id="jetpack-compose学习-card"> Jetpack Compose学习 -------- Card</span></h2>
+<h3><span id="card-卡片-简单使用"> Card 卡片 简单使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">CardDemo</span><span class="params">()</span></span> {</span><br><span class="line">     Card(</span><br><span class="line">         modifier = Modifier.fillMaxWidth() ,</span><br><span class="line">         backgroundColor = Color.White,</span><br><span class="line">         elevation = <span class="number">10.</span>dp,</span><br><span class="line">     ) {</span><br><span class="line">         Text(text = <span class="string">"This is a Card Demo"</span>,Modifier.padding(<span class="number">10.</span>dp))</span><br><span class="line">     }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Card(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .size(<span class="number">200.</span>dp)</span><br><span class="line">            .padding(<span class="number">10.</span>dp),</span><br><span class="line">        <span class="comment">//形状 圆角矩形</span></span><br><span class="line">        shape = RoundedCornerShape(<span class="number">8.</span>dp),</span><br><span class="line">        <span class="comment">//背景颜色</span></span><br><span class="line">        backgroundColor = Color.White,</span><br><span class="line">        <span class="comment">//内容的颜色</span></span><br><span class="line">        contentColor = Color.Black,</span><br><span class="line">        <span class="comment">//边框</span></span><br><span class="line">        border = BorderStroke(<span class="number">0.5</span>.dp, Color.Gray),</span><br><span class="line">        <span class="comment">//阴影</span></span><br><span class="line">        elevation = <span class="number">10.</span>dp</span><br><span class="line">    ) {</span><br><span class="line">        Column() {</span><br><span class="line">            Image(</span><br><span class="line">                painter = painterResource(id = R.mipmap.icon_header),</span><br><span class="line">                contentDescription = <span class="string">"图片描述"</span>,</span><br><span class="line">                contentScale = ContentScale.FillBounds</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">CardDemo</span><span class="params">()</span></span> {</span><br><span class="line">       Card(</span><br><span class="line">           modifier = Modifier</span><br><span class="line">               .fillMaxWidth()</span><br><span class="line">               <span class="comment">// 外边距</span></span><br><span class="line">               .padding(<span class="number">15.</span>dp)</span><br><span class="line">               .clickable(</span><br><span class="line">                   <span class="comment">// 设置点击波纹效果，注意如果 CardDemo() 函数不在 ExamplesTheme() {} 下调用</span></span><br><span class="line">                   <span class="comment">// 将无法显示波纹效果</span></span><br><span class="line">                   onClick = {</span><br><span class="line">                       Log.d(<span class="string">"Clickable"</span>, <span class="string">" clicked."</span>)</span><br><span class="line">                   }),</span><br><span class="line">           backgroundColor = Color.White,</span><br><span class="line">           <span class="comment">// 设置阴影</span></span><br><span class="line">           elevation = <span class="number">10.</span>dp,</span><br><span class="line">       )</span><br><span class="line">       {</span><br><span class="line">           Column(</span><br><span class="line">               <span class="comment">// 内边距</span></span><br><span class="line">               Modifier.padding(<span class="number">15.</span>dp)</span><br><span class="line">           ) {</span><br><span class="line">               Text(buildAnnotatedString {</span><br><span class="line">                   append(<span class="string">"welcome to "</span>)</span><br><span class="line">                   withStyle(</span><br><span class="line">                       style = SpanStyle(</span><br><span class="line">                           color = Color(<span class="number">0xFF4552B8</span>),</span><br><span class="line">                           fontWeight = FontWeight.W900,</span><br><span class="line">                       )</span><br><span class="line">                   ) {</span><br><span class="line">                       append(<span class="string">"Jetpack Compose Playground"</span>)</span><br><span class="line">                   }</span><br><span class="line">               })</span><br><span class="line">               Text(buildAnnotatedString {</span><br><span class="line">                   append(<span class="string">"Now you are in the "</span>)</span><br><span class="line">                   withStyle(</span><br><span class="line">                       style = SpanStyle(</span><br><span class="line">                           fontWeight = FontWeight.W900,</span><br><span class="line">                       )</span><br><span class="line">                   ) {</span><br><span class="line">                       append(<span class="string">"Card"</span>)</span><br><span class="line">                   }</span><br><span class="line">                   append(<span class="string">" section"</span>)</span><br><span class="line">               })</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Canvas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Canvas/" class="post-title-link" itemprop="url">Jetpack Compose学习  Canvas</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-25 11:15:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:15:10+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-26 13:57:42" itemprop="dateModified" datetime="2021-05-26T13:57:42+08:00">2021-05-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-canvas-图形"> Jetpack Compose学习 -------- Canvas 图形</span></h2>
+<h3><span id="canvas-图形-基本属性"> Canvas 图形 基本属性</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//绘制 线</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawLineDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制 线</span></span><br><span class="line">            drawLine(</span><br><span class="line">                start = Offset(x = canvasWidth, y = <span class="number">0f</span>),</span><br><span class="line">                end = Offset(x = <span class="number">0f</span>, y = canvasHeight),</span><br><span class="line">                color = Color.Red</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  <span class="comment">//绘制 圆</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawCircleDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制 圆</span></span><br><span class="line">            drawCircle(</span><br><span class="line">                color = Color.Red,</span><br><span class="line">                <span class="comment">//圆心  画布中心点</span></span><br><span class="line">                center = Offset(</span><br><span class="line">                    x = canvasWidth / <span class="number">2</span>,</span><br><span class="line">                    y = canvasHeight / <span class="number">2</span></span><br><span class="line">                ),</span><br><span class="line">                <span class="comment">//半径 : 画布最小边 的 1/4</span></span><br><span class="line">                radius = size.minDimension / <span class="number">4</span></span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">//绘制 弧</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawArcDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">//画布</span></span><br><span class="line">    Canvas(</span><br><span class="line">        <span class="comment">//充满整个屏幕</span></span><br><span class="line">        modifier = Modifier.fillMaxSize()</span><br><span class="line">    ) {</span><br><span class="line">        <span class="comment">//绘制 弧</span></span><br><span class="line">        drawArc(</span><br><span class="line">            color = Color.Red,</span><br><span class="line">            startAngle = <span class="number">0f</span>,</span><br><span class="line">            sweepAngle = <span class="number">60f</span>,</span><br><span class="line">            useCenter = <span class="literal">true</span>,</span><br><span class="line">            size = Size(<span class="number">300f</span>, <span class="number">300f</span>),</span><br><span class="line">            topLeft = Offset(<span class="number">60f</span>, <span class="number">60f</span>)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"> <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasQuadrantSize = size / <span class="number">2f</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制 矩形</span></span><br><span class="line">            drawRect(</span><br><span class="line">                color = Color.Red,</span><br><span class="line">                size = canvasQuadrantSize</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasInsetDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasQuadrantSize = size / <span class="number">2f</span></span><br><span class="line">            <span class="comment">//更改绘图边界</span></span><br><span class="line">            inset(<span class="number">150f</span>, <span class="number">30f</span>) {</span><br><span class="line">                <span class="comment">//绘制 矩形</span></span><br><span class="line">                drawRect(</span><br><span class="line">                    color = Color.Red,</span><br><span class="line">                    size = canvasQuadrantSize</span><br><span class="line">                )</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">      <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawRectTopLeftDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line">            <span class="keyword">val</span> canvasSize = size</span><br><span class="line">            <span class="comment">//绘制 矩形</span></span><br><span class="line">            drawRect(</span><br><span class="line">                color = Color.Red,</span><br><span class="line">                topLeft = Offset(x = canvasWidth / <span class="number">3f</span>, y = canvasHeight / <span class="number">3f</span>),</span><br><span class="line">                size = canvasSize / <span class="number">3f</span></span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">     <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasRotateDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="comment">//旋转 45 度</span></span><br><span class="line">            rotate(degrees = <span class="number">45f</span>) {</span><br><span class="line">                <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">                <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line">                <span class="keyword">val</span> canvasSize = size</span><br><span class="line">                <span class="comment">//绘制 矩形</span></span><br><span class="line">                drawRect(</span><br><span class="line">                    color = Color.Red,</span><br><span class="line">                    topLeft = Offset(x = canvasWidth / <span class="number">3f</span>, y = canvasHeight / <span class="number">3f</span>),</span><br><span class="line">                    size = canvasSize / <span class="number">3f</span></span><br><span class="line">                )</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasTransformDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line">            <span class="keyword">val</span> canvasSize = size</span><br><span class="line">            <span class="comment">//多种转换</span></span><br><span class="line">            withTransform({</span><br><span class="line">                <span class="comment">//平移</span></span><br><span class="line">                translate(left = canvasWidth / <span class="number">5f</span>)</span><br><span class="line">                <span class="comment">//旋转 45 度</span></span><br><span class="line">                rotate(degrees = <span class="number">45f</span>)</span><br><span class="line">            }) {</span><br><span class="line">                <span class="comment">//绘制 矩形</span></span><br><span class="line">                drawRect(</span><br><span class="line">                    color = Color.Red,</span><br><span class="line">                    topLeft = Offset(x = canvasWidth / <span class="number">3f</span>, y = canvasHeight / <span class="number">3f</span>),</span><br><span class="line">                    size = canvasSize / <span class="number">3f</span></span><br><span class="line">                )</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
       
     </div>
 
@@ -819,7 +607,7 @@ error - 异步计算接收的最新错误对象；</t></li>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -887,7 +675,7 @@ error - 异步计算接收的最新错误对象；</t></li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -900,7 +688,7 @@ error - 异步计算接收的最新错误对象；</t></li>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

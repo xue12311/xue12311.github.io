@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Checkbox/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20LazyRow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -198,7 +198,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Checkbox/" class="post-title-link" itemprop="url">Jetpack Compose学习  Checkbox</a>
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20LazyRow/" class="post-title-link" itemprop="url">Jetpack Compose学习  LazyRow</a>
         </h2>
 
         <div class="post-meta">
@@ -208,7 +208,254 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-25 11:17:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:17:10+08:00">2021-05-25</time>
+              <time title="创建时间：2021-05-25 11:24:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:24:10+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-27 14:56:08" itemprop="dateModified" datetime="2021-05-27T14:56:08+08:00">2021-05-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-lazyrow-延迟-水平-布局"> Jetpack Compose学习 -------- LazyRow 延迟 水平 布局</span></h2>
+<h3><span id="lazyrow-延迟-水平-布局-简单使用"> LazyRow 延迟 水平 布局 简单使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">LazyRowDemo</span><span class="params">()</span></span> {</span><br><span class="line">       <span class="keyword">val</span> list = listOf(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>) + ((<span class="number">0.</span><span class="number">.20</span>).map { it.toString() })</span><br><span class="line">       LazyRow(Modifier.fillMaxHeight()) {</span><br><span class="line">           items(</span><br><span class="line">               key = { list.<span class="keyword">get</span>(it) },</span><br><span class="line">               count = list.size,</span><br><span class="line">               itemContent = { item -&gt;</span><br><span class="line">                   <span class="keyword">val</span> content = list.<span class="keyword">get</span>(item)</span><br><span class="line">                   Log.d(<span class="string">"COMPOSE"</span>, <span class="string">"This get rendered <span class="subst">${content}</span>"</span>)</span><br><span class="line">                   <span class="keyword">when</span> (content) {</span><br><span class="line">                       <span class="string">"A"</span> -&gt; {</span><br><span class="line">                           Text(text = content, style = TextStyle(fontSize = <span class="number">80.</span>sp))</span><br><span class="line">                       }</span><br><span class="line">                       <span class="string">"B"</span> -&gt; {</span><br><span class="line">                           Button(onClick = {}) {</span><br><span class="line">                               Text(text = content, style = TextStyle(fontSize = <span class="number">80.</span>sp))</span><br><span class="line">                           }</span><br><span class="line">                       }</span><br><span class="line">                       <span class="string">"C"</span> -&gt; {</span><br><span class="line">                       }</span><br><span class="line">                       <span class="string">"D"</span> -&gt; {</span><br><span class="line">                           Text(text = content)</span><br><span class="line">                       }</span><br><span class="line">                       <span class="keyword">else</span> -&gt; {</span><br><span class="line">                           Text(text = content, style = TextStyle(fontSize = <span class="number">80.</span>sp))</span><br><span class="line">                       }</span><br><span class="line">                   }</span><br><span class="line">               }</span><br><span class="line">           )</span><br><span class="line">       }</span><br><span class="line">   }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20LazyColumn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20LazyColumn/" class="post-title-link" itemprop="url">Jetpack Compose学习  LazyColumn</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-25 11:23:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:23:10+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-27 14:55:44" itemprop="dateModified" datetime="2021-05-27T14:55:44+08:00">2021-05-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-lazycolumn-延迟-垂直-布局"> Jetpack Compose学习 -------- LazyColumn 延迟 垂直 布局</span></h2>
+<h3><span id="lazycolumn-延迟-垂直-布局-简单使用"> LazyColumn 延迟 垂直 布局 简单使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">LazyColumnDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> list = listOf(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>) + ((<span class="number">0.</span><span class="number">.20</span>).map { it.toString() })</span><br><span class="line">    LazyColumn(Modifier.fillMaxWidth()) {</span><br><span class="line">        items(</span><br><span class="line">            key = { list.<span class="keyword">get</span>(it) },</span><br><span class="line">            count = list.size,</span><br><span class="line">            itemContent = { item -&gt;</span><br><span class="line">                <span class="keyword">val</span> content = list.<span class="keyword">get</span>(item)</span><br><span class="line">                Log.d(<span class="string">"COMPOSE"</span>, <span class="string">"This get rendered <span class="subst">${content}</span>"</span>)</span><br><span class="line">                <span class="keyword">when</span> (content) {</span><br><span class="line">                    <span class="string">"A"</span> -&gt; {</span><br><span class="line">                        Text(text = content, style = TextStyle(fontSize = <span class="number">80.</span>sp))</span><br><span class="line">                    }</span><br><span class="line">                    <span class="string">"B"</span> -&gt; {</span><br><span class="line">                        Button(onClick = {}) {</span><br><span class="line">                            Text(text = content, style = TextStyle(fontSize = <span class="number">80.</span>sp))</span><br><span class="line">                        }</span><br><span class="line">                    }</span><br><span class="line">                    <span class="string">"C"</span> -&gt; {</span><br><span class="line">                    }</span><br><span class="line">                    <span class="string">"D"</span> -&gt; {</span><br><span class="line">                        Text(text = content)</span><br><span class="line">                    }</span><br><span class="line">                    <span class="keyword">else</span> -&gt; {</span><br><span class="line">                        Text(text = content, style = TextStyle(fontSize = <span class="number">80.</span>sp))</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Image%20Icon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Image%20Icon/" class="post-title-link" itemprop="url">Jetpack Compose学习 Image Icon</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-25 11:22:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:22:10+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-28 14:40:08" itemprop="dateModified" datetime="2021-05-28T14:40:08+08:00">2021-05-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-图片-image-icon"> Jetpack Compose学习 -------- 图片 Image , Icon</span></h2>
+<h3><span id="image-图片-基本使用"> Image 图片 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ImageResourceDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> image = painterResource(id = R.mipmap.icon_header)</span><br><span class="line">    Column {</span><br><span class="line">        Image(</span><br><span class="line">            painter = image,</span><br><span class="line">            contentDescription = <span class="string">"图片描述"</span></span><br><span class="line">        )</span><br><span class="line">        Image(</span><br><span class="line">            painter = image,</span><br><span class="line">            contentDescription = <span class="string">"图片描述"</span>,</span><br><span class="line">            <span class="comment">//设置图片大小</span></span><br><span class="line">            modifier = Modifier.size(<span class="number">100.</span>dp)</span><br><span class="line">        )</span><br><span class="line">        Surface( </span><br><span class="line">            <span class="comment">//设置形状</span></span><br><span class="line">            shape = CircleShape</span><br><span class="line">        ) {</span><br><span class="line">            Image(</span><br><span class="line">                painter = image,</span><br><span class="line">                contentDescription = <span class="string">"图片描述"</span>,</span><br><span class="line">                <span class="comment">//设置图片大小</span></span><br><span class="line">                modifier = Modifier.size(<span class="number">100.</span>dp),</span><br><span class="line">                <span class="comment">//保持宽高比缩放</span></span><br><span class="line">                contentScale = ContentScale.Crop</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        Surface(</span><br><span class="line">            <span class="comment">//设置形状</span></span><br><span class="line">            shape = CircleShape,</span><br><span class="line">            <span class="comment">//边框</span></span><br><span class="line">            border = BorderStroke(<span class="number">2.</span>dp, Color.Gray),</span><br><span class="line">        ) {</span><br><span class="line">            Image(</span><br><span class="line">                painter = image,</span><br><span class="line">                contentDescription = <span class="string">"图片描述"</span>,</span><br><span class="line">                <span class="comment">//设置图片大小</span></span><br><span class="line">                modifier = Modifier.size(<span class="number">100.</span>dp),</span><br><span class="line">                <span class="comment">//保持宽高比缩放</span></span><br><span class="line">                contentScale = ContentScale.Crop</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="图片加载"> 图片加载</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//图片加载    </span></span><br><span class="line">implementation(<span class="string">"com.github.bumptech.glide:glide:4.12.0"</span>)</span><br><span class="line">annotationProcessor(<span class="string">"com.github.bumptech.glide:compiler:4.12.0"</span>)</span><br><span class="line">implementation(<span class="string">"com.google.accompanist:accompanist-glide:0.10.0"</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.google.accompanist.glide.rememberGlidePainter</span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxWidth(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally</span><br><span class="line">    ) {</span><br><span class="line">        <span class="keyword">val</span> str_img_url <span class="keyword">by</span> remember {</span><br><span class="line">            mutableStateOf(</span><br><span class="line">                <span class="string">"https://tenfei04.cfp.cn/creative/vcg/veer/800water/veer-170860698.jpg"</span></span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Image(</span><br><span class="line">            painter = rememberGlidePainter(</span><br><span class="line">                request = str_img_url,</span><br><span class="line">                <span class="comment">//占位图片</span></span><br><span class="line">                previewPlaceholder = R.mipmap.ic_launcher,</span><br><span class="line">            ),</span><br><span class="line">            <span class="literal">null</span>,</span><br><span class="line">            Modifier.size(<span class="number">100.</span>dp)</span><br><span class="line">        )</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">20.</span>dp))</span><br><span class="line">        Image(painter = rememberGlidePainter(</span><br><span class="line">            request = str_img_url,</span><br><span class="line">            requestBuilder = {</span><br><span class="line">                <span class="comment">//圆形</span></span><br><span class="line">                transform(CircleCrop())</span><br><span class="line">            }</span><br><span class="line">        ), contentDescription = <span class="literal">null</span>,</span><br><span class="line">            Modifier.size(<span class="number">100.</span>dp)</span><br><span class="line">        )</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">20.</span>dp))</span><br><span class="line">        Image(painter = rememberGlidePainter(</span><br><span class="line">            request = str_img_url,</span><br><span class="line">            requestBuilder = {</span><br><span class="line">                <span class="comment">//圆角</span></span><br><span class="line">                transform(RoundedCorners(<span class="number">20</span>))</span><br><span class="line">            }</span><br><span class="line">        ), contentDescription = <span class="literal">null</span>,</span><br><span class="line">            Modifier.size(<span class="number">100.</span>dp)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="自定义控件"> 自定义控件</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> painter =</span><br><span class="line">        rememberGlidePainter(</span><br><span class="line">            request = <span class="string">"https://tva1.sinaimg.cn/large/a15b4afegy1fmvjlgdxxgj21hc0u04qp.jpg"</span></span><br><span class="line">        )</span><br><span class="line">    Box(Modifier.fillMaxSize()) {</span><br><span class="line">        Image(</span><br><span class="line">            painter = painter,</span><br><span class="line">            contentDescription = <span class="literal">null</span>,</span><br><span class="line">            <span class="comment">//居中</span></span><br><span class="line">            Modifier.align(Alignment.Center)</span><br><span class="line">        )</span><br><span class="line">        <span class="comment">//加载状态</span></span><br><span class="line">        <span class="keyword">when</span> (painter.loadState) {</span><br><span class="line">            <span class="comment">//加载中</span></span><br><span class="line">            <span class="keyword">is</span> ImageLoadState.Loading -&gt; {</span><br><span class="line">                <span class="comment">//圆形进度条</span></span><br><span class="line">                CircularProgressIndicator(</span><br><span class="line">                    <span class="comment">//居中</span></span><br><span class="line">                    Modifier.align(Alignment.Center)</span><br><span class="line">                )</span><br><span class="line">                Snackbar {</span><br><span class="line">                    Text(text = <span class="string">"图片加载中"</span>)</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">//加载失败</span></span><br><span class="line">            <span class="keyword">is</span> ImageLoadState.Error -&gt; {</span><br><span class="line">                Snackbar {</span><br><span class="line">                    Text(text = <span class="string">"图片加载失败"</span>)</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">//加载成功</span></span><br><span class="line">            <span class="keyword">is</span> ImageLoadState.Success -&gt; {</span><br><span class="line">                Snackbar {</span><br><span class="line">                    Text(text = <span class="string">"图片加载成功"</span>)</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="icon-基本使用"> Icon 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Row {</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Gray)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Red)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.DarkGray)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Magenta)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Cyan)</span><br><span class="line">        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="literal">null</span>, tint = Color.Blue)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20DropdownMenu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20DropdownMenu/" class="post-title-link" itemprop="url">Jetpack Compose学习  DropdownMenu</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-25 11:21:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:21:10+08:00">2021-05-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -242,9 +489,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-checkbox-复选框"> Jetpack Compose学习 -------- Checkbox 复选框</span></h2>
-<h3><span id="checkbox-复选框-基本使用"> Checkbox 复选框 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">CheckBoxDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> checkedState = remember {</span><br><span class="line">        mutableStateOf(<span class="literal">true</span>)</span><br><span class="line">    }</span><br><span class="line">    Checkbox(</span><br><span class="line">        checked = checkedState.value,</span><br><span class="line">        onCheckedChange = {</span><br><span class="line">            checkedState.value = it</span><br><span class="line">        }</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h2><span id="jetpack-compose学习-dropdownmenu-下拉菜单"> Jetpack Compose学习 -------- DropdownMenu 下拉菜单</span></h2>
+<h3><span id="dropdownmenu-下拉菜单-基本使用"> DropdownMenu 下拉菜单 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">DropdownSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> isExpanded = remember {</span><br><span class="line">        mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">val</span> list = listOf(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>, <span class="string">"E"</span>, <span class="string">"F"</span>, <span class="string">"G"</span>)</span><br><span class="line">    <span class="keyword">val</span> disabledValue = <span class="string">"B"</span></span><br><span class="line">    <span class="keyword">var</span> selectedIndex = remember {</span><br><span class="line">        mutableStateOf(<span class="number">0</span>)</span><br><span class="line">    }</span><br><span class="line">    Box(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .fillMaxSize()</span><br><span class="line">            .wrapContentSize(Alignment.TopStart)</span><br><span class="line">    ) {</span><br><span class="line">        Text(</span><br><span class="line">            text = list[selectedIndex.value],</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .fillMaxWidth()</span><br><span class="line">                .height(<span class="number">30.</span>dp)</span><br><span class="line">                .padding(<span class="number">10.</span>dp)</span><br><span class="line">                .clickable {</span><br><span class="line">                    isExpanded.value = <span class="literal">true</span></span><br><span class="line">                }</span><br><span class="line">                .background(</span><br><span class="line">                    Color.Black</span><br><span class="line">                ),</span><br><span class="line">            color = Color.White</span><br><span class="line">        )</span><br><span class="line">        DropdownMenu(</span><br><span class="line">            expanded = isExpanded.value,</span><br><span class="line">            onDismissRequest = { isExpanded.value = <span class="literal">false</span> },</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                .fillMaxWidth()</span><br><span class="line">                .background(Color.Red)</span><br><span class="line">        ) {</span><br><span class="line">            list.forEachIndexed { index, s -&gt;</span><br><span class="line">                DropdownMenuItem(onClick = {</span><br><span class="line">                    selectedIndex.value = index</span><br><span class="line">                    isExpanded.value = <span class="literal">false</span></span><br><span class="line">                }</span><br><span class="line">                ) {</span><br><span class="line">                    <span class="keyword">val</span> disaledText = <span class="keyword">if</span> (disabledValue == s) {</span><br><span class="line">                        <span class="string">" (Disabled)"</span></span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        <span class="string">""</span></span><br><span class="line">                    }</span><br><span class="line">                    Text(text = <span class="string">"<span class="subst">${s}</span><span class="subst">${disaledText}</span>"</span>)</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
       
     </div>
 
@@ -263,7 +510,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Card/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Crossfade/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -277,7 +524,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Card/" class="post-title-link" itemprop="url">Jetpack Compose学习  Card</a>
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Crossfade/" class="post-title-link" itemprop="url">Jetpack Compose学习  Crossfade</a>
         </h2>
 
         <div class="post-meta">
@@ -287,88 +534,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-25 11:16:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:16:10+08:00">2021-05-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-27 15:43:22" itemprop="dateModified" datetime="2021-05-27T15:43:22+08:00">2021-05-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2><span id="jetpack-compose学习-card"> Jetpack Compose学习 -------- Card</span></h2>
-<h3><span id="card-卡片-简单使用"> Card 卡片 简单使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">CardDemo</span><span class="params">()</span></span> {</span><br><span class="line">     Card(</span><br><span class="line">         modifier = Modifier.fillMaxWidth() ,</span><br><span class="line">         backgroundColor = Color.White,</span><br><span class="line">         elevation = <span class="number">10.</span>dp,</span><br><span class="line">     ) {</span><br><span class="line">         Text(text = <span class="string">"This is a Card Demo"</span>,Modifier.padding(<span class="number">10.</span>dp))</span><br><span class="line">     }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Card(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .size(<span class="number">200.</span>dp)</span><br><span class="line">            .padding(<span class="number">10.</span>dp),</span><br><span class="line">        <span class="comment">//形状 圆角矩形</span></span><br><span class="line">        shape = RoundedCornerShape(<span class="number">8.</span>dp),</span><br><span class="line">        <span class="comment">//背景颜色</span></span><br><span class="line">        backgroundColor = Color.White,</span><br><span class="line">        <span class="comment">//内容的颜色</span></span><br><span class="line">        contentColor = Color.Black,</span><br><span class="line">        <span class="comment">//边框</span></span><br><span class="line">        border = BorderStroke(<span class="number">0.5</span>.dp, Color.Gray),</span><br><span class="line">        <span class="comment">//阴影</span></span><br><span class="line">        elevation = <span class="number">10.</span>dp</span><br><span class="line">    ) {</span><br><span class="line">        Column() {</span><br><span class="line">            Image(</span><br><span class="line">                painter = painterResource(id = R.mipmap.icon_header),</span><br><span class="line">                contentDescription = <span class="string">"图片描述"</span>,</span><br><span class="line">                contentScale = ContentScale.FillBounds</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">CardDemo</span><span class="params">()</span></span> {</span><br><span class="line">       Card(</span><br><span class="line">           modifier = Modifier</span><br><span class="line">               .fillMaxWidth()</span><br><span class="line">               <span class="comment">// 外边距</span></span><br><span class="line">               .padding(<span class="number">15.</span>dp)</span><br><span class="line">               .clickable(</span><br><span class="line">                   <span class="comment">// 设置点击波纹效果，注意如果 CardDemo() 函数不在 ExamplesTheme() {} 下调用</span></span><br><span class="line">                   <span class="comment">// 将无法显示波纹效果</span></span><br><span class="line">                   onClick = {</span><br><span class="line">                       Log.d(<span class="string">"Clickable"</span>, <span class="string">" clicked."</span>)</span><br><span class="line">                   }),</span><br><span class="line">           backgroundColor = Color.White,</span><br><span class="line">           <span class="comment">// 设置阴影</span></span><br><span class="line">           elevation = <span class="number">10.</span>dp,</span><br><span class="line">       )</span><br><span class="line">       {</span><br><span class="line">           Column(</span><br><span class="line">               <span class="comment">// 内边距</span></span><br><span class="line">               Modifier.padding(<span class="number">15.</span>dp)</span><br><span class="line">           ) {</span><br><span class="line">               Text(buildAnnotatedString {</span><br><span class="line">                   append(<span class="string">"welcome to "</span>)</span><br><span class="line">                   withStyle(</span><br><span class="line">                       style = SpanStyle(</span><br><span class="line">                           color = Color(<span class="number">0xFF4552B8</span>),</span><br><span class="line">                           fontWeight = FontWeight.W900,</span><br><span class="line">                       )</span><br><span class="line">                   ) {</span><br><span class="line">                       append(<span class="string">"Jetpack Compose Playground"</span>)</span><br><span class="line">                   }</span><br><span class="line">               })</span><br><span class="line">               Text(buildAnnotatedString {</span><br><span class="line">                   append(<span class="string">"Now you are in the "</span>)</span><br><span class="line">                   withStyle(</span><br><span class="line">                       style = SpanStyle(</span><br><span class="line">                           fontWeight = FontWeight.W900,</span><br><span class="line">                       )</span><br><span class="line">                   ) {</span><br><span class="line">                       append(<span class="string">"Card"</span>)</span><br><span class="line">                   }</span><br><span class="line">                   append(<span class="string">" section"</span>)</span><br><span class="line">               })</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Canvas/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Canvas/" class="post-title-link" itemprop="url">Jetpack Compose学习  Canvas</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-25 11:15:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:15:10+08:00">2021-05-25</time>
+              <time title="创建时间：2021-05-25 11:20:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:20:10+08:00">2021-05-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -402,172 +568,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-canvas-图形"> Jetpack Compose学习 -------- Canvas 图形</span></h2>
-<h3><span id="canvas-图形-基本属性"> Canvas 图形 基本属性</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//绘制 线</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawLineDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制 线</span></span><br><span class="line">            drawLine(</span><br><span class="line">                start = Offset(x = canvasWidth, y = <span class="number">0f</span>),</span><br><span class="line">                end = Offset(x = <span class="number">0f</span>, y = canvasHeight),</span><br><span class="line">                color = Color.Red</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  <span class="comment">//绘制 圆</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawCircleDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制 圆</span></span><br><span class="line">            drawCircle(</span><br><span class="line">                color = Color.Red,</span><br><span class="line">                <span class="comment">//圆心  画布中心点</span></span><br><span class="line">                center = Offset(</span><br><span class="line">                    x = canvasWidth / <span class="number">2</span>,</span><br><span class="line">                    y = canvasHeight / <span class="number">2</span></span><br><span class="line">                ),</span><br><span class="line">                <span class="comment">//半径 : 画布最小边 的 1/4</span></span><br><span class="line">                radius = size.minDimension / <span class="number">4</span></span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">//绘制 弧</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawArcDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">//画布</span></span><br><span class="line">    Canvas(</span><br><span class="line">        <span class="comment">//充满整个屏幕</span></span><br><span class="line">        modifier = Modifier.fillMaxSize()</span><br><span class="line">    ) {</span><br><span class="line">        <span class="comment">//绘制 弧</span></span><br><span class="line">        drawArc(</span><br><span class="line">            color = Color.Red,</span><br><span class="line">            startAngle = <span class="number">0f</span>,</span><br><span class="line">            sweepAngle = <span class="number">60f</span>,</span><br><span class="line">            useCenter = <span class="literal">true</span>,</span><br><span class="line">            size = Size(<span class="number">300f</span>, <span class="number">300f</span>),</span><br><span class="line">            topLeft = Offset(<span class="number">60f</span>, <span class="number">60f</span>)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"> <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasQuadrantSize = size / <span class="number">2f</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制 矩形</span></span><br><span class="line">            drawRect(</span><br><span class="line">                color = Color.Red,</span><br><span class="line">                size = canvasQuadrantSize</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasInsetDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasQuadrantSize = size / <span class="number">2f</span></span><br><span class="line">            <span class="comment">//更改绘图边界</span></span><br><span class="line">            inset(<span class="number">150f</span>, <span class="number">30f</span>) {</span><br><span class="line">                <span class="comment">//绘制 矩形</span></span><br><span class="line">                drawRect(</span><br><span class="line">                    color = Color.Red,</span><br><span class="line">                    size = canvasQuadrantSize</span><br><span class="line">                )</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">      <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasDrawRectTopLeftDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line">            <span class="keyword">val</span> canvasSize = size</span><br><span class="line">            <span class="comment">//绘制 矩形</span></span><br><span class="line">            drawRect(</span><br><span class="line">                color = Color.Red,</span><br><span class="line">                topLeft = Offset(x = canvasWidth / <span class="number">3f</span>, y = canvasHeight / <span class="number">3f</span>),</span><br><span class="line">                size = canvasSize / <span class="number">3f</span></span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">     <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasRotateDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="comment">//旋转 45 度</span></span><br><span class="line">            rotate(degrees = <span class="number">45f</span>) {</span><br><span class="line">                <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">                <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line">                <span class="keyword">val</span> canvasSize = size</span><br><span class="line">                <span class="comment">//绘制 矩形</span></span><br><span class="line">                drawRect(</span><br><span class="line">                    color = Color.Red,</span><br><span class="line">                    topLeft = Offset(x = canvasWidth / <span class="number">3f</span>, y = canvasHeight / <span class="number">3f</span>),</span><br><span class="line">                    size = canvasSize / <span class="number">3f</span></span><br><span class="line">                )</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//绘制 矩形</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">CanvasTransformDrawRectDemo</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="comment">//画布</span></span><br><span class="line">        Canvas(</span><br><span class="line">            <span class="comment">//充满整个屏幕</span></span><br><span class="line">            modifier = Modifier.fillMaxSize()</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> canvasWidth = size.width</span><br><span class="line">            <span class="keyword">val</span> canvasHeight = size.height</span><br><span class="line">            <span class="keyword">val</span> canvasSize = size</span><br><span class="line">            <span class="comment">//多种转换</span></span><br><span class="line">            withTransform({</span><br><span class="line">                <span class="comment">//平移</span></span><br><span class="line">                translate(left = canvasWidth / <span class="number">5f</span>)</span><br><span class="line">                <span class="comment">//旋转 45 度</span></span><br><span class="line">                rotate(degrees = <span class="number">45f</span>)</span><br><span class="line">            }) {</span><br><span class="line">                <span class="comment">//绘制 矩形</span></span><br><span class="line">                drawRect(</span><br><span class="line">                    color = Color.Red,</span><br><span class="line">                    topLeft = Offset(x = canvasWidth / <span class="number">3f</span>, y = canvasHeight / <span class="number">3f</span>),</span><br><span class="line">                    size = canvasSize / <span class="number">3f</span></span><br><span class="line">                )</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Button/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Button/" class="post-title-link" itemprop="url">Jetpack Compose学习  Button IconButton</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-25 11:14:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:14:10+08:00">2021-05-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-27 09:20:10" itemprop="dateModified" datetime="2021-05-27T09:20:10+08:00">2021-05-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2><span id="jetpack-compose学习-按钮-button-iconbutton"> Jetpack Compose学习 -------- 按钮 Button , IconButton</span></h2>
-<h3><span id="button-按钮-基本使用"> Button 按钮 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ButtonSample</span><span class="params">()</span></span> {</span><br><span class="line">    Button(</span><br><span class="line">        onClick = {</span><br><span class="line">            Log.d(<span class="string">"ButtonSample"</span>, <span class="string">"按钮被点击"</span>)</span><br><span class="line">        },</span><br><span class="line">        modifier = Modifier.padding(<span class="number">10.</span>dp),</span><br><span class="line">        colors = ButtonDefaults.textButtonColors(backgroundColor = Color.Blue)</span><br><span class="line">    ) {</span><br><span class="line">        Text(text = <span class="string">"按钮"</span>, color = Color.White)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Button(onClick = { }) {</span><br><span class="line">        Icon(</span><br><span class="line">            imageVector = Icons.Filled.Favorite,</span><br><span class="line">            contentDescription = <span class="string">"喜爱"</span>,</span><br><span class="line">            modifier = Modifier.size(ButtonDefaults.IconSize)</span><br><span class="line">        )</span><br><span class="line">        <span class="comment">//间隔</span></span><br><span class="line">        Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))</span><br><span class="line">        Text(text = <span class="string">"喜爱"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="iconbutton-图标按钮-基本使用"> IconButton 图标按钮 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Row {</span><br><span class="line">        IconButton(onClick = { }) {</span><br><span class="line">            Icon(Icons.Filled.Search, <span class="literal">null</span>)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        IconButton(onClick = { }) {</span><br><span class="line">            Icon(Icons.Filled.ArrowBack, <span class="literal">null</span>)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        IconButton(onClick = { }) {</span><br><span class="line">            Icon(Icons.Filled.Done, <span class="literal">null</span>)</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">val</span> isSelected = remember {</span><br><span class="line">            mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//取消水波纹</span></span><br><span class="line">        IconButtonNoIndication(onClick = {</span><br><span class="line">            isSelected.value = !isSelected.value</span><br><span class="line">        }) {</span><br><span class="line">            Icon(</span><br><span class="line">                Icons.Filled.Home,</span><br><span class="line">                <span class="literal">null</span>,</span><br><span class="line">                tint = <span class="keyword">if</span> (isSelected.value) {</span><br><span class="line">                    Color.Red</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    Color.Gray</span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 去掉水波纹</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">IconButtonNoIndication</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">        onClick: () -&gt; <span class="type">Unit</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">        modifier: <span class="type">Modifier</span> = Modifier,</span></span></span><br><span class="line"><span class="params"><span class="function">        enabled: <span class="type">Boolean</span> = <span class="literal">true</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">        interactionSource: <span class="type">MutableInteractionSource</span> = remember { MutableInteractionSource()</span></span> },</span><br><span class="line">        content: <span class="meta">@Composable</span> () -&gt; <span class="built_in">Unit</span></span><br><span class="line">    ) {</span><br><span class="line">        Box(</span><br><span class="line">            modifier = modifier</span><br><span class="line">                .clickable(</span><br><span class="line">                    onClick = onClick,</span><br><span class="line">                    enabled = enabled,</span><br><span class="line">                    role = Role.Button,</span><br><span class="line">                    interactionSource = interactionSource,</span><br><span class="line">                    <span class="comment">//取消水波纹</span></span><br><span class="line">                    indication = <span class="literal">null</span></span><br><span class="line">                )</span><br><span class="line">                .then(Modifier.size(<span class="number">48.</span>dp)),</span><br><span class="line">            contentAlignment = Alignment.Center</span><br><span class="line">        ) { content() }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20AlertDialog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20AlertDialog/" class="post-title-link" itemprop="url">Jetpack Compose学习  AlertDialog</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-25 11:13:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:13:10+08:00">2021-05-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-26 17:03:33" itemprop="dateModified" datetime="2021-05-26T17:03:33+08:00">2021-05-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2><span id="jetpack-compose学习-alertdialog"> Jetpack Compose学习 -------- AlertDialog</span></h2>
-<h3><span id="alertdialog-提示框-简单使用"> AlertDialog 提示框 简单使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">AlertDialogSample</span><span class="params">()</span></span> {</span><br><span class="line">    MaterialTheme {</span><br><span class="line">        Column(</span><br><span class="line">            Modifier</span><br><span class="line">                .fillMaxSize()</span><br><span class="line">                .wrapContentSize(Alignment.Center)</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> openDialog = remember {</span><br><span class="line">                mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">            }</span><br><span class="line">            Button(onClick = {</span><br><span class="line">                openDialog.value = <span class="literal">true</span></span><br><span class="line">            }) {</span><br><span class="line">                Text(text = <span class="string">"弹出提示框"</span>)</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (openDialog.value) {</span><br><span class="line">                AlertDialog(</span><br><span class="line">                    onDismissRequest = {</span><br><span class="line">                        <span class="comment">// 当用户点击对话框以外的地方或者按下系统返回键将会执行的代码</span></span><br><span class="line">                        openDialog.value = <span class="literal">false</span></span><br><span class="line">                    },</span><br><span class="line">                    title = {</span><br><span class="line">                        Text(text = <span class="string">"提示框标题"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"提示框内容"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    confirmButton = {</span><br><span class="line">                        Button(onClick = { openDialog.value = <span class="literal">false</span> }) {</span><br><span class="line">                            Text(text = <span class="string">"确认按钮"</span>)</span><br><span class="line">                        }</span><br><span class="line">                    },</span><br><span class="line">                    dismissButton = {</span><br><span class="line">                        Button(onClick = { openDialog.value = <span class="literal">false</span> }) {</span><br><span class="line">                            Text(text = <span class="string">"取消按钮"</span>)</span><br><span class="line">                        }</span><br><span class="line">                    })</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">AlertDialogSample2</span><span class="params">()</span></span> {</span><br><span class="line">    MaterialTheme {</span><br><span class="line">        Column(</span><br><span class="line">            Modifier</span><br><span class="line">                .fillMaxSize()</span><br><span class="line">                .wrapContentSize(Alignment.Center)</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> openDialog = remember {</span><br><span class="line">                mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">            }</span><br><span class="line">            Button(onClick = {</span><br><span class="line">                openDialog.value = <span class="literal">true</span></span><br><span class="line">            }) {</span><br><span class="line">                Text(text = <span class="string">"弹出提示框"</span>)</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (openDialog.value) {</span><br><span class="line">                AlertDialog(</span><br><span class="line">                    onDismissRequest = {</span><br><span class="line">                        <span class="comment">// 当用户点击对话框以外的地方或者按下系统返回键将会执行的代码</span></span><br><span class="line">                        openDialog.value = <span class="literal">false</span></span><br><span class="line">                    },</span><br><span class="line">                    title = {</span><br><span class="line">                        Text(</span><br><span class="line">                            text = <span class="string">"开启位置服务"</span>,</span><br><span class="line">                            fontWeight = FontWeight.W700,</span><br><span class="line">                            style = MaterialTheme.typography.h6</span><br><span class="line">                        )</span><br><span class="line">                    },</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(</span><br><span class="line">                            text = <span class="string">"这将意味着，我们会给您提供精准的位置服务，并且您将接受关于您订阅的位置信息"</span>,</span><br><span class="line">                            fontSize = <span class="number">16.</span>sp</span><br><span class="line">                        )</span><br><span class="line">                    },</span><br><span class="line">                    confirmButton = {</span><br><span class="line">                        TextButton(</span><br><span class="line">                            onClick = {</span><br><span class="line">                                openDialog.value = <span class="literal">false</span></span><br><span class="line">                            },</span><br><span class="line">                        ) {</span><br><span class="line">                            Text(</span><br><span class="line">                                <span class="string">"确认"</span>,</span><br><span class="line">                                fontWeight = FontWeight.W700,</span><br><span class="line">                                style = MaterialTheme.typography.button</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    },</span><br><span class="line">                    dismissButton = {</span><br><span class="line">                        TextButton(</span><br><span class="line">                            onClick = {</span><br><span class="line">                                openDialog.value = <span class="literal">false</span></span><br><span class="line">                            }</span><br><span class="line">                        ) {</span><br><span class="line">                            Text(</span><br><span class="line">                                <span class="string">"取消"</span>,</span><br><span class="line">                                fontWeight = FontWeight.W700,</span><br><span class="line">                                style = MaterialTheme.typography.button</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    })</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line">  <span class="function"><span class="keyword">fun</span> <span class="title">AlertDialogSample3</span><span class="params">()</span></span> {</span><br><span class="line">      MaterialTheme {</span><br><span class="line">          Column(</span><br><span class="line">              Modifier</span><br><span class="line">                  .fillMaxSize()</span><br><span class="line">                  .wrapContentSize(Alignment.Center)</span><br><span class="line">          ) {</span><br><span class="line">              <span class="keyword">val</span> openDialog = remember {</span><br><span class="line">                  mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">              }</span><br><span class="line">              Button(onClick = {</span><br><span class="line">                  openDialog.value = <span class="literal">true</span></span><br><span class="line">              }) {</span><br><span class="line">                  Text(text = <span class="string">"弹出提示框"</span>)</span><br><span class="line">              }</span><br><span class="line">              <span class="keyword">if</span> (openDialog.value) {</span><br><span class="line">                  AlertDialog(</span><br><span class="line">                      onDismissRequest = {</span><br><span class="line">                          openDialog.value = <span class="literal">false</span></span><br><span class="line">                      },</span><br><span class="line">                      title = {</span><br><span class="line">                          Text(</span><br><span class="line">                              text = <span class="string">"开启位置服务"</span>,</span><br><span class="line">                              fontWeight = FontWeight.W700,</span><br><span class="line">                              style = MaterialTheme.typography.h6</span><br><span class="line">                          )</span><br><span class="line">                      },</span><br><span class="line">                      text = {</span><br><span class="line">                          Text(</span><br><span class="line">                              text = <span class="string">"这将意味着，我们会给您提供精准的位置服务，并且您将接受关于您订阅的位置信息"</span>,</span><br><span class="line">                              fontSize = <span class="number">16.</span>sp</span><br><span class="line">                          )</span><br><span class="line">                      },</span><br><span class="line">                      buttons = {</span><br><span class="line">                          Row(</span><br><span class="line">                              modifier = Modifier.padding(all = <span class="number">8.</span>dp),</span><br><span class="line">                              horizontalArrangement = Arrangement.Center</span><br><span class="line">                          ) {</span><br><span class="line">                              Button(</span><br><span class="line">                                  modifier = Modifier.fillMaxWidth(),</span><br><span class="line">                                  onClick = { openDialog.value = <span class="literal">false</span> }</span><br><span class="line">                              ) {</span><br><span class="line">                                  Text(<span class="string">"必须接受！"</span>)</span><br><span class="line">                              }</span><br><span class="line">                          }</span><br><span class="line">                      }</span><br><span class="line">                  )</span><br><span class="line">              }</span><br><span class="line">          }</span><br><span class="line">      }</span><br><span class="line">  }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h2><span id="jetpack-compose学习-crossfade"> Jetpack Compose学习 -------- Crossfade</span></h2>
+<h3><span id="crossfade-动画-淡入淡出"> Crossfade 动画 淡入淡出</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">MyColors</span></span>(<span class="keyword">val</span> color: Color) {</span><br><span class="line">    Red(Color.Red),</span><br><span class="line">    Green(Color.Green),</span><br><span class="line">    Blue(Color.Blue),</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//淡入淡出 动画</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">CrossfadeDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> currentColor = remember {</span><br><span class="line">        mutableStateOf(MyColors.Red)</span><br><span class="line">    }</span><br><span class="line">    Column {</span><br><span class="line">        Row {</span><br><span class="line">            MyColors.values().forEach { myColors -&gt;</span><br><span class="line">                Button(</span><br><span class="line">                    onClick = { currentColor.value = myColors },</span><br><span class="line">                    Modifier.weight(<span class="number">1f</span>, <span class="literal">true</span>)</span><br><span class="line">                        .height(<span class="number">48.</span>dp)</span><br><span class="line">                        .background(myColors.color),</span><br><span class="line">                    colors = ButtonDefaults.buttonColors(</span><br><span class="line">                        backgroundColor = myColors.color</span><br><span class="line">                    )</span><br><span class="line">                ) {</span><br><span class="line">                    Text(myColors.name, color = Color.White)</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//淡入淡出 切换动画</span></span><br><span class="line">        Crossfade(</span><br><span class="line">            targetState = currentColor,</span><br><span class="line">            animationSpec = tween(<span class="number">3000</span>)</span><br><span class="line">        ) { selectedColor -&gt;</span><br><span class="line">            Box(</span><br><span class="line">                modifier = Modifier</span><br><span class="line">                    .fillMaxSize()</span><br><span class="line">                    .background(color = selectedColor.value.color)</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
       
     </div>
@@ -586,7 +589,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -654,7 +657,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -667,7 +670,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

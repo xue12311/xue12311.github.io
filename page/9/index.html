@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/19/flutter/flutter%E7%BB%83%E4%B9%A0%20-Dart%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Button/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -198,7 +198,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/19/flutter/flutter%E7%BB%83%E4%B9%A0%20-Dart%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/" class="post-title-link" itemprop="url">flutter练习 - Dart流程控制语句</a>
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Button/" class="post-title-link" itemprop="url">Jetpack Compose学习  Button IconButton</a>
         </h2>
 
         <div class="post-meta">
@@ -208,14 +208,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-01-19 10:27:35" itemprop="dateCreated datePublished" datetime="2020-01-19T10:27:35+08:00">2020-01-19</time>
+              <time title="创建时间：2021-05-25 11:14:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:14:10+08:00">2021-05-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-01 13:24:23" itemprop="dateModified" datetime="2020-02-01T13:24:23+08:00">2020-02-01</time>
+                <time title="修改时间：2021-05-27 09:20:10" itemprop="dateModified" datetime="2021-05-27T09:20:10+08:00">2021-05-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,7 +223,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index"><span itemprop="name">flutter</span></a>
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
                 </span>
             </span>
 
@@ -238,28 +242,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1><span id="flutter练习-dart流程控制语句"> flutter练习 - Dart流程控制语句</span></h1>
-<h2><span id="if-和-else"> if 和 else</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void main() {</span><br><span class="line">  int x =10;</span><br><span class="line">  if(x%2==0){</span><br><span class="line">  print("$x 能被2整除");  </span><br><span class="line">  }else{</span><br><span class="line">    print("$x 不能被2整除");</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="for循环"> for（循环）</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void main() {</span><br><span class="line">  var message = new StringBuffer("Hello Dart");</span><br><span class="line">  for (var i = 0; i &lt; 10; i++) {</span><br><span class="line">    message.write("!");</span><br><span class="line">  }</span><br><span class="line">  print(message);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void main() {</span><br><span class="line">  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">  for (var i = 0; i &lt; arr.length; i++) {</span><br><span class="line">    print(i);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void main() {</span><br><span class="line"> var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">  numbers.forEach((number) =&gt; print(number));</span><br><span class="line">  numbers.forEach((number) {</span><br><span class="line">    print(number);</span><br><span class="line">  });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="while-和-do-while-循环"> while 和 do - while (循环)</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void main() {</span><br><span class="line">  var _temp = 0;</span><br><span class="line">  while (_temp &lt; 5) {</span><br><span class="line">    print("这是一个while循环: ${_temp.toString()}");</span><br><span class="line">    _temp++;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void main() {</span><br><span class="line">  var _temp = 0;</span><br><span class="line">  do {</span><br><span class="line">    print("这是一个while循环: ${_temp.toString()}");</span><br><span class="line">    _temp++;</span><br><span class="line">  } while (_temp &lt; 5);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="break-和-continue"> break 和 continue</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void main() {</span><br><span class="line">    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">  for (var v in arr) {</span><br><span class="line">    if (v == 4) {</span><br><span class="line">      break;//跳出循环</span><br><span class="line">    }</span><br><span class="line">    print(v);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void main() {</span><br><span class="line">  var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</span><br><span class="line">  for (var v in arr) {</span><br><span class="line">    if (v == 4) {</span><br><span class="line">      continue;//跳出本次循环</span><br><span class="line">    }</span><br><span class="line">    print(v);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="switch-和-case"> switch 和 case</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void main() {</span><br><span class="line">  var x = 10;</span><br><span class="line">  switch (x % 3) {</span><br><span class="line">    case 0:</span><br><span class="line">      print("余数: 0");</span><br><span class="line">      break;</span><br><span class="line">    case 1:</span><br><span class="line">      print("余数: 1");</span><br><span class="line">      break;</span><br><span class="line">    case 2:</span><br><span class="line">      print("余数: 2");</span><br><span class="line">      break;</span><br><span class="line">    default:</span><br><span class="line">      print("其他");</span><br><span class="line">      break;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="assert-断言"> assert (断言)</span></h2>
-<ul>
-<li>assert 语句不会影响生产环境中代码的执行，它仅仅在测试环境中起作用。在 Flutter 的调试模式下可以使用 assert。</li>
-<li>如果assert条件为 false，则使用 assert 语句中断执行，并抛出一个断言错误异常AssertionError。</li>
-<li>如果assert条件为 true，则继续执行下面的语句。</li>
-</ul>
-
+          <h2><span id="jetpack-compose学习-按钮-button-iconbutton"> Jetpack Compose学习 -------- 按钮 Button , IconButton</span></h2>
+<h3><span id="button-按钮-基本使用"> Button 按钮 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ButtonSample</span><span class="params">()</span></span> {</span><br><span class="line">    Button(</span><br><span class="line">        onClick = {</span><br><span class="line">            Log.d(<span class="string">"ButtonSample"</span>, <span class="string">"按钮被点击"</span>)</span><br><span class="line">        },</span><br><span class="line">        modifier = Modifier.padding(<span class="number">10.</span>dp),</span><br><span class="line">        colors = ButtonDefaults.textButtonColors(backgroundColor = Color.Blue)</span><br><span class="line">    ) {</span><br><span class="line">        Text(text = <span class="string">"按钮"</span>, color = Color.White)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Button(onClick = { }) {</span><br><span class="line">        Icon(</span><br><span class="line">            imageVector = Icons.Filled.Favorite,</span><br><span class="line">            contentDescription = <span class="string">"喜爱"</span>,</span><br><span class="line">            modifier = Modifier.size(ButtonDefaults.IconSize)</span><br><span class="line">        )</span><br><span class="line">        <span class="comment">//间隔</span></span><br><span class="line">        Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))</span><br><span class="line">        Text(text = <span class="string">"喜爱"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="iconbutton-图标按钮-基本使用"> IconButton 图标按钮 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Row {</span><br><span class="line">        IconButton(onClick = { }) {</span><br><span class="line">            Icon(Icons.Filled.Search, <span class="literal">null</span>)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        IconButton(onClick = { }) {</span><br><span class="line">            Icon(Icons.Filled.ArrowBack, <span class="literal">null</span>)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        IconButton(onClick = { }) {</span><br><span class="line">            Icon(Icons.Filled.Done, <span class="literal">null</span>)</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">val</span> isSelected = remember {</span><br><span class="line">            mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//取消水波纹</span></span><br><span class="line">        IconButtonNoIndication(onClick = {</span><br><span class="line">            isSelected.value = !isSelected.value</span><br><span class="line">        }) {</span><br><span class="line">            Icon(</span><br><span class="line">                Icons.Filled.Home,</span><br><span class="line">                <span class="literal">null</span>,</span><br><span class="line">                tint = <span class="keyword">if</span> (isSelected.value) {</span><br><span class="line">                    Color.Red</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    Color.Gray</span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 去掉水波纹</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">IconButtonNoIndication</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">        onClick: () -&gt; <span class="type">Unit</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">        modifier: <span class="type">Modifier</span> = Modifier,</span></span></span><br><span class="line"><span class="params"><span class="function">        enabled: <span class="type">Boolean</span> = <span class="literal">true</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">        interactionSource: <span class="type">MutableInteractionSource</span> = remember { MutableInteractionSource()</span></span> },</span><br><span class="line">        content: <span class="meta">@Composable</span> () -&gt; <span class="built_in">Unit</span></span><br><span class="line">    ) {</span><br><span class="line">        Box(</span><br><span class="line">            modifier = modifier</span><br><span class="line">                .clickable(</span><br><span class="line">                    onClick = onClick,</span><br><span class="line">                    enabled = enabled,</span><br><span class="line">                    role = Role.Button,</span><br><span class="line">                    interactionSource = interactionSource,</span><br><span class="line">                    <span class="comment">//取消水波纹</span></span><br><span class="line">                    indication = <span class="literal">null</span></span><br><span class="line">                )</span><br><span class="line">                .then(Modifier.size(<span class="number">48.</span>dp)),</span><br><span class="line">            contentAlignment = Alignment.Center</span><br><span class="line">        ) { content() }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
       
     </div>
 
@@ -278,7 +266,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/18/flutter/flutter%E7%BB%83%E4%B9%A0%20-Dart%E5%B8%B8%E8%A7%81%E8%BF%90%E7%AE%97%E7%AC%A6/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20AlertDialog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -292,365 +280,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/18/flutter/flutter%E7%BB%83%E4%B9%A0%20-Dart%E5%B8%B8%E8%A7%81%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">flutter练习 - Dart常见运算符</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-01-18 14:29:30 / 修改时间：19:04:08" itemprop="dateCreated datePublished" datetime="2020-01-18T14:29:30+08:00">2020-01-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index"><span itemprop="name">flutter</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1><span id="flutter练习-dart常见运算符"> flutter练习 - Dart常见运算符</span></h1>
-<h2><span id="算数运算符"> 算数运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:center">加</td>
-</tr>
-<tr>
-<td style="text-align:center">-</td>
-<td style="text-align:center">减</td>
-</tr>
-<tr>
-<td style="text-align:center">- expr</td>
-<td style="text-align:center">一元减号(负号)   expr : 表达式的值</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td style="text-align:center">乘</td>
-</tr>
-<tr>
-<td style="text-align:center">/</td>
-<td style="text-align:center">除</td>
-</tr>
-<tr>
-<td style="text-align:center">~/</td>
-<td style="text-align:center">返回一个整数值的除法</td>
-</tr>
-<tr>
-<td style="text-align:center">%</td>
-<td style="text-align:center">取余数,除法剩下的余数</td>
-</tr>
-<tr>
-<td style="text-align:center">++var</td>
-<td style="text-align:center">var = var + 1 表达式的值为：var + 1</td>
-</tr>
-<tr>
-<td style="text-align:center">var++</td>
-<td style="text-align:center">var = var + 1 表达式的值为：var</td>
-</tr>
-<tr>
-<td style="text-align:center">–var</td>
-<td style="text-align:center">var = var - 1 表达式的值为：var - 1</td>
-</tr>
-<tr>
-<td style="text-align:center">var–</td>
-<td style="text-align:center">var =var - 1 表达式的值为：var</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="关系运算符"> 关系运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">==</td>
-<td style="text-align:center">等于</td>
-</tr>
-<tr>
-<td style="text-align:center">!=</td>
-<td style="text-align:center">不等于</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;</td>
-<td style="text-align:center">大于</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;</td>
-<td style="text-align:center">小于</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;=</td>
-<td style="text-align:center">大于或等于</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;=</td>
-<td style="text-align:center">小于或等于</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="类型测试操作符"> 类型测试操作符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">as</td>
-<td style="text-align:center">类型转换</td>
-</tr>
-<tr>
-<td style="text-align:center">is</td>
-<td style="text-align:center">当对象是相应类型时返回 true</td>
-</tr>
-<tr>
-<td style="text-align:center">is!</td>
-<td style="text-align:center">当对象不是相应类型时返回 true</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="赋值操作符"> 赋值操作符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">a = value ;</td>
-<td style="text-align:center">将 value 赋值给 a</td>
-</tr>
-<tr>
-<td style="text-align:center">b??= value ;</td>
-<td style="text-align:center">如果 b为空，则将value的值赋值给b，否则，b保持不变</td>
-</tr>
-<tr>
-<td style="text-align:center">a op b</td>
-<td style="text-align:center">a = a op b</td>
-</tr>
-<tr>
-<td style="text-align:center">a += b</td>
-<td style="text-align:center">a = a + b</td>
-</tr>
-<tr>
-<td style="text-align:center">a -= b</td>
-<td style="text-align:center">a = a - b</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="逻辑运算符"> 逻辑运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">!expr</td>
-<td style="text-align:center">反转以下表达式( 将 false 更改为 true , 反之亦然)</td>
-</tr>
-<tr>
-<td style="text-align:center">||</td>
-<td style="text-align:center">逻辑或</td>
-</tr>
-<tr>
-<td style="text-align:center">&amp;&amp;</td>
-<td style="text-align:center">逻辑与</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="位运算符"> 位运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&amp;</td>
-<td style="text-align:center">与</td>
-</tr>
-<tr>
-<td style="text-align:center">|</td>
-<td style="text-align:center">或</td>
-</tr>
-<tr>
-<td style="text-align:center">^</td>
-<td style="text-align:center">异或</td>
-</tr>
-<tr>
-<td style="text-align:center">-expr</td>
-<td style="text-align:center">一元位补码 ( 0s 变为 1s , 1s 变为 0s )</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;&lt;</td>
-<td style="text-align:center">左移</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;&gt;</td>
-<td style="text-align:center">右移</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="条件表达式"> 条件表达式</span></h2>
-<ol>
-<li>如果条件为真，返回 expr1,否则返回 expr2 。<br>
-condition ?  expr1 : expr2</li>
-<li>如果 expr1 为非空,则返回其值，否则 计算并返回 expr2 的值<br>
-expr1 ?? expr2</li>
-</ol>
-<h2><span id="级联操作"> 级联操作</span></h2>
-<p>级联操作符 (…) 可以在同一个对象上连续调用多个函数以及访问成员变量。使用级联操作符可以避免创建临时变量， 并且写出来的代码看起来更加流畅</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">querySelector('#button') // Get an object.</span><br><span class="line">  ..text = 'Confirm'   // Use its members.</span><br><span class="line">  ..classes.add('important')</span><br><span class="line">  ..onClick.listen((e) =&gt; window.alert('Confirmed!'));</span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/05/kotlin/kotlin%E7%BB%83%E4%B9%A0-KotlinfilterNotNull%20%E5%90%AB%E4%B9%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/05/kotlin/kotlin%E7%BB%83%E4%B9%A0-KotlinfilterNotNull%20%E5%90%AB%E4%B9%89/" class="post-title-link" itemprop="url">kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-01-05 16:57:36 / 修改时间：17:15:48" itemprop="dateCreated datePublished" datetime="2020-01-05T16:57:36+08:00">2020-01-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1><span id="kotlin练习-kotlin中的-filternotnull-含义"> kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</span></h1>
-<h2><span id="可空类型表示当前是否对象可以为空"> ?  可空类型，表示当前是否对象可以为空</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String ="123"</span><br><span class="line">a = null //编译报错</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String? ="123"</span><br><span class="line">a = null //编译通过</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="安全调用操作符"> ?.  安全调用操作符</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a:String? ="123"</span><br><span class="line">a = null //编译通过</span><br><span class="line">val length = a.length //编译报错 --- 变量"a"可能会为空</span><br><span class="line">val length = a?.length //编译通过 --- 如果 a 非空，就返回 a.length，否则返回 null</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="elvis-操作符"> ?:  Elvis 操作符</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? ="123"</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a?.length?:-1 // 当a不为空时，返回a.length，当a为空时，返回-1</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="操作符表示当前对象不为空的情况下执行为空就抛出异常"> !!  操作符，表示当前对象不为空的情况下执行，为空就抛出异常</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? ="123"</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a!!.length //如果a不为空，则返回a.length，如果b为空，则抛出异常 NullPointerException</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="filternotnull-过滤非空元素"> filterNotNull  过滤非空元素</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val nullableList: List&lt;Int?&gt; = listOf(1, 2, null, 4)</span><br><span class="line">val intList: List&lt;Int&gt; = nullableList.filterNotNull() </span><br><span class="line">println(intList.toString())//[1, 2, 4]</span><br></pre></td></tr></tbody></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/07/21/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/21/kotlin/kotlin%E7%BB%83%E4%B9%A0-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">kotlin练习 - 作用域函数学习</a>
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20AlertDialog/" class="post-title-link" itemprop="url">Jetpack Compose学习  AlertDialog</a>
         </h2>
 
         <div class="post-meta">
@@ -660,14 +290,14 @@ expr1 ?? expr2</li>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-21 12:16:01" itemprop="dateCreated datePublished" datetime="2019-07-21T12:16:01+08:00">2019-07-21</time>
+              <time title="创建时间：2021-05-25 11:13:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:13:10+08:00">2021-05-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-03 10:42:25" itemprop="dateModified" datetime="2021-06-03T10:42:25+08:00">2021-06-03</time>
+                <time title="修改时间：2021-05-26 17:03:33" itemprop="dateModified" datetime="2021-05-26T17:03:33+08:00">2021-05-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -675,7 +305,11 @@ expr1 ?? expr2</li>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
                 </span>
             </span>
 
@@ -690,145 +324,11 @@ expr1 ?? expr2</li>
     <div class="post-body" itemprop="articleBody">
 
       
-          <ul>
-<li><a href="#kotlin%E7%BB%83%E4%B9%A0---%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0">kotlin练习 - 作用域函数学习</a>
-<ul>
-<li><a href="#let">let</a></li>
-<li><a href="#with">with</a></li>
-<li><a href="#apply">apply</a></li>
-<li><a href="#run">run</a></li>
-<li><a href="#repeat">repeat</a></li>
-<li><a href="#also">also</a></li>
-<li><a href="#takeif">takeIf</a></li>
-<li><a href="#takeunless">takeUnless</a></li>
-</ul>
-</li>
-</ul>
-<h1><span id="kotlin练习-作用域函数学习"> kotlin练习 - 作用域函数学习</span></h1>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">package com.kymjs.kotlinprimer.unit3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data class User(var name: String)</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line"></span><br><span class="line">    val user = User("ZhangTao")</span><br><span class="line"></span><br><span class="line">    //let与run都会返回闭包的执行结果，区别在于let有闭包参数，而run没有闭包参数</span><br><span class="line">    val letResult = user.let { "let::${it.javaClass}" }</span><br><span class="line">    println(letResult)</span><br><span class="line">    val runResult = user.run { "run::${this.javaClass}" }</span><br><span class="line">    println(runResult)</span><br><span class="line"></span><br><span class="line">    //also与apply都不返回闭包的执行结果，区别在于also有闭包参数，而apply没有闭包参数</span><br><span class="line">    user.also {</span><br><span class="line">        println("also::${it.javaClass}")</span><br><span class="line">    }.apply {</span><br><span class="line">        println("apply::${this.javaClass}")</span><br><span class="line">    }.name = "hello"</span><br><span class="line"></span><br><span class="line">    //takeIf 的闭包返回一个判断结果，为false时，takeIf函数会返回空</span><br><span class="line">    //takeUnless 与 takeIf 刚好相反， 闭包的判断结果，为true时函数会返回空</span><br><span class="line">    user.takeIf { it.name.length &gt; 0 }?.also { println("姓名为${it.name}") } ?: println("姓名为空")</span><br><span class="line">    user.takeUnless { it.name.length &gt; 0 }?.also { println("姓名为空") } ?: println("姓名为${user.name}")</span><br><span class="line"></span><br><span class="line">    //重复执行当前闭包</span><br><span class="line">    repeat(5) {</span><br><span class="line">        println(user.name)</span><br><span class="line">        print(it)</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    //with比较特殊，不是以扩展方法的形式存在的，而是一个顶级函数</span><br><span class="line">    with(user) {</span><br><span class="line">        this.name = "with"</span><br><span class="line">    }</span><br><span class="line">//	类似于    user.apply{ this.name = "with"}</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="let"> let</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun &lt;T, R&gt; T.let(block: (T) -&gt; R): R</p>
-</li>
-<li>
-<p>功能：</p>
-<p>调用对象（T）的let函数，则该对象为函数的参数。在函数内可以通过 it指代该对象。返回值为函数的最后一行或指定return表达式。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    val data = "孙悟空"</span><br><span class="line">    data.let {</span><br><span class="line">        //在函数体内使用it替代object对象去访问其公有的属性和方法</span><br><span class="line">        println(it.toString())</span><br><span class="line">    }</span><br><span class="line">    data?.let {</span><br><span class="line">        // 假如data不为null，代码会执行到此处</span><br><span class="line">        println(it.toString())</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="with"> with</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun &lt;T, R&gt; with(receiver: T, block: T.() -&gt; R): R</p>
-</li>
-<li>
-<p>功能：</p>
-<p>将对象作为函数的参数，在函数内可以通过this指代该对象。返回值为函数的最后一行或return表达式。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var list = with(mutableListOf&lt;String&gt;()) {</span><br><span class="line">        add("1")</span><br><span class="line">        add("2")</span><br><span class="line">        add("3")</span><br><span class="line">        //返回值为函数的最后一行或return表达式</span><br><span class="line">        this</span><br><span class="line">    }</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var paint = Paint()</span><br><span class="line">    with(paint) {</span><br><span class="line">        color = Color.BLACK</span><br><span class="line">        strokeWidth = 1.0f</span><br><span class="line">        textSize = 18.0f</span><br><span class="line">        isAntiAlias = true</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="apply"> apply</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.apply(block: T.() -&gt; Unit): T</p>
-</li>
-<li>
-<p>功能：</p>
-<p>调用对象的apply函数，在函数范围内，可以任意调用该对象的任意方法，并返回该对象。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    // apply适用于那些对象初始化需要给其属性赋值的情况。</span><br><span class="line">    var list = mutableListOf&lt;String&gt;().apply {</span><br><span class="line">        add("1")</span><br><span class="line">        add("2")</span><br><span class="line">        add("3")</span><br><span class="line">        //apply返回的是对象本身</span><br><span class="line">    }</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">//apply需要先初始化</span><br><span class="line">    var paint = Paint().apply {</span><br><span class="line">        color = Color.BLACK</span><br><span class="line">        strokeWidth = 1.0f</span><br><span class="line">        textSize = 18.0f</span><br><span class="line">        isAntiAlias = true</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="run"> run</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<ol>
-<li>fun run(block: () -&gt; R): R</li>
-<li>fun &lt;T, R&gt; T.run(block: T.() -&gt; R): R</li>
-</ol>
-</li>
-<li>
-<p>功能：</p>
-<p>调用run函数返回值为函数体最后一行，或return表达式。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var list = mutableListOf&lt;String&gt;().run {</span><br><span class="line">        add("1")</span><br><span class="line">        add("2")</span><br><span class="line">        add("3")</span><br><span class="line">        //run返回的是函数体最后一行，或return表达式</span><br><span class="line">        this</span><br><span class="line">    }</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var name = run {</span><br><span class="line">        "孙悟空"</span><br><span class="line">    }</span><br><span class="line">    println(name)//孙悟空</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="repeat"> repeat</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun repeat(times: Int, action: (Int) -&gt; Unit)</p>
-</li>
-<li>
-<p>功能：</p>
-<p>重复执行action函数times次，times从0开始</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">   repeat(3){</span><br><span class="line">       //从0开始循环3次</span><br><span class="line">       println("repeat:第${it}次")</span><br><span class="line">   }</span><br><span class="line">    for(i in 0..2){</span><br><span class="line">       println("for:第${i}次")</span><br><span class="line">    }</span><br><span class="line">    (0..2).forEach{</span><br><span class="line">       println("forEach:第${it}次")</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="also"> also</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.also(block: (T) -&gt; Unit): T</p>
-</li>
-<li>
-<p>功能：</p>
-<p>调用对象的also函数，在函数块内可以通过 it指代该对象,返回值为该对象本身。（注意其和let函数的区别，let返回的是最后一行，also返回的是对象本身）</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var list = mutableListOf&lt;String&gt;().also {</span><br><span class="line">        it.add("1")</span><br><span class="line">        it.add("2")</span><br><span class="line">        it.add("3")</span><br><span class="line">    }</span><br><span class="line">    println(list.toString())//[1, 2, 3]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="takeif"> takeIf</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.takeIf(predicate: (T) -&gt; Boolean): T?</p>
-</li>
-<li>
-<p>功能：</p>
-<p>传递一个函数参数，如果函数结果为true，返回T对象，否则返回null。</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var list = mutableListOf&lt;String&gt;("1", "2", "3").takeIf {</span><br><span class="line">        it.size &gt; 3//满足条件则返回it,否则返回null</span><br><span class="line">    }</span><br><span class="line">    if (list != null) {</span><br><span class="line">        println(list.toString())</span><br><span class="line">    } else {</span><br><span class="line">        println("list为空")</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="takeunless"> takeUnless</span></h2>
-<ul>
-<li>
-<p>定义：</p>
-<p>fun T.takeUnless(predicate: (T) -&gt; Boolean): T?</p>
-</li>
-<li>
-<p>功能：</p>
-<p>与takeIf相反，参数函数返回false时返回T对象，否则返回null</p>
-</li>
-<li>
-<p>实例：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    var list = mutableListOf&lt;String&gt;("1", "2", "3").takeUnless {</span><br><span class="line">        it.size &gt; 3//不满足条件则返回it,否则返回null</span><br><span class="line">    }</span><br><span class="line">    if (list != null) {</span><br><span class="line">        println(list.toString())</span><br><span class="line">    } else {</span><br><span class="line">        println("list为空")</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+          <h2><span id="jetpack-compose学习-alertdialog"> Jetpack Compose学习 -------- AlertDialog</span></h2>
+<h3><span id="alertdialog-提示框-简单使用"> AlertDialog 提示框 简单使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">AlertDialogSample</span><span class="params">()</span></span> {</span><br><span class="line">    MaterialTheme {</span><br><span class="line">        Column(</span><br><span class="line">            Modifier</span><br><span class="line">                .fillMaxSize()</span><br><span class="line">                .wrapContentSize(Alignment.Center)</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> openDialog = remember {</span><br><span class="line">                mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">            }</span><br><span class="line">            Button(onClick = {</span><br><span class="line">                openDialog.value = <span class="literal">true</span></span><br><span class="line">            }) {</span><br><span class="line">                Text(text = <span class="string">"弹出提示框"</span>)</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (openDialog.value) {</span><br><span class="line">                AlertDialog(</span><br><span class="line">                    onDismissRequest = {</span><br><span class="line">                        <span class="comment">// 当用户点击对话框以外的地方或者按下系统返回键将会执行的代码</span></span><br><span class="line">                        openDialog.value = <span class="literal">false</span></span><br><span class="line">                    },</span><br><span class="line">                    title = {</span><br><span class="line">                        Text(text = <span class="string">"提示框标题"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"提示框内容"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    confirmButton = {</span><br><span class="line">                        Button(onClick = { openDialog.value = <span class="literal">false</span> }) {</span><br><span class="line">                            Text(text = <span class="string">"确认按钮"</span>)</span><br><span class="line">                        }</span><br><span class="line">                    },</span><br><span class="line">                    dismissButton = {</span><br><span class="line">                        Button(onClick = { openDialog.value = <span class="literal">false</span> }) {</span><br><span class="line">                            Text(text = <span class="string">"取消按钮"</span>)</span><br><span class="line">                        }</span><br><span class="line">                    })</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">AlertDialogSample2</span><span class="params">()</span></span> {</span><br><span class="line">    MaterialTheme {</span><br><span class="line">        Column(</span><br><span class="line">            Modifier</span><br><span class="line">                .fillMaxSize()</span><br><span class="line">                .wrapContentSize(Alignment.Center)</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">val</span> openDialog = remember {</span><br><span class="line">                mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">            }</span><br><span class="line">            Button(onClick = {</span><br><span class="line">                openDialog.value = <span class="literal">true</span></span><br><span class="line">            }) {</span><br><span class="line">                Text(text = <span class="string">"弹出提示框"</span>)</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (openDialog.value) {</span><br><span class="line">                AlertDialog(</span><br><span class="line">                    onDismissRequest = {</span><br><span class="line">                        <span class="comment">// 当用户点击对话框以外的地方或者按下系统返回键将会执行的代码</span></span><br><span class="line">                        openDialog.value = <span class="literal">false</span></span><br><span class="line">                    },</span><br><span class="line">                    title = {</span><br><span class="line">                        Text(</span><br><span class="line">                            text = <span class="string">"开启位置服务"</span>,</span><br><span class="line">                            fontWeight = FontWeight.W700,</span><br><span class="line">                            style = MaterialTheme.typography.h6</span><br><span class="line">                        )</span><br><span class="line">                    },</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(</span><br><span class="line">                            text = <span class="string">"这将意味着，我们会给您提供精准的位置服务，并且您将接受关于您订阅的位置信息"</span>,</span><br><span class="line">                            fontSize = <span class="number">16.</span>sp</span><br><span class="line">                        )</span><br><span class="line">                    },</span><br><span class="line">                    confirmButton = {</span><br><span class="line">                        TextButton(</span><br><span class="line">                            onClick = {</span><br><span class="line">                                openDialog.value = <span class="literal">false</span></span><br><span class="line">                            },</span><br><span class="line">                        ) {</span><br><span class="line">                            Text(</span><br><span class="line">                                <span class="string">"确认"</span>,</span><br><span class="line">                                fontWeight = FontWeight.W700,</span><br><span class="line">                                style = MaterialTheme.typography.button</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    },</span><br><span class="line">                    dismissButton = {</span><br><span class="line">                        TextButton(</span><br><span class="line">                            onClick = {</span><br><span class="line">                                openDialog.value = <span class="literal">false</span></span><br><span class="line">                            }</span><br><span class="line">                        ) {</span><br><span class="line">                            Text(</span><br><span class="line">                                <span class="string">"取消"</span>,</span><br><span class="line">                                fontWeight = FontWeight.W700,</span><br><span class="line">                                style = MaterialTheme.typography.button</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    })</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line">  <span class="function"><span class="keyword">fun</span> <span class="title">AlertDialogSample3</span><span class="params">()</span></span> {</span><br><span class="line">      MaterialTheme {</span><br><span class="line">          Column(</span><br><span class="line">              Modifier</span><br><span class="line">                  .fillMaxSize()</span><br><span class="line">                  .wrapContentSize(Alignment.Center)</span><br><span class="line">          ) {</span><br><span class="line">              <span class="keyword">val</span> openDialog = remember {</span><br><span class="line">                  mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">              }</span><br><span class="line">              Button(onClick = {</span><br><span class="line">                  openDialog.value = <span class="literal">true</span></span><br><span class="line">              }) {</span><br><span class="line">                  Text(text = <span class="string">"弹出提示框"</span>)</span><br><span class="line">              }</span><br><span class="line">              <span class="keyword">if</span> (openDialog.value) {</span><br><span class="line">                  AlertDialog(</span><br><span class="line">                      onDismissRequest = {</span><br><span class="line">                          openDialog.value = <span class="literal">false</span></span><br><span class="line">                      },</span><br><span class="line">                      title = {</span><br><span class="line">                          Text(</span><br><span class="line">                              text = <span class="string">"开启位置服务"</span>,</span><br><span class="line">                              fontWeight = FontWeight.W700,</span><br><span class="line">                              style = MaterialTheme.typography.h6</span><br><span class="line">                          )</span><br><span class="line">                      },</span><br><span class="line">                      text = {</span><br><span class="line">                          Text(</span><br><span class="line">                              text = <span class="string">"这将意味着，我们会给您提供精准的位置服务，并且您将接受关于您订阅的位置信息"</span>,</span><br><span class="line">                              fontSize = <span class="number">16.</span>sp</span><br><span class="line">                          )</span><br><span class="line">                      },</span><br><span class="line">                      buttons = {</span><br><span class="line">                          Row(</span><br><span class="line">                              modifier = Modifier.padding(all = <span class="number">8.</span>dp),</span><br><span class="line">                              horizontalArrangement = Arrangement.Center</span><br><span class="line">                          ) {</span><br><span class="line">                              Button(</span><br><span class="line">                                  modifier = Modifier.fillMaxWidth(),</span><br><span class="line">                                  onClick = { openDialog.value = <span class="literal">false</span> }</span><br><span class="line">                              ) {</span><br><span class="line">                                  Text(<span class="string">"必须接受！"</span>)</span><br><span class="line">                              }</span><br><span class="line">                          }</span><br><span class="line">                      }</span><br><span class="line">                  )</span><br><span class="line">              }</span><br><span class="line">          }</span><br><span class="line">      }</span><br><span class="line">  }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
       
     </div>
@@ -848,7 +348,7 @@ expr1 ?? expr2</li>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2019/07/05/android/EventBus%E5%B0%81%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -862,7 +362,130 @@ expr1 ?? expr2</li>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/07/05/android/EventBus%E5%B0%81%E8%A3%85/" class="post-title-link" itemprop="url">EventBus封装</a>
+            <a href="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/" class="post-title-link" itemprop="url">Google Play应用上架流程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-18 21:22:17" itemprop="dateCreated datePublished" datetime="2020-11-18T21:22:17+08:00">2020-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-20 20:25:11" itemprop="dateModified" datetime="2020-11-20T20:25:11+08:00">2020-11-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">应用上架</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="google-play应用上架流程"> Google Play应用上架流程</span></h1>
+<h2><span id="注册开发者账号"> 注册开发者账号</span></h2>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/1.jpg" alt=""></p>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/2.webp" alt=""></p>
+<h2><span id="创建应用"> 创建应用</span></h2>
+<p>选择默认语言 （最好选择英语），填写应用名称</p>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/3.webp" alt=""></p>
+<h2><span id="商品详情默认选中"> 商品详情（默认选中）</span></h2>
+<h2><span id="需要填写-app简介和详细描述内容需要和默认语言一致"> 需要填写 App简介和详细描述内容（需要和默认语言一致）</span></h2>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/4.webp" alt=""></p>
+<h2><span id="上传app图片屏幕截图-高分辨率图标-置顶大图"> 上传APP图片（屏幕截图、高分辨率图标、置顶大图）</span></h2>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/5.webp" alt=""><br>
+<img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/6.png" alt=""></p>
+<h2><span id="选择应用类型和类别"> 选择应用类型和类别</span></h2>
+<p>填写公司官网，联系邮箱（邮箱地址会展示给用户，不要乱填），内容分级（可以先不管，在上传App后才能进行分级判断），电话（填写公司电话，会展示给用户），隐私权政策。</p>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/7.webp" alt=""></p>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/8.webp" alt=""></p>
+<h2><span id="上传正式版应用商品版本-正式版-beta版-alpha版本"> 上传正式版应用（商品版本: 正式版、Beta版、Alpha版本）</span></h2>
+<h3><span id="创建版本"> 创建版本</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/9.webp" alt=""></p>
+<h3><span id="加入-google-play-app-signing"> 加入 Google Play App Signing</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/10.webp" alt=""></p>
+<h3><span id="上传apk安装包"> 上传APK安装包</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/11.webp" alt=""></p>
+<h3><span id="填写版本说明"> 填写版本说明</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/12.webp" alt=""></p>
+<h3><span id="内容分级"> 内容分级</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/13.webp" alt=""></p>
+<h3><span id="填写电子邮件地址用来接收google-play发送的消息选择应用类别"> 填写电子邮件地址（用来接收Google Play发送的消息），选择应用类别</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/14.webp" alt=""></p>
+<h3><span id="调查问卷页-基本上都选择否点击-判断分级"> 调查问卷页 （基本上都选择否）点击 判断分级</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/15.webp" alt=""></p>
+<h3><span id="确认分级"> 确认分级</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/16.webp" alt=""></p>
+<h2><span id="定价和分发范围"> 定价和分发范围</span></h2>
+<h3><span id="注意-国家地区-默认是-0需要自己选择国家"> 注意 “ 国家/地区 ” 默认是 0，需要自己选择国家</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/17.webp" alt=""></p>
+<h3><span id="内容准则-和-美国出口法律-是必须要选中的最后点击-保存草稿"> 内容准则  和 美国出口法律 是必须要选中的，最后点击 “ 保存草稿 ”</span></h3>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/18.webp" alt=""></p>
+<h2><span id="应用发布"> 应用发布</span></h2>
+<p>如果所有内容都填写正确，我们会看到左边导航栏4个绿色对勾，并且出现“可以发布”按钮</p>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/19.webp" alt=""></p>
+<p>点击左边导航栏中的 " 应用版本 "</p>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/20.webp" alt=""></p>
+<p>点击 “ 修改版本 ”</p>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/21.webp" alt=""></p>
+<p>点击 “ 查看 ” , 确认没有问题后，点击 “ 开始发布正式版 ”，就可以发布了，然后就需要审核了</p>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/22.webp" alt=""></p>
+<h2><span id="查看审核进度"> 查看审核进度</span></h2>
+<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/23.png" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/07/02/android/FileUtils%E5%B8%AE%E5%8A%A9%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/02/android/FileUtils%E5%B8%AE%E5%8A%A9%E7%B1%BB/" class="post-title-link" itemprop="url">FileUtils帮助类</a>
         </h2>
 
         <div class="post-meta">
@@ -873,7 +496,7 @@ expr1 ?? expr2</li>
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-07-05 16:38:23 / 修改时间：16:42:03" itemprop="dateCreated datePublished" datetime="2019-07-05T16:38:23+08:00">2019-07-05</time>
+              <time title="创建时间：2020-07-02 11:14:49 / 修改时间：12:40:57" itemprop="dateCreated datePublished" datetime="2020-07-02T11:14:49+08:00">2020-07-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -896,8 +519,80 @@ expr1 ?? expr2</li>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1><span id="eventbus封装"> EventBus封装</span></h1>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">package com.example.eventbus.utils</span><br><span class="line"></span><br><span class="line">import com.example.gaokao.event.MessageEvent</span><br><span class="line">import org.greenrobot.eventbus.EventBus</span><br><span class="line">import org.greenrobot.eventbus.meta.SubscriberInfoIndex</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> * @author: xue</span><br><span class="line"> * @description EventBus封装</span><br><span class="line"> * @date: 2019/7/5</span><br><span class="line"> */</span><br><span class="line">class EventBusUtil {</span><br><span class="line">    companion object {</span><br><span class="line">        /**</span><br><span class="line">         * 使用索引加速</span><br><span class="line">         * 建议在Application中使用</span><br><span class="line">         */</span><br><span class="line">        fun installIndex(index: SubscriberInfoIndex) {</span><br><span class="line">            EventBus.builder().addIndex(index).installDefaultEventBus()</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 注册</span><br><span class="line">         */</span><br><span class="line">        fun register(subscribe: Any) {</span><br><span class="line">            if (!EventBus.getDefault().isRegistered(subscribe)) {</span><br><span class="line">                EventBus.getDefault().register(subscribe)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 取消注册</span><br><span class="line">         */</span><br><span class="line">        fun unregister(subscribe: Any) {</span><br><span class="line">            EventBus.getDefault().unregister(subscribe)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 发布一个订阅事件</span><br><span class="line">         * 必须先注册，才能接收到发布的事件，有点类似于 startActivityForResult（）方法</span><br><span class="line">         */</span><br><span class="line">        fun postEvent(event: MessageEvent) {</span><br><span class="line">            EventBus.getDefault().post(event)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 发布粘性事件（可以先发布事件，在注册后在接收）</span><br><span class="line">         * 粘性事件将最新的信息保存在内存中，取消原始消息，执行最新的消息；</span><br><span class="line">         * 只有注册后，才能接收消息，如果没有注册，消息将保留在内存中。</span><br><span class="line">         */</span><br><span class="line">        fun postStickyEvent(event: MessageEvent) {</span><br><span class="line">            EventBus.getDefault().postSticky(event)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 移除指定的粘性订阅事件</span><br><span class="line">         *  @param eventType 事件类型</span><br><span class="line">         */</span><br><span class="line">        fun &lt;T&gt; removeStickyEvent(eventType: Class&lt;T&gt;) {</span><br><span class="line">            var stickyEvent: T = EventBus.getDefault().getStickyEvent(eventType)</span><br><span class="line">            if (stickyEvent != null) {</span><br><span class="line">                EventBus.getDefault().removeStickyEvent(stickyEvent)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        /**</span><br><span class="line">         * 移除指定的粘性订阅事件</span><br><span class="line">         *  @param eventType 事件类型</span><br><span class="line">         */</span><br><span class="line">        fun removeStickyEvent(eventType:Any) {</span><br><span class="line">            var stickyEvent = EventBus.getDefault().getStickyEvent(eventType as Class&lt;Any&gt;?)</span><br><span class="line">            if (stickyEvent != null) {</span><br><span class="line">                EventBus.getDefault().removeStickyEvent(stickyEvent)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 移除所有的粘性订阅事件</span><br><span class="line">         */</span><br><span class="line">        fun removeAllStickyEvents(){</span><br><span class="line">            EventBus.getDefault().removeAllStickyEvents()</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 取消事件</span><br><span class="line">         * 优先级高的订阅者可以终止事件往下传递</span><br><span class="line">         * 只有在事件通过时才能调用（即在事件接收方法中调用）</span><br><span class="line">         *  @param event 事件</span><br><span class="line">         */</span><br><span class="line">        fun cancelEventDelivery(event:Any){</span><br><span class="line">            EventBus.getDefault().cancelEventDelivery(event)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 获取 eventbus 单例</span><br><span class="line">         */</span><br><span class="line">        fun getEventBus():EventBus{</span><br><span class="line">            return EventBus.getDefault()</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+          <h3><span id="fileutils帮助类"> FileUtils帮助类</span></h3>
+<p>在<a target="_blank" rel="noopener" href="https://github.com/Blankj/AndroidUtilCode">AndroidUtilCode</a>的基础下使用</p>
+<ul>
+<li>将assets文件夹中的内容写入本地</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 将assets文件夹中的内容写入本地</span><br><span class="line">  * @param dirName String 文件夹名称</span><br><span class="line">  * @param fileName String 文件名称及后缀名</span><br><span class="line">  * @return String?  SDCard/Android/data/应用包名/files/ 目录/文件</span><br><span class="line">  */</span><br><span class="line"> private suspend fun getExternalFilePath(dirName: String, fileName: String): String? =</span><br><span class="line">     withContext(Dispatchers.IO) {</span><br><span class="line">         //创建文件夹</span><br><span class="line">         val mFileDir = Utils.getApp().applicationContext.getExternalFilesDir(dirName)</span><br><span class="line">         if (mFileDir != null) {</span><br><span class="line">             //创建文件</span><br><span class="line">             val mFilePath: String = File(mFileDir, fileName).absolutePath</span><br><span class="line">             if (FileUtils.isFileExists(mFilePath)) {</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">                 //将assets文件夹中的内容写入本地</span><br><span class="line">             } else if (ResourceUtils.copyFileFromAssets(fileName, mFilePath)) {</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">             } else {</span><br><span class="line">                 return@withContext null</span><br><span class="line">             }</span><br><span class="line">         }</span><br><span class="line">         return@withContext null</span><br><span class="line">     }</span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/07/02/android/%E8%A7%86%E9%A2%91%E6%97%B6%E9%95%BF(Long)%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2(String)_Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/02/android/%E8%A7%86%E9%A2%91%E6%97%B6%E9%95%BF(Long)%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2(String)_Java/" class="post-title-link" itemprop="url">视频时长(Long)转字符串(String)_Java</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-02 11:09:52 / 修改时间：11:13:03" itemprop="dateCreated datePublished" datetime="2020-07-02T11:09:52+08:00">2020-07-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3><span id="视频时长long转字符串string_java"> 视频时长(Long)转字符串(String)_Java</span></h3>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">   * 时长转字符</span><br><span class="line">   * @param mDuration 时长（毫秒）</span><br><span class="line">   * @param isMillisecond 是否需要毫秒，true:需要，false:不用</span><br><span class="line">   * @return </span><br><span class="line">   */</span><br><span class="line">  public static String getTimeDurationString(@NonNull Long mDuration, @NonNull Boolean isMillisecond) {</span><br><span class="line">      Long hours = 0L, minutes = 0L, seconds = 0L, millisecond = null;</span><br><span class="line">      if (isMillisecond) {</span><br><span class="line">          //毫秒</span><br><span class="line">          millisecond = mDuration % TimeConstants.SEC;</span><br><span class="line">      }</span><br><span class="line">      hours = mDuration / TimeConstants.HOUR;</span><br><span class="line">      minutes = (mDuration / TimeConstants.MIN)-(hours*60);</span><br><span class="line">      seconds = (mDuration / TimeConstants.SEC)-(minutes*60)-(hours*3600);</span><br><span class="line">      String str_duration = getTimeString(hours, minutes, seconds, millisecond);</span><br><span class="line">      return str_duration;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  private static String getTimeString(@NonNull Long hours, @NonNull Long minutes, @NonNull Long seconds, Long millisecond) {</span><br><span class="line">      if (millisecond != null) {</span><br><span class="line">          return String.format("%02d:%02d:%02d.%02d", hours, minutes, seconds, millisecond);</span><br><span class="line">      } else {</span><br><span class="line">          return String.format("%02d:%02d:%02d", hours, minutes, seconds);</span><br><span class="line">      }</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
       
     </div>
 
@@ -915,7 +610,7 @@ expr1 ?? expr2</li>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -983,7 +678,7 @@ expr1 ?? expr2</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -996,7 +691,7 @@ expr1 ?? expr2</li>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

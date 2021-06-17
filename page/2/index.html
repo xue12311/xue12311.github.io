@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20AnimationVisibility/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/04/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E7%9C%9F%E6%B3%9B%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -198,7 +198,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20AnimationVisibility/" class="post-title-link" itemprop="url">Jetpack Compose学习  AnimationVisibility</a>
+            <a href="/2021/06/04/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E7%9C%9F%E6%B3%9B%E5%9E%8B/" class="post-title-link" itemprop="url">kotlin学习 -  Kotlin 真泛型</a>
         </h2>
 
         <div class="post-meta">
@@ -209,7 +209,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-27 14:51:03 / 修改时间：14:51:05" itemprop="dateCreated datePublished" datetime="2021-05-27T14:51:03+08:00">2021-05-27</time>
+              <time title="创建时间：2021-06-04 16:00:57 / 修改时间：16:00:59" itemprop="dateCreated datePublished" datetime="2021-06-04T16:00:57+08:00">2021-06-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,11 +217,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
                 </span>
             </span>
 
@@ -236,12 +232,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-animationvisibility"> Jetpack Compose学习 -------- AnimationVisibility</span></h2>
-<h3><span id="animationvisibility-动画-可见-基础用法"> AnimationVisibility 动画 可见 基础用法</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalAnimationApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> state <span class="keyword">by</span> remember {</span><br><span class="line">        mutableStateOf(<span class="literal">true</span>)</span><br><span class="line">    }</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxSize(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally,</span><br><span class="line">        verticalArrangement = Arrangement.Center</span><br><span class="line">    ) {</span><br><span class="line">        AnimatedVisibility(visible = state) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="string">"这是一个普通的正文"</span>,</span><br><span class="line">                fontWeight = FontWeight.W900,</span><br><span class="line">                style = MaterialTheme.typography.h5</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">50.</span>dp))</span><br><span class="line">        Button(onClick = { state = !state }) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="keyword">if</span> (state) {</span><br><span class="line">                    <span class="string">"隐藏"</span></span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="string">"显示"</span></span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="进场动画"> 进场动画</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalAnimationApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> state <span class="keyword">by</span> remember { mutableStateOf(<span class="literal">true</span>) }</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxSize(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally,</span><br><span class="line">        verticalArrangement = Arrangement.Center</span><br><span class="line">    ) {</span><br><span class="line">        AnimatedVisibility(</span><br><span class="line">            visible = state,</span><br><span class="line">            enter = slideInVertically(</span><br><span class="line">                <span class="comment">//初始位置 Y轴</span></span><br><span class="line">                initialOffsetY = { -<span class="number">1000</span> },</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    <span class="comment">//动画持续时间</span></span><br><span class="line">                    durationMillis = <span class="number">1200</span></span><br><span class="line">                )</span><br><span class="line">            )</span><br><span class="line">        ) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="string">"这是一个普通的正文"</span>,</span><br><span class="line">                fontWeight = FontWeight.W900,</span><br><span class="line">                style = MaterialTheme.typography.h5</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">50.</span>dp))</span><br><span class="line">        Button(onClick = { state = !state }) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="keyword">if</span> (state) {</span><br><span class="line">                    <span class="string">"隐藏"</span></span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="string">"显示"</span></span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalAnimationApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> state <span class="keyword">by</span> remember { mutableStateOf(<span class="literal">true</span>) }</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxSize(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally,</span><br><span class="line">        verticalArrangement = Arrangement.Center</span><br><span class="line">    ) {</span><br><span class="line">        AnimatedVisibility(</span><br><span class="line">            visible = state,</span><br><span class="line">            <span class="comment">//垂直滑入</span></span><br><span class="line">            enter = slideInVertically(</span><br><span class="line">                <span class="comment">//初始位置 Y轴</span></span><br><span class="line">                initialOffsetY = { -<span class="number">1000</span> },</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    <span class="comment">//动画持续时间</span></span><br><span class="line">                    durationMillis = <span class="number">1200</span></span><br><span class="line">                )</span><br><span class="line">                <span class="comment">//淡入</span></span><br><span class="line">            ) + fadeIn(</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    <span class="comment">//动画持续时间</span></span><br><span class="line">                    durationMillis = <span class="number">1200</span></span><br><span class="line">                )</span><br><span class="line">            )</span><br><span class="line">        ) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="string">"这是一个普通的正文"</span>,</span><br><span class="line">                fontWeight = FontWeight.W900,</span><br><span class="line">                style = MaterialTheme.typography.h5</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">50.</span>dp))</span><br><span class="line">        Button(onClick = { state = !state }) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="keyword">if</span> (state) {</span><br><span class="line">                    <span class="string">"隐藏"</span></span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="string">"显示"</span></span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h1><span id="kotlin学习-kotlin-真泛型"> kotlin学习 -  Kotlin 真泛型</span></h1>
+<ul>
+<li>Gson封装</li>
+</ul>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 为 Gson 增加一个扩展方法</span></span><br><span class="line"><span class="comment"> * 由于是 真泛型,因此必须是内联函数</span></span><br><span class="line"><span class="comment"> */</span>    </span><br><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;<span class="keyword">reified</span> T&gt;</span> Gson.<span class="title">fromJson</span><span class="params">(json: <span class="type">String</span>)</span></span>: T {</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注意这里,可以直接获取 对应 T 的字节码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">	<span class="keyword">return</span> fromJson(json, T::<span class="keyword">class</span>.java)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>MVP 封装</li>
+</ul>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">View</span>&lt;<span class="type">T</span>&gt;</span>(<span class="keyword">val</span> clazz: Class&lt;T&gt;) {</span><br><span class="line">    <span class="keyword">val</span> presenter <span class="keyword">by</span> lazy { clazz.newInstance() }</span><br><span class="line"></span><br><span class="line">	<span class="comment">//伴生对象会在类放入类加载器中时执行。在类构造方法执行前。</span></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> {</span><br><span class="line">    	<span class="comment">//重载构造函数</span></span><br><span class="line">        <span class="keyword">inline</span> <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;<span class="keyword">reified</span> T&gt;</span> <span class="title">invoke</span><span class="params">()</span></span> = View(T::<span class="keyword">class</span>.java)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Presenter</span> </span>{</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">toString</span><span class="params">()</span></span>: String {</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"presenter"</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> a = View.invoke&lt;Presenter&gt;().presenter</span><br><span class="line">    println(a)</span><br><span class="line">    <span class="keyword">val</span> b = View&lt;Presenter&gt;().presenter</span><br><span class="line">    println(b)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
       
     </div>
@@ -261,7 +260,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Swipeable/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%20inline%20noinline%20crossinline/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -275,7 +274,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Swipeable/" class="post-title-link" itemprop="url">Jetpack Compose学习  Swipeable</a>
+            <a href="/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%20inline%20noinline%20crossinline/" class="post-title-link" itemprop="url">kotlin学习 -  Kotlin  inline noinline crossinline</a>
         </h2>
 
         <div class="post-meta">
@@ -286,7 +285,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-27 14:13:11 / 修改时间：14:13:14" itemprop="dateCreated datePublished" datetime="2021-05-27T14:13:11+08:00">2021-05-27</time>
+              <time title="创建时间：2021-06-03 14:12:30 / 修改时间：14:57:26" itemprop="dateCreated datePublished" datetime="2021-06-03T14:12:30+08:00">2021-06-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -294,11 +293,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
                 </span>
             </span>
 
@@ -313,90 +308,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-swipeable-滑动"> Jetpack Compose学习 -------- Swipeable 滑动</span></h2>
-<h3><span id="swipeable-滑动-基本使用"> Swipeable 滑动 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> blockSize = <span class="number">48.</span>dp</span><br><span class="line">    <span class="keyword">var</span> blockSizePx = with(LocalDensity.current) { blockSize.toPx() }</span><br><span class="line">    <span class="keyword">var</span> swipeableState = rememberSwipeableState(initialValue = Status.CLOSE)</span><br><span class="line">    <span class="keyword">var</span> anchors = mapOf(</span><br><span class="line">        <span class="number">0f</span> to Status.CLOSE,</span><br><span class="line">        blockSizePx to Status.OPEN</span><br><span class="line">    )</span><br><span class="line">    Box(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .size(</span><br><span class="line">                height = blockSize,</span><br><span class="line">                width = blockSize * <span class="number">2</span></span><br><span class="line">            )</span><br><span class="line">            .background(Color.LightGray)</span><br><span class="line">    ) {</span><br><span class="line">        Box(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                <span class="comment">//滑动</span></span><br><span class="line">                .swipeable(</span><br><span class="line">                    state = swipeableState,</span><br><span class="line">                    <span class="comment">//锚点，可以通过锚点设置在不同状态时所应该对应的偏移量信息</span></span><br><span class="line">                    anchors = anchors,</span><br><span class="line">                    <span class="comment">//常用作定制不同锚点间吸附效果的临界阈值</span></span><br><span class="line">                    <span class="comment">//常用有 FixedThreshold(Dp) 和 FractionalThreshold(Float)等</span></span><br><span class="line">                    thresholds = { from, to -&gt;</span><br><span class="line">                        <span class="keyword">if</span> (from == Status.CLOSE) {</span><br><span class="line">                            FractionalThreshold(<span class="number">0.3f</span>)</span><br><span class="line">                        } <span class="keyword">else</span> {</span><br><span class="line">                            FractionalThreshold(<span class="number">0.5f</span>)</span><br><span class="line">                        }</span><br><span class="line">                    },</span><br><span class="line">                    <span class="comment">//手势方向，被修饰组件的手势方向只能是水平或垂直</span></span><br><span class="line">                    orientation = Orientation.Horizontal,</span><br><span class="line">                )</span><br><span class="line">                <span class="comment">//移动</span></span><br><span class="line">                .offset {</span><br><span class="line">                    <span class="comment">//整体移动</span></span><br><span class="line">                    IntOffset(swipeableState.offset.value.toInt(), <span class="number">0</span>)</span><br><span class="line">                }</span><br><span class="line">                .size(blockSize)</span><br><span class="line">                .background(Color.DarkGray)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Status</span> </span>{</span><br><span class="line">    CLOSE, OPEN</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20ModalBottomSheetLayout/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20ModalBottomSheetLayout/" class="post-title-link" itemprop="url">Jetpack Compose学习  ModalBottomSheetLayout</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-27 11:13:12 / 修改时间：11:47:02" itemprop="dateCreated datePublished" datetime="2021-05-27T11:13:12+08:00">2021-05-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2><span id="jetpack-compose学习-modalbottomsheetlayout-底部弹出布局"> Jetpack Compose学习 -------- ModalBottomSheetLayout 底部弹出布局</span></h2>
-<h3><span id="modalbottomsheetlayout-底部弹出布局-基本使用"> ModalBottomSheetLayout 底部弹出布局 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalMaterialApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> state = rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)</span><br><span class="line">    <span class="keyword">val</span> scope = rememberCoroutineScope()</span><br><span class="line">    ModalBottomSheetLayout(</span><br><span class="line">        sheetContent = {</span><br><span class="line">            Column {</span><br><span class="line">                ListItem(</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"选择分享到哪里吧~"</span>)</span><br><span class="line">                    }</span><br><span class="line">                )</span><br><span class="line">                ListItem(</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"github"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    icon = {</span><br><span class="line">                        Surface(</span><br><span class="line">                            shape = CircleShape,</span><br><span class="line">                            color = Color(<span class="number">0xFF181717</span>)</span><br><span class="line">                        ) {</span><br><span class="line">                            Icon(</span><br><span class="line">                                painterResource(id = R.drawable.ic_github),</span><br><span class="line">                                <span class="literal">null</span>,</span><br><span class="line">                                Modifier.padding(<span class="number">4.</span>dp),</span><br><span class="line">                                Color.White</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    }, modifier = Modifier.clickable { }</span><br><span class="line">                )</span><br><span class="line">                ListItem(</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"wechat"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    icon = {</span><br><span class="line">                        Surface(</span><br><span class="line">                            shape = CircleShape,</span><br><span class="line">                            color = Color(<span class="number">0xFF181717</span>)</span><br><span class="line">                        ) {</span><br><span class="line">                            Icon(</span><br><span class="line">                                painterResource(id = R.drawable.ic_wechat),</span><br><span class="line">                                <span class="literal">null</span>,</span><br><span class="line">                                Modifier.padding(<span class="number">4.</span>dp),</span><br><span class="line">                                Color.White</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    }, modifier = Modifier.clickable { }</span><br><span class="line">                )</span><br><span class="line">                ListItem(</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"twitter"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    icon = {</span><br><span class="line">                        Surface(</span><br><span class="line">                            shape = CircleShape,</span><br><span class="line">                            color = Color(<span class="number">0xFF181717</span>)</span><br><span class="line">                        ) {</span><br><span class="line">                            Icon(</span><br><span class="line">                                painterResource(id = R.drawable.ic_twitter),</span><br><span class="line">                                <span class="literal">null</span>,</span><br><span class="line">                                Modifier.padding(<span class="number">4.</span>dp),</span><br><span class="line">                                Color.White</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    }, modifier = Modifier.clickable { }</span><br><span class="line">                )</span><br><span class="line">            }</span><br><span class="line">        },</span><br><span class="line">        sheetState = state</span><br><span class="line">    ) {</span><br><span class="line">        Column(</span><br><span class="line">            Modifier</span><br><span class="line">                .fillMaxSize()</span><br><span class="line">                .padding(<span class="number">16.</span>dp),</span><br><span class="line">            horizontalAlignment = Alignment.CenterHorizontally</span><br><span class="line">        ) {</span><br><span class="line">            Button(onClick = {</span><br><span class="line">                scope.launch {</span><br><span class="line">                    state.show()</span><br><span class="line">                }</span><br><span class="line">            }) {</span><br><span class="line">                Text(text = <span class="string">"分享"</span>)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//返回键 处理  ModalBottomSheet 收回</span></span><br><span class="line">    BackHandler(</span><br><span class="line">        enabled = (state.currentValue == ModalBottomSheetValue.HalfExpanded ||</span><br><span class="line">                state.currentValue == ModalBottomSheetValue.Expanded),</span><br><span class="line">        onBack = {</span><br><span class="line">            scope.launch {</span><br><span class="line">                state.hide()</span><br><span class="line">            }</span><br><span class="line">        })</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="收回-modalbottomsheet"> 收回 ModalBottomSheet</span></h3>
-<p>一般情况下，ModalBottomSheet 无法自动处理按下返回键就收起，所以我们可以用 BackHandler 来处理<br>
-在 ModalBottomSheet 后添加代码:</p>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">BackHandler(</span><br><span class="line">    enabled = (state.currentValue == ModalBottomSheetValue.HalfExpanded</span><br><span class="line">            || state.currentValue == ModalBottomSheetValue.Expanded),</span><br><span class="line">    onBack = {</span><br><span class="line">        scope.launch{</span><br><span class="line">            state.hide()</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="设置动画时间"> 设置动画时间</span></h3>
-<p>ModalSheetLayout 默认用 state.show() 或者 state.hidden() 来弹出和收回<br>
-我们可以通过这样的方式来自定义动画时间:</p>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">state.animateTo(ModalBottomSheetValue.Hidden, tween(<span class="number">1000</span>))</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h1><span id="kotlin学习-kotlin-inline-noinline-crossinline"> kotlin学习 -  Kotlin  inline noinline crossinline</span></h1>
+<ul>
+<li>inline: 声明在编译时，将函数的代码拷贝到调用的地方(内联)</li>
+<li>oninline: 声明 inline 函数的形参中，不希望内联的 lambda</li>
+<li>crossinline: 表明 inline 函数的形参中的 lambda 不能有 return</li>
+</ul>
+<h2><span id="inline-内联"> inline 内联</span></h2>
+<p>使用 inline 声明的函数，在编译时将会拷贝到调用的地方。如果一个函数是 inline 的，那么编译器会在编译的时候，把这个函数复制到调用处。</p>
+<p>优势：</p>
+<ol>
+<li>
+<p>减少函数调用的次数。虽然函数调用的开销很小，但是确实是有一定的开销的。尤其是在大量的循环中，这种开销会变得更加明显。</p>
+</li>
+<li>
+<p>减少对象的生成。当方法中，有一个参数是 lambda 的时候，使用 inline 的方法，可以减少对象的生成。</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//Kotlin</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    for (i in 0..10) {</span><br><span class="line">        sum(1, 2) { println("Result is: $it") }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">inline fun sum(a: Int, b: Int, lambda: (result: Int) -&gt; Unit): Int {</span><br><span class="line">    val r = a + b</span><br><span class="line">    lambda.invoke(r)</span><br><span class="line">    return r</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">//反编译为 Java</span><br><span class="line"></span><br><span class="line">public static final void main(@NotNull String[] args) {</span><br><span class="line">   //...</span><br><span class="line">   int var1 = 0;</span><br><span class="line"></span><br><span class="line">  for(byte var2 = 10; var1 &lt;= var2; ++var1) {</span><br><span class="line">     byte a$iv = 1;</span><br><span class="line">     int b$iv = 2;</span><br><span class="line">     int r$iv = a$iv + b$iv;</span><br><span class="line">     String var9 = "Result is: " + r$iv;</span><br><span class="line">     System.out.println(var9);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="noinline"> noinline</span></h2>
+<p>noinline 修饰的是 inline 方法中的 lambda 参数。当一个 inline 函数中，有多个 lambda 作为参数时，可以在不想内联的 lambda 前使用 noinline 声明。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//Kotlin</span><br><span class="line"></span><br><span class="line">inline fun sum(a: Int, b: Int, lambda: (result: Int) -&gt; Unit, noinline lambda2: (result: Int) -&gt; Unit): Int {</span><br><span class="line">    val r = a + b</span><br><span class="line">    lambda.invoke(r)</span><br><span class="line">    lambda2.invoke(r)</span><br><span class="line">    return r</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    sum(1, 2,</span><br><span class="line">            { println("Result is: $it") },</span><br><span class="line">            { println("Invoke lambda2: $it") }</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">//反编译为 Java</span><br><span class="line"></span><br><span class="line">public static final int sum(int a, int b, @NotNull Function1 lambda, @NotNull Function1 lambda2) {</span><br><span class="line">   int r = a + b;</span><br><span class="line">   lambda.invoke(r);</span><br><span class="line">   lambda2.invoke(r);</span><br><span class="line">   return r;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">public static final void main(@NotNull String[] args) {</span><br><span class="line">   byte a$iv = 1;</span><br><span class="line">   byte b$iv = 2;</span><br><span class="line">   Function1 lambda2$iv = (Function1)null.INSTANCE;</span><br><span class="line">   int r$iv = a$iv + b$iv;</span><br><span class="line">   String var8 = "Result is: " + r$iv;</span><br><span class="line">   System.out.println(var8);</span><br><span class="line">   lambda2$iv.invoke(r$iv);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="crossinline"> crossinline</span></h2>
+<p>声明一个 lambda 不能有 return 语句(可以有 return@label 语句)。这样可以避免使用 inline 时，lambda 中的 return 影响程序流程。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">inline fun sum(a: Int, b: Int, crossinline lambda: (result: Int) -&gt; Unit): Int {</span><br><span class="line">    val r = a + b</span><br><span class="line">    lambda.invoke(r)</span><br><span class="line">    return r</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) {</span><br><span class="line">    sum(1, 2) {</span><br><span class="line">        println("Result is: $it")</span><br><span class="line">        return  // 编译错误: return is not allowed here</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="总结"> 总结</span></h2>
+<ul>
+<li>使用 inline，内联函数到调用的地方，能减少函数调用造成的额外开销，在循环中尤其有效</li>
+<li>使用 inline 能避免函数的 lambda 形参额外创建 Function 对象</li>
+<li>使用 noinline 可以拒绝形参 lambda 内联</li>
+<li>使用 crossinline 显示声明 inline 函数的形参 lambda 不能有 return 语句，避免lambda 中的 return 影响外部程序流程</li>
+</ul>
 
       
     </div>
@@ -416,7 +358,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20BottomNavigation/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E5%BE%AA%E7%8E%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -430,7 +372,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20BottomNavigation/" class="post-title-link" itemprop="url">Jetpack Compose学习  BottomNavigation</a>
+            <a href="/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E5%BE%AA%E7%8E%AF/" class="post-title-link" itemprop="url">kotlin学习 -  Kotlin 循环</a>
         </h2>
 
         <div class="post-meta">
@@ -441,7 +383,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-27 10:35:17 / 修改时间：10:35:19" itemprop="dateCreated datePublished" datetime="2021-05-27T10:35:17+08:00">2021-05-27</time>
+              <time title="创建时间：2021-06-03 09:33:07 / 修改时间：10:09:42" itemprop="dateCreated datePublished" datetime="2021-06-03T09:33:07+08:00">2021-06-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -449,11 +391,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
                 </span>
             </span>
 
@@ -468,9 +406,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-bottomnavigation-底部导航栏"> Jetpack Compose学习 -------- BottomNavigation 底部导航栏</span></h2>
-<h3><span id="bottomnavigation-底部导航栏-基本使用"> BottomNavigation  底部导航栏 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> selectedItem <span class="keyword">by</span> remember {</span><br><span class="line">        mutableStateOf(<span class="number">0</span>)</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">val</span> list_name = listOf(<span class="string">"主页"</span>, <span class="string">"喜爱"</span>, <span class="string">"设置"</span>)</span><br><span class="line">    <span class="keyword">val</span> list_icon = listOf(Icons.Filled.Home, Icons.Filled.Favorite, Icons.Filled.Settings)</span><br><span class="line">    Scaffold(</span><br><span class="line">        topBar = {</span><br><span class="line">            <span class="comment">//顶部导航栏</span></span><br><span class="line">            TopAppBar(</span><br><span class="line">                title = {</span><br><span class="line">                    Text(text = list_name.<span class="keyword">get</span>(selectedItem))</span><br><span class="line">                },</span><br><span class="line">                navigationIcon = {</span><br><span class="line">                    IconButton(onClick = {}) {</span><br><span class="line">                        Icon(Icons.Filled.ArrowBack, <span class="literal">null</span>)</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        },</span><br><span class="line">        bottomBar = {</span><br><span class="line">            BottomNavigation {</span><br><span class="line">                list_name.forEachIndexed { index, item -&gt;</span><br><span class="line">                    BottomNavigationItem(</span><br><span class="line">                        selected = selectedItem == index,</span><br><span class="line">                        onClick = { selectedItem = index },</span><br><span class="line">                        icon = {</span><br><span class="line">                            Icon(</span><br><span class="line">                                imageVector = list_icon[index],</span><br><span class="line">                                contentDescription = <span class="literal">null</span>,</span><br><span class="line">                            )</span><br><span class="line">                        }, label = {</span><br><span class="line">                            Text(text = item)</span><br><span class="line">                        })</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    ) {</span><br><span class="line">        Text(</span><br><span class="line">            text = list_name[selectedItem],</span><br><span class="line">            Modifier</span><br><span class="line">                .fillMaxSize()</span><br><span class="line">                .wrapContentSize(Alignment.Center)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h1><span id="kotlin学习-kotlin-循环"> kotlin学习 -  Kotlin 循环</span></h1>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//从 1 到 10</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.10</span>) {</span><br><span class="line">    <span class="comment">//1,2,3,4,5,6,7,8,9,10</span></span><br><span class="line">    println(i)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//从 1 到 9</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span> until <span class="number">10</span>) {</span><br><span class="line">    <span class="comment">//1,2,3,4,5,6,7,8,9</span></span><br><span class="line">    println(i)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从 10 到 1</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">10</span> downTo <span class="number">1</span>) {</span><br><span class="line">    <span class="comment">//10,9,8,7,6,5,4,3,2,1</span></span><br><span class="line">    println(i)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从 1 到 10 步长为 2</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.10</span> step <span class="number">2</span>) {</span><br><span class="line">    <span class="comment">//1,3,5,7,9</span></span><br><span class="line">    println(i)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>repeat(count:Int) 一个高阶的循环函数，count代表循环的次数，在函数内，it代表到第几次<br>
+注意：it是从0开始计数的</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从 0 到 9</span></span><br><span class="line">repeat(<span class="number">10</span>) {</span><br><span class="line">    <span class="comment">//0,1,2,3,4,5,6,7,8,9</span></span><br><span class="line">    println(it)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">val</span> list = arrayListOf&lt;String&gt;(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>)</span><br><span class="line"><span class="keyword">for</span> (str <span class="keyword">in</span> list) {</span><br><span class="line">    <span class="comment">//A,B,C,D</span></span><br><span class="line">    println(str)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">val</span> list = arrayListOf&lt;String&gt;(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>)</span><br><span class="line"><span class="keyword">for</span> ((index,str) <span class="keyword">in</span> list.withIndex()){</span><br><span class="line">    <span class="comment">//index 从 0 开始</span></span><br><span class="line">    println(<span class="string">"第<span class="subst">${index}</span>个的元素是<span class="variable">$str</span>"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
       
     </div>
 
@@ -489,7 +434,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Surface/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E8%A7%A3%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -503,7 +448,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Surface/" class="post-title-link" itemprop="url">Jetpack Compose学习  Surface</a>
+            <a href="/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E8%A7%A3%E6%9E%84/" class="post-title-link" itemprop="url">kotlin学习 -  Kotlin 解构</a>
         </h2>
 
         <div class="post-meta">
@@ -514,7 +459,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-26 17:45:26 / 修改时间：17:51:30" itemprop="dateCreated datePublished" datetime="2021-05-26T17:45:26+08:00">2021-05-26</time>
+              <time title="创建时间：2021-06-03 09:04:26 / 修改时间：10:24:02" itemprop="dateCreated datePublished" datetime="2021-06-03T09:04:26+08:00">2021-06-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -522,11 +467,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
                 </span>
             </span>
 
@@ -541,9 +482,240 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-surface"> Jetpack Compose学习 -------- Surface</span></h2>
-<h3><span id="用-surface-实现-card-的效果"> 用 Surface 实现 Card 的效果</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Surface(</span><br><span class="line">        <span class="comment">//设置形状</span></span><br><span class="line">        shape = RoundedCornerShape(<span class="number">10.</span>dp),</span><br><span class="line">        <span class="comment">// 设置阴影</span></span><br><span class="line">        elevation = <span class="number">10.</span>dp,</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .fillMaxWidth()</span><br><span class="line">            <span class="comment">// 外边距</span></span><br><span class="line">            .padding(<span class="number">15.</span>dp)</span><br><span class="line">            .clickable { }</span><br><span class="line">    ) {</span><br><span class="line">        Column(</span><br><span class="line">            <span class="comment">// 内边距</span></span><br><span class="line">            Modifier.padding(<span class="number">15.</span>dp)</span><br><span class="line">        ) {</span><br><span class="line">            Text(</span><br><span class="line">                buildAnnotatedString {</span><br><span class="line">                append(<span class="string">"welcome to "</span>)</span><br><span class="line">                withStyle(</span><br><span class="line">                    style = SpanStyle(</span><br><span class="line">                        color = Color(<span class="number">0xFF4552B8</span>),</span><br><span class="line">                        fontWeight = FontWeight.W900,</span><br><span class="line">                    )</span><br><span class="line">                ) {</span><br><span class="line">                    append(<span class="string">"Jetpack Compose Playground"</span>)</span><br><span class="line">                }</span><br><span class="line">            })</span><br><span class="line">            Text(</span><br><span class="line">                buildAnnotatedString {</span><br><span class="line">                append(<span class="string">"Now you are in the "</span>)</span><br><span class="line">                withStyle(</span><br><span class="line">                    style = SpanStyle(</span><br><span class="line">                        fontWeight = FontWeight.W900,</span><br><span class="line">                    )</span><br><span class="line">                ) {</span><br><span class="line">                    append(<span class="string">"Card"</span>)</span><br><span class="line">                }</span><br><span class="line">                append(<span class="string">" section"</span>)</span><br><span class="line">            })</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h1><span id="kotlin学习-kotlin-解构"> kotlin学习 -  Kotlin 解构</span></h1>
+<h2><span id="解构"> 解构</span></h2>
+<h3><span id="解构声明-将一个对象-拆解成-若干个变量-分别赋值"> 解构声明 将一个对象 拆解成 若干个变量 分别赋值</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> user = User(<span class="number">12</span>,<span class="string">"zs"</span>)</span><br><span class="line">    <span class="keyword">val</span> (age,name,user_data) = user</span><br><span class="line">    println(<span class="string">"age = <span class="subst">${age}</span>"</span>)</span><br><span class="line">    println(<span class="string">"name = <span class="subst">${name}</span>"</span>)</span><br><span class="line">    println(<span class="string">"user_data = <span class="subst">${user_data}</span>"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(<span class="keyword">var</span> age: <span class="built_in">Int</span>, <span class="keyword">var</span> name: String) {</span><br><span class="line">    <span class="comment">//operator 将 一个函数 标记为 重载一个操作符 或实现 一个约定</span></span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component1</span><span class="params">()</span></span> = age</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component2</span><span class="params">()</span></span> = name</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component3</span><span class="params">()</span></span> = <span class="string">"<span class="subst">${age}</span> <span class="subst">${name}</span>"</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="自定义解构声明"> 自定义解构声明</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span></span>(<span class="keyword">var</span> name: String, <span class="keyword">var</span> price: <span class="built_in">Float</span>) {</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component1</span><span class="params">()</span></span>: String {</span><br><span class="line">        <span class="keyword">return</span> name</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component2</span><span class="params">()</span></span>: <span class="built_in">Float</span> {</span><br><span class="line">        <span class="keyword">return</span> price</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> (name, price) = Book(<span class="string">"Kotlin入门"</span>, <span class="number">66.6f</span>)</span><br><span class="line">    println(name)</span><br><span class="line">    println(price)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> (name,price) = getBookInfo()</span><br><span class="line">    println(<span class="string">"name = <span class="subst">${name}</span>"</span>)</span><br><span class="line">    println(<span class="string">"price = <span class="subst">${price}</span>"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getBookInfo</span><span class="params">()</span></span>: Book {</span><br><span class="line">    <span class="keyword">return</span> Book(<span class="string">"Kotlin入门"</span>, <span class="number">66.6f</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span></span>(<span class="keyword">var</span> name: String, <span class="keyword">var</span> price: <span class="built_in">Float</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="kotlin-中数组list-map系列集合默认也支持解构声明的功能"> Kotlin 中数组，list、map系列集合默认也支持解构声明的功能</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> array = arrayOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">val</span> (a1, a2, a3) = array</span><br><span class="line">    println(<span class="string">"<span class="variable">$a1</span>"</span>)</span><br><span class="line">    println(<span class="string">"<span class="variable">$a2</span>"</span>)</span><br><span class="line">    println(<span class="string">"<span class="variable">$a3</span>"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">val</span> list = listOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">val</span> (b1, b2, b3) = list</span><br><span class="line">    println(<span class="string">"<span class="variable">$b1</span>"</span>)</span><br><span class="line">    println(<span class="string">"<span class="variable">$b2</span>"</span>)</span><br><span class="line">    println(<span class="string">"<span class="variable">$b3</span>"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">val</span> map = mapOf(<span class="string">"key1"</span> to <span class="number">1</span>, <span class="string">"key2"</span> to <span class="number">2</span>, <span class="string">"key3"</span> to <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">for</span> ((key, value) <span class="keyword">in</span> map) {</span><br><span class="line">        println(<span class="string">"<span class="variable">$key</span>-<span class="variable">$value</span>"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="忽略不需要的解构"> 忽略不需要的解构</span></h3>
+<p>如果在解构声明中不需要某个变量，那么可以用下划线_取代其名称，这样也就不会调用相应的componentN()操作符函数：</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> (_, price2) = Book(<span class="string">"Kotlin入门"</span>, <span class="number">66.6f</span>)    </span><br></pre></td></tr></tbody></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/" class="post-title-link" itemprop="url">Http 学习 v1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-29 10:39:40 / 修改时间：14:23:32" itemprop="dateCreated datePublished" datetime="2021-05-29T10:39:40+08:00">2021-05-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="http-学习-v1"> Http 学习 v1</span></h1>
+<h2><span id="http-的定义"> HTTP 的定义</span></h2>
+<p>⼀种⽹络传输协议，位于 TCP / IP 协议族的最顶层——应⽤层。</p>
+<p>Hypertext Transfer Protocol，超⽂本传输协议，和 HTML (Hypertext Markup Language 超⽂本标记语⾔) ⼀起诞⽣，⽤于在⽹络上请求和传输 HTML 内容。</p>
+<h2><span id="http-的工作方式"> HTTP 的⼯作⽅式</span></h2>
+<h3><span id="浏览器"> 浏览器 :</span></h3>
+<ul>
+<li>⽤户输⼊地址后回⻋或点击链接</li>
+<li>浏览器拼装 HTTP 报⽂并发送请求给服务器</li>
+<li>服务器处理请求后发送响应报⽂给浏览器</li>
+<li>浏览器解析响应报⽂并使⽤渲染引擎显示到界⾯</li>
+</ul>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/1.png" alt=""></p>
+<h3><span id="手机-app"> ⼿机 App</span></h3>
+<ul>
+<li>⽤户点击或界⾯⾃动触发联⽹需求</li>
+<li>Android 代码调⽤拼装 HTTP 报⽂并发送请求到服务器</li>
+<li>服务器处理请求后发送响应报⽂给⼿机</li>
+<li>Android 代码处理响应报⽂并作出相应处理（如储存数据、加⼯数据、显示数据到界⾯）</li>
+</ul>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/2.png" alt=""></p>
+<h2><span id="url-和-http-报文"> URL 和 HTTP 报⽂</span></h2>
+<h3><span id="url-格式"> URL 格式</span></h3>
+<p>三部分：协议类型、服务器地址(和端⼝号)、路径(Path)</p>
+<p>协议类型://服务器地址[:端⼝号]路径</p>
+<p><a target="_blank" rel="noopener" href="http://hencoder.com/users?gender=male">http://hencoder.com/users?gender=male</a></p>
+<h3><span id="报文格式"> 报⽂格式</span></h3>
+<h4><span id="请求报文"> 请求报⽂</span></h4>
+<ul>
+<li>请求报文格式：请求行、Headers、Body</li>
+<li>请求行：Method、Path、HTTP version</li>
+<li>Method：GET、POST、PUT、DELETE …</li>
+<li>Headers：请求的 meta data</li>
+<li>Body：要发送给服务器的内容</li>
+</ul>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/3.png" alt=""></p>
+<h4><span id="响应报文"> 响应报⽂</span></h4>
+<ul>
+<li>响应报文格式：状态行、Headers、Body</li>
+<li>状态行：HTTP version、Status Code、Status Message</li>
+<li>Status Code: 1xx(信息)、2xx(成功)、3(重定向)、4(客户端错误)、5(服务器错误)</li>
+</ul>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/4.png" alt=""></p>
+<h2><span id="request-method-请求方法"> Request Method 请求⽅法</span></h2>
+<h3><span id="get"> GET</span></h3>
+<ul>
+<li>⽤于获取资源</li>
+<li>对服务器数据不进⾏修改</li>
+<li>不发送 Body</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /users/1 HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@GET("/users/{id}")</span><br><span class="line">Call&lt;User&gt; getUser(@Path("id") String id, @Query("gender") String gender);</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="post"> POST</span></h3>
+<ul>
+<li>⽤于增加或修改资源</li>
+<li>发送给服务器的内容写在 Body ⾥⾯</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /users HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 13</span><br><span class="line">name=rengwuxian&amp;gender=male</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Field("name") String name, @Field("gender") String</span><br><span class="line">gender);</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="put"> PUT</span></h3>
+<ul>
+<li>⽤于修改资源</li>
+<li>发送给服务器的内容写在 Body ⾥⾯</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PUT /users/1 HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 13</span><br><span class="line">gender=female</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@PUT("/users/{id}")</span><br><span class="line">Call&lt;User&gt; updateGender(@Path("id") String id, @Field("gender") String</span><br><span class="line">gender);</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="delete"> DELETE</span></h3>
+<ul>
+<li>⽤于删除资源</li>
+<li>不发送 Body</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE /users/1 HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@DELETE("/users/{id}")</span><br><span class="line">Call&lt;User&gt; getUser(@Path("id") String id, @Query("gender") String gender);</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="head"> HEAD</span></h3>
+<ul>
+<li>和 GET 使⽤⽅法完全相同</li>
+<li>和 GET 唯⼀区别在于，返回的响应中没有 Body</li>
+</ul>
+<h2><span id="status-code-状态码"> Status Code 状态码</span></h2>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/5.png" alt=""></p>
+<ul>
+<li>1xx：临时性消息。如：100 （继续发送）、101（正在切换协议）</li>
+<li>2xx：成功。最典型的是 200（OK）、201（创建成功）。</li>
+<li>3xx：重定向。如 301（永久移动）、302（暂时移动）、304（内容未改变）。</li>
+<li>4xx：客户端错误。如 400（客户端请求错误）、401（认证失败）、403（被禁⽌）、404（找不到内容）。</li>
+<li>5xx：服务器错误。如 500（服务器内部错误）。</li>
+</ul>
+<h2><span id="header"> Header</span></h2>
+<p>作⽤：HTTP 消息的元数据（ metadata ）。</p>
+<h3><span id="host"> Host</span></h3>
+<p>⽬标主机。注意：不是在⽹络上⽤于寻址的，⽽是在⽬标服务器上⽤于定位⼦服务器的。</p>
+<h3><span id="content-type"> Content-Type</span></h3>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/6.png" alt=""></p>
+<p>指定 Body 的类型。主要有四类：</p>
+<h4><span id="1-texthtml"> 1. text/html</span></h4>
+<p>请求 Web ⻚⾯是返回响应的类型，Body 中返回 html ⽂本。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Content-Length: 853</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line"> &lt;meta charset="utf-8"&gt;</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
+<h4><span id="2-x-www-form-urlencoded"> 2. x-www-form-urlencoded</span></h4>
+<p>Web ⻚⾯纯⽂本表单的提交⽅式</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /users HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 27</span><br><span class="line">name=rengwuxian&amp;gender=male</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Field("name") String name, @Field("gender") String</span><br><span class="line">gender);</span><br></pre></td></tr></tbody></table></figure>
+<h4><span id="3-multitypeform-data"> 3. multitype/form-data</span></h4>
+<p>Web ⻚⾯含有⼆进制⽂件时的提交⽅式。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">POST  /users  HTTP/1.1</span><br><span class="line">Host: hencoder.com</span><br><span class="line">Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW</span><br><span class="line">Content-Length: 2382</span><br><span class="line"></span><br><span class="line">------WebKitFormBoundary7MA4YWxkTrZu0gW</span><br><span class="line">Content-Disposition: form-data; name="name"</span><br><span class="line"></span><br><span class="line">rengwuxian</span><br><span class="line">------WebKitFormBoundary7MA4YWxkTrZu0gW</span><br><span class="line">Content-Disposition: form-data; name="avatar"; filename="avatar.jpg"</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line"></span><br><span class="line">JFIFHHvOwX9jximQrWa......</span><br><span class="line">------WebKitFormBoundary7MA4YWxkTrZu0gW--</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Multipart</span><br><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Part("name") RequestBody name, @Part("avatar")</span><br><span class="line">RequestBody avatar);</span><br><span class="line">...</span><br><span class="line">RequestBody namePart = RequestBody.create(MediaType.parse("text/plain"),</span><br><span class="line">nameStr);</span><br><span class="line">RequestBody avatarPart = RequestBody.create(MediaType.parse("image/jpeg"),</span><br><span class="line">avatarFile);</span><br><span class="line">api.addUser(namePart, avatarPart);</span><br></pre></td></tr></tbody></table></figure>
+<h4><span id="4-applicationjson-imagejpeg-applicationzip"> 4. application/json , image/jpeg , application/zip …</span></h4>
+<p>单项内容（⽂本或⾮⽂本都可以），⽤于 Web Api 的响应或者 POST / PUT 的请求</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//请求中提交 JSON</span><br><span class="line"></span><br><span class="line">POST /users HTTP/1.1</span><br><span class="line">Host: hencoder.com</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Content-Length: 38</span><br><span class="line">{"name":"rengwuxian","gender":"male"}</span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Body("user") User user);</span><br><span class="line">...</span><br><span class="line">// 需要使⽤ JSON 相关的 Converter</span><br><span class="line">api.addUser(user);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//响应中返回 JSON</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">content-type: application/json; charset=utf-8</span><br><span class="line">content-length: 234</span><br><span class="line">[{"login":"mojombo","id":1,"node_id":"MDQ6VXNl</span><br><span class="line">cjE=","avatar_url":"https://avatars0.githubuse</span><br><span class="line">rcontent.com/u/1?v=4","gravat......</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//请求中提交⼆进制内容</span><br><span class="line"></span><br><span class="line">POST /user/1/avatar HTTP/1.1</span><br><span class="line">Host: hencoder.com</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line">Content-Length: 1575</span><br><span class="line">JFIFHH9......</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>对应 Retrofit 的代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@POST("users/{id}/avatar")</span><br><span class="line">Call&lt;User&gt; updateAvatar(@Path("id") String id, @Body RequestBody avatar);</span><br><span class="line">...</span><br><span class="line">RequestBody avatarBody = RequestBody.create(MediaType.parse("image/jpeg"),</span><br><span class="line">avatarFile);</span><br><span class="line">api.updateAvatar(id, avatarBody)</span><br></pre></td></tr></tbody></table></figure>
+<p>相应中返回⼆进制内容</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">content-type: image/jpeg</span><br><span class="line">content-length: 1575</span><br><span class="line">JFIFHH9......</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="content-length"> Content-Length</span></h3>
+<p>指定 Body 的⻓度（字节）</p>
+<h3><span id="transfer-chunked-分块传输编码-chunked-transfer-encoding"> Transfer: chunked (分块传输编码 Chunked Transfer Encoding)</span></h3>
+<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/7.png" alt=""></p>
+<p>⽤于当响应发起时，内容⻓度还没能确定的情况下。和 Content-Length 不同时使⽤。⽤途是尽早给出响应，减少⽤户等待。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">4</span><br><span class="line">Chun</span><br><span class="line">9</span><br><span class="line">ked Trans</span><br><span class="line">12</span><br><span class="line">fer Encoding</span><br><span class="line">0</span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="location"> Location</span></h3>
+<p>指定重定向的⽬标 URL</p>
+<h3><span id="user-agent"> User-Agent</span></h3>
+<p>⽤户代理，即是谁实际发送请求、接受响应的，例如⼿机浏览器、某款⼿机 App。</p>
+<h3><span id="range-accept-range"> Range / Accept-Range</span></h3>
+<p>按范围取数据</p>
+<ul>
+<li>Accept-Range: bytes 响应报⽂中出现，表示服务器⽀持按字节来取范围数据</li>
+<li>Range: bytes=<start>-<end> 请求报⽂中出现，表示要取哪段数据</end></start></li>
+<li>Content-Range:<start>-<end>/total 响应报⽂中出现，表示发送的是哪段数据</end></start></li>
+</ul>
+<p>作⽤：断点续传、多线程下载。</p>
+<h2><span id="其他-headers"> 其他 Headers</span></h2>
+<ul>
+<li>Accept: 客户端能接受的数据类型。如 text/html</li>
+<li>Accept-Charset: 客户端接受的字符集。如 utf-8</li>
+<li>Accept-Encoding: 客户端接受的压缩编码类型。如 gzip</li>
+<li>Content-Encoding：压缩类型。如 gzip</li>
+</ul>
+<h2><span id="cache"> Cache</span></h2>
+<p>作⽤：在客户端或中间⽹络节点缓存数据，降低从服务器取数据的频率，以提⾼⽹络性能。</p>
+<h2><span id="rest"> REST</span></h2>
+<p>REST HTTP 即正确使⽤ HTTP。<br>
+* 使⽤资源的格式来定义 URL<br>
+* 规范地使⽤ method 来定义⽹络请求操作<br>
+* 规范地使⽤ status code 来表示响应状态<br>
+* 其他符合 HTTP 规范的设计准则</p>
 
       
     </div>
@@ -562,7 +734,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -630,7 +802,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -643,7 +815,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

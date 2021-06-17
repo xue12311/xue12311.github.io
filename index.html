@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E5%BE%AA%E7%8E%AF/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/16/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99_%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -198,7 +198,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E5%BE%AA%E7%8E%AF/" class="post-title-link" itemprop="url">kotlin学习 -  Kotlin 循环</a>
+            <a href="/2021/06/16/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99_%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">迪米特法则</a>
         </h2>
 
         <div class="post-meta">
@@ -209,162 +209,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-06-03 09:33:07 / 修改时间：10:09:42" itemprop="dateCreated datePublished" datetime="2021-06-03T09:33:07+08:00">2021-06-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1><span id="kotlin学习-kotlin-循环"> kotlin学习 -  Kotlin 循环</span></h1>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//从 1 到 10</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.10</span>) {</span><br><span class="line">    <span class="comment">//1,2,3,4,5,6,7,8,9,10</span></span><br><span class="line">    println(i)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//从 1 到 9</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span> until <span class="number">10</span>) {</span><br><span class="line">    <span class="comment">//1,2,3,4,5,6,7,8,9</span></span><br><span class="line">    println(i)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从 10 到 1</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">10</span> downTo <span class="number">1</span>) {</span><br><span class="line">    <span class="comment">//10,9,8,7,6,5,4,3,2,1</span></span><br><span class="line">    println(i)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从 1 到 10 步长为 2</span></span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.10</span> step <span class="number">2</span>) {</span><br><span class="line">    <span class="comment">//1,3,5,7,9</span></span><br><span class="line">    println(i)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>repeat(count:Int) 一个高阶的循环函数，count代表循环的次数，在函数内，it代表到第几次<br>
-注意：it是从0开始计数的</p>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从 0 到 9</span></span><br><span class="line">repeat(<span class="number">10</span>) {</span><br><span class="line">    <span class="comment">//0,1,2,3,4,5,6,7,8,9</span></span><br><span class="line">    println(it)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">val</span> list = arrayListOf&lt;String&gt;(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>)</span><br><span class="line"><span class="keyword">for</span> (str <span class="keyword">in</span> list) {</span><br><span class="line">    <span class="comment">//A,B,C,D</span></span><br><span class="line">    println(str)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">val</span> list = arrayListOf&lt;String&gt;(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>)</span><br><span class="line"><span class="keyword">for</span> ((index,str) <span class="keyword">in</span> list.withIndex()){</span><br><span class="line">    <span class="comment">//index 从 0 开始</span></span><br><span class="line">    println(<span class="string">"第<span class="subst">${index}</span>个的元素是<span class="variable">$str</span>"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E8%A7%A3%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/03/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Kotlin%20%E8%A7%A3%E6%9E%84/" class="post-title-link" itemprop="url">kotlin学习 -  Kotlin 解构</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-06-03 09:04:26 / 修改时间：10:24:02" itemprop="dateCreated datePublished" datetime="2021-06-03T09:04:26+08:00">2021-06-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1><span id="kotlin学习-kotlin-解构"> kotlin学习 -  Kotlin 解构</span></h1>
-<h2><span id="解构"> 解构</span></h2>
-<h3><span id="解构声明-将一个对象-拆解成-若干个变量-分别赋值"> 解构声明 将一个对象 拆解成 若干个变量 分别赋值</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> user = User(<span class="number">12</span>,<span class="string">"zs"</span>)</span><br><span class="line">    <span class="keyword">val</span> (age,name,user_data) = user</span><br><span class="line">    println(<span class="string">"age = <span class="subst">${age}</span>"</span>)</span><br><span class="line">    println(<span class="string">"name = <span class="subst">${name}</span>"</span>)</span><br><span class="line">    println(<span class="string">"user_data = <span class="subst">${user_data}</span>"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(<span class="keyword">var</span> age: <span class="built_in">Int</span>, <span class="keyword">var</span> name: String) {</span><br><span class="line">    <span class="comment">//operator 将 一个函数 标记为 重载一个操作符 或实现 一个约定</span></span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component1</span><span class="params">()</span></span> = age</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component2</span><span class="params">()</span></span> = name</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component3</span><span class="params">()</span></span> = <span class="string">"<span class="subst">${age}</span> <span class="subst">${name}</span>"</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="自定义解构声明"> 自定义解构声明</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span></span>(<span class="keyword">var</span> name: String, <span class="keyword">var</span> price: <span class="built_in">Float</span>) {</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component1</span><span class="params">()</span></span>: String {</span><br><span class="line">        <span class="keyword">return</span> name</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">component2</span><span class="params">()</span></span>: <span class="built_in">Float</span> {</span><br><span class="line">        <span class="keyword">return</span> price</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> (name, price) = Book(<span class="string">"Kotlin入门"</span>, <span class="number">66.6f</span>)</span><br><span class="line">    println(name)</span><br><span class="line">    println(price)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> (name,price) = getBookInfo()</span><br><span class="line">    println(<span class="string">"name = <span class="subst">${name}</span>"</span>)</span><br><span class="line">    println(<span class="string">"price = <span class="subst">${price}</span>"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getBookInfo</span><span class="params">()</span></span>: Book {</span><br><span class="line">    <span class="keyword">return</span> Book(<span class="string">"Kotlin入门"</span>, <span class="number">66.6f</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span></span>(<span class="keyword">var</span> name: String, <span class="keyword">var</span> price: <span class="built_in">Float</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="kotlin-中数组list-map系列集合默认也支持解构声明的功能"> Kotlin 中数组，list、map系列集合默认也支持解构声明的功能</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> array = arrayOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">val</span> (a1, a2, a3) = array</span><br><span class="line">    println(<span class="string">"<span class="variable">$a1</span>"</span>)</span><br><span class="line">    println(<span class="string">"<span class="variable">$a2</span>"</span>)</span><br><span class="line">    println(<span class="string">"<span class="variable">$a3</span>"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">val</span> list = listOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">val</span> (b1, b2, b3) = list</span><br><span class="line">    println(<span class="string">"<span class="variable">$b1</span>"</span>)</span><br><span class="line">    println(<span class="string">"<span class="variable">$b2</span>"</span>)</span><br><span class="line">    println(<span class="string">"<span class="variable">$b3</span>"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">val</span> map = mapOf(<span class="string">"key1"</span> to <span class="number">1</span>, <span class="string">"key2"</span> to <span class="number">2</span>, <span class="string">"key3"</span> to <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">for</span> ((key, value) <span class="keyword">in</span> map) {</span><br><span class="line">        println(<span class="string">"<span class="variable">$key</span>-<span class="variable">$value</span>"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="忽略不需要的解构"> 忽略不需要的解构</span></h3>
-<p>如果在解构声明中不需要某个变量，那么可以用下划线_取代其名称，这样也就不会调用相应的componentN()操作符函数：</p>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> (_, price2) = Book(<span class="string">"Kotlin入门"</span>, <span class="number">66.6f</span>)    </span><br></pre></td></tr></tbody></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/" class="post-title-link" itemprop="url">Http 学习 v1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-29 10:39:40 / 修改时间：14:23:32" itemprop="dateCreated datePublished" datetime="2021-05-29T10:39:40+08:00">2021-05-29</time>
+              <time title="创建时间：2021-06-16 14:23:20 / 修改时间：14:23:22" itemprop="dateCreated datePublished" datetime="2021-06-16T14:23:20+08:00">2021-06-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -387,161 +232,116 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1><span id="http-学习-v1"> Http 学习 v1</span></h1>
-<h2><span id="http-的定义"> HTTP 的定义</span></h2>
-<p>⼀种⽹络传输协议，位于 TCP / IP 协议族的最顶层——应⽤层。</p>
-<p>Hypertext Transfer Protocol，超⽂本传输协议，和 HTML (Hypertext Markup Language 超⽂本标记语⾔) ⼀起诞⽣，⽤于在⽹络上请求和传输 HTML 内容。</p>
-<h2><span id="http-的工作方式"> HTTP 的⼯作⽅式</span></h2>
-<h3><span id="浏览器"> 浏览器 :</span></h3>
+          <h1><span id="迪米特法则"> 迪米特法则</span></h1>
+<h2><span id="如何理解迪米特法则"> 如何理解“迪米特法则”？</span></h2>
+<p>不该有直接依赖关系的类之间，不要有依赖；有依赖关系的类之间，尽量只依赖必要的接口。迪米特法则是希望减少类之间的耦合，让类越独立越好。每个类都应该少了解系统的其他部分。一旦发生变化，需要了解这一变化的类就会比较少。</p>
+<h2><span id="如何理解高内聚-松耦合"> 如何理解“高内聚、松耦合”？</span></h2>
+<p>“高内聚、松耦合”是一个非常重要的设计思想，能够有效提高代码的可读性和可维护性，缩小功能改动导致的代码改动范围。“高内聚”用来指导类本身的设计，“松耦合”用来指导类与类之间依赖关系的设计。</p>
 <ul>
-<li>⽤户输⼊地址后回⻋或点击链接</li>
-<li>浏览器拼装 HTTP 报⽂并发送请求给服务器</li>
-<li>服务器处理请求后发送响应报⽂给浏览器</li>
-<li>浏览器解析响应报⽂并使⽤渲染引擎显示到界⾯</li>
+<li>
+<p>高内聚 指相近的功能应该放到同一个类中，不相近的功能不要放到同一类中。相近的功能往往会被同时修改，放到同一个类中，修改会比较集中。</p>
+</li>
+<li>
+<p>松耦合 在代码中，类与类之间的依赖关系简单清晰。即使两个类有依赖关系，一个类的代码改动也不会或者很少导致依赖类的代码改动。</p>
+</li>
 </ul>
-<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/1.png" alt=""></p>
-<h3><span id="手机-app"> ⼿机 App</span></h3>
-<ul>
-<li>⽤户点击或界⾯⾃动触发联⽹需求</li>
-<li>Android 代码调⽤拼装 HTTP 报⽂并发送请求到服务器</li>
-<li>服务器处理请求后发送响应报⽂给⼿机</li>
-<li>Android 代码处理响应报⽂并作出相应处理（如储存数据、加⼯数据、显示数据到界⾯）</li>
-</ul>
-<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/2.png" alt=""></p>
-<h2><span id="url-和-http-报文"> URL 和 HTTP 报⽂</span></h2>
-<h3><span id="url-格式"> URL 格式</span></h3>
-<p>三部分：协议类型、服务器地址(和端⼝号)、路径(Path)</p>
-<p>协议类型://服务器地址[:端⼝号]路径</p>
-<p><a target="_blank" rel="noopener" href="http://hencoder.com/users?gender=male">http://hencoder.com/users?gender=male</a></p>
-<h3><span id="报文格式"> 报⽂格式</span></h3>
-<h4><span id="请求报文"> 请求报⽂</span></h4>
-<ul>
-<li>请求报文格式：请求行、Headers、Body</li>
-<li>请求行：Method、Path、HTTP version</li>
-<li>Method：GET、POST、PUT、DELETE …</li>
-<li>Headers：请求的 meta data</li>
-<li>Body：要发送给服务器的内容</li>
-</ul>
-<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/3.png" alt=""></p>
-<h4><span id="响应报文"> 响应报⽂</span></h4>
-<ul>
-<li>响应报文格式：状态行、Headers、Body</li>
-<li>状态行：HTTP version、Status Code、Status Message</li>
-<li>Status Code: 1xx(信息)、2xx(成功)、3(重定向)、4(客户端错误)、5(服务器错误)</li>
-</ul>
-<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/4.png" alt=""></p>
-<h2><span id="request-method-请求方法"> Request Method 请求⽅法</span></h2>
-<h3><span id="get"> GET</span></h3>
-<ul>
-<li>⽤于获取资源</li>
-<li>对服务器数据不进⾏修改</li>
-<li>不发送 Body</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /users/1 HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br></pre></td></tr></tbody></table></figure>
-<p>对应 Retrofit 的代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@GET("/users/{id}")</span><br><span class="line">Call&lt;User&gt; getUser(@Path("id") String id, @Query("gender") String gender);</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="post"> POST</span></h3>
-<ul>
-<li>⽤于增加或修改资源</li>
-<li>发送给服务器的内容写在 Body ⾥⾯</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /users HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 13</span><br><span class="line">name=rengwuxian&amp;gender=male</span><br></pre></td></tr></tbody></table></figure>
-<p>对应 Retrofit 的代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Field("name") String name, @Field("gender") String</span><br><span class="line">gender);</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="put"> PUT</span></h3>
-<ul>
-<li>⽤于修改资源</li>
-<li>发送给服务器的内容写在 Body ⾥⾯</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PUT /users/1 HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 13</span><br><span class="line">gender=female</span><br></pre></td></tr></tbody></table></figure>
-<p>对应 Retrofit 的代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@PUT("/users/{id}")</span><br><span class="line">Call&lt;User&gt; updateGender(@Path("id") String id, @Field("gender") String</span><br><span class="line">gender);</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="delete"> DELETE</span></h3>
-<ul>
-<li>⽤于删除资源</li>
-<li>不发送 Body</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE /users/1 HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br></pre></td></tr></tbody></table></figure>
-<p>对应 Retrofit 的代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@DELETE("/users/{id}")</span><br><span class="line">Call&lt;User&gt; getUser(@Path("id") String id, @Query("gender") String gender);</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="head"> HEAD</span></h3>
-<ul>
-<li>和 GET 使⽤⽅法完全相同</li>
-<li>和 GET 唯⼀区别在于，返回的响应中没有 Body</li>
-</ul>
-<h2><span id="status-code-状态码"> Status Code 状态码</span></h2>
-<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/5.png" alt=""></p>
-<ul>
-<li>1xx：临时性消息。如：100 （继续发送）、101（正在切换协议）</li>
-<li>2xx：成功。最典型的是 200（OK）、201（创建成功）。</li>
-<li>3xx：重定向。如 301（永久移动）、302（暂时移动）、304（内容未改变）。</li>
-<li>4xx：客户端错误。如 400（客户端请求错误）、401（认证失败）、403（被禁⽌）、404（找不到内容）。</li>
-<li>5xx：服务器错误。如 500（服务器内部错误）。</li>
-</ul>
-<h2><span id="header"> Header</span></h2>
-<p>作⽤：HTTP 消息的元数据（ metadata ）。</p>
-<h3><span id="host"> Host</span></h3>
-<p>⽬标主机。注意：不是在⽹络上⽤于寻址的，⽽是在⽬标服务器上⽤于定位⼦服务器的。</p>
-<h3><span id="content-type"> Content-Type</span></h3>
-<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/6.png" alt=""></p>
-<p>指定 Body 的类型。主要有四类：</p>
-<h4><span id="1-texthtml"> 1. text/html</span></h4>
-<p>请求 Web ⻚⾯是返回响应的类型，Body 中返回 html ⽂本。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Content-Length: 853</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line"> &lt;meta charset="utf-8"&gt;</span><br><span class="line">......</span><br></pre></td></tr></tbody></table></figure>
-<h4><span id="2-x-www-form-urlencoded"> 2. x-www-form-urlencoded</span></h4>
-<p>Web ⻚⾯纯⽂本表单的提交⽅式</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">POST /users HTTP/1.1</span><br><span class="line">Host: api.github.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 27</span><br><span class="line">name=rengwuxian&amp;gender=male</span><br></pre></td></tr></tbody></table></figure>
-<p>对应 Retrofit 的代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@FormUrlEncoded</span><br><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Field("name") String name, @Field("gender") String</span><br><span class="line">gender);</span><br></pre></td></tr></tbody></table></figure>
-<h4><span id="3-multitypeform-data"> 3. multitype/form-data</span></h4>
-<p>Web ⻚⾯含有⼆进制⽂件时的提交⽅式。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">POST  /users  HTTP/1.1</span><br><span class="line">Host: hencoder.com</span><br><span class="line">Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW</span><br><span class="line">Content-Length: 2382</span><br><span class="line"></span><br><span class="line">------WebKitFormBoundary7MA4YWxkTrZu0gW</span><br><span class="line">Content-Disposition: form-data; name="name"</span><br><span class="line"></span><br><span class="line">rengwuxian</span><br><span class="line">------WebKitFormBoundary7MA4YWxkTrZu0gW</span><br><span class="line">Content-Disposition: form-data; name="avatar"; filename="avatar.jpg"</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line"></span><br><span class="line">JFIFHHvOwX9jximQrWa......</span><br><span class="line">------WebKitFormBoundary7MA4YWxkTrZu0gW--</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>对应 Retrofit 的代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Multipart</span><br><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Part("name") RequestBody name, @Part("avatar")</span><br><span class="line">RequestBody avatar);</span><br><span class="line">...</span><br><span class="line">RequestBody namePart = RequestBody.create(MediaType.parse("text/plain"),</span><br><span class="line">nameStr);</span><br><span class="line">RequestBody avatarPart = RequestBody.create(MediaType.parse("image/jpeg"),</span><br><span class="line">avatarFile);</span><br><span class="line">api.addUser(namePart, avatarPart);</span><br></pre></td></tr></tbody></table></figure>
-<h4><span id="4-applicationjson-imagejpeg-applicationzip"> 4. application/json , image/jpeg , application/zip …</span></h4>
-<p>单项内容（⽂本或⾮⽂本都可以），⽤于 Web Api 的响应或者 POST / PUT 的请求</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//请求中提交 JSON</span><br><span class="line"></span><br><span class="line">POST /users HTTP/1.1</span><br><span class="line">Host: hencoder.com</span><br><span class="line">Content-Type: application/json; charset=utf-8</span><br><span class="line">Content-Length: 38</span><br><span class="line">{"name":"rengwuxian","gender":"male"}</span><br></pre></td></tr></tbody></table></figure>
-<p>对应 Retrofit 的代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@POST("/users")</span><br><span class="line">Call&lt;User&gt; addUser(@Body("user") User user);</span><br><span class="line">...</span><br><span class="line">// 需要使⽤ JSON 相关的 Converter</span><br><span class="line">api.addUser(user);</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//响应中返回 JSON</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">content-type: application/json; charset=utf-8</span><br><span class="line">content-length: 234</span><br><span class="line">[{"login":"mojombo","id":1,"node_id":"MDQ6VXNl</span><br><span class="line">cjE=","avatar_url":"https://avatars0.githubuse</span><br><span class="line">rcontent.com/u/1?v=4","gravat......</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//请求中提交⼆进制内容</span><br><span class="line"></span><br><span class="line">POST /user/1/avatar HTTP/1.1</span><br><span class="line">Host: hencoder.com</span><br><span class="line">Content-Type: image/jpeg</span><br><span class="line">Content-Length: 1575</span><br><span class="line">JFIFHH9......</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>对应 Retrofit 的代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@POST("users/{id}/avatar")</span><br><span class="line">Call&lt;User&gt; updateAvatar(@Path("id") String id, @Body RequestBody avatar);</span><br><span class="line">...</span><br><span class="line">RequestBody avatarBody = RequestBody.create(MediaType.parse("image/jpeg"),</span><br><span class="line">avatarFile);</span><br><span class="line">api.updateAvatar(id, avatarBody)</span><br></pre></td></tr></tbody></table></figure>
-<p>相应中返回⼆进制内容</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">content-type: image/jpeg</span><br><span class="line">content-length: 1575</span><br><span class="line">JFIFHH9......</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="content-length"> Content-Length</span></h3>
-<p>指定 Body 的⻓度（字节）</p>
-<h3><span id="transfer-chunked-分块传输编码-chunked-transfer-encoding"> Transfer: chunked (分块传输编码 Chunked Transfer Encoding)</span></h3>
-<p><img src="/2021/05/29/android/HTTP%E5%AD%A6%E4%B9%A01/7.png" alt=""></p>
-<p>⽤于当响应发起时，内容⻓度还没能确定的情况下。和 Content-Length 不同时使⽤。⽤途是尽早给出响应，减少⽤户等待。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">4</span><br><span class="line">Chun</span><br><span class="line">9</span><br><span class="line">ked Trans</span><br><span class="line">12</span><br><span class="line">fer Encoding</span><br><span class="line">0</span><br></pre></td></tr></tbody></table></figure>
-<h3><span id="location"> Location</span></h3>
-<p>指定重定向的⽬标 URL</p>
-<h3><span id="user-agent"> User-Agent</span></h3>
-<p>⽤户代理，即是谁实际发送请求、接受响应的，例如⼿机浏览器、某款⼿机 App。</p>
-<h3><span id="range-accept-range"> Range / Accept-Range</span></h3>
-<p>按范围取数据</p>
-<ul>
-<li>Accept-Range: bytes 响应报⽂中出现，表示服务器⽀持按字节来取范围数据</li>
-<li>Range: bytes=<start>-<end> 请求报⽂中出现，表示要取哪段数据</end></start></li>
-<li>Content-Range:<start>-<end>/total 响应报⽂中出现，表示发送的是哪段数据</end></start></li>
-</ul>
-<p>作⽤：断点续传、多线程下载。</p>
-<h2><span id="其他-headers"> 其他 Headers</span></h2>
-<ul>
-<li>Accept: 客户端能接受的数据类型。如 text/html</li>
-<li>Accept-Charset: 客户端接受的字符集。如 utf-8</li>
-<li>Accept-Encoding: 客户端接受的压缩编码类型。如 gzip</li>
-<li>Content-Encoding：压缩类型。如 gzip</li>
-</ul>
-<h2><span id="cache"> Cache</span></h2>
-<p>作⽤：在客户端或中间⽹络节点缓存数据，降低从服务器取数据的频率，以提⾼⽹络性能。</p>
-<h2><span id="rest"> REST</span></h2>
-<p>REST HTTP 即正确使⽤ HTTP。<br>
-* 使⽤资源的格式来定义 URL<br>
-* 规范地使⽤ method 来定义⽹络请求操作<br>
-* 规范地使⽤ status code 来表示响应状态<br>
-* 其他符合 HTTP 规范的设计准则</p>
+<h2><span id="例子"> 例子</span></h2>
+<p>用代码实现  我们看书的操作：唤醒手机，打开阅读软件，选择书籍，然后阅读。总共 3 个步骤，涉及了 3 样东西：手机、软件、书籍。</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    Phone().readBook()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Phone</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> app = App()</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 读书</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">readBook</span><span class="params">()</span></span> {</span><br><span class="line">        app.read()</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>{</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> book: Book = Book(<span class="string">"设计模式之美"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 读书</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">read</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"读书 : <span class="subst">${book.title}</span>"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span></span>(<span class="keyword">var</span> title: String)</span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/16/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/16/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">接口隔离原则</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-16 12:51:46 / 修改时间：12:51:48" itemprop="dateCreated datePublished" datetime="2021-06-16T12:51:46+08:00">2021-06-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="接口隔离原则"> 接口隔离原则</span></h1>
+<ol>
+<li>
+<p>客户端不应该依赖它不需要的接口</p>
+</li>
+<li>
+<p>类间的依赖关系应该建立在最小的接口上</p>
+</li>
+</ol>
+<h2><span id="优点"> 优点</span></h2>
+<ol>
+<li>将臃肿庞大的接口分解为多个粒度小的接口，可以预防外来变更的扩散，提高系统的灵活性和可维护性。</li>
+<li>接口隔离提高了系统的内聚性，减少了对外交互，降低了系统的耦合性。</li>
+<li>使用多个专门的接口还能够体现对象的层次，因为可以通过接口的继承，实现对总接口的定义。</li>
+<li>能减少项目工程中的代码冗余。过大的大接口里面通常放置许多不用的方法，当实现这个接口的时候，被迫设计冗余的代码</li>
+<li>如果接口的粒度大小定义合理，能够保证系统的稳定性；但是，如果定义过小，则会造成接口数量过多，使设计复杂化；如果定义太大，灵活性降低，无法提供定制服务，给整体项目带来无法预料的风险。</li>
+</ol>
+<h2><span id="例子"> 例子</span></h2>
+<p>不满足接口隔离原则。</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IWorker</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">eat</span><span class="params">()</span></span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> : <span class="type">IWorker {</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"Worker work 方法"</span>)</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">eat</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"Worker eat 方法"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperWorker</span> : <span class="type">IWorker {</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"SuperWorker work 方法"</span>)</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">eat</span><span class="params">()</span></span> {</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manager</span> </span>{</span><br><span class="line">    <span class="keyword">var</span> worker: IWorker? = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span> {</span><br><span class="line">        worker?.work()</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>使用 接口隔离原则 进行拆分</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IWorkable</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IFeedable</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">eat</span><span class="params">()</span></span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> : <span class="type">IWorkable</span>, <span class="type">IFeedable {</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"Worker work 方法"</span>)</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">eat</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"Worker eat 方法"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperWorker</span> : <span class="type">IWorkable {</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"SuperWorker work 方法"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manager</span> </span>{</span><br><span class="line">    <span class="keyword">var</span> worker: IWorkable? = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">work</span><span class="params">()</span></span> {</span><br><span class="line">        worker?.work()</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="总结"> 总结</span></h2>
+<ol>
+<li>接口应该尽量小，但是要有限度。</li>
+<li>接口只暴露给依赖接口的类（调用端）需要的方法，而不需要暴露不需要的方法。</li>
+<li>提高模块的内聚，减少它们之间的耦合。</li>
+</ol>
 
       
     </div>
@@ -561,7 +361,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/28/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Jave%20%E4%B8%8E%20Kotlin%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/16/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -575,7 +375,111 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/28/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Jave%20%E4%B8%8E%20Kotlin%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">kotlin学习 -  Jave 与 Kotlin 注意事项</a>
+            <a href="/2021/06/16/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">依赖倒置原则</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-16 09:54:38 / 修改时间：10:02:55" itemprop="dateCreated datePublished" datetime="2021-06-16T09:54:38+08:00">2021-06-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="依赖倒置原则"> 依赖倒置原则</span></h1>
+<ol>
+<li>
+<p>高层模块不应该依赖低层模块，两者都应该依赖其抽象（模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系是通过接口或抽象类产生的）</p>
+</li>
+<li>
+<p>抽象不应该依赖细节（接口或抽象类不依赖于实现类）， 细节应该依赖抽象（实现类依赖接口或抽象类）</p>
+</li>
+</ol>
+<h2><span id="优势"> 优势</span></h2>
+<ol>
+<li>减少类间的耦合性，提高系统的稳定性</li>
+<li>降低并行开发引起的风险</li>
+<li>提高代码的可读性和可维护性</li>
+</ol>
+<h2><span id="例子"> 例子</span></h2>
+<ul>
+<li>场景是这样的，母亲给孩子讲故事，只要给她一本书，她就可以照着书给孩子讲故事了。代码如下：</li>
+</ul>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    Client().onMotherNarrate()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>{</span><br><span class="line">    <span class="comment">//故事内容</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String = <span class="string">"很久很久以前有一个阿拉伯的故事……"</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mother</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 讲故事</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">narrate</span><span class="params">(book: <span class="type">Book</span>)</span></span> {</span><br><span class="line">        println(<span class="string">"妈妈开始讲故事"</span>)</span><br><span class="line">        println(book.getContent())</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onMotherNarrate</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"孩子要听故事"</span>)</span><br><span class="line">        <span class="keyword">val</span> mother = Mother()</span><br><span class="line">        mother.narrate(Book())</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>假如有一天，需求变成这样：不是给书而是给一份报纸，让这位母亲讲一下报纸上的故事，报纸的代码如下：</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Newspaper</span></span>{</span><br><span class="line">    <span class="comment">//报纸内容</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String =<span class="string">"商务部相关负责人在接受本台记者采访时表示……"</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>只是将书换成报纸，居然必须要修改Mother才能读。假如以后需求换成杂志呢？换成网页呢？还要不断地修改Mother，这显然不是好的设计。原因就是Mother与Book之间的耦合性太高了，必须降低他们之间的耦合度才行。</p>
+<p>我们引入一个抽象的接口IReader。读物，只要是带字的都属于读物：</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 读物接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IReader</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 读物内容</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>Mother类与接口IReader发生依赖关系，而Book和Newspaper都属于读物的范畴，他们各自都去实现IReader接口，这样就符合依赖倒置原则了，代码修改为：</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Newspaper</span>:<span class="type">IReader {</span></span></span><br><span class="line">    <span class="comment">//报纸内容</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String = <span class="string">"商务部相关负责人在接受本台记者采访时表示，目前，……"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span>:<span class="type">IReader {</span></span></span><br><span class="line">    <span class="comment">//故事内容</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String = <span class="string">"很久很久以前有一个阿拉伯的故事……"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mother</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 讲故事</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">narrate</span><span class="params">(reader:<span class="type">IReader</span>)</span></span> {</span><br><span class="line">        println(<span class="string">"妈妈开始讲<span class="subst">${</span></span></span><br><span class="line"><span class="subst"><span class="string">            if(reader is Book){</span></span></span><br><span class="line"><span class="subst"><span class="string">                <span class="string">"故事"</span></span></span></span><br><span class="line"><span class="subst"><span class="string">            }</span>else{</span></span><br><span class="line"><span class="string">                "</span>报纸<span class="string">"</span></span><br><span class="line"><span class="string">            }</span></span><br><span class="line"><span class="string">        }"</span>)</span><br><span class="line">        println(reader.getContent())</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onMotherNarrate</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="keyword">val</span> mother = Mother()</span><br><span class="line">        println(<span class="string">"孩子要听故事"</span>)</span><br><span class="line">        mother.narrate(Book())</span><br><span class="line">        println(<span class="string">"孩子要听报纸"</span>)</span><br><span class="line">        mother.narrate(Newspaper())</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>这样修改后，无论以后怎样扩展Client类，都不需要再修改Mother类了。这只是一个简单的例子，实际情况中，代表高层模块的Mother类将负责完成主要的业务逻辑，一旦需要对它进行修改，引入错误的风险极大。所以遵循依赖倒置原则可以降低类之间的耦合性，提高系统的稳定性，降低修改程序造成的风险。</p>
+<h2><span id="开发注意"> 开发注意</span></h2>
+<ol>
+<li>低层模块尽量都要有抽象类或接口，或者两者都有。</li>
+<li>变量的声明类型尽量是抽象类或接口。</li>
+<li>使用继承时遵循里氏替换原则。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/15/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/15/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">里氏替换原则</a>
         </h2>
 
         <div class="post-meta">
@@ -585,14 +489,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-28 20:27:47" itemprop="dateCreated datePublished" datetime="2021-05-28T20:27:47+08:00">2021-05-28</time>
+              <time title="创建时间：2021-06-15 16:03:20" itemprop="dateCreated datePublished" datetime="2021-06-15T16:03:20+08:00">2021-06-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-03 09:03:04" itemprop="dateModified" datetime="2021-06-03T09:03:04+08:00">2021-06-03</time>
+                <time title="修改时间：2021-06-16 13:07:41" itemprop="dateModified" datetime="2021-06-16T13:07:41+08:00">2021-06-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -600,7 +504,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
                 </span>
             </span>
 
@@ -615,120 +519,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1><span id="kotlin学习-jave-与-kotlin-注意事项"> kotlin学习 -  Jave 与 Kotlin 注意事项</span></h1>
-<h2><span id="java中使用kotlin的顶层方法"> java中使用kotlin的顶层方法</span></h2>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Test.kt</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">echo</span><span class="params">(name: <span class="type">String</span>)</span></span> {</span><br><span class="line">    System.<span class="keyword">out</span>.println(name)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Test.java</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">//java 中使用 kotlin文件中的方法，默认写法是 xxKt.echo("hello")</span></span><br><span class="line">        TestKt.echo(<span class="string">"hello"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="java中使用kotlin的方法-自定义-kt-文件类名"> java中使用kotlin的方法 ( 自定义 kt 文件类名 )</span></h2>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Test.kt</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//自定义编译后生成的文件名</span></span><br><span class="line"><span class="meta">@file:JvmName</span>(<span class="string">"TestDemoCode"</span>)</span><br><span class="line"><span class="comment">//编译后会强制性的把多个文件内容合并在一起</span></span><br><span class="line"><span class="meta">@file:JvmMultifileClass</span></span><br><span class="line"><span class="keyword">package</span> com.jetpack.compose.demo.test</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">echo</span><span class="params">(name: <span class="type">String</span>)</span></span> {</span><br><span class="line">    System.<span class="keyword">out</span>.println(name)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//Test.java</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        TestDemoCode.echo(<span class="string">"hello"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="java文件-kotlin文件-中的-class-使用"> java文件 kotlin文件 中的 class 使用</span></h2>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">// TestDemoJave.java</span></span><br><span class="line">    testClass(TestDemoJave::<span class="keyword">class</span>.java)</span><br><span class="line">    testKClass(TestDemoJave::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line">    <span class="comment">// TestDemoKotlin.java</span></span><br><span class="line">    testKotlinClass(TestDemoKotlin::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">testClass</span><span class="params">(clazz: <span class="type">Class</span>&lt;<span class="type">TestDemoJave</span>&gt;)</span></span> {</span><br><span class="line">    println(clazz.simpleName)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">testKClass</span><span class="params">(clazz: <span class="type">KClass</span>&lt;<span class="type">TestDemoJave</span>&gt;)</span></span> {</span><br><span class="line">    println(clazz.simpleName)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">testKotlinClass</span><span class="params">(clazz: <span class="type">KClass</span>&lt;<span class="type">TestDemoKotlin</span>&gt;)</span></span> {</span><br><span class="line">    println(clazz.simpleName)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="kotlin-没有静态变量与-静态方法"> Kotlin 没有静态变量与 静态方法</span></h2>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TestDemoKotlin.kt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">object</span> TestDemoKotlin {</span><br><span class="line">    <span class="meta">@JvmStatic</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">sayMessageStatic</span><span class="params">(msg: <span class="type">String</span>)</span></span> {</span><br><span class="line">        println(msg)</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">sayMessage</span><span class="params">(msg: <span class="type">String</span>)</span></span> {</span><br><span class="line">        println(msg)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TestDemoJave.java</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDemoJave</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">//静态方法</span></span><br><span class="line">        TestDemoKotlin.sayMessageStatic(<span class="string">"hello"</span>);</span><br><span class="line"></span><br><span class="line">        TestDemoKotlin.INSTANCE.sayMessage(<span class="string">"hello"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="函数嵌套"> 函数嵌套</span></h2>
-<pre><code>用途 :  在某些条件下触发递归的函数，不希望被外部函数访问到的函数
-</code></pre>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">function</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> str = <span class="string">"hello world"</span></span><br><span class="line">    <span class="comment">//函数嵌套</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">say</span><span class="params">(count: <span class="type">Int</span> = <span class="number">10</span>)</span></span> {</span><br><span class="line">        println(str)</span><br><span class="line">        <span class="keyword">if</span> (count &gt; <span class="number">0</span>) {</span><br><span class="line">            say(count - <span class="number">1</span>)</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    say()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="在java中使用kotlin中的扩展函数"> 在Java中使用Kotlin中的扩展函数</span></h2>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TestDemoKotlin.kt</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> String?.<span class="title">isNoEmpty</span><span class="params">()</span></span>: <span class="built_in">Boolean</span> {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span> != <span class="literal">null</span> &amp;&amp; <span class="keyword">this</span>.length &gt; <span class="number">0</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TestDemoJave.java</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">"hello word"</span>;</span><br><span class="line"><span class="comment">//使用kotlin中的扩展函数 （第一个参数 必须是 扩展类的对象）</span></span><br><span class="line"><span class="comment">// xxKt.isNoEmpty(str)</span></span><br><span class="line">TestDemoKotlinKt.isNoEmpty(str);</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="lambda-在-kotlin-中-最多只支持22个参数function22"> lambda 在 kotlin 中 最多只支持22个参数（Function22）</span></h2>
-<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* Function23.java</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> kotlin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Function23</span>&lt;<span class="title">P1</span>, <span class="title">P2</span>, <span class="title">P3</span>, <span class="title">P4</span>, <span class="title">P5</span>, <span class="title">P6</span>, <span class="title">P7</span>, <span class="title">P8</span>, <span class="title">P9</span>, <span class="title">P10</span>, <span class="title">P11</span>, <span class="title">P12</span>, <span class="title">P13</span>, <span class="title">P14</span>, <span class="title">P15</span>, <span class="title">P16</span>, <span class="title">P17</span>, <span class="title">P18</span>, <span class="title">P19</span>, <span class="title">P20</span>, <span class="title">P21</span>, <span class="title">P22</span>, <span class="title">P23</span>, <span class="title">R</span>&gt; <span class="keyword">extends</span> <span class="title">Function</span>&lt;<span class="title">R</span>&gt; </span>{</span><br><span class="line">    <span class="function">R <span class="title">invoke</span><span class="params">(P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, P12 p12, P13 p13, P14 p14, P15 p15, P16 p16, P17 p17, P18 p18, P19 p19, P20 p20, P21 p21, P22 p22, P23 p23)</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">val</span> lambdaA = { a: <span class="built_in">Int</span>, b: <span class="built_in">Int</span>, c: <span class="built_in">Int</span>, d: <span class="built_in">Int</span>, e: <span class="built_in">Int</span>, f: <span class="built_in">Int</span>, g: <span class="built_in">Int</span>, h: <span class="built_in">Int</span>,i: <span class="built_in">Int</span>, j: <span class="built_in">Int</span>, k: <span class="built_in">Int</span>, l: <span class="built_in">Int</span>, m: <span class="built_in">Int</span>, n: <span class="built_in">Int</span>, o: <span class="built_in">Int</span>, p: <span class="built_in">Int</span>, q: <span class="built_in">Int</span>, r: <span class="built_in">Int</span>, s: <span class="built_in">Int</span>, t: <span class="built_in">Int</span>, u: <span class="built_in">Int</span>, v: <span class="built_in">Int</span>, w: <span class="built_in">Int</span> -&gt;</span><br><span class="line">    println(<span class="string">"zhang tao"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line"><span class="comment">//    print("hello")</span></span><br><span class="line">    lambdaA(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="inline-将内联函数的函数体复制到调用处实现内联-内联可能导致生成的代码增加"> inline  将内联函数的函数体复制到调用处实现内联 ( 内联可能导致生成的代码增加 )</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inline fun &lt;T&gt; lock(lock: Lock, body: () -&gt; T): T { …… }</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="noinline-标记不希望内联的函数参数"> noinline 标记不希望内联的函数参数</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inline fun foo(inlined: () -&gt; Unit, noinline notInlined: () -&gt; Unit) { …… }</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="kotlin-可见性修饰符"> Kotlin 可见性修饰符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><strong>修饰符</strong></th>
-<th style="text-align:center"><strong>同类</strong></th>
-<th style="text-align:center">同模块</th>
-<th style="text-align:center">子类</th>
-<th style="text-align:center"><strong>其他</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">public（公开，默认）</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:center">internal（模块）</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">protected（受保护）</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">private（私有）</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="java-访问控制修饰符"> Java 访问控制修饰符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><strong>修饰符</strong></th>
-<th style="text-align:center"><strong>同类</strong></th>
-<th style="text-align:center">同包</th>
-<th style="text-align:center">子类</th>
-<th style="text-align:center">不同包</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">public（公开）</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:center">protected（受保护）</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">没有修饰符（默认）</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-<tr>
-<td style="text-align:center">private（私有）</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="单例-例子"> 单例 例子</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Single private constructor() {</span><br><span class="line">    companion object {</span><br><span class="line">        fun get(): Single {</span><br><span class="line">        return Holder.instance</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    private object Holder {</span><br><span class="line">        val instance = Single()</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="kotlin-封闭类枚举类"> kotlin 封闭类（枚举类）</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">sealed class SuperCommand {</span><br><span class="line">    object A : SuperCommand()</span><br><span class="line">    object B : SuperCommand()</span><br><span class="line">    object C : SuperCommand()</span><br><span class="line">    object D : SuperCommand()</span><br><span class="line">    class E(var name: String) : SuperCommand()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">fun exec(superCommand: SuperCommand) =</span><br><span class="line">    when (superCommand) {</span><br><span class="line">        SuperCommand.A -&gt; {</span><br><span class="line">        }</span><br><span class="line">        SuperCommand.B -&gt; {</span><br><span class="line">        }</span><br><span class="line">        SuperCommand.C -&gt; {</span><br><span class="line">        }</span><br><span class="line">        SuperCommand.D -&gt; {</span><br><span class="line">        }</span><br><span class="line">        is SuperCommand.E -&gt; {</span><br><span class="line">            </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h1><span id="里氏替换原则"> 里氏替换原则</span></h1>
+<ol>
+<li>
+<p>如果对每一个类型为S的对象o1，都有类型为T的对象o2，使得以T定义的所有程序P在所有的对象o1都代换成o2时，程序P的行为没有发生变化，那么类型S是类型T的子类型。</p>
+</li>
+<li>
+<p>所有引用基类的地方必须能透明地使用其子类的对象 （只要有父类出现的地方，都可以用子类来替代）</p>
+</li>
+</ol>
+<p>子类对象（object of subtype/derived class）能够替换程序（program）中父类对象（object of base/parent class）出现的任何地方，并且保证原来程序的逻辑行为（behavior）不变及正确性不被破坏。</p>
+<p>父类定义了函数的“约定”（或者叫协议），那子类可以改变函数的内部实现逻辑，但不能改变函数原有的“约定”。这里的约定包括：函数声明要实现的功能；对输入、输出、异常的约定；甚至包括注释中所罗列的任何特殊说明。</p>
+<h2><span id="优势"> 优势</span></h2>
+<ol>
+<li>代码共享，减少创建类的工作量，每个子类都拥有父类的方法和属性；</li>
+<li>提高代码的重用性；</li>
+<li>子类可以形似父类，但又异于父类，“龙生龙，凤生凤，老鼠生来会打洞”是说子拥有父的“种”，“世界上没有两片完全相同的叶子”是指明子与父的不同；</li>
+<li>提高代码的可扩展性，实现父类的方法就可以“为所欲为”了，君不见很多开源框架的扩展接口都是通过继承父类来完成的；</li>
+<li>提高产品或项目的开放性。</li>
+</ol>
+<h2><span id="缺点"> 缺点</span></h2>
+<ol>
+<li>继承是侵入性的。只要继承，就必须拥有父类的所有属性和方法；</li>
+<li>降低代码的灵活性。子类必须拥有父类的属性和方法，让子类自由的世界中多了些约束；</li>
+<li>增强了耦合性。当父类的常量、变量和方法被修改时，需要考虑子类的修改，而且在缺乏规范的环境下，这种修改可能带来非常糟糕的结果————大段的代码需要重构。</li>
+</ol>
+<h2><span id="例子"> 例子</span></h2>
+<ul>
+<li>使用了里氏替换原则，将更基础的方法funcBase()提取出来，然后将A类和B类继承这个更基础的Base类，采用依赖、聚合或耦合的方式来减少父类和子类的耦合</li>
+</ul>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    <span class="keyword">val</span> a = A()</span><br><span class="line">    println(<span class="string">"1 - 8 = <span class="subst">${a.func1(<span class="number">1</span>,<span class="number">8</span>)}</span>"</span>)</span><br><span class="line">    println(<span class="string">"----------------------------------------"</span>)</span><br><span class="line">    <span class="keyword">val</span> b = B()</span><br><span class="line">    println(<span class="string">"2 + 8 = <span class="subst">${b.func1(<span class="number">2</span>,<span class="number">8</span>)}</span>"</span>)</span><br><span class="line">    println(<span class="string">"1 + 8 + 9 = <span class="subst">${b.func2(<span class="number">1</span>,<span class="number">8</span>)}</span>"</span>)</span><br><span class="line">    println(<span class="string">"3 - 8 = <span class="subst">${b.func3(<span class="number">3</span>,<span class="number">8</span>)}</span>"</span>)</span><br><span class="line">    println(<span class="string">"----------------------------------------"</span>)</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">funcBase</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> {</span><br><span class="line">        <span class="comment">//两个数的积</span></span><br><span class="line">        <span class="keyword">return</span> num1 * num2</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> : <span class="type">Base</span></span>() {</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">func1</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> {</span><br><span class="line">        <span class="comment">// 两个数的差</span></span><br><span class="line">        <span class="keyword">return</span> num1 - num2</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> : <span class="type">Base</span></span>() {</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> a: A = A()</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">func1</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> {</span><br><span class="line">        <span class="comment">//两个数相加</span></span><br><span class="line">        <span class="keyword">return</span> num1 + num2</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">func2</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> {</span><br><span class="line">        <span class="comment">//两个数相加，然后和 9求和</span></span><br><span class="line">        <span class="keyword">return</span> func1(num1, num2) + <span class="number">9</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">func3</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> {</span><br><span class="line">        <span class="comment">//使用A的方法</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a.func1(num1, num2)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
       
     </div>
@@ -748,7 +568,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Divider/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/15/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -762,7 +582,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Divider/" class="post-title-link" itemprop="url">Jetpack Compose学习  Divider</a>
+            <a href="/2021/06/15/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">单一职责原则</a>
         </h2>
 
         <div class="post-meta">
@@ -771,10 +591,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-27 15:29:42 / 修改时间：15:29:48" itemprop="dateCreated datePublished" datetime="2021-05-27T15:29:42+08:00">2021-05-27</time>
+              <time title="创建时间：2021-06-15 15:30:53" itemprop="dateCreated datePublished" datetime="2021-06-15T15:30:53+08:00">2021-06-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-16 14:04:58" itemprop="dateModified" datetime="2021-06-16T14:04:58+08:00">2021-06-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -782,10 +608,6 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
                 </span>
             </span>
 
@@ -800,9 +622,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-divider-分割线"> Jetpack Compose学习 -------- Divider 分割线</span></h2>
-<h3><span id="divider-分割线-基本使用"> Divider 分割线 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Column(Modifier.fillMaxWidth()) {</span><br><span class="line">        Text(<span class="string">"Hello Word Hello Word Hello Word"</span>)</span><br><span class="line">        <span class="comment">//分割线</span></span><br><span class="line">        Divider(</span><br><span class="line">            <span class="comment">//颜色</span></span><br><span class="line">            color = Color.Blue,</span><br><span class="line">            <span class="comment">//线的高度</span></span><br><span class="line">            thickness = <span class="number">1.</span>dp,</span><br><span class="line">            <span class="comment">//距离开始的间距</span></span><br><span class="line">            startIndent = <span class="number">10.</span>dp</span><br><span class="line">        )</span><br><span class="line">        Text(<span class="string">"Hello Word"</span>)</span><br><span class="line">        <span class="comment">//分割线</span></span><br><span class="line">        Divider(</span><br><span class="line">            Modifier</span><br><span class="line">                .fillMaxWidth()</span><br><span class="line">                .height(<span class="number">1.</span>dp)</span><br><span class="line">                .padding(start = <span class="number">10.</span>dp, end = <span class="number">10.</span>dp),</span><br><span class="line">            <span class="comment">//颜色</span></span><br><span class="line">            color = Color.Green,</span><br><span class="line">        )</span><br><span class="line">        Text(<span class="string">"Hello Word Hello Word"</span>)</span><br><span class="line">        Text(<span class="string">"Hello Word Hello Word Hello Word"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h1><span id="单一职责原则"> 单一职责原则</span></h1>
+<p>一个类只负责完成一个职责或者功能。不要设计大而全的类，要设计粒度小、功能单一的类。单一职责原则是为了实现代码高内聚、低耦合，提高代码的复用性、可读性、可维护性。</p>
+<h2><span id="如何判断类的职责是否足够单一"> 如何判断类的职责是否足够单一？</span></h2>
+<p>不同的应用场景、不同阶段的需求背景、不同的业务层面，对同一个类的职责是否单一，可能会有不同的判定结果。实际上，一些侧面的判断指标更具有指导意义和可执行性，比如，出现下面这些情况就有可能说明这类的设计不满足单一职责原则：</p>
+<ul>
+<li>类中的代码行数、函数或者属性过多；</li>
+<li>类依赖的其他类过多，或者依赖类的其他类过多；</li>
+<li>私有方法过多；</li>
+<li>比较难给类起一个合适的名字；</li>
+<li>类中大量的方法都是集中操作类中的某几个属性。</li>
+</ul>
+<h2><span id="优势"> 优势</span></h2>
+<ol>
+<li>类的复杂性降低，实现什么职责都有清晰明确的定义</li>
+<li>可读性提高，复杂性降低，那当然可读性提高了</li>
+<li>可维护性提高，可读性提高，那当然更容易维护了</li>
+<li>变更引起的风险降低，变更是必不可少的，如果接口的单一职责做得好，一个接口修改只对相应的实现类有影响，对其他的接口无影响，这对系统的扩展性、维护性都有非常大的帮助</li>
+</ol>
+<h2><span id="总结"> 总结</span></h2>
+<p>单一职责原则通过避免设计大而全的类，避免将不相关的功能耦合在一起，来提高类的内聚性。同时，类职责单一，类依赖的和被依赖的其他类也会变少，减少了代码的耦合性，以此来实现代码的高内聚、低耦合。但是，如果拆分得过细，实际上会适得其反，反倒会降低内聚性，也会影响代码的可维护性。</p>
+<h2><span id="例子"> 例子</span></h2>
+<ul>
+<li>假设我们要做一个用户修改名字以及修改密码的功能</li>
+</ul>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserModifyImpl</span> : <span class="type">UserModify {</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">modifyUserPassword</span><span class="params">(user: <span class="type">User</span>, password: <span class="type">String</span>)</span></span> {</span><br><span class="line">        user.password = password</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">modifyUserName</span><span class="params">(user: <span class="type">User</span>, name: <span class="type">String</span>)</span></span> {</span><br><span class="line">        user.name = name</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">UserModify</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 修改用户密码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">modifyUserPassword</span><span class="params">(user: <span class="type">User</span>, password: <span class="type">String</span>)</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 修改用户名称</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">modifyUserName</span><span class="params">(user: <span class="type">User</span>, name: <span class="type">String</span>)</span></span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(</span><br><span class="line">    <span class="keyword">var</span> password: String,</span><br><span class="line">    <span class="keyword">var</span> name: String,</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>假设我们让小明去倒垃圾，小红去买菜，小红回来后再叫小红去洗碗</li>
+</ul>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XiaoMing</span> : <span class="type">TakeOutTheTrash {</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">doPourGarbage</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"小明 倒垃圾"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XiaoHong</span> : <span class="type">GroceryShopping</span>, <span class="type">WashingUp {</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">doShopping</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"小红 买菜"</span>)</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">doWashingUp</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"小红 洗碗"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">GroceryShopping</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 买菜</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doShopping</span><span class="params">()</span></span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TakeOutTheTrash</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 倒垃圾</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doPourGarbage</span><span class="params">()</span></span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">WashingUp</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 洗碗</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doWashingUp</span><span class="params">()</span></span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>我们要实现一个用户注册、登录、注销操作</li>
+</ul>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户注册</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserRegister</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doRegister</span><span class="params">(user: <span class="type">User</span>)</span></span>{}</span><br><span class="line">}</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户登录</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserLogin</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doLogin</span><span class="params">(user: <span class="type">User</span>)</span></span>{}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户注销登录</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserLogout</span></span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doLogout</span><span class="params">(user: <span class="type">User</span>)</span></span>{}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(</span><br><span class="line">    <span class="keyword">var</span> password: String,</span><br><span class="line">    <span class="keyword">var</span> name: String,</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+
       
     </div>
 
@@ -820,7 +673,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -888,7 +741,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -901,7 +754,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Scaffold/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/28/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Jave%20%E4%B8%8E%20Kotlin%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -198,7 +198,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Scaffold/" class="post-title-link" itemprop="url">Jetpack Compose学习  Scaffold</a>
+            <a href="/2021/05/28/kotlin/kotlin%E5%AD%A6%E4%B9%A0-Jave%20%E4%B8%8E%20Kotlin%20%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">kotlin学习 -  Jave 与 Kotlin 注意事项</a>
         </h2>
 
         <div class="post-meta">
@@ -207,21 +207,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-05-26 16:26:25 / 修改时间：16:54:55" itemprop="dateCreated datePublished" datetime="2021-05-26T16:26:25+08:00">2021-05-26</time>
+              <time title="创建时间：2021-05-28 20:27:47" itemprop="dateCreated datePublished" datetime="2021-05-28T20:27:47+08:00">2021-05-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-03 09:03:04" itemprop="dateModified" datetime="2021-06-03T09:03:04+08:00">2021-06-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
                 </span>
             </span>
 
@@ -236,9 +238,121 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-scaffold"> Jetpack Compose学习 -------- Scaffold</span></h2>
-<h3><span id="scaffold-基本使用"> Scaffold 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ScaffoldDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> materialBlue700 = Color(<span class="number">0xFF1976D2</span>)</span><br><span class="line">    <span class="comment">//设置抽屉的打开状态</span></span><br><span class="line">    <span class="keyword">val</span> scaffoldState = rememberScaffoldState(</span><br><span class="line">        rememberDrawerState(initialValue = DrawerValue.Closed)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">val</span> scope = rememberCoroutineScope()</span><br><span class="line">    Scaffold(</span><br><span class="line">        scaffoldState = scaffoldState,</span><br><span class="line">        <span class="comment">//顶部导航栏</span></span><br><span class="line">        topBar = {</span><br><span class="line">            TopAppBar(</span><br><span class="line">                title = {</span><br><span class="line">                    Text(text = <span class="string">"标题"</span>)</span><br><span class="line">                },</span><br><span class="line">                backgroundColor = materialBlue700,</span><br><span class="line">            )</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//悬浮按钮</span></span><br><span class="line">        floatingActionButton = {</span><br><span class="line">            FloatingActionButton(onClick = {</span><br><span class="line">                scope.launch {</span><br><span class="line">                    <span class="keyword">if</span> (scaffoldState.drawerState.isClosed) {</span><br><span class="line">                        scaffoldState.drawerState.<span class="keyword">open</span>()</span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        scaffoldState.drawerState.close()</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }) {</span><br><span class="line">                Text(<span class="string">"X"</span>)</span><br><span class="line">            }</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//悬浮按钮的位置</span></span><br><span class="line">        floatingActionButtonPosition = FabPosition.End,</span><br><span class="line">        <span class="comment">//抽屉内容</span></span><br><span class="line">        drawerContent = {</span><br><span class="line">            Text(text = <span class="string">"drawerContent"</span>)</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//内容</span></span><br><span class="line">        content = {</span><br><span class="line">            Text(<span class="string">"BodyContent"</span>)</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//底部导航栏</span></span><br><span class="line">        bottomBar = {</span><br><span class="line">            BottomAppBar(</span><br><span class="line">                backgroundColor = materialBlue700</span><br><span class="line">            ) {</span><br><span class="line">                Text(text = <span class="string">"BottomAppBar"</span>)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h1><span id="kotlin学习-jave-与-kotlin-注意事项"> kotlin学习 -  Jave 与 Kotlin 注意事项</span></h1>
+<h2><span id="java中使用kotlin的顶层方法"> java中使用kotlin的顶层方法</span></h2>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Test.kt</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">echo</span><span class="params">(name: <span class="type">String</span>)</span></span> {</span><br><span class="line">    System.<span class="keyword">out</span>.println(name)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Test.java</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">//java 中使用 kotlin文件中的方法，默认写法是 xxKt.echo("hello")</span></span><br><span class="line">        TestKt.echo(<span class="string">"hello"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="java中使用kotlin的方法-自定义-kt-文件类名"> java中使用kotlin的方法 ( 自定义 kt 文件类名 )</span></h2>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Test.kt</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//自定义编译后生成的文件名</span></span><br><span class="line"><span class="meta">@file:JvmName</span>(<span class="string">"TestDemoCode"</span>)</span><br><span class="line"><span class="comment">//编译后会强制性的把多个文件内容合并在一起</span></span><br><span class="line"><span class="meta">@file:JvmMultifileClass</span></span><br><span class="line"><span class="keyword">package</span> com.jetpack.compose.demo.test</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">echo</span><span class="params">(name: <span class="type">String</span>)</span></span> {</span><br><span class="line">    System.<span class="keyword">out</span>.println(name)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//Test.java</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        TestDemoCode.echo(<span class="string">"hello"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="java文件-kotlin文件-中的-class-使用"> java文件 kotlin文件 中的 class 使用</span></h2>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="comment">// TestDemoJave.java</span></span><br><span class="line">    testClass(TestDemoJave::<span class="keyword">class</span>.java)</span><br><span class="line">    testKClass(TestDemoJave::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line">    <span class="comment">// TestDemoKotlin.java</span></span><br><span class="line">    testKotlinClass(TestDemoKotlin::<span class="class"><span class="keyword">class</span>)</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">testClass</span><span class="params">(clazz: <span class="type">Class</span>&lt;<span class="type">TestDemoJave</span>&gt;)</span></span> {</span><br><span class="line">    println(clazz.simpleName)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">testKClass</span><span class="params">(clazz: <span class="type">KClass</span>&lt;<span class="type">TestDemoJave</span>&gt;)</span></span> {</span><br><span class="line">    println(clazz.simpleName)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">testKotlinClass</span><span class="params">(clazz: <span class="type">KClass</span>&lt;<span class="type">TestDemoKotlin</span>&gt;)</span></span> {</span><br><span class="line">    println(clazz.simpleName)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="kotlin-没有静态变量与-静态方法"> Kotlin 没有静态变量与 静态方法</span></h2>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TestDemoKotlin.kt</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">object</span> TestDemoKotlin {</span><br><span class="line">    <span class="meta">@JvmStatic</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">sayMessageStatic</span><span class="params">(msg: <span class="type">String</span>)</span></span> {</span><br><span class="line">        println(msg)</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">sayMessage</span><span class="params">(msg: <span class="type">String</span>)</span></span> {</span><br><span class="line">        println(msg)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TestDemoJave.java</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDemoJave</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{</span><br><span class="line">        <span class="comment">//静态方法</span></span><br><span class="line">        TestDemoKotlin.sayMessageStatic(<span class="string">"hello"</span>);</span><br><span class="line"></span><br><span class="line">        TestDemoKotlin.INSTANCE.sayMessage(<span class="string">"hello"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="函数嵌套"> 函数嵌套</span></h2>
+<pre><code>用途 :  在某些条件下触发递归的函数，不希望被外部函数访问到的函数
+</code></pre>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">function</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> str = <span class="string">"hello world"</span></span><br><span class="line">    <span class="comment">//函数嵌套</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">say</span><span class="params">(count: <span class="type">Int</span> = <span class="number">10</span>)</span></span> {</span><br><span class="line">        println(str)</span><br><span class="line">        <span class="keyword">if</span> (count &gt; <span class="number">0</span>) {</span><br><span class="line">            say(count - <span class="number">1</span>)</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    say()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="在java中使用kotlin中的扩展函数"> 在Java中使用Kotlin中的扩展函数</span></h2>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TestDemoKotlin.kt</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> String?.<span class="title">isNoEmpty</span><span class="params">()</span></span>: <span class="built_in">Boolean</span> {</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span> != <span class="literal">null</span> &amp;&amp; <span class="keyword">this</span>.length &gt; <span class="number">0</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TestDemoJave.java</span></span><br><span class="line"></span><br><span class="line">String str = <span class="string">"hello word"</span>;</span><br><span class="line"><span class="comment">//使用kotlin中的扩展函数 （第一个参数 必须是 扩展类的对象）</span></span><br><span class="line"><span class="comment">// xxKt.isNoEmpty(str)</span></span><br><span class="line">TestDemoKotlinKt.isNoEmpty(str);</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="lambda-在-kotlin-中-最多只支持22个参数function22"> lambda 在 kotlin 中 最多只支持22个参数（Function22）</span></h2>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* Function23.java</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> kotlin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Function23</span>&lt;<span class="title">P1</span>, <span class="title">P2</span>, <span class="title">P3</span>, <span class="title">P4</span>, <span class="title">P5</span>, <span class="title">P6</span>, <span class="title">P7</span>, <span class="title">P8</span>, <span class="title">P9</span>, <span class="title">P10</span>, <span class="title">P11</span>, <span class="title">P12</span>, <span class="title">P13</span>, <span class="title">P14</span>, <span class="title">P15</span>, <span class="title">P16</span>, <span class="title">P17</span>, <span class="title">P18</span>, <span class="title">P19</span>, <span class="title">P20</span>, <span class="title">P21</span>, <span class="title">P22</span>, <span class="title">P23</span>, <span class="title">R</span>&gt; <span class="keyword">extends</span> <span class="title">Function</span>&lt;<span class="title">R</span>&gt; </span>{</span><br><span class="line">    <span class="function">R <span class="title">invoke</span><span class="params">(P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, P12 p12, P13 p13, P14 p14, P15 p15, P16 p16, P17 p17, P18 p18, P19 p19, P20 p20, P21 p21, P22 p22, P23 p23)</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">val</span> lambdaA = { a: <span class="built_in">Int</span>, b: <span class="built_in">Int</span>, c: <span class="built_in">Int</span>, d: <span class="built_in">Int</span>, e: <span class="built_in">Int</span>, f: <span class="built_in">Int</span>, g: <span class="built_in">Int</span>, h: <span class="built_in">Int</span>,i: <span class="built_in">Int</span>, j: <span class="built_in">Int</span>, k: <span class="built_in">Int</span>, l: <span class="built_in">Int</span>, m: <span class="built_in">Int</span>, n: <span class="built_in">Int</span>, o: <span class="built_in">Int</span>, p: <span class="built_in">Int</span>, q: <span class="built_in">Int</span>, r: <span class="built_in">Int</span>, s: <span class="built_in">Int</span>, t: <span class="built_in">Int</span>, u: <span class="built_in">Int</span>, v: <span class="built_in">Int</span>, w: <span class="built_in">Int</span> -&gt;</span><br><span class="line">    println(<span class="string">"zhang tao"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line"><span class="comment">//    print("hello")</span></span><br><span class="line">    lambdaA(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="inline-将内联函数的函数体复制到调用处实现内联-内联可能导致生成的代码增加"> inline  将内联函数的函数体复制到调用处实现内联 ( 内联可能导致生成的代码增加 )</span></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inline fun &lt;T&gt; lock(lock: Lock, body: () -&gt; T): T { …… }</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="noinline-标记不希望内联的函数参数"> noinline 标记不希望内联的函数参数</span></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inline fun foo(inlined: () -&gt; Unit, noinline notInlined: () -&gt; Unit) { …… }</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="kotlin-可见性修饰符"> Kotlin 可见性修饰符</span></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>修饰符</strong></th>
+<th style="text-align:center"><strong>同类</strong></th>
+<th style="text-align:center">同模块</th>
+<th style="text-align:center">子类</th>
+<th style="text-align:center"><strong>其他</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">public（公开，默认）</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center">internal（模块）</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">protected（受保护）</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">private（私有）</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="java-访问控制修饰符"> Java 访问控制修饰符</span></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>修饰符</strong></th>
+<th style="text-align:center"><strong>同类</strong></th>
+<th style="text-align:center">同包</th>
+<th style="text-align:center">子类</th>
+<th style="text-align:center">不同包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">public（公开）</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center">protected（受保护）</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">没有修饰符（默认）</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+<tr>
+<td style="text-align:center">private（私有）</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="单例-例子"> 单例 例子</span></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Single private constructor() {</span><br><span class="line">    companion object {</span><br><span class="line">        fun get(): Single {</span><br><span class="line">        return Holder.instance</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    private object Holder {</span><br><span class="line">        val instance = Single()</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2><span id="kotlin-封闭类枚举类"> kotlin 封闭类（枚举类）</span></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">sealed class SuperCommand {</span><br><span class="line">    object A : SuperCommand()</span><br><span class="line">    object B : SuperCommand()</span><br><span class="line">    object C : SuperCommand()</span><br><span class="line">    object D : SuperCommand()</span><br><span class="line">    class E(var name: String) : SuperCommand()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">fun exec(superCommand: SuperCommand) =</span><br><span class="line">    when (superCommand) {</span><br><span class="line">        SuperCommand.A -&gt; {</span><br><span class="line">        }</span><br><span class="line">        SuperCommand.B -&gt; {</span><br><span class="line">        }</span><br><span class="line">        SuperCommand.C -&gt; {</span><br><span class="line">        }</span><br><span class="line">        SuperCommand.D -&gt; {</span><br><span class="line">        }</span><br><span class="line">        is SuperCommand.E -&gt; {</span><br><span class="line">            </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
       
     </div>
 
@@ -257,7 +371,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Slider/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Divider/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -271,7 +385,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Slider/" class="post-title-link" itemprop="url">Jetpack Compose学习  Slider</a>
+            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Divider/" class="post-title-link" itemprop="url">Jetpack Compose学习  Divider</a>
         </h2>
 
         <div class="post-meta">
@@ -282,7 +396,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-26 15:37:22 / 修改时间：17:59:16" itemprop="dateCreated datePublished" datetime="2021-05-26T15:37:22+08:00">2021-05-26</time>
+              <time title="创建时间：2021-05-27 15:29:42 / 修改时间：15:29:48" itemprop="dateCreated datePublished" datetime="2021-05-27T15:29:42+08:00">2021-05-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -309,10 +423,85 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-slider-拖动条"> Jetpack Compose学习 -------- Slider 拖动条</span></h2>
-<h3><span id="slider-拖动条-基本使用"> Slider 拖动条 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">SliderDemo</span><span class="params">()</span></span> {</span><br><span class="line">    Column(Modifier.padding(<span class="number">10.</span>dp)) {</span><br><span class="line">        <span class="keyword">val</span> sliderPosition = remember {</span><br><span class="line">            mutableStateOf(<span class="number">0f</span>)</span><br><span class="line">        }</span><br><span class="line">        Slider(value = sliderPosition.value, onValueChange = {</span><br><span class="line">            sliderPosition.value = it</span><br><span class="line">        })</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">5.</span>dp))</span><br><span class="line">        Text(<span class="string">"当前进度: <span class="subst">${sliderPosition.value.toString()}</span>"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">       <span class="keyword">val</span> sliderPosition = remember {</span><br><span class="line">           mutableStateOf(<span class="number">0f</span>)</span><br><span class="line">       }</span><br><span class="line">       Slider(</span><br><span class="line">           value = sliderPosition.value,</span><br><span class="line">           colors = SliderDefaults.colors(</span><br><span class="line">               <span class="comment">//圆圈的颜色</span></span><br><span class="line">               thumbColor = Color.White,</span><br><span class="line">               <span class="comment">//滑条颜色 (注 : 滑条默认颜色:inactiveTrackColor  默认是 与 activeTrackColor 一样 设置了 0.24f 透明度)</span></span><br><span class="line">               activeTrackColor = Color(<span class="number">0xFF0079D3</span>)</span><br><span class="line">           ),</span><br><span class="line">           onValueChange = {</span><br><span class="line">               sliderPosition.value = it</span><br><span class="line">           }</span><br><span class="line">       )</span><br><span class="line">   }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h2><span id="jetpack-compose学习-divider-分割线"> Jetpack Compose学习 -------- Divider 分割线</span></h2>
+<h3><span id="divider-分割线-基本使用"> Divider 分割线 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Column(Modifier.fillMaxWidth()) {</span><br><span class="line">        Text(<span class="string">"Hello Word Hello Word Hello Word"</span>)</span><br><span class="line">        <span class="comment">//分割线</span></span><br><span class="line">        Divider(</span><br><span class="line">            <span class="comment">//颜色</span></span><br><span class="line">            color = Color.Blue,</span><br><span class="line">            <span class="comment">//线的高度</span></span><br><span class="line">            thickness = <span class="number">1.</span>dp,</span><br><span class="line">            <span class="comment">//距离开始的间距</span></span><br><span class="line">            startIndent = <span class="number">10.</span>dp</span><br><span class="line">        )</span><br><span class="line">        Text(<span class="string">"Hello Word"</span>)</span><br><span class="line">        <span class="comment">//分割线</span></span><br><span class="line">        Divider(</span><br><span class="line">            Modifier</span><br><span class="line">                .fillMaxWidth()</span><br><span class="line">                .height(<span class="number">1.</span>dp)</span><br><span class="line">                .padding(start = <span class="number">10.</span>dp, end = <span class="number">10.</span>dp),</span><br><span class="line">            <span class="comment">//颜色</span></span><br><span class="line">            color = Color.Green,</span><br><span class="line">        )</span><br><span class="line">        Text(<span class="string">"Hello Word Hello Word"</span>)</span><br><span class="line">        Text(<span class="string">"Hello Word Hello Word Hello Word"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20AnimationVisibility/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20AnimationVisibility/" class="post-title-link" itemprop="url">Jetpack Compose学习  AnimationVisibility</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-27 14:51:03 / 修改时间：14:51:05" itemprop="dateCreated datePublished" datetime="2021-05-27T14:51:03+08:00">2021-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-animationvisibility"> Jetpack Compose学习 -------- AnimationVisibility</span></h2>
+<h3><span id="animationvisibility-动画-可见-基础用法"> AnimationVisibility 动画 可见 基础用法</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalAnimationApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> state <span class="keyword">by</span> remember {</span><br><span class="line">        mutableStateOf(<span class="literal">true</span>)</span><br><span class="line">    }</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxSize(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally,</span><br><span class="line">        verticalArrangement = Arrangement.Center</span><br><span class="line">    ) {</span><br><span class="line">        AnimatedVisibility(visible = state) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="string">"这是一个普通的正文"</span>,</span><br><span class="line">                fontWeight = FontWeight.W900,</span><br><span class="line">                style = MaterialTheme.typography.h5</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">50.</span>dp))</span><br><span class="line">        Button(onClick = { state = !state }) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="keyword">if</span> (state) {</span><br><span class="line">                    <span class="string">"隐藏"</span></span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="string">"显示"</span></span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="进场动画"> 进场动画</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalAnimationApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> state <span class="keyword">by</span> remember { mutableStateOf(<span class="literal">true</span>) }</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxSize(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally,</span><br><span class="line">        verticalArrangement = Arrangement.Center</span><br><span class="line">    ) {</span><br><span class="line">        AnimatedVisibility(</span><br><span class="line">            visible = state,</span><br><span class="line">            enter = slideInVertically(</span><br><span class="line">                <span class="comment">//初始位置 Y轴</span></span><br><span class="line">                initialOffsetY = { -<span class="number">1000</span> },</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    <span class="comment">//动画持续时间</span></span><br><span class="line">                    durationMillis = <span class="number">1200</span></span><br><span class="line">                )</span><br><span class="line">            )</span><br><span class="line">        ) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="string">"这是一个普通的正文"</span>,</span><br><span class="line">                fontWeight = FontWeight.W900,</span><br><span class="line">                style = MaterialTheme.typography.h5</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">50.</span>dp))</span><br><span class="line">        Button(onClick = { state = !state }) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="keyword">if</span> (state) {</span><br><span class="line">                    <span class="string">"隐藏"</span></span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="string">"显示"</span></span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalAnimationApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> state <span class="keyword">by</span> remember { mutableStateOf(<span class="literal">true</span>) }</span><br><span class="line">    Column(</span><br><span class="line">        Modifier.fillMaxSize(),</span><br><span class="line">        horizontalAlignment = Alignment.CenterHorizontally,</span><br><span class="line">        verticalArrangement = Arrangement.Center</span><br><span class="line">    ) {</span><br><span class="line">        AnimatedVisibility(</span><br><span class="line">            visible = state,</span><br><span class="line">            <span class="comment">//垂直滑入</span></span><br><span class="line">            enter = slideInVertically(</span><br><span class="line">                <span class="comment">//初始位置 Y轴</span></span><br><span class="line">                initialOffsetY = { -<span class="number">1000</span> },</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    <span class="comment">//动画持续时间</span></span><br><span class="line">                    durationMillis = <span class="number">1200</span></span><br><span class="line">                )</span><br><span class="line">                <span class="comment">//淡入</span></span><br><span class="line">            ) + fadeIn(</span><br><span class="line">                animationSpec = tween(</span><br><span class="line">                    <span class="comment">//动画持续时间</span></span><br><span class="line">                    durationMillis = <span class="number">1200</span></span><br><span class="line">                )</span><br><span class="line">            )</span><br><span class="line">        ) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="string">"这是一个普通的正文"</span>,</span><br><span class="line">                fontWeight = FontWeight.W900,</span><br><span class="line">                style = MaterialTheme.typography.h5</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">        Spacer(modifier = Modifier.height(<span class="number">50.</span>dp))</span><br><span class="line">        Button(onClick = { state = !state }) {</span><br><span class="line">            Text(</span><br><span class="line">                text = <span class="keyword">if</span> (state) {</span><br><span class="line">                    <span class="string">"隐藏"</span></span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="string">"显示"</span></span><br><span class="line">                }</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
       
     </div>
@@ -332,7 +521,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Snackbar/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Swipeable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -346,7 +535,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Snackbar/" class="post-title-link" itemprop="url">Jetpack Compose学习  Snackbar</a>
+            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20Swipeable/" class="post-title-link" itemprop="url">Jetpack Compose学习  Swipeable</a>
         </h2>
 
         <div class="post-meta">
@@ -357,7 +546,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-26 15:28:38 / 修改时间：15:28:39" itemprop="dateCreated datePublished" datetime="2021-05-26T15:28:38+08:00">2021-05-26</time>
+              <time title="创建时间：2021-05-27 14:13:11 / 修改时间：14:13:14" itemprop="dateCreated datePublished" datetime="2021-05-27T14:13:11+08:00">2021-05-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -384,9 +573,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-snackbar"> Jetpack Compose学习 -------- Snackbar</span></h2>
-<h3><span id="snackbar-基本使用"> Snackbar 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">SnackbarDemo</span><span class="params">()</span></span> {</span><br><span class="line">    Column {</span><br><span class="line">        <span class="keyword">val</span> snackbarVisibilityState = remember {</span><br><span class="line">            mutableStateOf(<span class="literal">false</span>)</span><br><span class="line">        }</span><br><span class="line">        Button(</span><br><span class="line">            onClick = { snackbarVisibilityState.value = !snackbarVisibilityState.value }</span><br><span class="line">        ) {</span><br><span class="line">            <span class="keyword">if</span> (snackbarVisibilityState.value) {</span><br><span class="line">                Text(<span class="string">"隐藏 Snackbar"</span>)</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                Text(<span class="string">"显示 Snackbar"</span>)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (snackbarVisibilityState.value) {</span><br><span class="line">            Snackbar(</span><br><span class="line">                action = {</span><br><span class="line">                    Button(onClick = {}) {</span><br><span class="line">                        Text(text = <span class="string">"MyAction"</span>)</span><br><span class="line">                    }</span><br><span class="line">                },</span><br><span class="line">                modifier = Modifier.padding(<span class="number">10.</span>dp)</span><br><span class="line">            ) {</span><br><span class="line">                Text(<span class="string">"This is a snackbar!"</span>)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          <h2><span id="jetpack-compose学习-swipeable-滑动"> Jetpack Compose学习 -------- Swipeable 滑动</span></h2>
+<h3><span id="swipeable-滑动-基本使用"> Swipeable 滑动 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">var</span> blockSize = <span class="number">48.</span>dp</span><br><span class="line">    <span class="keyword">var</span> blockSizePx = with(LocalDensity.current) { blockSize.toPx() }</span><br><span class="line">    <span class="keyword">var</span> swipeableState = rememberSwipeableState(initialValue = Status.CLOSE)</span><br><span class="line">    <span class="keyword">var</span> anchors = mapOf(</span><br><span class="line">        <span class="number">0f</span> to Status.CLOSE,</span><br><span class="line">        blockSizePx to Status.OPEN</span><br><span class="line">    )</span><br><span class="line">    Box(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .size(</span><br><span class="line">                height = blockSize,</span><br><span class="line">                width = blockSize * <span class="number">2</span></span><br><span class="line">            )</span><br><span class="line">            .background(Color.LightGray)</span><br><span class="line">    ) {</span><br><span class="line">        Box(</span><br><span class="line">            modifier = Modifier</span><br><span class="line">                <span class="comment">//滑动</span></span><br><span class="line">                .swipeable(</span><br><span class="line">                    state = swipeableState,</span><br><span class="line">                    <span class="comment">//锚点，可以通过锚点设置在不同状态时所应该对应的偏移量信息</span></span><br><span class="line">                    anchors = anchors,</span><br><span class="line">                    <span class="comment">//常用作定制不同锚点间吸附效果的临界阈值</span></span><br><span class="line">                    <span class="comment">//常用有 FixedThreshold(Dp) 和 FractionalThreshold(Float)等</span></span><br><span class="line">                    thresholds = { from, to -&gt;</span><br><span class="line">                        <span class="keyword">if</span> (from == Status.CLOSE) {</span><br><span class="line">                            FractionalThreshold(<span class="number">0.3f</span>)</span><br><span class="line">                        } <span class="keyword">else</span> {</span><br><span class="line">                            FractionalThreshold(<span class="number">0.5f</span>)</span><br><span class="line">                        }</span><br><span class="line">                    },</span><br><span class="line">                    <span class="comment">//手势方向，被修饰组件的手势方向只能是水平或垂直</span></span><br><span class="line">                    orientation = Orientation.Horizontal,</span><br><span class="line">                )</span><br><span class="line">                <span class="comment">//移动</span></span><br><span class="line">                .offset {</span><br><span class="line">                    <span class="comment">//整体移动</span></span><br><span class="line">                    IntOffset(swipeableState.offset.value.toInt(), <span class="number">0</span>)</span><br><span class="line">                }</span><br><span class="line">                .size(blockSize)</span><br><span class="line">                .background(Color.DarkGray)</span><br><span class="line">        )</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Status</span> </span>{</span><br><span class="line">    CLOSE, OPEN</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
       
     </div>
 
@@ -405,7 +594,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20TopAppBar/">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20ModalBottomSheetLayout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -419,7 +608,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20TopAppBar/" class="post-title-link" itemprop="url">Jetpack Compose学习  TopAppBar</a>
+            <a href="/2021/05/27/Jetpack%20Compose/Jetpack%20Compose%20ModalBottomSheetLayout/" class="post-title-link" itemprop="url">Jetpack Compose学习  ModalBottomSheetLayout</a>
         </h2>
 
         <div class="post-meta">
@@ -430,7 +619,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-26 15:05:57 / 修改时间：15:06:00" itemprop="dateCreated datePublished" datetime="2021-05-26T15:05:57+08:00">2021-05-26</time>
+              <time title="创建时间：2021-05-27 11:13:12 / 修改时间：11:47:02" itemprop="dateCreated datePublished" datetime="2021-05-27T11:13:12+08:00">2021-05-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -457,82 +646,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2><span id="jetpack-compose学习-topappbar-标题"> Jetpack Compose学习 -------- TopAppBar 标题</span></h2>
-<h3><span id="topappbar-标题-基本使用"> TopAppBar 标题 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">TopAppBarSample</span><span class="params">()</span></span> {</span><br><span class="line">    Column {</span><br><span class="line">        TopAppBar(</span><br><span class="line">            elevation = <span class="number">4.</span>dp,</span><br><span class="line">            title = {</span><br><span class="line">                Text(<span class="string">"标题内容"</span>)</span><br><span class="line">            },</span><br><span class="line">            backgroundColor = MaterialTheme.colors.primarySurface,</span><br><span class="line">            navigationIcon = {</span><br><span class="line">                IconButton(onClick = { }) {</span><br><span class="line">                    Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = <span class="string">"返回"</span>)</span><br><span class="line">                }</span><br><span class="line">            },</span><br><span class="line">            actions = {</span><br><span class="line">                IconButton(onClick = {}) {</span><br><span class="line">                    Icon(imageVector = Icons.Filled.Share, contentDescription = <span class="string">"分享"</span>)</span><br><span class="line">                }</span><br><span class="line">                IconButton(onClick = {}) {</span><br><span class="line">                    Icon(imageVector = Icons.Filled.Settings, contentDescription = <span class="string">"设置"</span>)</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        )</span><br><span class="line">        Text(text = <span class="string">"Hello World"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
+          <h2><span id="jetpack-compose学习-modalbottomsheetlayout-底部弹出布局"> Jetpack Compose学习 -------- ModalBottomSheetLayout 底部弹出布局</span></h2>
+<h3><span id="modalbottomsheetlayout-底部弹出布局-基本使用"> ModalBottomSheetLayout 底部弹出布局 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ExperimentalMaterialApi</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> state = rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)</span><br><span class="line">    <span class="keyword">val</span> scope = rememberCoroutineScope()</span><br><span class="line">    ModalBottomSheetLayout(</span><br><span class="line">        sheetContent = {</span><br><span class="line">            Column {</span><br><span class="line">                ListItem(</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"选择分享到哪里吧~"</span>)</span><br><span class="line">                    }</span><br><span class="line">                )</span><br><span class="line">                ListItem(</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"github"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    icon = {</span><br><span class="line">                        Surface(</span><br><span class="line">                            shape = CircleShape,</span><br><span class="line">                            color = Color(<span class="number">0xFF181717</span>)</span><br><span class="line">                        ) {</span><br><span class="line">                            Icon(</span><br><span class="line">                                painterResource(id = R.drawable.ic_github),</span><br><span class="line">                                <span class="literal">null</span>,</span><br><span class="line">                                Modifier.padding(<span class="number">4.</span>dp),</span><br><span class="line">                                Color.White</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    }, modifier = Modifier.clickable { }</span><br><span class="line">                )</span><br><span class="line">                ListItem(</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"wechat"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    icon = {</span><br><span class="line">                        Surface(</span><br><span class="line">                            shape = CircleShape,</span><br><span class="line">                            color = Color(<span class="number">0xFF181717</span>)</span><br><span class="line">                        ) {</span><br><span class="line">                            Icon(</span><br><span class="line">                                painterResource(id = R.drawable.ic_wechat),</span><br><span class="line">                                <span class="literal">null</span>,</span><br><span class="line">                                Modifier.padding(<span class="number">4.</span>dp),</span><br><span class="line">                                Color.White</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    }, modifier = Modifier.clickable { }</span><br><span class="line">                )</span><br><span class="line">                ListItem(</span><br><span class="line">                    text = {</span><br><span class="line">                        Text(text = <span class="string">"twitter"</span>)</span><br><span class="line">                    },</span><br><span class="line">                    icon = {</span><br><span class="line">                        Surface(</span><br><span class="line">                            shape = CircleShape,</span><br><span class="line">                            color = Color(<span class="number">0xFF181717</span>)</span><br><span class="line">                        ) {</span><br><span class="line">                            Icon(</span><br><span class="line">                                painterResource(id = R.drawable.ic_twitter),</span><br><span class="line">                                <span class="literal">null</span>,</span><br><span class="line">                                Modifier.padding(<span class="number">4.</span>dp),</span><br><span class="line">                                Color.White</span><br><span class="line">                            )</span><br><span class="line">                        }</span><br><span class="line">                    }, modifier = Modifier.clickable { }</span><br><span class="line">                )</span><br><span class="line">            }</span><br><span class="line">        },</span><br><span class="line">        sheetState = state</span><br><span class="line">    ) {</span><br><span class="line">        Column(</span><br><span class="line">            Modifier</span><br><span class="line">                .fillMaxSize()</span><br><span class="line">                .padding(<span class="number">16.</span>dp),</span><br><span class="line">            horizontalAlignment = Alignment.CenterHorizontally</span><br><span class="line">        ) {</span><br><span class="line">            Button(onClick = {</span><br><span class="line">                scope.launch {</span><br><span class="line">                    state.show()</span><br><span class="line">                }</span><br><span class="line">            }) {</span><br><span class="line">                Text(text = <span class="string">"分享"</span>)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//返回键 处理  ModalBottomSheet 收回</span></span><br><span class="line">    BackHandler(</span><br><span class="line">        enabled = (state.currentValue == ModalBottomSheetValue.HalfExpanded ||</span><br><span class="line">                state.currentValue == ModalBottomSheetValue.Expanded),</span><br><span class="line">        onBack = {</span><br><span class="line">            scope.launch {</span><br><span class="line">                state.hide()</span><br><span class="line">            }</span><br><span class="line">        })</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="收回-modalbottomsheet"> 收回 ModalBottomSheet</span></h3>
+<p>一般情况下，ModalBottomSheet 无法自动处理按下返回键就收起，所以我们可以用 BackHandler 来处理<br>
+在 ModalBottomSheet 后添加代码:</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">BackHandler(</span><br><span class="line">    enabled = (state.currentValue == ModalBottomSheetValue.HalfExpanded</span><br><span class="line">            || state.currentValue == ModalBottomSheetValue.Expanded),</span><br><span class="line">    onBack = {</span><br><span class="line">        scope.launch{</span><br><span class="line">            state.hide()</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3><span id="设置动画时间"> 设置动画时间</span></h3>
+<p>ModalSheetLayout 默认用 state.show() 或者 state.hidden() 来弹出和收回<br>
+我们可以通过这样的方式来自定义动画时间:</p>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">state.animateTo(ModalBottomSheetValue.Hidden, tween(<span class="number">1000</span>))</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Switch/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Switch/" class="post-title-link" itemprop="url">Jetpack Compose学习  Switch</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-26 15:05:22 / 修改时间：15:05:23" itemprop="dateCreated datePublished" datetime="2021-05-26T15:05:22+08:00">2021-05-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2><span id="jetpack-compose学习-switch-开关"> Jetpack Compose学习 -------- Switch 开关</span></h2>
-<h3><span id="switch-开关-基本使用"> Switch 开关 基本使用</span></h3>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">SwitchSample</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> checkedState = remember {</span><br><span class="line">        mutableStateOf(<span class="literal">true</span>)</span><br><span class="line">    }</span><br><span class="line">    Switch(checked = checkedState.value,</span><br><span class="line">        onCheckedChange = {</span><br><span class="line">            checkedState.value = it</span><br><span class="line">        }</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
       
     </div>
 
@@ -550,7 +675,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -618,7 +743,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -631,7 +756,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
