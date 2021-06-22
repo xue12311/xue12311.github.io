@@ -184,6 +184,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/07/02/android/%E8%A7%86%E9%A2%91%E6%97%B6%E9%95%BF(Long)%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2(String)_Java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/02/android/%E8%A7%86%E9%A2%91%E6%97%B6%E9%95%BF(Long)%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2(String)_Java/" class="post-title-link" itemprop="url">视频时长(Long)转字符串(String)_Java</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-02 11:09:52 / 修改时间：11:13:03" itemprop="dateCreated datePublished" datetime="2020-07-02T11:09:52+08:00">2020-07-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3><span id="视频时长long转字符串string_java"> 视频时长(Long)转字符串(String)_Java</span></h3>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">   * 时长转字符</span><br><span class="line">   * @param mDuration 时长（毫秒）</span><br><span class="line">   * @param isMillisecond 是否需要毫秒，true:需要，false:不用</span><br><span class="line">   * @return </span><br><span class="line">   */</span><br><span class="line">  public static String getTimeDurationString(@NonNull Long mDuration, @NonNull Boolean isMillisecond) {</span><br><span class="line">      Long hours = 0L, minutes = 0L, seconds = 0L, millisecond = null;</span><br><span class="line">      if (isMillisecond) {</span><br><span class="line">          //毫秒</span><br><span class="line">          millisecond = mDuration % TimeConstants.SEC;</span><br><span class="line">      }</span><br><span class="line">      hours = mDuration / TimeConstants.HOUR;</span><br><span class="line">      minutes = (mDuration / TimeConstants.MIN)-(hours*60);</span><br><span class="line">      seconds = (mDuration / TimeConstants.SEC)-(minutes*60)-(hours*3600);</span><br><span class="line">      String str_duration = getTimeString(hours, minutes, seconds, millisecond);</span><br><span class="line">      return str_duration;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  private static String getTimeString(@NonNull Long hours, @NonNull Long minutes, @NonNull Long seconds, Long millisecond) {</span><br><span class="line">      if (millisecond != null) {</span><br><span class="line">          return String.format("%02d:%02d:%02d.%02d", hours, minutes, seconds, millisecond);</span><br><span class="line">      } else {</span><br><span class="line">          return String.format("%02d:%02d:%02d", hours, minutes, seconds);</span><br><span class="line">      }</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/06/29/ffmpeg/FFmpeg%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -926,85 +994,6 @@ expr1 ?? expr2</li>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/05/kotlin/kotlin%E7%BB%83%E4%B9%A0-KotlinfilterNotNull%20%E5%90%AB%E4%B9%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/05/kotlin/kotlin%E7%BB%83%E4%B9%A0-KotlinfilterNotNull%20%E5%90%AB%E4%B9%89/" class="post-title-link" itemprop="url">kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-01-05 16:57:36 / 修改时间：17:15:48" itemprop="dateCreated datePublished" datetime="2020-01-05T16:57:36+08:00">2020-01-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/kotlin/" itemprop="url" rel="index"><span itemprop="name">kotlin</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1><span id="kotlin练习-kotlin中的-filternotnull-含义"> kotlin练习 - Kotlin中的【  ?，?.，?:，!! ，filterNotNull 】含义</span></h1>
-<h2><span id="可空类型表示当前是否对象可以为空"> ?  可空类型，表示当前是否对象可以为空</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String ="123"</span><br><span class="line">a = null //编译报错</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a:String? ="123"</span><br><span class="line">a = null //编译通过</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="安全调用操作符"> ?.  安全调用操作符</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a:String? ="123"</span><br><span class="line">a = null //编译通过</span><br><span class="line">val length = a.length //编译报错 --- 变量"a"可能会为空</span><br><span class="line">val length = a?.length //编译通过 --- 如果 a 非空，就返回 a.length，否则返回 null</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="elvis-操作符"> ?:  Elvis 操作符</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? ="123"</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a?.length?:-1 // 当a不为空时，返回a.length，当a为空时，返回-1</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="操作符表示当前对象不为空的情况下执行为空就抛出异常"> !!  操作符，表示当前对象不为空的情况下执行，为空就抛出异常</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a:String? ="123"</span><br><span class="line">a = null //编译通过</span><br><span class="line">val lenght = a!!.length //如果a不为空，则返回a.length，如果b为空，则抛出异常 NullPointerException</span><br></pre></td></tr></tbody></table></figure>
-<h2><span id="filternotnull-过滤非空元素"> filterNotNull  过滤非空元素</span></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val nullableList: List&lt;Int?&gt; = listOf(1, 2, null, 4)</span><br><span class="line">val intList: List&lt;Int&gt; = nullableList.filterNotNull() </span><br><span class="line">println(intList.toString())//[1, 2, 4]</span><br></pre></td></tr></tbody></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1076,7 +1065,7 @@ expr1 ?? expr2</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
