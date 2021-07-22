@@ -74,9 +74,9 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="学胖子的个人博客" type="application/atom+xml">
 
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="学胖子的个人博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -180,6 +180,87 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Card/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Card/" class="post-title-link" itemprop="url">Jetpack Compose学习  Card</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-25 11:16:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:16:10+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-27 15:43:22" itemprop="dateModified" datetime="2021-05-27T15:43:22+08:00">2021-05-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-card"> Jetpack Compose学习 -------- Card</span></h2>
+<h3><span id="card-卡片-简单使用"> Card 卡片 简单使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">CardDemo</span><span class="params">()</span></span> {</span><br><span class="line">     Card(</span><br><span class="line">         modifier = Modifier.fillMaxWidth() ,</span><br><span class="line">         backgroundColor = Color.White,</span><br><span class="line">         elevation = <span class="number">10.</span>dp,</span><br><span class="line">     ) {</span><br><span class="line">         Text(text = <span class="string">"This is a Card Demo"</span>,Modifier.padding(<span class="number">10.</span>dp))</span><br><span class="line">     }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ComposableSample</span><span class="params">()</span></span> {</span><br><span class="line">    Card(</span><br><span class="line">        modifier = Modifier</span><br><span class="line">            .size(<span class="number">200.</span>dp)</span><br><span class="line">            .padding(<span class="number">10.</span>dp),</span><br><span class="line">        <span class="comment">//形状 圆角矩形</span></span><br><span class="line">        shape = RoundedCornerShape(<span class="number">8.</span>dp),</span><br><span class="line">        <span class="comment">//背景颜色</span></span><br><span class="line">        backgroundColor = Color.White,</span><br><span class="line">        <span class="comment">//内容的颜色</span></span><br><span class="line">        contentColor = Color.Black,</span><br><span class="line">        <span class="comment">//边框</span></span><br><span class="line">        border = BorderStroke(<span class="number">0.5</span>.dp, Color.Gray),</span><br><span class="line">        <span class="comment">//阴影</span></span><br><span class="line">        elevation = <span class="number">10.</span>dp</span><br><span class="line">    ) {</span><br><span class="line">        Column() {</span><br><span class="line">            Image(</span><br><span class="line">                painter = painterResource(id = R.mipmap.icon_header),</span><br><span class="line">                contentDescription = <span class="string">"图片描述"</span>,</span><br><span class="line">                contentScale = ContentScale.FillBounds</span><br><span class="line">            )</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Composable</span></span><br><span class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">CardDemo</span><span class="params">()</span></span> {</span><br><span class="line">       Card(</span><br><span class="line">           modifier = Modifier</span><br><span class="line">               .fillMaxWidth()</span><br><span class="line">               <span class="comment">// 外边距</span></span><br><span class="line">               .padding(<span class="number">15.</span>dp)</span><br><span class="line">               .clickable(</span><br><span class="line">                   <span class="comment">// 设置点击波纹效果，注意如果 CardDemo() 函数不在 ExamplesTheme() {} 下调用</span></span><br><span class="line">                   <span class="comment">// 将无法显示波纹效果</span></span><br><span class="line">                   onClick = {</span><br><span class="line">                       Log.d(<span class="string">"Clickable"</span>, <span class="string">" clicked."</span>)</span><br><span class="line">                   }),</span><br><span class="line">           backgroundColor = Color.White,</span><br><span class="line">           <span class="comment">// 设置阴影</span></span><br><span class="line">           elevation = <span class="number">10.</span>dp,</span><br><span class="line">       )</span><br><span class="line">       {</span><br><span class="line">           Column(</span><br><span class="line">               <span class="comment">// 内边距</span></span><br><span class="line">               Modifier.padding(<span class="number">15.</span>dp)</span><br><span class="line">           ) {</span><br><span class="line">               Text(buildAnnotatedString {</span><br><span class="line">                   append(<span class="string">"welcome to "</span>)</span><br><span class="line">                   withStyle(</span><br><span class="line">                       style = SpanStyle(</span><br><span class="line">                           color = Color(<span class="number">0xFF4552B8</span>),</span><br><span class="line">                           fontWeight = FontWeight.W900,</span><br><span class="line">                       )</span><br><span class="line">                   ) {</span><br><span class="line">                       append(<span class="string">"Jetpack Compose Playground"</span>)</span><br><span class="line">                   }</span><br><span class="line">               })</span><br><span class="line">               Text(buildAnnotatedString {</span><br><span class="line">                   append(<span class="string">"Now you are in the "</span>)</span><br><span class="line">                   withStyle(</span><br><span class="line">                       style = SpanStyle(</span><br><span class="line">                           fontWeight = FontWeight.W900,</span><br><span class="line">                       )</span><br><span class="line">                   ) {</span><br><span class="line">                       append(<span class="string">"Card"</span>)</span><br><span class="line">                   }</span><br><span class="line">                   append(<span class="string">" section"</span>)</span><br><span class="line">               })</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -546,78 +627,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/07/02/android/FileUtils%E5%B8%AE%E5%8A%A9%E7%B1%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/02/android/FileUtils%E5%B8%AE%E5%8A%A9%E7%B1%BB/" class="post-title-link" itemprop="url">FileUtils帮助类</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-02 11:14:49 / 修改时间：12:40:57" itemprop="dateCreated datePublished" datetime="2020-07-02T11:14:49+08:00">2020-07-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3><span id="fileutils帮助类"> FileUtils帮助类</span></h3>
-<p>在<a target="_blank" rel="noopener" href="https://github.com/Blankj/AndroidUtilCode">AndroidUtilCode</a>的基础下使用</p>
-<ul>
-<li>将assets文件夹中的内容写入本地</li>
-</ul>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 将assets文件夹中的内容写入本地</span><br><span class="line">  * @param dirName String 文件夹名称</span><br><span class="line">  * @param fileName String 文件名称及后缀名</span><br><span class="line">  * @return String?  SDCard/Android/data/应用包名/files/ 目录/文件</span><br><span class="line">  */</span><br><span class="line"> private suspend fun getExternalFilePath(dirName: String, fileName: String): String? =</span><br><span class="line">     withContext(Dispatchers.IO) {</span><br><span class="line">         //创建文件夹</span><br><span class="line">         val mFileDir = Utils.getApp().applicationContext.getExternalFilesDir(dirName)</span><br><span class="line">         if (mFileDir != null) {</span><br><span class="line">             //创建文件</span><br><span class="line">             val mFilePath: String = File(mFileDir, fileName).absolutePath</span><br><span class="line">             if (FileUtils.isFileExists(mFilePath)) {</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">                 //将assets文件夹中的内容写入本地</span><br><span class="line">             } else if (ResourceUtils.copyFileFromAssets(fileName, mFilePath)) {</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">             } else {</span><br><span class="line">                 return@withContext null</span><br><span class="line">             }</span><br><span class="line">         }</span><br><span class="line">         return@withContext null</span><br><span class="line">     }</span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -689,7 +698,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -702,7 +711,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

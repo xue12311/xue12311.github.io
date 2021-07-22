@@ -74,9 +74,9 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="学胖子的个人博客" type="application/atom+xml">
 
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="学胖子的个人博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -180,6 +180,78 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/07/02/android/FileUtils%E5%B8%AE%E5%8A%A9%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/02/android/FileUtils%E5%B8%AE%E5%8A%A9%E7%B1%BB/" class="post-title-link" itemprop="url">FileUtils帮助类</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-02 11:14:49 / 修改时间：12:40:57" itemprop="dateCreated datePublished" datetime="2020-07-02T11:14:49+08:00">2020-07-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3><span id="fileutils帮助类"> FileUtils帮助类</span></h3>
+<p>在<a target="_blank" rel="noopener" href="https://github.com/Blankj/AndroidUtilCode">AndroidUtilCode</a>的基础下使用</p>
+<ul>
+<li>将assets文件夹中的内容写入本地</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 将assets文件夹中的内容写入本地</span><br><span class="line">  * @param dirName String 文件夹名称</span><br><span class="line">  * @param fileName String 文件名称及后缀名</span><br><span class="line">  * @return String?  SDCard/Android/data/应用包名/files/ 目录/文件</span><br><span class="line">  */</span><br><span class="line"> private suspend fun getExternalFilePath(dirName: String, fileName: String): String? =</span><br><span class="line">     withContext(Dispatchers.IO) {</span><br><span class="line">         //创建文件夹</span><br><span class="line">         val mFileDir = Utils.getApp().applicationContext.getExternalFilesDir(dirName)</span><br><span class="line">         if (mFileDir != null) {</span><br><span class="line">             //创建文件</span><br><span class="line">             val mFilePath: String = File(mFileDir, fileName).absolutePath</span><br><span class="line">             if (FileUtils.isFileExists(mFilePath)) {</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">                 //将assets文件夹中的内容写入本地</span><br><span class="line">             } else if (ResourceUtils.copyFileFromAssets(fileName, mFilePath)) {</span><br><span class="line">                 return@withContext mFilePath</span><br><span class="line">             } else {</span><br><span class="line">                 return@withContext null</span><br><span class="line">             }</span><br><span class="line">         }</span><br><span class="line">         return@withContext null</span><br><span class="line">     }</span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -715,285 +787,6 @@ error - 异步计算接收的最新错误对象；</t></li>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/01/18/flutter/flutter%E7%BB%83%E4%B9%A0%20-Dart%E5%B8%B8%E8%A7%81%E8%BF%90%E7%AE%97%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/18/flutter/flutter%E7%BB%83%E4%B9%A0%20-Dart%E5%B8%B8%E8%A7%81%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">flutter练习 - Dart常见运算符</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-01-18 14:29:30 / 修改时间：19:04:08" itemprop="dateCreated datePublished" datetime="2020-01-18T14:29:30+08:00">2020-01-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flutter/" itemprop="url" rel="index"><span itemprop="name">flutter</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1><span id="flutter练习-dart常见运算符"> flutter练习 - Dart常见运算符</span></h1>
-<h2><span id="算数运算符"> 算数运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:center">加</td>
-</tr>
-<tr>
-<td style="text-align:center">-</td>
-<td style="text-align:center">减</td>
-</tr>
-<tr>
-<td style="text-align:center">- expr</td>
-<td style="text-align:center">一元减号(负号)   expr : 表达式的值</td>
-</tr>
-<tr>
-<td style="text-align:center">*</td>
-<td style="text-align:center">乘</td>
-</tr>
-<tr>
-<td style="text-align:center">/</td>
-<td style="text-align:center">除</td>
-</tr>
-<tr>
-<td style="text-align:center">~/</td>
-<td style="text-align:center">返回一个整数值的除法</td>
-</tr>
-<tr>
-<td style="text-align:center">%</td>
-<td style="text-align:center">取余数,除法剩下的余数</td>
-</tr>
-<tr>
-<td style="text-align:center">++var</td>
-<td style="text-align:center">var = var + 1 表达式的值为：var + 1</td>
-</tr>
-<tr>
-<td style="text-align:center">var++</td>
-<td style="text-align:center">var = var + 1 表达式的值为：var</td>
-</tr>
-<tr>
-<td style="text-align:center">–var</td>
-<td style="text-align:center">var = var - 1 表达式的值为：var - 1</td>
-</tr>
-<tr>
-<td style="text-align:center">var–</td>
-<td style="text-align:center">var =var - 1 表达式的值为：var</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="关系运算符"> 关系运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">==</td>
-<td style="text-align:center">等于</td>
-</tr>
-<tr>
-<td style="text-align:center">!=</td>
-<td style="text-align:center">不等于</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;</td>
-<td style="text-align:center">大于</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;</td>
-<td style="text-align:center">小于</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;=</td>
-<td style="text-align:center">大于或等于</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;=</td>
-<td style="text-align:center">小于或等于</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="类型测试操作符"> 类型测试操作符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">as</td>
-<td style="text-align:center">类型转换</td>
-</tr>
-<tr>
-<td style="text-align:center">is</td>
-<td style="text-align:center">当对象是相应类型时返回 true</td>
-</tr>
-<tr>
-<td style="text-align:center">is!</td>
-<td style="text-align:center">当对象不是相应类型时返回 true</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="赋值操作符"> 赋值操作符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">a = value ;</td>
-<td style="text-align:center">将 value 赋值给 a</td>
-</tr>
-<tr>
-<td style="text-align:center">b??= value ;</td>
-<td style="text-align:center">如果 b为空，则将value的值赋值给b，否则，b保持不变</td>
-</tr>
-<tr>
-<td style="text-align:center">a op b</td>
-<td style="text-align:center">a = a op b</td>
-</tr>
-<tr>
-<td style="text-align:center">a += b</td>
-<td style="text-align:center">a = a + b</td>
-</tr>
-<tr>
-<td style="text-align:center">a -= b</td>
-<td style="text-align:center">a = a - b</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="逻辑运算符"> 逻辑运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">!expr</td>
-<td style="text-align:center">反转以下表达式( 将 false 更改为 true , 反之亦然)</td>
-</tr>
-<tr>
-<td style="text-align:center">||</td>
-<td style="text-align:center">逻辑或</td>
-</tr>
-<tr>
-<td style="text-align:center">&amp;&amp;</td>
-<td style="text-align:center">逻辑与</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="位运算符"> 位运算符</span></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">&amp;</td>
-<td style="text-align:center">与</td>
-</tr>
-<tr>
-<td style="text-align:center">|</td>
-<td style="text-align:center">或</td>
-</tr>
-<tr>
-<td style="text-align:center">^</td>
-<td style="text-align:center">异或</td>
-</tr>
-<tr>
-<td style="text-align:center">-expr</td>
-<td style="text-align:center">一元位补码 ( 0s 变为 1s , 1s 变为 0s )</td>
-</tr>
-<tr>
-<td style="text-align:center">&lt;&lt;</td>
-<td style="text-align:center">左移</td>
-</tr>
-<tr>
-<td style="text-align:center">&gt;&gt;</td>
-<td style="text-align:center">右移</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="条件表达式"> 条件表达式</span></h2>
-<ol>
-<li>如果条件为真，返回 expr1,否则返回 expr2 。<br>
-condition ?  expr1 : expr2</li>
-<li>如果 expr1 为非空,则返回其值，否则 计算并返回 expr2 的值<br>
-expr1 ?? expr2</li>
-</ol>
-<h2><span id="级联操作"> 级联操作</span></h2>
-<p>级联操作符 (…) 可以在同一个对象上连续调用多个函数以及访问成员变量。使用级联操作符可以避免创建临时变量， 并且写出来的代码看起来更加流畅</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">querySelector('#button') // Get an object.</span><br><span class="line">  ..text = 'Confirm'   // Use its members.</span><br><span class="line">  ..classes.add('important')</span><br><span class="line">  ..onClick.listen((e) =&gt; window.alert('Confirmed!'));</span><br></pre></td></tr></tbody></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1065,7 +858,7 @@ expr1 ?? expr2</li>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1078,7 +871,7 @@ expr1 ?? expr2</li>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
