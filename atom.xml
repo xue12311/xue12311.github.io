@@ -6,7 +6,7 @@
   <link href="http://xue12311.github.io/atom.xml" rel="self"/>
   
   <link href="http://xue12311.github.io/"/>
-  <updated>2021-07-28T07:16:20.520Z</updated>
+  <updated>2021-09-04T09:15:02.319Z</updated>
   <id>http://xue12311.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>登录和授权</title>
+    <link href="http://xue12311.github.io/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/"/>
+    <id>http://xue12311.github.io/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/</id>
+    <published>2021-07-29T06:05:31.000Z</published>
+    <updated>2021-09-04T09:15:02.319Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="登录和授权"> 登录和授权</span></h1><h2><span id="登录和授权的区别"> 登录和授权的区别</span></h2><ul><li>登录：身份认证，即确认「你是你」的过程。</li><li>授权：由身份或持有的令牌确认享有某些权限（例如获取⽤户信息）。⽽登录过程实质上的⽬的也是为了确认权限。</li></ul><p>因此，在实际的应⽤中，多数场景下的「登录」和「授权」界限是模糊的。</p><h2><span id="cookie"> Cookie</span></h2><ul><li><p>起源：「购物⻋」功能的需求，由 Netscape 浏览器开发团队打造。</p></li><li><p>⼯作机制：</p><ol><li>服务器需要客户端保存的内容，放在 Set-Cookie headers ⾥返回，客户端会⾃动保存。</li></ol><p><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/1.png" alt=""></p><ol start="2"><li><p>客户端保存的 Cookies，会在之后的所有请求⾥都携带进 Cookie header ⾥发回给服务器。<br><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/2.png" alt=""></p></li><li><p>客户端保存 Cookie 是按照服务器域名来分类的，例如 <a href="http://shop.com">shop.com</a> 发回的 Cookie 保存下来以后，在之后向 <a href="http://games.com">games.com</a> 的请求中并不会携带。<br><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/3.png" alt=""><br><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/4.png" alt=""></p></li><li><p>客户端保存的 Cookie 在超时后会被删除、没有设置超时时间的 Cookie（称作 Session Cookie）在浏览器关闭后就会⾃动删除；另外，服务器也可以主动删除还未过期的客户端 Cookies。</p></li></ol></li><li><p>Cookie 的作⽤</p><ul><li>会话管理：登录状态、购物⻋ （ sessionid ）</li><li>个性化：⽤户偏好、主题</li><li>Tracking：分析⽤户⾏为<br><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/5.png" alt=""></li><li>XSS (Cross-site scripting) ：跨站脚本攻击。即使⽤ JavaScript 拿到浏览器的 Cookie 之后，发送到⾃⼰的⽹站，以这种⽅式来盗取⽤户Cookie。应对⽅式：Server 在发送 Cookie 时，敏感的 Cookie 加上HttpOnly。<ul><li>应对⽅式：HttpOnly——这个 Cookie 只能⽤于 HTTP 请求，不能被 JavaScript 调⽤。它可以防⽌本地代码滥⽤ Cookie。</li></ul></li><li>XSRF (Cross-site request forgery)（了解即可）：跨站请求伪造。即在⽤户不知情的情况下访问已经保存了 Cookie 的⽹站，以此来越权操作⽤户账户（例如盗取⽤户资⾦）。<ul><li>应对⽅式：Referer 校验。</li></ul></li></ul></li></ul><h2><span id="authorization"> Authorization</span></h2><h3><span id="basic"> Basic</span></h3><ul><li>格式：Authorization : Basic <a href="username:password(Base64ed)">username:password(Base64ed)</a></li></ul><h3><span id="bearer"> Bearer</span></h3><ul><li><p>格式：Authorization: Bearer <bearer token=""></bearer></p></li><li><p>bearer token 的获取⽅式：通过 OAuth2 的授权流程。</p></li><li><p>OAuth2 的流程 ：</p><ol start="0"><li><p>第三⽅⽹站向授权⽅⽹站申请第三⽅授权合作，拿到 client id 和 client secret</p></li><li><p>⽤户在使⽤第三⽅⽹站时，点击「通过 XX (如 GitHub) 授权」按钮，第三⽅⽹站将⻚⾯跳转到授权⽅⽹站，并传⼊ client id 作为⾃⼰的身份标识<br><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/17.png" alt=""></p></li><li><p>授权⽅⽹站根据 client id ，将第三⽅⽹站的信息和第三⽅⽹站需要的⽤户权限展示给⽤户，并询问⽤户是否同意授权</p></li><li><p>⽤户点击「同意授权」按钮后，授权⽅⽹站将⻚⾯跳转回第三⽅⽹站，并传⼊ Authorization code 作为⽤户认可的凭证。<br><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/18.png" alt=""></p></li><li><p>第三⽅⽹站将 Authorization code 发送回⾃⼰的服务器<br><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/19.png" alt=""></p></li><li><p>服务器将 Authorization code 和⾃⼰的 client secret ⼀并发送给授权⽅的服务器，授权⽅服务器在验证通过后，返回 access token。OAuth 流程结束。<br><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/20.png" alt=""></p></li><li><p>在上⾯的过程结束之后，第三⽅⽹站的服务器（或者有时客户端也会）就可以使⽤ access token 作为⽤户授权的令牌，向授权⽅⽹站发送请求来获取⽤户信息或操作⽤户账户。但这已经在 OAuth 流程之外。</p></li></ol></li><li><p>为什么 OAuth 要引⼊ Authorization code，并需要申请授权的第三⽅将 Authorization code 发送回⾃⼰的服务器，再从服务器来获取 access token，⽽不是直接返回 access token ？这样复杂的流程意义何在？</p><p>为了安全。OAuth不强制授权流程必须使⽤ HTTPS，因此需要保证当通信路径中存在窃听者时，依然具有⾜够⾼的安全性。</p></li><li><p>第三⽅ App 通过微信登录的流程（也是⼀个 OAuth2 流程）:</p><ol start="0"><li><p>第三⽅ App 向腾讯申请第三⽅授权合作，拿到 client id 和 client secret</p></li><li><p>⽤户在使⽤第三⽅ App 时，点击「通过微信登录」，第三⽅ App 将使⽤微信 SDK 跳转到微信，并传⼊⾃⼰的 client id 作为⾃⼰的身份标识</p></li><li><p>微信通过和服务器交互，拿到第三⽅ App 的信息，并限制在界⾯中，然后询问⽤户是否同意授权该 App 使⽤微信来登录</p></li><li><p>⽤户点击「使⽤微信登录」后，微信和服务器交互将授权信息提交，然后跳转回第三⽅ App，并传⼊ Authorization code 作为⽤户认可的凭证</p></li><li><p>第三⽅ App 调⽤⾃⼰服务器的「微信登录」Api，并传⼊ Authorizationcode，然后等待服务器的响应</p></li><li><p>服务器在收到登录请求后，拿收到的 Authorization code 去向微信的第三⽅授权接⼝发送请求，将 Authorization code 和⾃⼰的 client secret ⼀起作为参数发送，微信在验证通过后，返回 access token</p></li><li><p>服务器在收到 access token 后，⽴即拿着 access token 去向微信的⽤户信息接⼝发送请求，微信验证通过后，返回⽤户信息</p></li><li><p>服务器在收到⽤户信息后，在⾃⼰的数据库中为⽤户创建⼀个账户，并使⽤从微信服务器拿来的⽤户信息填⼊⾃⼰的数据库，以及将⽤户的 ID 和⽤户\的微信 ID 做关联</p></li><li><p>⽤户创建完成后，服务器向客户端的请求发送响应，传送回刚创建好的⽤户信息</p></li><li><p>客户端收到服务器响应，⽤户登录成功</p></li></ol></li><li><p>在⾃家 App 中使⽤ Bearer token</p><p>有的 App 会在 Api 的设计中，将登录和授权设计成类似 OAuth2 的过程，但简化掉 Authorization code 概念。即：登录接⼝请求成功时，会返回 access token，然后客户端在之后的请求中，就可以使⽤这个 access token 来当做 bearer token 进⾏⽤户操作了。</p></li><li><p>Refresh token<br><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/11.png" alt=""></p><ul><li>⽤法：access token 有失效时间，在它失效后，调⽤ refresh token 接⼝，传⼊refresh_token 来获取新的 access token。</li><li>⽬的：安全。当 access token 失窃，由于它有失效时间，因此坏⼈只有较短的时间来「做坏事」；同时，由于（在标准的 OAuth2 流程中）refresh token 永远只存在与第三⽅服务的服务器中，因此 refresh token ⼏乎没有失窃的⻛险。</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;登录和授权&quot;&gt; 登录和授权&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span id=&quot;登录和授权的区别&quot;&gt; 登录和授权的区别&lt;/span&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;登录：身份认证，即确认「你是你」的过程。&lt;/li&gt;
+&lt;li&gt;授权：由身份或持有的令牌确认享</summary>
+      
+    
+    
+    
+    <category term="android" scheme="http://xue12311.github.io/categories/android/"/>
+    
+    
+    <category term="登录" scheme="http://xue12311.github.io/tags/%E7%99%BB%E5%BD%95/"/>
+    
+    <category term="授权" scheme="http://xue12311.github.io/tags/%E6%8E%88%E6%9D%83/"/>
+    
+  </entry>
   
   <entry>
     <title>加密、Hash、序列化和字符集</title>
@@ -541,35 +571,6 @@
       
     <summary type="html">&lt;h2&gt;&lt;span id=&quot;jetpack-compose学习-surface&quot;&gt; Jetpack Compose学习 -------- Surface&lt;/span&gt;&lt;/h2&gt;
 &lt;h3&gt;&lt;span id=&quot;用-surface-实现-card-的效果&quot;&gt; 用 Surface 实现 </summary>
-      
-    
-    
-    
-    <category term="android" scheme="http://xue12311.github.io/categories/android/"/>
-    
-    <category term="Jetpack" scheme="http://xue12311.github.io/categories/android/Jetpack/"/>
-    
-    
-    <category term="android" scheme="http://xue12311.github.io/tags/android/"/>
-    
-    <category term="Jetpack Compose" scheme="http://xue12311.github.io/tags/Jetpack-Compose/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jetpack Compose学习  Scaffold</title>
-    <link href="http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Scaffold/"/>
-    <id>http://xue12311.github.io/2021/05/26/Jetpack%20Compose/Jetpack%20Compose%20Scaffold/</id>
-    <published>2021-05-26T08:26:25.000Z</published>
-    <updated>2021-05-26T08:54:55.875Z</updated>
-    
-    <content type="html"><![CDATA[<h2><span id="jetpack-compose学习-scaffold"> Jetpack Compose学习 -------- Scaffold</span></h2><h3><span id="scaffold-基本使用"> Scaffold 基本使用</span></h3><figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">ScaffoldDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> materialBlue700 = Color(<span class="number">0xFF1976D2</span>)</span><br><span class="line">    <span class="comment">//设置抽屉的打开状态</span></span><br><span class="line">    <span class="keyword">val</span> scaffoldState = rememberScaffoldState(</span><br><span class="line">        rememberDrawerState(initialValue = DrawerValue.Closed)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">val</span> scope = rememberCoroutineScope()</span><br><span class="line">    Scaffold(</span><br><span class="line">        scaffoldState = scaffoldState,</span><br><span class="line">        <span class="comment">//顶部导航栏</span></span><br><span class="line">        topBar = {</span><br><span class="line">            TopAppBar(</span><br><span class="line">                title = {</span><br><span class="line">                    Text(text = <span class="string">"标题"</span>)</span><br><span class="line">                },</span><br><span class="line">                backgroundColor = materialBlue700,</span><br><span class="line">            )</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//悬浮按钮</span></span><br><span class="line">        floatingActionButton = {</span><br><span class="line">            FloatingActionButton(onClick = {</span><br><span class="line">                scope.launch {</span><br><span class="line">                    <span class="keyword">if</span> (scaffoldState.drawerState.isClosed) {</span><br><span class="line">                        scaffoldState.drawerState.<span class="keyword">open</span>()</span><br><span class="line">                    } <span class="keyword">else</span> {</span><br><span class="line">                        scaffoldState.drawerState.close()</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }) {</span><br><span class="line">                Text(<span class="string">"X"</span>)</span><br><span class="line">            }</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//悬浮按钮的位置</span></span><br><span class="line">        floatingActionButtonPosition = FabPosition.End,</span><br><span class="line">        <span class="comment">//抽屉内容</span></span><br><span class="line">        drawerContent = {</span><br><span class="line">            Text(text = <span class="string">"drawerContent"</span>)</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//内容</span></span><br><span class="line">        content = {</span><br><span class="line">            Text(<span class="string">"BodyContent"</span>)</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">//底部导航栏</span></span><br><span class="line">        bottomBar = {</span><br><span class="line">            BottomAppBar(</span><br><span class="line">                backgroundColor = materialBlue700</span><br><span class="line">            ) {</span><br><span class="line">                Text(text = <span class="string">"BottomAppBar"</span>)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;jetpack-compose学习-scaffold&quot;&gt; Jetpack Compose学习 -------- Scaffold&lt;/span&gt;&lt;/h2&gt;
-&lt;h3&gt;&lt;span id=&quot;scaffold-基本使用&quot;&gt; Scaffold 基本使用&lt;/span</summary>
       
     
     

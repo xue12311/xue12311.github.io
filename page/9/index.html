@@ -184,6 +184,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Checkbox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Checkbox/" class="post-title-link" itemprop="url">Jetpack Compose学习  Checkbox</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-25 11:17:10" itemprop="dateCreated datePublished" datetime="2021-05-25T11:17:10+08:00">2021-05-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-26 13:57:42" itemprop="dateModified" datetime="2021-05-26T13:57:42+08:00">2021-05-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/Jetpack/" itemprop="url" rel="index"><span itemprop="name">Jetpack</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2><span id="jetpack-compose学习-checkbox-复选框"> Jetpack Compose学习 -------- Checkbox 复选框</span></h2>
+<h3><span id="checkbox-复选框-基本使用"> Checkbox 复选框 基本使用</span></h3>
+<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">CheckBoxDemo</span><span class="params">()</span></span> {</span><br><span class="line">    <span class="keyword">val</span> checkedState = remember {</span><br><span class="line">        mutableStateOf(<span class="literal">true</span>)</span><br><span class="line">    }</span><br><span class="line">    Checkbox(</span><br><span class="line">        checked = checkedState.value,</span><br><span class="line">        onCheckedChange = {</span><br><span class="line">            checkedState.value = it</span><br><span class="line">        }</span><br><span class="line">    )</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/05/25/Jetpack%20Compose/Jetpack%20Compose%20Card/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -504,129 +583,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/" class="post-title-link" itemprop="url">Google Play应用上架流程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-11-18 21:22:17" itemprop="dateCreated datePublished" datetime="2020-11-18T21:22:17+08:00">2020-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-20 20:25:11" itemprop="dateModified" datetime="2020-11-20T20:25:11+08:00">2020-11-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BA%94%E7%94%A8%E4%B8%8A%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">应用上架</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1><span id="google-play应用上架流程"> Google Play应用上架流程</span></h1>
-<h2><span id="注册开发者账号"> 注册开发者账号</span></h2>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/1.jpg" alt=""></p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/2.webp" alt=""></p>
-<h2><span id="创建应用"> 创建应用</span></h2>
-<p>选择默认语言 （最好选择英语），填写应用名称</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/3.webp" alt=""></p>
-<h2><span id="商品详情默认选中"> 商品详情（默认选中）</span></h2>
-<h2><span id="需要填写-app简介和详细描述内容需要和默认语言一致"> 需要填写 App简介和详细描述内容（需要和默认语言一致）</span></h2>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/4.webp" alt=""></p>
-<h2><span id="上传app图片屏幕截图-高分辨率图标-置顶大图"> 上传APP图片（屏幕截图、高分辨率图标、置顶大图）</span></h2>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/5.webp" alt=""><br>
-<img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/6.png" alt=""></p>
-<h2><span id="选择应用类型和类别"> 选择应用类型和类别</span></h2>
-<p>填写公司官网，联系邮箱（邮箱地址会展示给用户，不要乱填），内容分级（可以先不管，在上传App后才能进行分级判断），电话（填写公司电话，会展示给用户），隐私权政策。</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/7.webp" alt=""></p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/8.webp" alt=""></p>
-<h2><span id="上传正式版应用商品版本-正式版-beta版-alpha版本"> 上传正式版应用（商品版本: 正式版、Beta版、Alpha版本）</span></h2>
-<h3><span id="创建版本"> 创建版本</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/9.webp" alt=""></p>
-<h3><span id="加入-google-play-app-signing"> 加入 Google Play App Signing</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/10.webp" alt=""></p>
-<h3><span id="上传apk安装包"> 上传APK安装包</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/11.webp" alt=""></p>
-<h3><span id="填写版本说明"> 填写版本说明</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/12.webp" alt=""></p>
-<h3><span id="内容分级"> 内容分级</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/13.webp" alt=""></p>
-<h3><span id="填写电子邮件地址用来接收google-play发送的消息选择应用类别"> 填写电子邮件地址（用来接收Google Play发送的消息），选择应用类别</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/14.webp" alt=""></p>
-<h3><span id="调查问卷页-基本上都选择否点击-判断分级"> 调查问卷页 （基本上都选择否）点击 判断分级</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/15.webp" alt=""></p>
-<h3><span id="确认分级"> 确认分级</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/16.webp" alt=""></p>
-<h2><span id="定价和分发范围"> 定价和分发范围</span></h2>
-<h3><span id="注意-国家地区-默认是-0需要自己选择国家"> 注意 “ 国家/地区 ” 默认是 0，需要自己选择国家</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/17.webp" alt=""></p>
-<h3><span id="内容准则-和-美国出口法律-是必须要选中的最后点击-保存草稿"> 内容准则  和 美国出口法律 是必须要选中的，最后点击 “ 保存草稿 ”</span></h3>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/18.webp" alt=""></p>
-<h2><span id="应用发布"> 应用发布</span></h2>
-<p>如果所有内容都填写正确，我们会看到左边导航栏4个绿色对勾，并且出现“可以发布”按钮</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/19.webp" alt=""></p>
-<p>点击左边导航栏中的 " 应用版本 "</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/20.webp" alt=""></p>
-<p>点击 “ 修改版本 ”</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/21.webp" alt=""></p>
-<p>点击 “ 查看 ” , 确认没有问题后，点击 “ 开始发布正式版 ”，就可以发布了，然后就需要审核了</p>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/22.webp" alt=""></p>
-<h2><span id="查看审核进度"> 查看审核进度</span></h2>
-<p><img src="/2020/11/18/other/%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E8%87%B3Google%20Play/23.png" alt=""></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -698,7 +654,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -711,7 +667,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

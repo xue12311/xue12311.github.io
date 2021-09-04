@@ -184,6 +184,227 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="学胖子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学胖子的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/" class="post-title-link" itemprop="url">登录和授权</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-29 14:05:31" itemprop="dateCreated datePublished" datetime="2021-07-29T14:05:31+08:00">2021-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-04 17:15:02" itemprop="dateModified" datetime="2021-09-04T17:15:02+08:00">2021-09-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1><span id="登录和授权"> 登录和授权</span></h1>
+<h2><span id="登录和授权的区别"> 登录和授权的区别</span></h2>
+<ul>
+<li>登录：身份认证，即确认「你是你」的过程。</li>
+<li>授权：由身份或持有的令牌确认享有某些权限（例如获取⽤户信息）。⽽登录过程实质上的⽬的也是为了确认权限。</li>
+</ul>
+<p>因此，在实际的应⽤中，多数场景下的「登录」和「授权」界限是模糊的。</p>
+<h2><span id="cookie"> Cookie</span></h2>
+<ul>
+<li>
+<p>起源：「购物⻋」功能的需求，由 Netscape 浏览器开发团队打造。</p>
+</li>
+<li>
+<p>⼯作机制：</p>
+<ol>
+<li>服务器需要客户端保存的内容，放在 Set-Cookie headers ⾥返回，客户端会⾃动保存。</li>
+</ol>
+<p><img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/1.png" alt=""></p>
+<ol start="2">
+<li>
+<p>客户端保存的 Cookies，会在之后的所有请求⾥都携带进 Cookie header ⾥发回给服务器。<br>
+<img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/2.png" alt=""></p>
+</li>
+<li>
+<p>客户端保存 Cookie 是按照服务器域名来分类的，例如 <a target="_blank" rel="noopener" href="http://shop.com">shop.com</a> 发回的 Cookie 保存下来以后，在之后向 <a target="_blank" rel="noopener" href="http://games.com">games.com</a> 的请求中并不会携带。<br>
+<img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/3.png" alt=""><br>
+<img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/4.png" alt=""></p>
+</li>
+<li>
+<p>客户端保存的 Cookie 在超时后会被删除、没有设置超时时间的 Cookie（称作 Session Cookie）在浏览器关闭后就会⾃动删除；另外，服务器也可以主动删除还未过期的客户端 Cookies。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Cookie 的作⽤</p>
+<ul>
+<li>会话管理：登录状态、购物⻋ （ sessionid ）</li>
+<li>个性化：⽤户偏好、主题</li>
+<li>Tracking：分析⽤户⾏为<br>
+<img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/5.png" alt=""></li>
+<li>XSS (Cross-site scripting) ：跨站脚本攻击。即使⽤ JavaScript 拿到浏览器的 Cookie 之后，发送到⾃⼰的⽹站，以这种⽅式来盗取⽤户Cookie。应对⽅式：Server 在发送 Cookie 时，敏感的 Cookie 加上HttpOnly。
+<ul>
+<li>应对⽅式：HttpOnly——这个 Cookie 只能⽤于 HTTP 请求，不能被 JavaScript 调⽤。它可以防⽌本地代码滥⽤ Cookie。</li>
+</ul>
+</li>
+<li>XSRF (Cross-site request forgery)（了解即可）：跨站请求伪造。即在⽤户不知情的情况下访问已经保存了 Cookie 的⽹站，以此来越权操作⽤户账户（例如盗取⽤户资⾦）。
+<ul>
+<li>应对⽅式：Referer 校验。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2><span id="authorization"> Authorization</span></h2>
+<h3><span id="basic"> Basic</span></h3>
+<ul>
+<li>格式：Authorization : Basic <a href="username:password(Base64ed)">username:password(Base64ed)</a></li>
+</ul>
+<h3><span id="bearer"> Bearer</span></h3>
+<ul>
+<li>
+<p>格式：Authorization: Bearer <bearer token=""></bearer></p>
+</li>
+<li>
+<p>bearer token 的获取⽅式：通过 OAuth2 的授权流程。</p>
+</li>
+<li>
+<p>OAuth2 的流程 ：</p>
+<ol start="0">
+<li>
+<p>第三⽅⽹站向授权⽅⽹站申请第三⽅授权合作，拿到 client id 和 client secret</p>
+</li>
+<li>
+<p>⽤户在使⽤第三⽅⽹站时，点击「通过 XX (如 GitHub) 授权」按钮，第三⽅⽹站将⻚⾯跳转到授权⽅⽹站，并传⼊ client id 作为⾃⼰的身份标识<br>
+<img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/17.png" alt=""></p>
+</li>
+<li>
+<p>授权⽅⽹站根据 client id ，将第三⽅⽹站的信息和第三⽅⽹站需要的⽤户权限展示给⽤户，并询问⽤户是否同意授权</p>
+</li>
+<li>
+<p>⽤户点击「同意授权」按钮后，授权⽅⽹站将⻚⾯跳转回第三⽅⽹站，并传⼊ Authorization code 作为⽤户认可的凭证。<br>
+<img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/18.png" alt=""></p>
+</li>
+<li>
+<p>第三⽅⽹站将 Authorization code 发送回⾃⼰的服务器<br>
+<img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/19.png" alt=""></p>
+</li>
+<li>
+<p>服务器将 Authorization code 和⾃⼰的 client secret ⼀并发送给授权⽅的服务器，授权⽅服务器在验证通过后，返回 access token。OAuth 流程结束。<br>
+<img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/20.png" alt=""></p>
+</li>
+<li>
+<p>在上⾯的过程结束之后，第三⽅⽹站的服务器（或者有时客户端也会）就可以使⽤ access token 作为⽤户授权的令牌，向授权⽅⽹站发送请求来获取⽤户信息或操作⽤户账户。但这已经在 OAuth 流程之外。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>为什么 OAuth 要引⼊ Authorization code，并需要申请授权的第三⽅将 Authorization code 发送回⾃⼰的服务器，再从服务器来获取 access token，⽽不是直接返回 access token ？这样复杂的流程意义何在？</p>
+<p>为了安全。OAuth不强制授权流程必须使⽤ HTTPS，因此需要保证当通信路径中存在窃听者时，依然具有⾜够⾼的安全性。</p>
+</li>
+<li>
+<p>第三⽅ App 通过微信登录的流程（也是⼀个 OAuth2 流程）:</p>
+<ol start="0">
+<li>
+<p>第三⽅ App 向腾讯申请第三⽅授权合作，拿到 client id 和 client secret</p>
+</li>
+<li>
+<p>⽤户在使⽤第三⽅ App 时，点击「通过微信登录」，第三⽅ App 将使⽤微信 SDK 跳转到微信，并传⼊⾃⼰的 client id 作为⾃⼰的身份标识</p>
+</li>
+<li>
+<p>微信通过和服务器交互，拿到第三⽅ App 的信息，并限制在界⾯中，然后询问⽤户是否同意授权该 App 使⽤微信来登录</p>
+</li>
+<li>
+<p>⽤户点击「使⽤微信登录」后，微信和服务器交互将授权信息提交，然后跳转回第三⽅ App，并传⼊ Authorization code 作为⽤户认可的凭证</p>
+</li>
+<li>
+<p>第三⽅ App 调⽤⾃⼰服务器的「微信登录」Api，并传⼊ Authorizationcode，然后等待服务器的响应</p>
+</li>
+<li>
+<p>服务器在收到登录请求后，拿收到的 Authorization code 去向微信的第三⽅授权接⼝发送请求，将 Authorization code 和⾃⼰的 client secret ⼀起作为参数发送，微信在验证通过后，返回 access token</p>
+</li>
+<li>
+<p>服务器在收到 access token 后，⽴即拿着 access token 去向微信的⽤户信息接⼝发送请求，微信验证通过后，返回⽤户信息</p>
+</li>
+<li>
+<p>服务器在收到⽤户信息后，在⾃⼰的数据库中为⽤户创建⼀个账户，并使⽤从微信服务器拿来的⽤户信息填⼊⾃⼰的数据库，以及将⽤户的 ID 和⽤户\的微信 ID 做关联</p>
+</li>
+<li>
+<p>⽤户创建完成后，服务器向客户端的请求发送响应，传送回刚创建好的⽤户信息</p>
+</li>
+<li>
+<p>客户端收到服务器响应，⽤户登录成功</p>
+</li>
+</ol>
+</li>
+<li>
+<p>在⾃家 App 中使⽤ Bearer token</p>
+<p>有的 App 会在 Api 的设计中，将登录和授权设计成类似 OAuth2 的过程，但简化掉 Authorization code 概念。即：登录接⼝请求成功时，会返回 access token，然后客户端在之后的请求中，就可以使⽤这个 access token 来当做 bearer token 进⾏⽤户操作了。</p>
+</li>
+<li>
+<p>Refresh token<br>
+<img src="/2021/07/29/android/%E7%99%BB%E5%BD%95%E5%92%8C%E6%8E%88%E6%9D%83/11.png" alt=""></p>
+<ul>
+<li>⽤法：access token 有失效时间，在它失效后，调⽤ refresh token 接⼝，传⼊refresh_token 来获取新的 access token。</li>
+<li>⽬的：安全。当 access token 失窃，由于它有失效时间，因此坏⼈只有较短的时间来「做坏事」；同时，由于（在标准的 OAuth2 流程中）refresh token 永远只存在与第三⽅服务的服务器中，因此 refresh token ⼏乎没有失窃的⻛险。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/07/22/android/%E7%BC%96%E7%A0%81%E3%80%81%E5%8A%A0%E5%AF%86%E3%80%81Hash%E3%80%81%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -740,110 +961,6 @@ Base64 对图⽚进⾏编码的⽤于在于，有时需要使⽤⽂本形式来�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xue12311.github.io/2021/06/16/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="学胖子">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学胖子的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/16/android/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99_%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99_%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">依赖倒置原则</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-06-16 09:54:38 / 修改时间：10:02:55" itemprop="dateCreated datePublished" datetime="2021-06-16T09:54:38+08:00">2021-06-16</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1><span id="依赖倒置原则"> 依赖倒置原则</span></h1>
-<ol>
-<li>
-<p>高层模块不应该依赖低层模块，两者都应该依赖其抽象（模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系是通过接口或抽象类产生的）</p>
-</li>
-<li>
-<p>抽象不应该依赖细节（接口或抽象类不依赖于实现类）， 细节应该依赖抽象（实现类依赖接口或抽象类）</p>
-</li>
-</ol>
-<h2><span id="优势"> 优势</span></h2>
-<ol>
-<li>减少类间的耦合性，提高系统的稳定性</li>
-<li>降低并行开发引起的风险</li>
-<li>提高代码的可读性和可维护性</li>
-</ol>
-<h2><span id="例子"> 例子</span></h2>
-<ul>
-<li>场景是这样的，母亲给孩子讲故事，只要给她一本书，她就可以照着书给孩子讲故事了。代码如下：</li>
-</ul>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> {</span><br><span class="line">    Client().onMotherNarrate()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>{</span><br><span class="line">    <span class="comment">//故事内容</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String = <span class="string">"很久很久以前有一个阿拉伯的故事……"</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mother</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 讲故事</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">narrate</span><span class="params">(book: <span class="type">Book</span>)</span></span> {</span><br><span class="line">        println(<span class="string">"妈妈开始讲故事"</span>)</span><br><span class="line">        println(book.getContent())</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onMotherNarrate</span><span class="params">()</span></span> {</span><br><span class="line">        println(<span class="string">"孩子要听故事"</span>)</span><br><span class="line">        <span class="keyword">val</span> mother = Mother()</span><br><span class="line">        mother.narrate(Book())</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>假如有一天，需求变成这样：不是给书而是给一份报纸，让这位母亲讲一下报纸上的故事，报纸的代码如下：</p>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Newspaper</span></span>{</span><br><span class="line">    <span class="comment">//报纸内容</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String =<span class="string">"商务部相关负责人在接受本台记者采访时表示……"</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>只是将书换成报纸，居然必须要修改Mother才能读。假如以后需求换成杂志呢？换成网页呢？还要不断地修改Mother，这显然不是好的设计。原因就是Mother与Book之间的耦合性太高了，必须降低他们之间的耦合度才行。</p>
-<p>我们引入一个抽象的接口IReader。读物，只要是带字的都属于读物：</p>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 读物接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IReader</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 读物内容</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>Mother类与接口IReader发生依赖关系，而Book和Newspaper都属于读物的范畴，他们各自都去实现IReader接口，这样就符合依赖倒置原则了，代码修改为：</p>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Newspaper</span>:<span class="type">IReader {</span></span></span><br><span class="line">    <span class="comment">//报纸内容</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String = <span class="string">"商务部相关负责人在接受本台记者采访时表示，目前，……"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span>:<span class="type">IReader {</span></span></span><br><span class="line">    <span class="comment">//故事内容</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getContent</span><span class="params">()</span></span>: String = <span class="string">"很久很久以前有一个阿拉伯的故事……"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mother</span> </span>{</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 讲故事</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">narrate</span><span class="params">(reader:<span class="type">IReader</span>)</span></span> {</span><br><span class="line">        println(<span class="string">"妈妈开始讲<span class="subst">${</span></span></span><br><span class="line"><span class="subst"><span class="string">            if(reader is Book){</span></span></span><br><span class="line"><span class="subst"><span class="string">                <span class="string">"故事"</span></span></span></span><br><span class="line"><span class="subst"><span class="string">            }</span>else{</span></span><br><span class="line"><span class="string">                "</span>报纸<span class="string">"</span></span><br><span class="line"><span class="string">            }</span></span><br><span class="line"><span class="string">        }"</span>)</span><br><span class="line">        println(reader.getContent())</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onMotherNarrate</span><span class="params">()</span></span> {</span><br><span class="line">        <span class="keyword">val</span> mother = Mother()</span><br><span class="line">        println(<span class="string">"孩子要听故事"</span>)</span><br><span class="line">        mother.narrate(Book())</span><br><span class="line">        println(<span class="string">"孩子要听报纸"</span>)</span><br><span class="line">        mother.narrate(Newspaper())</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>这样修改后，无论以后怎样扩展Client类，都不需要再修改Mother类了。这只是一个简单的例子，实际情况中，代表高层模块的Mother类将负责完成主要的业务逻辑，一旦需要对它进行修改，引入错误的风险极大。所以遵循依赖倒置原则可以降低类之间的耦合性，提高系统的稳定性，降低修改程序造成的风险。</p>
-<h2><span id="开发注意"> 开发注意</span></h2>
-<ol>
-<li>低层模块尽量都要有抽象类或接口，或者两者都有。</li>
-<li>变量的声明类型尽量是抽象类或接口。</li>
-<li>使用继承时遵循里氏替换原则。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -915,7 +1032,7 @@ Base64 对图⽚进⾏编码的⽤于在于，有时需要使⽤⽂本形式来�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -928,7 +1045,7 @@ Base64 对图⽚进⾏编码的⽤于在于，有时需要使⽤⽂本形式来�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
